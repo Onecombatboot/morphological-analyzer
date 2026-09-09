@@ -1,0 +1,187 @@
+{
+ "domain": "highway bridge structural failure",
+ "group": "infrastructure",
+ "parameters": {
+  "DETERIORATION MECHANISM": [
+   "Chloride-induced reinforcement corrosion",
+   "Fatigue cracking in steelwork",
+   "Scour of a pier foundation",
+   "Vehicle impact on a support"
+  ],
+  "STRUCTURAL FORM": [
+   "Simply supported beam spans",
+   "Continuous multi-span girder",
+   "Fracture-critical truss",
+   "Arch on masonry piers"
+  ],
+  "INSPECTION REGIME": [
+   "Routine visual inspection",
+   "Underwater pier survey",
+   "Structural health monitoring",
+   "No inspection since construction"
+  ],
+  "CONSEQUENCE": [
+   "Detected and repaired",
+   "Load restriction imposed",
+   "Partial collapse",
+   "Total collapse with vehicles"
+  ]
+ },
+ "characterisations": {
+  "Chloride-induced reinforcement corrosion": {
+   "requires": "de-icing salt reaching embedded steel",
+   "provides": "slow section loss over decades, visible spalling before collapse"
+  },
+  "Fatigue cracking in steelwork": {
+   "requires": "repeated heavy axle cycles",
+   "provides": "crack growth invisible until near-critical, sudden fracture at the end"
+  },
+  "Scour of a pier foundation": {
+   "requires": "flowing water removing bed material below a pier",
+   "provides": "loss of support with no change to the superstructure, driven by flood events"
+  },
+  "Vehicle impact on a support": {
+   "requires": "an over-height or errant vehicle striking a member",
+   "provides": "instantaneous local damage, no prior indication"
+  },
+  "Simply supported beam spans": {
+   "requires": "independent spans on separate supports",
+   "provides": "loss of one span only, redundancy between spans"
+  },
+  "Continuous multi-span girder": {
+   "requires": "a deck continuous over several supports",
+   "provides": "load redistribution when one support moves, progressive collapse risk"
+  },
+  "Fracture-critical truss": {
+   "requires": "a member whose failure collapses the structure",
+   "provides": "no redundancy whatsoever, single-member dependence"
+  },
+  "Arch on masonry piers": {
+   "requires": "compression-carrying masonry",
+   "provides": "very high durability, dependence on the piers remaining founded"
+  },
+  "Routine visual inspection": {
+   "requires": "an inspector with access to the surfaces",
+   "provides": "detection of visible deterioration, nothing below water or inside a member"
+  },
+  "Underwater pier survey": {
+   "requires": "divers or sonar at the foundations",
+   "provides": "condition of the foundation, nothing about the deck"
+  },
+  "Structural health monitoring": {
+   "requires": "installed sensors and a data link",
+   "provides": "continuous response data, detection of change rather than cause"
+  },
+  "No inspection since construction": {
+   "requires": "an asset absent from any register",
+   "provides": "no information of any kind"
+  },
+  "Detected and repaired": {
+   "requires": "the defect found before capacity is lost",
+   "provides": "cost only, no closure"
+  },
+  "Load restriction imposed": {
+   "requires": "capacity reduced but usable",
+   "provides": "economic and diversion cost, structure retained"
+  },
+  "Partial collapse": {
+   "requires": "loss of one element with the structure standing",
+   "provides": "casualties possible, long closure"
+  },
+  "Total collapse with vehicles": {
+   "requires": "complete loss under live load",
+   "provides": "multiple fatalities, statutory investigation"
+  }
+ },
+ "exclusions": {
+  "DETERIORATION MECHANISM|STRUCTURAL FORM": [
+   {
+    "row": "Scour of a pier foundation",
+    "col": "Fracture-critical truss",
+    "code": "N7",
+    "requires": "a member whose failure collapses the structure",
+    "blocked_by": "loss of support with no change to the superstructure"
+   }
+  ],
+  "DETERIORATION MECHANISM|INSPECTION REGIME": [
+   {
+    "row": "Scour of a pier foundation",
+    "col": "Routine visual inspection",
+    "code": "N3",
+    "requires": "nothing below water or inside a member",
+    "blocked_by": "flowing water removing bed material below a pier"
+   },
+   {
+    "row": "Fatigue cracking in steelwork",
+    "col": "Routine visual inspection",
+    "code": "N3",
+    "requires": "detection of visible deterioration",
+    "blocked_by": "crack growth invisible until near-critical"
+   },
+   {
+    "row": "Vehicle impact on a support",
+    "col": "Structural health monitoring",
+    "code": "N7",
+    "requires": "detection of change rather than cause",
+    "blocked_by": "no prior indication"
+   },
+   {
+    "row": "Vehicle impact on a support",
+    "col": "Underwater pier survey",
+    "code": "N7",
+    "requires": "divers or sonar at the foundations",
+    "blocked_by": "an over-height or errant vehicle striking a member"
+   }
+  ],
+  "DETERIORATION MECHANISM|CONSEQUENCE": [
+   {
+    "row": "Vehicle impact on a support",
+    "col": "Detected and repaired",
+    "code": "N7",
+    "requires": "the defect found before capacity is lost",
+    "blocked_by": "no prior indication"
+   }
+  ],
+  "STRUCTURAL FORM|CONSEQUENCE": [
+   {
+    "row": "Fracture-critical truss",
+    "col": "Partial collapse",
+    "code": "N3",
+    "requires": "loss of one element with the structure standing",
+    "blocked_by": "no redundancy whatsoever"
+   },
+   {
+    "row": "Simply supported beam spans",
+    "col": "Total collapse with vehicles",
+    "code": "N7",
+    "requires": "complete loss under live load",
+    "blocked_by": "redundancy between spans"
+   }
+  ],
+  "INSPECTION REGIME|CONSEQUENCE": [
+   {
+    "row": "No inspection since construction",
+    "col": "Detected and repaired",
+    "code": "N3",
+    "requires": "the defect found before capacity is lost",
+    "blocked_by": "no information of any kind"
+   },
+   {
+    "row": "No inspection since construction",
+    "col": "Load restriction imposed",
+    "code": "N7",
+    "requires": "capacity reduced but usable",
+    "blocked_by": "no information of any kind"
+   }
+  ],
+  "STRUCTURAL FORM|INSPECTION REGIME": [
+   {
+    "row": "Fracture-critical truss",
+    "col": "Underwater pier survey",
+    "code": "N7",
+    "requires": "nothing about the deck",
+    "blocked_by": "a member whose failure collapses the structure"
+   }
+  ]
+ }
+}

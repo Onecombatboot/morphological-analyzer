@@ -1,0 +1,270 @@
+{
+ "domain": "container port smuggling",
+ "group": "institutional",
+ "parameters": {
+  "CONTRABAND": [
+   "Narcotics in bulk",
+   "Undeclared cash",
+   "Sanctioned dual-use machinery",
+   "Counterfeit consumer goods"
+  ],
+  "CONCEALMENT": [
+   "Deep inside legitimate cargo",
+   "Structural cavity in the container",
+   "Falsified manifest only",
+   "Corrupted seal and swap"
+  ],
+  "FACILITATOR": [
+   "Terminal crane operator",
+   "Customs inspector",
+   "Freight forwarder",
+   "Ship's officer"
+  ],
+  "DETECTION METHOD": [
+   "Container X-ray scan",
+   "Canine search",
+   "Manifest data analytics",
+   "Physical devanning"
+  ]
+ },
+ "characterisations": {
+  "Narcotics in bulk": {
+   "requires": "volume and mass concealment",
+   "provides": "detectable odour, dense radiographic signature, extreme value per container"
+  },
+  "Undeclared cash": {
+   "requires": "small volume, high density",
+   "provides": "no odour, distinctive radiographic signature, no manifest plausibility problem"
+  },
+  "Sanctioned dual-use machinery": {
+   "requires": "the goods to be physically present and declared as something else",
+   "provides": "large visible items, no odour, entirely a documentation offence"
+  },
+  "Counterfeit consumer goods": {
+   "requires": "full container volume, genuine-looking packaging",
+   "provides": "no odour, indistinguishable radiographically from legitimate goods, low unit value"
+  },
+  "Deep inside legitimate cargo": {
+   "requires": "a genuine consignment to bury goods within",
+   "provides": "defeats casual inspection, defeated by full unpacking"
+  },
+  "Structural cavity in the container": {
+   "requires": "physical modification of the container itself",
+   "provides": "defeats cargo inspection, visible as a radiographic anomaly"
+  },
+  "Falsified manifest only": {
+   "requires": "goods carried openly under a false description",
+   "provides": "no physical concealment at all, defeated by any physical look"
+  },
+  "Corrupted seal and swap": {
+   "requires": "access to the container after inspection",
+   "provides": "clean inspection record, requires an insider at the terminal"
+  },
+  "Terminal crane operator": {
+   "requires": "control of container movement within the terminal",
+   "provides": "ability to divert or delay a box, no documentation access, no inspection authority"
+  },
+  "Customs inspector": {
+   "requires": "authority to select and clear consignments",
+   "provides": "ability to wave a container through, control of the inspection record"
+  },
+  "Freight forwarder": {
+   "requires": "responsibility for documentation",
+   "provides": "control of the manifest and declared description, no physical access"
+  },
+  "Ship's officer": {
+   "requires": "command of stowage aboard the vessel",
+   "provides": "control of what is loaded and where, no terminal or customs access"
+  },
+  "Container X-ray scan": {
+   "requires": "the container passing a scanning portal",
+   "provides": "density anomalies and structural changes, blind to documentation offences"
+  },
+  "Canine search": {
+   "requires": "a trained animal and physical access",
+   "provides": "detection of odour-bearing substances only"
+  },
+  "Manifest data analytics": {
+   "requires": "declaration data and historical patterns",
+   "provides": "detection of implausible routing and description, no physical evidence"
+  },
+  "Physical devanning": {
+   "requires": "unpacking the entire container",
+   "provides": "detection of anything physically present, very slow and costly"
+  }
+ },
+ "exclusions": {
+  "CONTRABAND|CONCEALMENT": [
+   {
+    "row": "Narcotics in bulk",
+    "col": "Falsified manifest only",
+    "code": "N7",
+    "requires": "goods carried openly under a false description",
+    "blocked_by": "detectable odour, dense radiographic signature"
+   },
+   {
+    "row": "Undeclared cash",
+    "col": "Falsified manifest only",
+    "code": "N7",
+    "requires": "goods carried openly under a false description",
+    "blocked_by": "distinctive radiographic signature"
+   },
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Deep inside legitimate cargo",
+    "code": "N3",
+    "requires": "a genuine consignment to bury goods within",
+    "blocked_by": "large visible items"
+   },
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Structural cavity in the container",
+    "code": "N3",
+    "requires": "physical modification of the container itself",
+    "blocked_by": "large visible items"
+   },
+   {
+    "row": "Counterfeit consumer goods",
+    "col": "Structural cavity in the container",
+    "code": "N3",
+    "requires": "physical modification of the container itself",
+    "blocked_by": "full container volume"
+   }
+  ],
+  "CONTRABAND|FACILITATOR": [
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Terminal crane operator",
+    "code": "N3",
+    "requires": "entirely a documentation offence",
+    "blocked_by": "no documentation access"
+   },
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Ship's officer",
+    "code": "N3",
+    "requires": "entirely a documentation offence",
+    "blocked_by": "no terminal or customs access"
+   }
+  ],
+  "CONTRABAND|DETECTION METHOD": [
+   {
+    "row": "Undeclared cash",
+    "col": "Canine search",
+    "code": "N3",
+    "requires": "detection of odour-bearing substances only",
+    "blocked_by": "no odour"
+   },
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Container X-ray scan",
+    "code": "N3",
+    "requires": "blind to documentation offences",
+    "blocked_by": "entirely a documentation offence"
+   },
+   {
+    "row": "Sanctioned dual-use machinery",
+    "col": "Canine search",
+    "code": "N3",
+    "requires": "detection of odour-bearing substances only",
+    "blocked_by": "no odour"
+   },
+   {
+    "row": "Counterfeit consumer goods",
+    "col": "Container X-ray scan",
+    "code": "N3",
+    "requires": "density anomalies and structural changes",
+    "blocked_by": "indistinguishable radiographically from legitimate goods"
+   },
+   {
+    "row": "Counterfeit consumer goods",
+    "col": "Canine search",
+    "code": "N3",
+    "requires": "detection of odour-bearing substances only",
+    "blocked_by": "no odour"
+   }
+  ],
+  "CONCEALMENT|FACILITATOR": [
+   {
+    "row": "Structural cavity in the container",
+    "col": "Freight forwarder",
+    "code": "N3",
+    "requires": "physical modification of the container itself",
+    "blocked_by": "no physical access"
+   },
+   {
+    "row": "Falsified manifest only",
+    "col": "Terminal crane operator",
+    "code": "N3",
+    "requires": "goods carried openly under a false description",
+    "blocked_by": "no documentation access"
+   },
+   {
+    "row": "Falsified manifest only",
+    "col": "Ship's officer",
+    "code": "N3",
+    "requires": "goods carried openly under a false description",
+    "blocked_by": "control of what is loaded and where"
+   },
+   {
+    "row": "Corrupted seal and swap",
+    "col": "Freight forwarder",
+    "code": "N3",
+    "requires": "access to the container after inspection",
+    "blocked_by": "no physical access"
+   },
+   {
+    "row": "Corrupted seal and swap",
+    "col": "Ship's officer",
+    "code": "N3",
+    "requires": "requires an insider at the terminal",
+    "blocked_by": "no terminal or customs access"
+   }
+  ],
+  "CONCEALMENT|DETECTION METHOD": [
+   {
+    "row": "Deep inside legitimate cargo",
+    "col": "Manifest data analytics",
+    "code": "N7",
+    "requires": "detection of implausible routing and description",
+    "blocked_by": "a genuine consignment to bury goods within"
+   },
+   {
+    "row": "Structural cavity in the container",
+    "col": "Manifest data analytics",
+    "code": "N3",
+    "requires": "detection of implausible routing and description",
+    "blocked_by": "physical modification of the container itself"
+   },
+   {
+    "row": "Falsified manifest only",
+    "col": "Container X-ray scan",
+    "code": "N3",
+    "requires": "density anomalies and structural changes",
+    "blocked_by": "no physical concealment at all"
+   },
+   {
+    "row": "Corrupted seal and swap",
+    "col": "Container X-ray scan",
+    "code": "N6",
+    "requires": "the container passing a scanning portal",
+    "blocked_by": "access to the container after inspection"
+   },
+   {
+    "row": "Corrupted seal and swap",
+    "col": "Canine search",
+    "code": "N6",
+    "requires": "a trained animal and physical access",
+    "blocked_by": "clean inspection record"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CONTRABAND|CONCEALMENT": "sanctioned machinery is too large to bury in cargo or hide in a cavity - it is a documentation offence, so falsified manifest and seal swap only. Narcotics and cash are N for falsified manifest alone: nobody declares them under any description. Counterfeit goods fill the container, so a structural cavity is N.",
+  "CONTRABAND|FACILITATOR": "a freight forwarder controls documents only, so is N for narcotics and cash, which need physical concealment rather than a description. Machinery is N for a crane operator and a ship's officer - moving a box does not solve a paperwork offence - and Y for the inspector and forwarder.",
+  "CONTRABAND|DETECTION METHOD": "canine search detects only narcotics. X-ray is N for machinery (declared openly, nothing anomalous) and N for counterfeit goods (radiographically identical to genuine).",
+  "CONCEALMENT|FACILITATOR": "a crane operator has no documentation access, so is N for burying in cargo and N for a falsified manifest; a seal swap is precisely their contribution. A ship's officer has no terminal or customs access, so N for manifest falsification and N for a seal swap. A forwarder has no physical access, so N for cargo burial and N for seal swap.",
+  "CONCEALMENT|DETECTION METHOD": "a falsified manifest is invisible to X-ray, dogs and devanning of goods that are genuinely present - only analytics catches it. A structural cavity is not odour-bearing so canine is N, and analytics sees nothing wrong in the paperwork so N. Cargo burial is invisible to analytics.",
+  "FACILITATOR|DETECTION METHOD": "a crane operator's seal swap defeats X-ray, dogs and analytics because the inspection already happened - only devanning at destination catches it. A forwarder's offence is documentary, invisible to X-ray, dogs and devanning. A ship's officer's stowage choice is invisible to analytics."
+ }
+}

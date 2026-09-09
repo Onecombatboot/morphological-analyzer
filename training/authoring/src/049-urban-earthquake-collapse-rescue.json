@@ -1,0 +1,175 @@
+{
+ "domain": "urban earthquake collapse rescue",
+ "group": "emergency response",
+ "parameters": {
+  "COLLAPSE PATTERN": [
+   "Pancake collapse of floor slabs",
+   "Lean-to void formation",
+   "Soft-storey failure",
+   "Unreinforced masonry disintegration"
+  ],
+  "DETECTION TECHNIQUE": [
+   "Acoustic listening devices",
+   "Search dogs",
+   "Thermal and optical cameras on poles",
+   "Structural survey only"
+  ],
+  "EXTRICATION METHOD": [
+   "Selective debris removal by hand",
+   "Breaching and breaking concrete",
+   "Heavy lifting with cranes",
+   "Shoring then tunnelling"
+  ],
+  "TIME SINCE COLLAPSE": [
+   "First six hours",
+   "One to three days",
+   "Beyond one week"
+  ]
+ },
+ "characterisations": {
+  "Pancake collapse of floor slabs": {
+   "requires": "slabs falling flat onto one another",
+   "provides": "almost no void space, very low survival probability, heavy lifting required"
+  },
+  "Lean-to void formation": {
+   "requires": "a slab coming to rest against a wall",
+   "provides": "survivable voids along one edge, accessible from the standing side"
+  },
+  "Soft-storey failure": {
+   "requires": "a weak ground floor crushing",
+   "provides": "upper floors intact and occupied, the void confined to one level"
+  },
+  "Unreinforced masonry disintegration": {
+   "requires": "brickwork losing coherence",
+   "provides": "shallow burial in rubble, casualties reachable by hand"
+  },
+  "Acoustic listening devices": {
+   "requires": "a quiet site and a conscious casualty",
+   "provides": "location of anyone able to make noise, defeated by ambient noise"
+  },
+  "Search dogs": {
+   "requires": "a trained dog and a workable surface",
+   "provides": "rapid indication of living casualties, no depth or precise position"
+  },
+  "Thermal and optical cameras on poles": {
+   "requires": "an existing void to insert into",
+   "provides": "visual confirmation inside a void, nothing through solid material"
+  },
+  "Structural survey only": {
+   "requires": "engineers assessing from outside",
+   "provides": "identification of likely void locations, no confirmation anyone is alive"
+  },
+  "Selective debris removal by hand": {
+   "requires": "shallow burial and enough responders",
+   "provides": "no risk of further collapse, very slow for deep casualties"
+  },
+  "Breaching and breaking concrete": {
+   "requires": "powered tools and a stable slab",
+   "provides": "access through a slab to a known void, vibration risk to the casualty"
+  },
+  "Heavy lifting with cranes": {
+   "requires": "crane access and a stable footing",
+   "provides": "removal of large elements, uncontrolled shifting of what remains"
+  },
+  "Shoring then tunnelling": {
+   "requires": "timber or hydraulic shoring and trained crews",
+   "provides": "a protected route to a deep casualty, many hours per casualty"
+  },
+  "First six hours": {
+   "requires": "an immediate response",
+   "provides": "high survival probability, most live rescues occur here"
+  },
+  "One to three days": {
+   "requires": "a sustained international response",
+   "provides": "declining survivability, specialist teams arriving"
+  },
+  "Beyond one week": {
+   "requires": "prolonged operations",
+   "provides": "recovery rather than rescue, transition to demolition"
+  }
+ },
+ "exclusions": {
+  "COLLAPSE PATTERN|DETECTION TECHNIQUE": [
+   {
+    "row": "Pancake collapse of floor slabs",
+    "col": "Thermal and optical cameras on poles",
+    "code": "N3",
+    "requires": "an existing void to insert into",
+    "blocked_by": "almost no void space"
+   }
+  ],
+  "COLLAPSE PATTERN|EXTRICATION METHOD": [
+   {
+    "row": "Pancake collapse of floor slabs",
+    "col": "Selective debris removal by hand",
+    "code": "N3",
+    "requires": "shallow burial and enough responders",
+    "blocked_by": "heavy lifting required"
+   },
+   {
+    "row": "Unreinforced masonry disintegration",
+    "col": "Shoring then tunnelling",
+    "code": "N7",
+    "requires": "a protected route to a deep casualty",
+    "blocked_by": "shallow burial in rubble"
+   },
+   {
+    "row": "Unreinforced masonry disintegration",
+    "col": "Heavy lifting with cranes",
+    "code": "N7",
+    "requires": "removal of large elements",
+    "blocked_by": "casualties reachable by hand"
+   }
+  ],
+  "DETECTION TECHNIQUE|EXTRICATION METHOD": [
+   {
+    "row": "Structural survey only",
+    "col": "Breaching and breaking concrete",
+    "code": "N3",
+    "requires": "access through a slab to a known void",
+    "blocked_by": "no confirmation anyone is alive"
+   },
+   {
+    "row": "Structural survey only",
+    "col": "Shoring then tunnelling",
+    "code": "N7",
+    "requires": "a protected route to a deep casualty",
+    "blocked_by": "no confirmation anyone is alive"
+   }
+  ],
+  "DETECTION TECHNIQUE|TIME SINCE COLLAPSE": [
+   {
+    "row": "Acoustic listening devices",
+    "col": "Beyond one week",
+    "code": "N7",
+    "requires": "a quiet site and a conscious casualty",
+    "blocked_by": "recovery rather than rescue"
+   },
+   {
+    "row": "Search dogs",
+    "col": "Beyond one week",
+    "code": "N7",
+    "requires": "rapid indication of living casualties",
+    "blocked_by": "recovery rather than rescue"
+   }
+  ],
+  "EXTRICATION METHOD|TIME SINCE COLLAPSE": [
+   {
+    "row": "Shoring then tunnelling",
+    "col": "First six hours",
+    "code": "N4",
+    "requires": "many hours per casualty",
+    "blocked_by": "an immediate response"
+   }
+  ],
+  "COLLAPSE PATTERN|TIME SINCE COLLAPSE": [
+   {
+    "row": "Pancake collapse of floor slabs",
+    "col": "Beyond one week",
+    "code": "N7",
+    "requires": "recovery rather than rescue",
+    "blocked_by": "very low survival probability"
+   }
+  ]
+ }
+}

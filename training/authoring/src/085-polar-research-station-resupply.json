@@ -1,0 +1,148 @@
+{
+ "domain": "polar research station resupply",
+ "group": "science",
+ "parameters": {
+  "STATION TYPE": [
+   "Coastal station with a ship berth",
+   "Deep field inland camp",
+   "Summer-only field hut",
+   "Year-round wintering base"
+  ],
+  "RESUPPLY MEANS": [
+   "Ice-strengthened ship",
+   "Wheeled heavy aircraft",
+   "Ski-equipped light aircraft",
+   "Overland traverse"
+  ],
+  "LIMITING CONDITION": [
+   "Sea ice failing to break out",
+   "Persistent whiteout",
+   "Fuel shortfall at the station",
+   "Medical evacuation required"
+  ],
+  "SEASON OUTCOME": [
+   "Full science programme delivered",
+   "Programme reduced to essentials",
+   "Station placed on care and maintenance",
+   "Emergency winter resupply mounted"
+  ]
+ },
+ "characterisations": {
+  "Coastal station with a ship berth": {
+   "requires": "an ice-free approach in summer",
+   "provides": "bulk resupply by sea, dependence on a short shipping window"
+  },
+  "Deep field inland camp": {
+   "requires": "air support and a prepared skiway",
+   "provides": "science far from the coast, everything flown in"
+  },
+  "Summer-only field hut": {
+   "requires": "seasonal occupation only",
+   "provides": "minimal infrastructure, no winter capability at all"
+  },
+  "Year-round wintering base": {
+   "requires": "fuel and food for a full winter",
+   "provides": "continuous occupation, no resupply for eight months"
+  },
+  "Ice-strengthened ship": {
+   "requires": "an open water or navigable ice route",
+   "provides": "very large tonnage in one delivery, limitation to the summer window"
+  },
+  "Wheeled heavy aircraft": {
+   "requires": "a blue ice or prepared hard runway",
+   "provides": "rapid delivery of people and priority cargo, a strict runway requirement"
+  },
+  "Ski-equipped light aircraft": {
+   "requires": "a snow surface and good visibility",
+   "provides": "access to almost anywhere, a small payload"
+  },
+  "Overland traverse": {
+   "requires": "tractors and a crevasse-surveyed route",
+   "provides": "heavy fuel delivered inland, weeks of travel each way"
+  },
+  "Sea ice failing to break out": {
+   "requires": "a heavy ice year",
+   "provides": "no ship access to the station, cargo carried over to next season"
+  },
+  "Persistent whiteout": {
+   "requires": "no visible horizon for days",
+   "provides": "no aircraft movement of any kind, ground work continuing"
+  },
+  "Fuel shortfall at the station": {
+   "requires": "consumption above plan",
+   "provides": "reduced generator hours, science curtailed"
+  },
+  "Medical evacuation required": {
+   "requires": "a casualty needing surgery",
+   "provides": "an unplanned flight demanded, risk accepted outside normal limits"
+  },
+  "Full science programme delivered": {
+   "requires": "people and cargo arriving as planned",
+   "provides": "all projects supported, the station left well found"
+  },
+  "Programme reduced to essentials": {
+   "requires": "partial resupply only",
+   "provides": "station keeping only, science deferred a year"
+  },
+  "Station placed on care and maintenance": {
+   "requires": "insufficient support to operate",
+   "provides": "no occupation, systems winterised"
+  },
+  "Emergency winter resupply mounted": {
+   "requires": "a failure that cannot wait for spring",
+   "provides": "extraordinary cost, a flight at the edge of capability"
+  }
+ },
+ "exclusions": {
+  "STATION TYPE|RESUPPLY MEANS": [
+   {
+    "row": "Deep field inland camp",
+    "col": "Ice-strengthened ship",
+    "code": "N3",
+    "requires": "an open water or navigable ice route",
+    "blocked_by": "science far from the coast"
+   }
+  ],
+  "STATION TYPE|SEASON OUTCOME": [
+   {
+    "row": "Summer-only field hut",
+    "col": "Emergency winter resupply mounted",
+    "code": "N3",
+    "requires": "a failure that cannot wait for spring",
+    "blocked_by": "no winter capability at all"
+   }
+  ],
+  "RESUPPLY MEANS|LIMITING CONDITION": [
+   {
+    "row": "Ice-strengthened ship",
+    "col": "Sea ice failing to break out",
+    "code": "N3",
+    "requires": "an open water or navigable ice route",
+    "blocked_by": "no ship access to the station"
+   },
+   {
+    "row": "Wheeled heavy aircraft",
+    "col": "Persistent whiteout",
+    "code": "N3",
+    "requires": "a blue ice or prepared hard runway",
+    "blocked_by": "no aircraft movement of any kind"
+   },
+   {
+    "row": "Ski-equipped light aircraft",
+    "col": "Persistent whiteout",
+    "code": "N3",
+    "requires": "a snow surface and good visibility",
+    "blocked_by": "no aircraft movement of any kind"
+   }
+  ],
+  "LIMITING CONDITION|SEASON OUTCOME": [
+   {
+    "row": "Fuel shortfall at the station",
+    "col": "Full science programme delivered",
+    "code": "N3",
+    "requires": "all projects supported",
+    "blocked_by": "science curtailed"
+   }
+  ]
+ }
+}

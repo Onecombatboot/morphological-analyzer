@@ -1,0 +1,155 @@
+DOMAIN: volcanic eruption response
+GROUP: natural hazard
+PARAM: ERUPTION STYLE
+- Effusive lava flow :: low-viscosity magma reaching the surface :: slow predictable advance, days of warning, no ash column, destruction of anything in the path
+- Explosive ash column :: gas-rich magma fragmenting at the vent :: regional ash fall, aviation hazard, no lava flow
+- Pyroclastic density current :: column collapse or dome failure :: lethal within minutes, no survivable shelter in the path, very short warning
+- Lahar in a river valley :: loose ash plus water on a slope :: flow confined to valleys, travel far beyond the volcano, hours of transit time
+PARAM: MONITORING SIGNAL
+- Seismic swarm :: instruments on the edifice :: indication of magma movement, days to weeks of lead, no eruption style information
+- Ground deformation :: geodetic instruments in place :: evidence of inflation, weeks to months of lead, no timing precision
+- Gas emission change :: sampling or remote spectroscopy :: indication of magma degassing, no location detail
+- No instrumentation present :: an unmonitored volcano :: no warning of any kind
+PARAM: EXPOSED ELEMENT
+- Town on the flank :: settlement within the hazard zone :: life safety governing, evacuation feasible with warning
+- Aviation routes overhead :: flight paths crossing the plume :: aircraft at risk from ash, no ground exposure
+- Downstream river settlements :: communities along the drainage :: exposure only to flows following valleys, distance from the vent
+- Uninhabited wilderness :: no population or infrastructure :: no consequence beyond the landscape
+PARAM: PROTECTIVE ACTION
+- Phased evacuation :: warning time and usable routes :: population removed before arrival, economic and social cost
+- Airspace closure :: an aviation authority and plume forecasts :: aircraft kept clear, no effect on the ground
+- Engineered flow diversion :: channels or barriers built in advance :: redirection of a surface flow, useless against an airborne hazard
+- Shelter in place :: buildings able to exclude the hazard :: protection from ash fall, no protection from any flow
+EXCL: ERUPTION STYLE|EXPOSED ELEMENT
+Effusive lava flow >< Aviation routes overhead | N3 | aircraft at risk from ash | no ash column
+Lahar in a river valley >< Aviation routes overhead | N3 | aircraft at risk from ash | flow confined to valleys
+EXCL: ERUPTION STYLE|PROTECTIVE ACTION
+Effusive lava flow >< Airspace closure | N3 | aircraft kept clear | no ash column
+Effusive lava flow >< Shelter in place | N3 | no protection from any flow | destruction of anything in the path
+Explosive ash column >< Engineered flow diversion | N3 | redirection of a surface flow | regional ash fall
+Pyroclastic density current >< Shelter in place | N3 | no protection from any flow | no survivable shelter in the path
+Pyroclastic density current >< Phased evacuation | N4 | warning time and usable routes | very short warning
+Lahar in a river valley >< Airspace closure | N3 | aircraft kept clear | flow confined to valleys
+Lahar in a river valley >< Shelter in place | N3 | no protection from any flow | flow confined to valleys
+EXCL: MONITORING SIGNAL|PROTECTIVE ACTION
+No instrumentation present >< Phased evacuation | N7 | warning time and usable routes | no warning of any kind
+No instrumentation present >< Airspace closure | N7 | an aviation authority and plume forecasts | no warning of any kind
+EXCL: EXPOSED ELEMENT|PROTECTIVE ACTION
+Aviation routes overhead >< Phased evacuation | N3 | population removed before arrival | no ground exposure
+Aviation routes overhead >< Engineered flow diversion | N3 | redirection of a surface flow | no ground exposure
+Aviation routes overhead >< Shelter in place | N3 | protection from ash fall | no ground exposure
+Uninhabited wilderness >< Phased evacuation | N3 | population removed before arrival | no population or infrastructure
+Uninhabited wilderness >< Shelter in place | N3 | buildings able to exclude the hazard | no population or infrastructure
+Uninhabited wilderness >< Engineered flow diversion | N7 | channels or barriers built in advance | no population or infrastructure
+---
+DOMAIN: road tunnel fire
+GROUP: transport safety
+PARAM: FIRE SOURCE
+- Passenger car fire :: a vehicle ignition inside the bore :: small heat release, slow growth, smoke limited at first
+- Heavy goods vehicle load fire :: a lorry carrying combustible freight :: very high heat release, rapid growth, structural damage to the lining
+- Tanker carrying flammable liquid :: a fuel tanker breaching :: pool fire and explosion risk, spread along the drainage, no survivable approach
+- Electrical plant fire :: a fault in the tunnel services :: loss of tunnel systems themselves, limited heat, smoke in service spaces
+PARAM: VENTILATION SYSTEM
+- Longitudinal jet fans :: fans along the bore and a single traffic direction :: smoke pushed one way, clear air upstream
+- Transverse extraction :: ducts and dampers over the length :: smoke removed near the fire, stratification preserved
+- Natural ventilation only :: a short bore and open portals :: no control of smoke movement whatsoever
+- Ventilation disabled by the fire :: damage to the ventilation plant :: no smoke control available, conditions deteriorating
+PARAM: ESCAPE PROVISION
+- Cross passages to a parallel bore :: a second bore alongside :: short escape distance to a protected space
+- Emergency exits to the surface :: shafts or adits at intervals :: escape without traversing the bore, a long vertical climb
+- Escape along the bore to a portal :: no intermediate exits :: very long travel in the smoke path
+- Protected refuge chambers :: sealed rooms with an independent air supply :: survival in place, no self-rescue to the outside
+PARAM: TRAFFIC STATE
+- Free flowing :: normal running speed :: vehicles clear the bore quickly, few people exposed
+- Congested and stationary :: a queue standing inside the bore :: many people in the smoke path, vehicles that cannot be moved
+- Closed to traffic for works :: a possession with only workers present :: a small known population, trained staff
+- Bidirectional single bore :: two-way running in one tube :: traffic on both sides of any incident
+EXCL: FIRE SOURCE|VENTILATION SYSTEM
+Heavy goods vehicle load fire >< Natural ventilation only | N7 | a short bore and open portals | very high heat release
+Tanker carrying flammable liquid >< Natural ventilation only | N7 | a short bore and open portals | pool fire and explosion risk
+EXCL: FIRE SOURCE|ESCAPE PROVISION
+Tanker carrying flammable liquid >< Escape along the bore to a portal | N3 | very long travel in the smoke path | no survivable approach
+Tanker carrying flammable liquid >< Protected refuge chambers | N7 | survival in place | no survivable approach
+EXCL: FIRE SOURCE|TRAFFIC STATE
+Passenger car fire >< Closed to traffic for works | N7 | a possession with only workers present | a vehicle ignition inside the bore
+Heavy goods vehicle load fire >< Closed to traffic for works | N7 | a possession with only workers present | a lorry carrying combustible freight
+Tanker carrying flammable liquid >< Closed to traffic for works | N7 | a possession with only workers present | a fuel tanker breaching
+EXCL: VENTILATION SYSTEM|ESCAPE PROVISION
+Ventilation disabled by the fire >< Escape along the bore to a portal | N7 | very long travel in the smoke path | no smoke control available
+EXCL: VENTILATION SYSTEM|TRAFFIC STATE
+Longitudinal jet fans >< Bidirectional single bore | N3 | a single traffic direction | two-way running in one tube
+EXCL: ESCAPE PROVISION|TRAFFIC STATE
+Cross passages to a parallel bore >< Bidirectional single bore | N3 | a second bore alongside | two-way running in one tube
+Escape along the bore to a portal >< Congested and stationary | N7 | very long travel in the smoke path | many people in the smoke path
+---
+DOMAIN: crowd crush at a mass gathering
+GROUP: public safety
+PARAM: VENUE TYPE
+- Enclosed stadium bowl :: fixed seating and controlled entry :: known capacity, ticketed entry, defined exit routes
+- Open field festival :: temporary infrastructure on open ground :: no fixed capacity, many informal routes, weather exposure
+- Street procession :: a public highway route :: no entry control at all, unbounded numbers, buildings constraining the width
+- Transport interchange :: a station concourse serving the event :: surge arrivals and departures, fixed narrow passages
+PARAM: CROWD DYNAMIC
+- Progressive crowd collapse :: density above about six people per square metre :: people unable to control their own movement, asphyxia without any panic
+- Counterflow at a bottleneck :: two streams meeting in a constricted space :: sustained pressure at one point, no escape valve
+- Sudden surge toward an attraction :: a focal point drawing movement :: rapid density rise in one area, short duration
+- Evacuation rush from a threat :: a perceived danger behind the crowd :: unidirectional flight, disregard of designated routes
+PARAM: CONTROL MEASURE
+- Timed entry ticketing :: an entry system and enforcement :: arrival rate limited, no effect once people are inside
+- Physical barriers and pens :: installed barriers and stewarding :: subdivision of the crowd, new bottlenecks if misplaced
+- Real-time density monitoring :: cameras or sensors and someone watching :: warning of dangerous density, no physical effect by itself
+- Stewarding and messaging :: trained staff and a public address system :: influence on behaviour, defeated by noise and by a crowd already immobile
+PARAM: OUTCOME
+- No incident :: capacity and flow within design :: no consequence
+- Injuries without fatalities :: pressure relieved before asphyxia :: casualties, incident contained
+- Mass fatality crush :: sustained pressure with no relief :: multiple deaths, criminal and public inquiry exposure
+- Event abandoned safely :: a decision taken before the crowd becomes critical :: economic loss, no casualties
+EXCL: VENUE TYPE|CONTROL MEASURE
+Street procession >< Timed entry ticketing | N3 | an entry system and enforcement | no entry control at all
+Street procession >< Physical barriers and pens | N7 | installed barriers and stewarding | no entry control at all
+Transport interchange >< Timed entry ticketing | N7 | an entry system and enforcement | surge arrivals and departures
+EXCL: CROWD DYNAMIC|CONTROL MEASURE
+Progressive crowd collapse >< Stewarding and messaging | N3 | influence on behaviour | people unable to control their own movement
+Progressive crowd collapse >< Timed entry ticketing | N7 | no effect once people are inside | people unable to control their own movement
+Counterflow at a bottleneck >< Timed entry ticketing | N7 | no effect once people are inside | sustained pressure at one point
+Evacuation rush from a threat >< Stewarding and messaging | N7 | influence on behaviour | disregard of designated routes
+EXCL: CROWD DYNAMIC|OUTCOME
+Progressive crowd collapse >< No incident | N3 | capacity and flow within design | density above about six people per square metre
+EXCL: CONTROL MEASURE|OUTCOME
+Real-time density monitoring >< Event abandoned safely | N7 | a decision taken before the crowd becomes critical | no physical effect by itself
+---
+DOMAIN: offshore platform emergency evacuation
+GROUP: industrial safety
+PARAM: EMERGENCY
+- Gas release without ignition :: loss of hydrocarbon containment :: a toxic and explosive atmosphere, no fire yet, muster still possible
+- Fire on the process deck :: ignition of released hydrocarbon :: escalation risk to the inventory, escape routes cut by heat
+- Structural or stability failure :: loss of buoyancy or structural integrity :: the installation itself is lost, no safe muster point
+- Helideck unavailable :: obstruction, weather or damage to the deck :: no rotary evacuation, no hazard by itself
+PARAM: EVACUATION MEANS
+- Helicopter shuttle :: a serviceable helideck and flyable weather :: rapid removal of small groups, dependence on aviation limits
+- Lifeboat launch :: davits and a launch envelope :: whole-complement removal in one movement, exposure to the sea state
+- Walk to a bridge-linked platform :: a physical bridge to an adjacent installation :: escape without entering the sea, only where a bridge exists
+- Sea entry and rescue craft :: personal survival equipment and a standby vessel :: a last resort, high injury and hypothermia risk
+PARAM: WEATHER
+- Calm sea and clear air :: benign conditions :: all evacuation means available
+- Storm sea state :: high wind and wave :: lifeboat launch marginal, sea entry survivable only briefly
+- Fog with no ceiling :: visibility below aviation minima :: no helicopter movement, sea state unaffected
+- Freezing conditions :: air and sea below survival thresholds :: very short survival time in the water, icing on equipment
+PARAM: MUSTER OUTCOME
+- All personnel accounted for :: a successful muster :: complete evacuation, no casualties
+- Personnel missing at muster :: someone not reaching the muster station :: a search required, delay to evacuation
+- Evacuation under fire conditions :: escape routes already compromised :: casualties likely, partial evacuation
+- Shelter in the temporary refuge :: a refuge holding its integrity :: survival in place pending rescue, no evacuation yet
+EXCL: EMERGENCY|EVACUATION MEANS
+Fire on the process deck >< Walk to a bridge-linked platform | N7 | a physical bridge to an adjacent installation | escape routes cut by heat
+Structural or stability failure >< Walk to a bridge-linked platform | N7 | a physical bridge to an adjacent installation | the installation itself is lost
+Helideck unavailable >< Helicopter shuttle | N3 | a serviceable helideck and flyable weather | no rotary evacuation
+Gas release without ignition >< Sea entry and rescue craft | N7 | a last resort | muster still possible
+EXCL: EMERGENCY|MUSTER OUTCOME
+Structural or stability failure >< Shelter in the temporary refuge | N3 | a refuge holding its integrity | no safe muster point
+Helideck unavailable >< Evacuation under fire conditions | N3 | escape routes already compromised | no hazard by itself
+EXCL: EVACUATION MEANS|WEATHER
+Helicopter shuttle >< Fog with no ceiling | N3 | a serviceable helideck and flyable weather | no helicopter movement
+Lifeboat launch >< Storm sea state | N7 | davits and a launch envelope | lifeboat launch marginal
+Sea entry and rescue craft >< Storm sea state | N7 | personal survival equipment and a standby vessel | sea entry survivable only briefly
+Sea entry and rescue craft >< Freezing conditions | N7 | personal survival equipment and a standby vessel | very short survival time in the water

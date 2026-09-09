@@ -1,0 +1,187 @@
+{
+ "domain": "livestock disease outbreak",
+ "group": "agriculture",
+ "parameters": {
+  "PATHOGEN": [
+   "Highly contagious viral disease",
+   "Vector-borne viral disease",
+   "Bacterial disease treatable with antimicrobials",
+   "Prion disease with a long incubation"
+  ],
+  "HOLDING TYPE": [
+   "Intensive indoor unit",
+   "Extensive upland grazing",
+   "Smallholder mixed farm",
+   "Live animal market"
+  ],
+  "CONTROL MEASURE": [
+   "Movement standstill",
+   "Ring vaccination around cases",
+   "Cull of infected and contact herds",
+   "Enhanced surveillance only"
+  ],
+  "OUTCOME": [
+   "Contained at the index holding",
+   "Regional epidemic",
+   "Endemic establishment",
+   "Export market closure"
+  ]
+ },
+ "characterisations": {
+  "Highly contagious viral disease": {
+   "requires": "airborne or contact spread between herds",
+   "provides": "spread over kilometres without any movement of animals, no treatment, statutory notifiable status"
+  },
+  "Vector-borne viral disease": {
+   "requires": "a competent insect vector and a season",
+   "provides": "spread bounded by vector range, no direct animal-to-animal transmission, seasonal cessation"
+  },
+  "Bacterial disease treatable with antimicrobials": {
+   "requires": "bacterial aetiology",
+   "provides": "treatment available, production losses rather than mortality, no need to cull"
+  },
+  "Prion disease with a long incubation": {
+   "requires": "contaminated feed years earlier",
+   "provides": "no live test at all, cases appearing years after exposure, no transmission between living animals"
+  },
+  "Intensive indoor unit": {
+   "requires": "housed animals at high density",
+   "provides": "complete records, biosecurity feasible, catastrophic loss if breached"
+  },
+  "Extensive upland grazing": {
+   "requires": "animals dispersed over open hill",
+   "provides": "no possibility of housing, contact with wildlife, gathering takes days"
+  },
+  "Smallholder mixed farm": {
+   "requires": "a few animals alongside crops",
+   "provides": "informal records, animals moved to local markets, limited biosecurity knowledge"
+  },
+  "Live animal market": {
+   "requires": "animals from many holdings mixed briefly",
+   "provides": "enormous contact network in one day, no ownership continuity"
+  },
+  "Movement standstill": {
+   "requires": "legal power and enforcement capacity",
+   "provides": "immediate halt to spread by transport, severe welfare and trade consequences"
+  },
+  "Ring vaccination around cases": {
+   "requires": "an effective vaccine and cold chain",
+   "provides": "protection of a zone within days, loss of disease-free trading status"
+  },
+  "Cull of infected and contact herds": {
+   "requires": "valuation, slaughter and disposal capacity",
+   "provides": "removal of the reservoir, compensation cost and public opposition"
+  },
+  "Enhanced surveillance only": {
+   "requires": "a testing programme and laboratory capacity",
+   "provides": "detection of spread, no reduction in transmission whatsoever"
+  },
+  "Contained at the index holding": {
+   "requires": "rapid detection and effective restriction",
+   "provides": "minimal loss, disease-free status recovered quickly"
+  },
+  "Regional epidemic": {
+   "requires": "spread beyond the initial zone before detection",
+   "provides": "mass culling, months of restriction"
+  },
+  "Endemic establishment": {
+   "requires": "the pathogen persisting in the population",
+   "provides": "permanent change to husbandry and trade"
+  },
+  "Export market closure": {
+   "requires": "trading partners suspending imports",
+   "provides": "economic loss far exceeding the animal loss"
+  }
+ },
+ "exclusions": {
+  "PATHOGEN|CONTROL MEASURE": [
+   {
+    "row": "Prion disease with a long incubation",
+    "col": "Movement standstill",
+    "code": "N7",
+    "requires": "immediate halt to spread by transport",
+    "blocked_by": "no transmission between living animals"
+   },
+   {
+    "row": "Prion disease with a long incubation",
+    "col": "Ring vaccination around cases",
+    "code": "N3",
+    "requires": "an effective vaccine and cold chain",
+    "blocked_by": "no live test at all"
+   },
+   {
+    "row": "Bacterial disease treatable with antimicrobials",
+    "col": "Cull of infected and contact herds",
+    "code": "N7",
+    "requires": "removal of the reservoir",
+    "blocked_by": "no need to cull"
+   },
+   {
+    "row": "Vector-borne viral disease",
+    "col": "Movement standstill",
+    "code": "N7",
+    "requires": "immediate halt to spread by transport",
+    "blocked_by": "no direct animal-to-animal transmission"
+   }
+  ],
+  "PATHOGEN|OUTCOME": [
+   {
+    "row": "Prion disease with a long incubation",
+    "col": "Contained at the index holding",
+    "code": "N7",
+    "requires": "rapid detection and effective restriction",
+    "blocked_by": "cases appearing years after exposure"
+   }
+  ],
+  "HOLDING TYPE|CONTROL MEASURE": [
+   {
+    "row": "Extensive upland grazing",
+    "col": "Cull of infected and contact herds",
+    "code": "N7",
+    "requires": "valuation, slaughter and disposal capacity",
+    "blocked_by": "gathering takes days"
+   },
+   {
+    "row": "Live animal market",
+    "col": "Cull of infected and contact herds",
+    "code": "N7",
+    "requires": "valuation, slaughter and disposal capacity",
+    "blocked_by": "no ownership continuity"
+   }
+  ],
+  "HOLDING TYPE|OUTCOME": [
+   {
+    "row": "Live animal market",
+    "col": "Contained at the index holding",
+    "code": "N7",
+    "requires": "rapid detection and effective restriction",
+    "blocked_by": "enormous contact network in one day"
+   }
+  ],
+  "CONTROL MEASURE|OUTCOME": [
+   {
+    "row": "Enhanced surveillance only",
+    "col": "Contained at the index holding",
+    "code": "N3",
+    "requires": "rapid detection and effective restriction",
+    "blocked_by": "no reduction in transmission whatsoever"
+   },
+   {
+    "row": "Ring vaccination around cases",
+    "col": "Export market closure",
+    "code": "N7",
+    "requires": "trading partners suspending imports",
+    "blocked_by": "protection of a zone within days"
+   }
+  ],
+  "PATHOGEN|HOLDING TYPE": [
+   {
+    "row": "Prion disease with a long incubation",
+    "col": "Live animal market",
+    "code": "N7",
+    "requires": "animals from many holdings mixed briefly",
+    "blocked_by": "no transmission between living animals"
+   }
+  ]
+ }
+}

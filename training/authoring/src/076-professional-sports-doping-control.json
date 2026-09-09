@@ -1,0 +1,171 @@
+{
+ "domain": "professional sports doping control",
+ "group": "sport",
+ "parameters": {
+  "SAMPLE TYPE": [
+   "In-competition urine",
+   "Out-of-competition blood",
+   "Dried blood spot",
+   "No sample collected"
+  ],
+  "SUBSTANCE": [
+   "Anabolic agent",
+   "Blood transfusion",
+   "Stimulant taken in competition",
+   "Contaminated supplement"
+  ],
+  "RESULT MANAGEMENT": [
+   "Adverse analytical finding",
+   "Passport-based case",
+   "Whereabouts failure case",
+   "No case opened"
+  ],
+  "SANCTION OUTCOME": [
+   "Four year ban",
+   "Reduced sanction for no significant fault",
+   "Full exoneration",
+   "Case abandoned on procedural grounds"
+  ]
+ },
+ "characterisations": {
+  "In-competition urine": {
+   "requires": "an athlete selected at an event",
+   "provides": "detection of recent use, a chaperoned collection"
+  },
+  "Out-of-competition blood": {
+   "requires": "whereabouts information and a no-notice visit",
+   "provides": "a biological passport series, detection of blood manipulation"
+  },
+  "Dried blood spot": {
+   "requires": "a minimally invasive collection",
+   "provides": "easy storage and transport, a limited menu of detectable substances"
+  },
+  "No sample collected": {
+   "requires": "an athlete never located",
+   "provides": "no analytical evidence of any kind, a possible whereabouts failure"
+  },
+  "Anabolic agent": {
+   "requires": "administration weeks before competition",
+   "provides": "a long detection window in urine, unambiguous prohibited status"
+  },
+  "Blood transfusion": {
+   "requires": "matched blood stored and reinfused",
+   "provides": "no foreign substance to find, detectable only as passport variation"
+  },
+  "Stimulant taken in competition": {
+   "requires": "ingestion on the day of the event",
+   "provides": "a short detection window, prohibition in competition only"
+  },
+  "Contaminated supplement": {
+   "requires": "an unlabelled ingredient in a product",
+   "provides": "an adverse finding without intent, a plausible source explanation"
+  },
+  "Adverse analytical finding": {
+   "requires": "a laboratory result above the threshold",
+   "provides": "a charge to answer, provisional suspension"
+  },
+  "Passport-based case": {
+   "requires": "a longitudinal series and expert review",
+   "provides": "a case without a positive test, a lengthy expert dispute"
+  },
+  "Whereabouts failure case": {
+   "requires": "three missed tests within a year",
+   "provides": "a sanction resting on no analytical evidence, an administrative route"
+  },
+  "No case opened": {
+   "requires": "nothing to pursue",
+   "provides": "no proceedings at all, no finding recorded"
+  },
+  "Four year ban": {
+   "requires": "an intentional violation established",
+   "provides": "career-ending in effect, full disqualification of results"
+  },
+  "Reduced sanction for no significant fault": {
+   "requires": "a credible explanation of the source",
+   "provides": "a shorter ban, results partially retained"
+  },
+  "Full exoneration": {
+   "requires": "an explanation accepted in full",
+   "provides": "no sanction imposed, reputational damage remaining"
+  },
+  "Case abandoned on procedural grounds": {
+   "requires": "a defect in collection or chain of custody",
+   "provides": "no determination on the merits, no sanction imposed"
+  }
+ },
+ "exclusions": {
+  "SAMPLE TYPE|SUBSTANCE": [
+   {
+    "row": "In-competition urine",
+    "col": "Blood transfusion",
+    "code": "N3",
+    "requires": "detection of recent use",
+    "blocked_by": "no foreign substance to find"
+   }
+  ],
+  "SAMPLE TYPE|RESULT MANAGEMENT": [
+   {
+    "row": "No sample collected",
+    "col": "Adverse analytical finding",
+    "code": "N3",
+    "requires": "a laboratory result above the threshold",
+    "blocked_by": "no analytical evidence of any kind"
+   },
+   {
+    "row": "No sample collected",
+    "col": "Passport-based case",
+    "code": "N3",
+    "requires": "a longitudinal series and expert review",
+    "blocked_by": "no analytical evidence of any kind"
+   }
+  ],
+  "SUBSTANCE|RESULT MANAGEMENT": [
+   {
+    "row": "Blood transfusion",
+    "col": "Adverse analytical finding",
+    "code": "N3",
+    "requires": "a laboratory result above the threshold",
+    "blocked_by": "no foreign substance to find"
+   }
+  ],
+  "SUBSTANCE|SANCTION OUTCOME": [
+   {
+    "row": "Contaminated supplement",
+    "col": "Four year ban",
+    "code": "N3",
+    "requires": "an intentional violation established",
+    "blocked_by": "an adverse finding without intent"
+   }
+  ],
+  "RESULT MANAGEMENT|SANCTION OUTCOME": [
+   {
+    "row": "No case opened",
+    "col": "Four year ban",
+    "code": "N3",
+    "requires": "an intentional violation established",
+    "blocked_by": "no proceedings at all"
+   },
+   {
+    "row": "No case opened",
+    "col": "Reduced sanction for no significant fault",
+    "code": "N3",
+    "requires": "a shorter ban",
+    "blocked_by": "no proceedings at all"
+   },
+   {
+    "row": "No case opened",
+    "col": "Full exoneration",
+    "code": "N1",
+    "requires": "an explanation accepted in full",
+    "blocked_by": "no proceedings at all"
+   },
+   {
+    "row": "No case opened",
+    "col": "Case abandoned on procedural grounds",
+    "code": "N1",
+    "requires": "a defect in collection or chain of custody",
+    "blocked_by": "no proceedings at all"
+   }
+  ]
+ }
+}

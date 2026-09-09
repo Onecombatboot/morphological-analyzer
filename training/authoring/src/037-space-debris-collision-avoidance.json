@@ -1,0 +1,370 @@
+{
+ "domain": "space debris collision avoidance",
+ "group": "industrial",
+ "parameters": {
+  "OBJECT CLASS": [
+   "Tracked large debris",
+   "Untracked millimetre debris",
+   "Active satellite",
+   "Spent rocket body"
+  ],
+  "ORBIT REGIME": [
+   "Low Earth orbit",
+   "Sun-synchronous polar",
+   "Geostationary belt",
+   "Highly elliptical transfer"
+  ],
+  "WARNING SOURCE": [
+   "Ground radar catalogue",
+   "Optical telescope survey",
+   "Onboard collision sensor",
+   "Operator conjunction message"
+  ],
+  "MITIGATION": [
+   "Propulsive avoidance manoeuvre",
+   "Attitude change to reduce cross-section",
+   "Accept the risk",
+   "Shielding already fitted"
+  ],
+  "LEAD TIME": [
+   "Days",
+   "Hours",
+   "None"
+  ]
+ },
+ "characterisations": {
+  "Tracked large debris": {
+   "requires": "size above the catalogue threshold",
+   "provides": "known orbit, predictable conjunctions, days of warning"
+  },
+  "Untracked millimetre debris": {
+   "requires": "size below any sensor threshold",
+   "provides": "no warning of any kind, high flux, damage rather than destruction"
+  },
+  "Active satellite": {
+   "requires": "an operator and working propulsion",
+   "provides": "manoeuvrable, contactable, coordinated avoidance possible"
+  },
+  "Spent rocket body": {
+   "requires": "an expended upper stage left in orbit",
+   "provides": "large uncontrolled mass, tracked, cannot manoeuvre, breakup risk"
+  },
+  "Low Earth orbit": {
+   "requires": "altitude below about 2000 km",
+   "provides": "high relative velocities, dense debris population, atmospheric decay over years"
+  },
+  "Sun-synchronous polar": {
+   "requires": "a specific inclination and altitude band",
+   "provides": "crowded operational band, head-on conjunction geometry"
+  },
+  "Geostationary belt": {
+   "requires": "a slot above the equator",
+   "provides": "low relative velocities, sparse population, no atmospheric decay ever"
+  },
+  "Highly elliptical transfer": {
+   "requires": "an eccentric orbit crossing regimes",
+   "provides": "crossing traffic at many altitudes, brief exposure per pass"
+  },
+  "Ground radar catalogue": {
+   "requires": "objects large enough to return a radar echo",
+   "provides": "routine tracking of large objects in low orbits, poor at high altitude"
+  },
+  "Optical telescope survey": {
+   "requires": "darkness, clear sky, sunlit target",
+   "provides": "tracking of high-altitude objects, useless in daylight or cloud"
+  },
+  "Onboard collision sensor": {
+   "requires": "a sensor fitted and a detectable approach",
+   "provides": "seconds of notice at best, effectively none for closing velocities in orbit"
+  },
+  "Operator conjunction message": {
+   "requires": "another operator sharing ephemeris",
+   "provides": "days of notice for cooperative satellites only"
+  },
+  "Propulsive avoidance manoeuvre": {
+   "requires": "working propulsion, fuel, and hours of notice",
+   "provides": "reliable miss distance, fuel cost, service interruption"
+  },
+  "Attitude change to reduce cross-section": {
+   "requires": "attitude control and some notice",
+   "provides": "reduced probability, no change of trajectory"
+  },
+  "Accept the risk": {
+   "requires": "nothing",
+   "provides": "no cost, no protection"
+  },
+  "Shielding already fitted": {
+   "requires": "a design decision made before launch",
+   "provides": "protection against small impacts only, no action needed at the time"
+  },
+  "Days": {
+   "requires": "a tracked object and routine conjunction screening",
+   "provides": "time for planning and propulsive action"
+  },
+  "Hours": {
+   "requires": "a late catalogue update or a refined solution",
+   "provides": "time for a rushed manoeuvre only"
+  },
+  "None": {
+   "requires": "an untracked object or a sensor-only detection",
+   "provides": "no time for any action"
+  }
+ },
+ "exclusions": {
+  "OBJECT CLASS|WARNING SOURCE": [
+   {
+    "row": "Tracked large debris",
+    "col": "Onboard collision sensor",
+    "code": "N7",
+    "requires": "a sensor fitted and a detectable approach",
+    "blocked_by": "days of warning"
+   },
+   {
+    "row": "Tracked large debris",
+    "col": "Operator conjunction message",
+    "code": "N3",
+    "requires": "another operator sharing ephemeris",
+    "blocked_by": "days of warning"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Ground radar catalogue",
+    "code": "N3",
+    "requires": "objects large enough to return a radar echo",
+    "blocked_by": "size below any sensor threshold"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Optical telescope survey",
+    "code": "N3",
+    "requires": "darkness, clear sky, sunlit target",
+    "blocked_by": "size below any sensor threshold"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Operator conjunction message",
+    "code": "N3",
+    "requires": "another operator sharing ephemeris",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "Active satellite",
+    "col": "Onboard collision sensor",
+    "code": "N7",
+    "requires": "a sensor fitted and a detectable approach",
+    "blocked_by": "coordinated avoidance possible"
+   },
+   {
+    "row": "Spent rocket body",
+    "col": "Onboard collision sensor",
+    "code": "N7",
+    "requires": "a sensor fitted and a detectable approach",
+    "blocked_by": "cannot manoeuvre"
+   },
+   {
+    "row": "Spent rocket body",
+    "col": "Operator conjunction message",
+    "code": "N3",
+    "requires": "another operator sharing ephemeris",
+    "blocked_by": "large uncontrolled mass, tracked, cannot manoeuvre"
+   }
+  ],
+  "OBJECT CLASS|MITIGATION": [
+   {
+    "row": "Tracked large debris",
+    "col": "Shielding already fitted",
+    "code": "N3",
+    "requires": "protection against small impacts only",
+    "blocked_by": "known orbit, predictable conjunctions"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Propulsive avoidance manoeuvre",
+    "code": "N3",
+    "requires": "working propulsion, fuel, and hours of notice",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Attitude change to reduce cross-section",
+    "code": "N3",
+    "requires": "attitude control and some notice",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "Active satellite",
+    "col": "Shielding already fitted",
+    "code": "N3",
+    "requires": "protection against small impacts only",
+    "blocked_by": "manoeuvrable, contactable"
+   },
+   {
+    "row": "Spent rocket body",
+    "col": "Shielding already fitted",
+    "code": "N3",
+    "requires": "protection against small impacts only",
+    "blocked_by": "large uncontrolled mass"
+   }
+  ],
+  "OBJECT CLASS|LEAD TIME": [
+   {
+    "row": "Tracked large debris",
+    "col": "None",
+    "code": "N3",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "days of warning"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Days",
+    "code": "N3",
+    "requires": "a tracked object and routine conjunction screening",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "Untracked millimetre debris",
+    "col": "Hours",
+    "code": "N3",
+    "requires": "a late catalogue update or a refined solution",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "Active satellite",
+    "col": "None",
+    "code": "N7",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "coordinated avoidance possible"
+   },
+   {
+    "row": "Spent rocket body",
+    "col": "None",
+    "code": "N3",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "large uncontrolled mass, tracked"
+   }
+  ],
+  "ORBIT REGIME|WARNING SOURCE": [
+   {
+    "row": "Low Earth orbit",
+    "col": "Optical telescope survey",
+    "code": "N7",
+    "requires": "tracking of high-altitude objects",
+    "blocked_by": "altitude below about 2000 km"
+   },
+   {
+    "row": "Sun-synchronous polar",
+    "col": "Optical telescope survey",
+    "code": "N7",
+    "requires": "tracking of high-altitude objects",
+    "blocked_by": "a specific inclination and altitude band"
+   },
+   {
+    "row": "Geostationary belt",
+    "col": "Ground radar catalogue",
+    "code": "N3",
+    "requires": "routine tracking of large objects in low orbits",
+    "blocked_by": "a slot above the equator"
+   }
+  ],
+  "WARNING SOURCE|MITIGATION": [
+   {
+    "row": "Ground radar catalogue",
+    "col": "Shielding already fitted",
+    "code": "N7",
+    "requires": "a design decision made before launch",
+    "blocked_by": "routine tracking of large objects in low orbits"
+   },
+   {
+    "row": "Optical telescope survey",
+    "col": "Shielding already fitted",
+    "code": "N7",
+    "requires": "a design decision made before launch",
+    "blocked_by": "tracking of high-altitude objects"
+   },
+   {
+    "row": "Onboard collision sensor",
+    "col": "Propulsive avoidance manoeuvre",
+    "code": "N4",
+    "requires": "working propulsion, fuel, and hours of notice",
+    "blocked_by": "seconds of notice at best"
+   },
+   {
+    "row": "Onboard collision sensor",
+    "col": "Attitude change to reduce cross-section",
+    "code": "N4",
+    "requires": "attitude control and some notice",
+    "blocked_by": "seconds of notice at best"
+   },
+   {
+    "row": "Operator conjunction message",
+    "col": "Shielding already fitted",
+    "code": "N7",
+    "requires": "a design decision made before launch",
+    "blocked_by": "days of notice for cooperative satellites only"
+   }
+  ],
+  "WARNING SOURCE|LEAD TIME": [
+   {
+    "row": "Ground radar catalogue",
+    "col": "None",
+    "code": "N3",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "routine tracking of large objects in low orbits"
+   },
+   {
+    "row": "Optical telescope survey",
+    "col": "None",
+    "code": "N3",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "tracking of high-altitude objects"
+   },
+   {
+    "row": "Onboard collision sensor",
+    "col": "Days",
+    "code": "N3",
+    "requires": "a tracked object and routine conjunction screening",
+    "blocked_by": "seconds of notice at best"
+   },
+   {
+    "row": "Onboard collision sensor",
+    "col": "Hours",
+    "code": "N3",
+    "requires": "a late catalogue update or a refined solution",
+    "blocked_by": "seconds of notice at best"
+   },
+   {
+    "row": "Operator conjunction message",
+    "col": "None",
+    "code": "N3",
+    "requires": "an untracked object or a sensor-only detection",
+    "blocked_by": "days of notice for cooperative satellites only"
+   }
+  ],
+  "MITIGATION|LEAD TIME": [
+   {
+    "row": "Propulsive avoidance manoeuvre",
+    "col": "None",
+    "code": "N4",
+    "requires": "working propulsion, fuel, and hours of notice",
+    "blocked_by": "no time for any action"
+   },
+   {
+    "row": "Attitude change to reduce cross-section",
+    "col": "None",
+    "code": "N4",
+    "requires": "attitude control and some notice",
+    "blocked_by": "no time for any action"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "OBJECT CLASS|ORBIT REGIME": "untracked millimetre debris in the geostationary belt is N - the population there is sparse and relative velocities are low enough that the hazard class does not apply as posed.",
+  "OBJECT CLASS|WARNING SOURCE": "untracked debris gives no warning from radar, optics or operators; only an onboard sensor could register it, and then only at impact. Onboard sensors are N for tracked debris, satellites and rocket bodies, which are seen far earlier by other means. Operator conjunction messages are Y only for active satellites, since debris and spent stages have no operator.",
+  "OBJECT CLASS|MITIGATION": "untracked debris admits no manoeuvre and no attitude change - there is no warning to act on - leaving acceptance and pre-fitted shielding. Shielding is N against large tracked objects, satellites and rocket bodies, which would destroy the spacecraft regardless.",
+  "OBJECT CLASS|LEAD TIME": "untracked debris gives no lead time at all, so days and hours are N; everything tracked gives days or hours but not none.",
+  "ORBIT REGIME|WARNING SOURCE": "optical survey is N for low Earth orbit and sun-synchronous, where radar is the practical sensor; radar is N for the geostationary belt, where optics take over.",
+  "WARNING SOURCE|MITIGATION": "an onboard sensor is N for propulsive manoeuvre and N for attitude change - by the time it registers anything there is no time to act. Radar, optics and operator messages are all N for shielding, which is not a response to a warning.",
+  "WARNING SOURCE|LEAD TIME": "radar, optics and operator messages all give days or hours, never none. An onboard sensor gives none, never days or hours.",
+  "MITIGATION|LEAD TIME": "propulsive manoeuvre and attitude change are both N with no lead time."
+ }
+}

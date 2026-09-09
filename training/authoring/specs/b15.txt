@@ -1,0 +1,67 @@
+DOMAIN: polar research station resupply
+GROUP: science
+PARAM: STATION TYPE
+- Coastal station with a ship berth :: an ice-free approach in summer :: bulk resupply by sea, dependence on a short shipping window
+- Deep field inland camp :: air support and a prepared skiway :: science far from the coast, everything flown in
+- Summer-only field hut :: seasonal occupation only :: minimal infrastructure, no winter capability at all
+- Year-round wintering base :: fuel and food for a full winter :: continuous occupation, no resupply for eight months
+PARAM: RESUPPLY MEANS
+- Ice-strengthened ship :: an open water or navigable ice route :: very large tonnage in one delivery, limitation to the summer window
+- Wheeled heavy aircraft :: a blue ice or prepared hard runway :: rapid delivery of people and priority cargo, a strict runway requirement
+- Ski-equipped light aircraft :: a snow surface and good visibility :: access to almost anywhere, a small payload
+- Overland traverse :: tractors and a crevasse-surveyed route :: heavy fuel delivered inland, weeks of travel each way
+PARAM: LIMITING CONDITION
+- Sea ice failing to break out :: a heavy ice year :: no ship access to the station, cargo carried over to next season
+- Persistent whiteout :: no visible horizon for days :: no aircraft movement of any kind, ground work continuing
+- Fuel shortfall at the station :: consumption above plan :: reduced generator hours, science curtailed
+- Medical evacuation required :: a casualty needing surgery :: an unplanned flight demanded, risk accepted outside normal limits
+PARAM: SEASON OUTCOME
+- Full science programme delivered :: people and cargo arriving as planned :: all projects supported, the station left well found
+- Programme reduced to essentials :: partial resupply only :: station keeping only, science deferred a year
+- Station placed on care and maintenance :: insufficient support to operate :: no occupation, systems winterised
+- Emergency winter resupply mounted :: a failure that cannot wait for spring :: extraordinary cost, a flight at the edge of capability
+EXCL: STATION TYPE|RESUPPLY MEANS
+Deep field inland camp >< Ice-strengthened ship | N3 | an open water or navigable ice route | science far from the coast
+EXCL: STATION TYPE|SEASON OUTCOME
+Summer-only field hut >< Emergency winter resupply mounted | N3 | a failure that cannot wait for spring | no winter capability at all
+EXCL: RESUPPLY MEANS|LIMITING CONDITION
+Ice-strengthened ship >< Sea ice failing to break out | N3 | an open water or navigable ice route | no ship access to the station
+Wheeled heavy aircraft >< Persistent whiteout | N3 | a blue ice or prepared hard runway | no aircraft movement of any kind
+Ski-equipped light aircraft >< Persistent whiteout | N3 | a snow surface and good visibility | no aircraft movement of any kind
+EXCL: LIMITING CONDITION|SEASON OUTCOME
+Fuel shortfall at the station >< Full science programme delivered | N3 | all projects supported | science curtailed
+---
+DOMAIN: patent infringement litigation
+GROUP: legal
+PARAM: PATENT POSITION
+- Granted patent in the jurisdiction :: examination completed and fees paid :: enforceable rights, a presumption of validity
+- Pending application only :: a filing made and examination incomplete :: no enforceable right yet, protection only on later grant
+- Patent expired or lapsed :: the term ended or renewal missed :: no exclusivity remaining, the disclosure free for anyone to use
+- Patent already revoked on prior art :: a validity challenge already succeeded :: no rights at all, the invention in the public domain
+PARAM: ALLEGED INFRINGEMENT
+- Literal copying of a claim :: a product falling squarely within the wording :: a straightforward comparison, little construction needed
+- Equivalents argument :: a variant outside the literal wording :: dependence on the doctrine applied, an uncertain outcome
+- Contributory supply of a component :: a part with no other substantial use :: liability without making the whole, dependence on the supplier's knowledge
+- Independent development :: a defendant who never saw the patent :: no copying to prove, intent irrelevant to infringement
+PARAM: DEFENCE STRATEGY
+- Invalidity counterclaim :: prior art located and pleaded :: an attack on the patent itself, a risk of losing the patent entirely
+- Non-infringement on construction :: an arguable claim interpretation :: no challenge to validity, a narrow escape on wording
+- Licence already held :: an existing agreement covering the acts :: a complete defence, no need to litigate the merits
+- Settlement and cross-licence :: a portfolio of value to the other side :: a business resolution, no judgment on the merits
+PARAM: LITIGATION OUTCOME
+- Injunction granted :: infringement of a valid claim found :: the product off the market, damages to follow
+- Patent revoked in the proceedings :: invalidity established at trial :: no rights left to enforce, costs against the patentee
+- Claim dismissed for non-infringement :: the product held outside the claims :: the patent surviving, the defendant free
+- Confidential settlement :: agreement reached before judgment :: no public ruling, terms unknown
+EXCL: PATENT POSITION|LITIGATION OUTCOME
+Patent expired or lapsed >< Injunction granted | N3 | infringement of a valid claim found | no exclusivity remaining
+Patent already revoked on prior art >< Injunction granted | N3 | infringement of a valid claim found | no rights at all
+Pending application only >< Injunction granted | N3 | infringement of a valid claim found | no enforceable right yet
+Patent already revoked on prior art >< Patent revoked in the proceedings | N1 | invalidity established at trial | a validity challenge already succeeded
+EXCL: ALLEGED INFRINGEMENT|DEFENCE STRATEGY
+Literal copying of a claim >< Non-infringement on construction | N7 | an arguable claim interpretation | a product falling squarely within the wording
+EXCL: DEFENCE STRATEGY|LITIGATION OUTCOME
+Licence already held >< Injunction granted | N3 | infringement of a valid claim found | a complete defence
+Settlement and cross-licence >< Injunction granted | N3 | infringement of a valid claim found | no judgment on the merits
+Settlement and cross-licence >< Patent revoked in the proceedings | N3 | invalidity established at trial | no judgment on the merits
+Non-infringement on construction >< Patent revoked in the proceedings | N3 | invalidity established at trial | no challenge to validity

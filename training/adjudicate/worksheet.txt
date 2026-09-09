@@ -1,0 +1,552 @@
+BLIND ADJUDICATION WORKSHEET
+
+For each item decide, using CRITERION.md v2 only:
+  Y  some real configuration could contain both
+  N  no possible configuration instantiates both
+The test is "does this combination occur?", never "does it work well?".
+Ineffective, unwise or badly designed is still Y.
+If N, name the clause on each side that makes it impossible.
+
+Write answers as "<number>: <Y|N>" and, for N, a following line
+"<number>! <requires clause> >< <blocked clause>".
+==============================================================================
+
+ITEM 1   [domain: bank liquidity crisis]
+  FUNDING PROFILE — Long-dated covered bonds
+      REQUIRES: secured term funding
+      PROVIDES: no early withdrawal possible, no run risk at all
+  OUTCOME — Disorderly failure
+      REQUIRES: no buyer and no facility
+      PROVIDES: depositor loss, contagion to peers
+  Can one scenario contain both?   1: ____
+
+ITEM 2   [domain: narcotics trafficking route]
+  TRANSPORT MODE — Postal parcel
+      REQUIRES: an address and a shipping label
+      PROVIDES: grams to a few kilograms, anonymity, per-parcel loss acceptable
+  INTERDICTION POINT — Financial flow
+      REQUIRES: money moving through traceable channels
+      PROVIDES: disruption of the organisation, no product seized
+  Can one scenario contain both?   2: ____
+
+ITEM 3   [domain: dam safety failure]
+  DAM TYPE — Concrete arch
+      REQUIRES: a narrow gorge with competent abutments
+      PROVIDES: thin efficient structure, total dependence on abutment rock, tolerance of overtopping
+  DOWNSTREAM EXPOSURE — Another dam in cascade
+      REQUIRES: a second structure downstream
+      PROVIDES: risk of progressive failure, engineering response possible
+  Can one scenario contain both?   3: ____
+
+ITEM 4   [domain: urban water supply contamination]
+  ENTRY POINT — Household plumbing
+      REQUIRES: materials or conditions inside one property
+      PROVIDES: single-property exposure, invisible to any utility monitoring
+  RESPONSE — Flush and rechlorinate mains
+      REQUIRES: network access and a chlorine-susceptible contaminant
+      PROVIDES: removal from the distribution system, days of work
+  Can one scenario contain both?   4: ____
+
+ITEM 5   [domain: counterfeit currency operation]
+  PRODUCER — State-sponsored facility
+      REQUIRES: national printing infrastructure and impunity
+      PROVIDES: genuine-grade equipment, controlled substrate, unlimited volume, no need for retail exposure
+  DISTRIBUTION — Passing at retail point of sale
+      REQUIRES: physical presence and small denominations
+      PROVIDES: immediate value, direct personal exposure, one note at a time
+  Can one scenario contain both?   5: ____
+
+ITEM 6   [domain: bank liquidity crisis]
+  TRIGGER — Wholesale funding market closure
+      REQUIRES: counterparties refusing to roll funding
+      PROVIDES: no retail visibility, refinancing failure at maturity
+  OUTCOME — Disorderly failure
+      REQUIRES: no buyer and no facility
+      PROVIDES: depositor loss, contagion to peers
+  Can one scenario contain both?   6: ____
+
+ITEM 7   [domain: urban water supply contamination]
+  CONTAMINANT — Industrial solvent ingress
+      REQUIRES: a spill reaching the source or a permeable main
+      PROVIDES: distinctive odour at low concentration, chronic toxicity, not removed by chlorination
+  RESPONSE — Flush and rechlorinate mains
+      REQUIRES: network access and a chlorine-susceptible contaminant
+      PROVIDES: removal from the distribution system, days of work
+  Can one scenario contain both?   7: ____
+
+ITEM 8   [domain: narcotics trafficking route]
+  TRANSPORT MODE — Body-carried by courier
+      REQUIRES: a willing person and a passenger route
+      PROVIDES: a kilogram at most, high personal risk, no cargo documentation
+  INTERDICTION POINT — Transit border
+      REQUIRES: the consignment presenting at a control
+      PROVIDES: seizure of product in motion, no effect on organisation
+  Can one scenario contain both?   8: ____
+
+ITEM 9   [domain: crisis disinformation management]
+  FALSE CLAIM TYPE — Manipulated video of an event
+      REQUIRES: editing or synthesis of footage
+      PROVIDES: emotionally compelling, forensic analysis needed rather than a simple check
+  EFFECT — Public confusion about instructions
+      REQUIRES: contradictory guidance in circulation
+      PROVIDES: reduced compliance with genuine advice
+  Can one scenario contain both?   9: ____
+
+ITEM 10   [domain: dam safety failure]
+  DOWNSTREAM EXPOSURE — Farmland only
+      REQUIRES: agricultural land downstream
+      PROVIDES: economic loss, no immediate life safety concern
+  INTERVENTION — Downstream evacuation
+      REQUIRES: population at risk and warning time
+      PROVIDES: life safety, no effect on the structure
+  Can one scenario contain both?   10: ____
+
+ITEM 11   [domain: ransomware incident response]
+  IMPACT STAGE — Data exfiltrated not encrypted
+      REQUIRES: outbound transfer of volume
+      PROVIDES: confidentiality loss, systems still working, extortion leverage without disruption
+  RECOVERY OBJECTIVE — Weeks
+      REQUIRES: acceptance of prolonged outage
+      PROVIDES: time for complete rebuild
+  Can one scenario contain both?   11: ____
+
+ITEM 12   [domain: urban water supply contamination]
+  ENTRY POINT — Household plumbing
+      REQUIRES: materials or conditions inside one property
+      PROVIDES: single-property exposure, invisible to any utility monitoring
+  POPULATION AFFECTED — Single building
+      REQUIRES: an issue confined to one property
+      PROVIDES: small affected population, property-level remedies feasible
+  Can one scenario contain both?   12: ____
+
+ITEM 13   [domain: dam safety failure]
+  WARNING INDICATOR — Seepage turbidity increase
+      REQUIRES: seepage emerging and being observed
+      PROVIDES: direct evidence of material being carried, specific to erosion
+  DOWNSTREAM EXPOSURE — Populated town
+      REQUIRES: settlement within the inundation footprint
+      PROVIDES: life safety as the governing concern, evacuation feasible with warning
+  Can one scenario contain both?   13: ____
+
+ITEM 14   [domain: mine safety incident]
+  MINE TYPE — Open cut surface
+      REQUIRES: excavation from the surface
+      PROVIDES: unlimited natural ventilation, no confined atmosphere, bench stability concerns only
+  CONTROL — Advance probe drilling
+      REQUIRES: drilling ahead of the working face
+      PROVIDES: detection of water or voids before breaching them, no atmospheric function
+  Can one scenario contain both?   14: ____
+
+ITEM 15   [domain: crisis disinformation management]
+  SPREAD MECHANISM — Organic sharing by the public
+      REQUIRES: content people choose to pass on
+      PROVIDES: no coordination to disrupt, motivated by genuine belief
+  COUNTERMEASURE — Platform content removal
+      REQUIRES: a policy basis and platform cooperation
+      PROVIDES: reduction of reach, ineffective where the content has already spread elsewhere
+  Can one scenario contain both?   15: ____
+
+ITEM 16   [domain: dam safety failure]
+  FAILURE MECHANISM — Liquefaction under seismic load
+      REQUIRES: saturated loose material and ground shaking
+      PROVIDES: instantaneous loss of strength, no warning, total release
+  INTERVENTION — Buttressing works
+      REQUIRES: weeks of construction and stable conditions
+      PROVIDES: structural strengthening, useless in an emergency
+  Can one scenario contain both?   16: ____
+
+ITEM 17   [domain: aviation security screening]
+  SCREENING POINT — Behavioural observation
+      REQUIRES: trained officers watching passengers
+      PROVIDES: indication of intent, no detection of any object
+  CONCEALMENT — Carried on the body
+      REQUIRES: the item small enough to conceal on a person
+      PROVIDES: invisible to all baggage screening, exposed to body screening only
+  Can one scenario contain both?   17: ____
+
+ITEM 18   [domain: electrical grid cascading failure]
+  PROPAGATION MECHANISM — Frequency collapse
+      REQUIRES: a generation-demand imbalance
+      PROVIDES: system-wide effect within seconds, no dependence on topology
+  CONTAINMENT — Islanding into sub-grids
+      REQUIRES: pre-planned separation points and local generation
+      PROVIDES: preservation of parts of the system, seconds to act
+  Can one scenario contain both?   18: ____
+
+ITEM 19   [domain: urban water supply contamination]
+  CONTAMINANT — Industrial solvent ingress
+      REQUIRES: a spill reaching the source or a permeable main
+      PROVIDES: distinctive odour at low concentration, chronic toxicity, not removed by chlorination
+  RESPONSE — Point-of-use filtration
+      REQUIRES: installation at each tap
+      PROVIDES: protection of one property, unscalable to a city
+  Can one scenario contain both?   19: ____
+
+ITEM 20   [domain: mine safety incident]
+  MINE TYPE — Hard rock metal underground
+      REQUIRES: confined workings in competent rock
+      PROVIDES: no gas liberation, high roof stress, diesel equipment underground
+  CONTROL — Roof bolting and mesh
+      REQUIRES: access to install support at the face
+      PROVIDES: ground support, no effect on any atmospheric hazard
+  Can one scenario contain both?   20: ____
+
+ITEM 21   [domain: counterfeit currency operation]
+  PRODUCER — Opportunistic individual
+      REQUIRES: nothing beyond consumer equipment
+      PROVIDES: very low quality, tiny volume, personal passing only
+  DETECTION POINT — Automated vending machine
+      REQUIRES: the note to be inserted into a validator
+      PROVIDES: sensor-based checks on substrate and thread, no human judgement
+  Can one scenario contain both?   21: ____
+
+ITEM 22   [domain: aviation security screening]
+  SCREENING POINT — Cabin baggage X-ray
+      REQUIRES: the bag entering the machine
+      PROVIDES: shape and density imaging of cabin items, no explosive trace, nothing on the body
+  CONCEALMENT — Inside electronics
+      REQUIRES: a device with internal volume
+      PROVIDES: cluttered X-ray image, requires the device to be opened or separately screened
+  Can one scenario contain both?   22: ____
+
+ITEM 23   [domain: ransomware incident response]
+  INITIAL ACCESS — Phishing attachment
+      REQUIRES: a user to open an attachment
+      PROVIDES: a single user-level foothold, email evidence, no privileged access initially
+  IMPACT STAGE — Encryption of file servers
+      REQUIRES: administrative rights over file shares
+      PROVIDES: loss of working data, backups intact, service outage
+  Can one scenario contain both?   23: ____
+
+ITEM 24   [domain: electrical grid cascading failure]
+  INITIATING EVENT — Substation cyber intrusion
+      REQUIRES: remote access to control systems
+      PROVIDES: adversarial simultaneous switching, false telemetry, no physical damage
+  RESTORATION TIME — Days
+      REQUIRES: physical equipment damage or total collapse
+      PROVIDES: repair or replacement before restoration
+  Can one scenario contain both?   24: ____
+
+ITEM 25   [domain: ransomware incident response]
+  INITIAL ACCESS — Supply-chain software update
+      REQUIRES: compromise of a trusted vendor
+      PROVIDES: simultaneous access across every installation, signed and trusted code, very hard to detect
+  RECOVERY OBJECTIVE — Hours
+      REQUIRES: systems substantially intact
+      PROVIDES: time for containment and simple restore only
+  Can one scenario contain both?   25: ____
+
+ITEM 26   [domain: counterfeit currency operation]
+  PRODUCTION METHOD — Bleached and reprinted genuine note
+      REQUIRES: genuine low-denomination notes to strip
+      PROVIDES: authentic substrate and security thread of the wrong denomination, one note per note
+  DETECTION POINT — Retail cashier
+      REQUIRES: a point-of-sale transaction
+      PROVIDES: untrained inspection under time pressure, pen and light at best
+  Can one scenario contain both?   26: ____
+
+ITEM 27   [domain: narcotics trafficking route]
+  TRANSPORT MODE — Body-carried by courier
+      REQUIRES: a willing person and a passenger route
+      PROVIDES: a kilogram at most, high personal risk, no cargo documentation
+  INTERDICTION POINT — Financial flow
+      REQUIRES: money moving through traceable channels
+      PROVIDES: disruption of the organisation, no product seized
+  Can one scenario contain both?   27: ____
+
+ITEM 28   [domain: urban water supply contamination]
+  CONTAMINANT — Disinfection byproduct
+      REQUIRES: chlorine reacting with natural organic matter
+      PROVIDES: formed by the treatment itself, chronic risk only, rises with treatment intensity
+  RESPONSE — Switch to alternative source
+      REQUIRES: a second source to exist
+      PROVIDES: elimination of a source-side problem, no effect on distribution or household issues
+  Can one scenario contain both?   28: ____
+
+ITEM 29   [domain: aviation security screening]
+  THREAT ITEM — Firearm in cabin baggage
+      REQUIRES: a weapon placed in a bag entering the cabin
+      PROVIDES: strong dense X-ray signature, recognisable shape, no explosive trace
+  SCREENING POINT — Hold baggage explosive detection
+      REQUIRES: checked baggage entering the system
+      PROVIDES: explosive detection on hold items only, nothing in the cabin or on the body
+  Can one scenario contain both?   29: ____
+
+ITEM 30   [domain: urban water supply contamination]
+  DETECTION — Consumer taste and odour complaint
+      REQUIRES: a perceptible change and a consumer reporting it
+      PROVIDES: rapid unstructured signal, only for perceptible contaminants
+  POPULATION AFFECTED — Nobody exposed
+      REQUIRES: detection before water reaches consumers
+      PROVIDES: no health consequence
+  Can one scenario contain both?   30: ____
+
+ITEM 31   [domain: mine safety incident]
+  HAZARD — Diesel exhaust build-up
+      REQUIRES: combustion equipment in a confined airway
+      PROVIDES: gradual asphyxiant accumulation, hours of onset, no explosion risk
+  MINE TYPE — Open cut surface
+      REQUIRES: excavation from the surface
+      PROVIDES: unlimited natural ventilation, no confined atmosphere, bench stability concerns only
+  Can one scenario contain both?   31: ____
+
+ITEM 32   [domain: urban water supply contamination]
+  DETECTION — Routine compliance sampling
+      REQUIRES: a scheduled sampling programme
+      PROVIDES: detection days later, statutory parameters only
+  POPULATION AFFECTED — Single building
+      REQUIRES: an issue confined to one property
+      PROVIDES: small affected population, property-level remedies feasible
+  Can one scenario contain both?   32: ____
+
+ITEM 33   [domain: electrical grid cascading failure]
+  CONTAINMENT — Automatic load shedding
+      REQUIRES: pre-armed relays and a measurable frequency or voltage trigger
+      PROVIDES: response within cycles, blunt and indiscriminate
+  RESTORATION TIME — Days
+      REQUIRES: physical equipment damage or total collapse
+      PROVIDES: repair or replacement before restoration
+  Can one scenario contain both?   33: ____
+
+ITEM 34   [domain: counterfeit currency operation]
+  DISTRIBUTION — Online marketplace sale
+      REQUIRES: anonymous listing and shipping
+      PROVIDES: sale to strangers as counterfeit, no need to deceive the buyer, postal interception risk
+  DETECTION POINT — Automated vending machine
+      REQUIRES: the note to be inserted into a validator
+      PROVIDES: sensor-based checks on substrate and thread, no human judgement
+  Can one scenario contain both?   34: ____
+
+ITEM 35   [domain: bank liquidity crisis]
+  TRIGGER — Interest rate mark-to-market loss
+      REQUIRES: rates rising against a long bond portfolio
+      PROVIDES: unrealised loss crystallised only if assets are sold, no credit deterioration at all
+  LIQUIDITY SOURCE — High-quality liquid asset buffer
+      REQUIRES: unencumbered government securities
+      PROVIDES: immediate monetisation, loss realised if sold below cost
+  Can one scenario contain both?   35: ____
+
+ITEM 36   [domain: electrical grid cascading failure]
+  INITIATING EVENT — Generator trip
+      REQUIRES: loss of a synchronised generating unit
+      PROVIDES: instant loss of supply, frequency deviation, no change to network topology
+  CONTAINMENT — Manual dispatch reconfiguration
+      REQUIRES: operators with a valid system picture and minutes to act
+      PROVIDES: targeted correction, useless against sub-second events
+  Can one scenario contain both?   36: ____
+
+ITEM 37   [domain: narcotics trafficking route]
+  TRANSPORT MODE — Small aircraft
+      REQUIRES: an airstrip or airdrop capability and a pilot
+      PROVIDES: hundreds of kilograms, direct route, high per-trip risk
+  CONCEALMENT — Sealed in machinery
+      REQUIRES: bulky freight and a workshop
+      PROVIDES: defeats casual search, immobile once loaded
+  Can one scenario contain both?   37: ____
+
+ITEM 38   [domain: urban water supply contamination]
+  CONTAMINANT — Heavy metal leaching
+      REQUIRES: corrosive water in contact with metal pipe or solder
+      PROVIDES: chronic exposure, no taste at low levels, unaffected by disinfection
+  ENTRY POINT — Source reservoir
+      REQUIRES: contamination of the raw water body
+      PROVIDES: whole-supply exposure, treatment has a chance to remove it
+  Can one scenario contain both?   38: ____
+
+ITEM 39   [domain: counterfeit currency operation]
+  PRODUCER — Small independent workshop
+      REQUIRES: modest premises and commercial printing equipment
+      PROVIDES: moderate quality, limited volume, direct local distribution
+  DISTRIBUTION — Bulk wholesale to distributors
+      REQUIRES: large volume and a trusted network
+      PROVIDES: producer never exposed to end detection, price at a fraction of face value
+  Can one scenario contain both?   39: ____
+
+ITEM 40   [domain: counterfeit currency operation]
+  PRODUCTION METHOD — Intaglio press with genuine substrate
+      REQUIRES: industrial press and access to security paper
+      PROVIDES: correct tactile relief and paper feel, defeats human and most machine checks
+  DETECTION POINT — Commercial bank teller
+      REQUIRES: a deposit or exchange transaction
+      PROVIDES: trained staff and a desktop verifier, identity of the depositor
+  Can one scenario contain both?   40: ____
+
+ITEM 41   [domain: aviation security screening]
+  SCREENING POINT — Passenger walk-through detector
+      REQUIRES: the passenger passing through the portal
+      PROVIDES: metal detection on the body, nothing about baggage or explosives
+  CONCEALMENT — Disassembled into components
+      REQUIRES: an item that can be broken down
+      PROVIDES: no recognisable shape, each part individually innocuous
+  Can one scenario contain both?   41: ____
+
+ITEM 42   [domain: electrical grid cascading failure]
+  PROPAGATION MECHANISM — Overload on remaining lines
+      REQUIRES: a topology change that redistributes flow
+      PROVIDES: sequential trips over seconds to minutes
+  CONTAINMENT — Black start from reserve
+      REQUIRES: the system already fully collapsed
+      PROVIDES: restoration from nothing, hours to days
+  Can one scenario contain both?   42: ____
+
+ITEM 43   [domain: electrical grid cascading failure]
+  INITIATING EVENT — Generator trip
+      REQUIRES: loss of a synchronised generating unit
+      PROVIDES: instant loss of supply, frequency deviation, no change to network topology
+  RESTORATION TIME — Days
+      REQUIRES: physical equipment damage or total collapse
+      PROVIDES: repair or replacement before restoration
+  Can one scenario contain both?   43: ____
+
+ITEM 44   [domain: counterfeit currency operation]
+  PRODUCTION METHOD — Intaglio press with genuine substrate
+      REQUIRES: industrial press and access to security paper
+      PROVIDES: correct tactile relief and paper feel, defeats human and most machine checks
+  DISTRIBUTION — Exchange at currency bureau
+      REQUIRES: volume worth exchanging and identity documents
+      PROVIDES: conversion to another currency, exposure to trained staff and machines
+  Can one scenario contain both?   44: ____
+
+ITEM 45   [domain: narcotics trafficking route]
+  CONCEALMENT — Dissolved in a legitimate liquid
+      REQUIRES: a substance chemically recoverable afterwards
+      PROVIDES: defeats odour and visual search, requires a laboratory at destination
+  ORGANISATION — Independent small operator
+      REQUIRES: personal capital only
+      PROVIDES: kilogram quantities, no infrastructure, no corruption reach
+  Can one scenario contain both?   45: ____
+
+ITEM 46   [domain: ransomware incident response]
+  IMPACT STAGE — Encryption of file servers
+      REQUIRES: administrative rights over file shares
+      PROVIDES: loss of working data, backups intact, service outage
+  RECOVERY OBJECTIVE — Hours
+      REQUIRES: systems substantially intact
+      PROVIDES: time for containment and simple restore only
+  Can one scenario contain both?   46: ____
+
+ITEM 47   [domain: bank liquidity crisis]
+  TRIGGER — Credit loss on the asset book
+      REQUIRES: borrowers defaulting in size
+      PROVIDES: solvency question rather than liquidity, losses realised over quarters
+  FUNDING PROFILE — Large uninsured corporate deposits
+      REQUIRES: balances far above any guarantee
+      PROVIDES: highly mobile, concentrated among few holders
+  Can one scenario contain both?   47: ____
+
+ITEM 48   [domain: aviation security screening]
+  SCREENING POINT — Behavioural observation
+      REQUIRES: trained officers watching passengers
+      PROVIDES: indication of intent, no detection of any object
+  CONCEALMENT — Disassembled into components
+      REQUIRES: an item that can be broken down
+      PROVIDES: no recognisable shape, each part individually innocuous
+  Can one scenario contain both?   48: ____
+
+ITEM 49   [domain: ransomware incident response]
+  INITIAL ACCESS — Supply-chain software update
+      REQUIRES: compromise of a trusted vendor
+      PROVIDES: simultaneous access across every installation, signed and trusted code, very hard to detect
+  RESPONSE ACTION — Isolate affected segment
+      REQUIRES: the compromise being confined to identifiable hosts
+      PROVIDES: containment within minutes, no data recovery
+  Can one scenario contain both?   49: ____
+
+ITEM 50   [domain: urban water supply contamination]
+  CONTAMINANT — Disinfection byproduct
+      REQUIRES: chlorine reacting with natural organic matter
+      PROVIDES: formed by the treatment itself, chronic risk only, rises with treatment intensity
+  POPULATION AFFECTED — One distribution zone
+      REQUIRES: a contaminant confined by network geometry
+      PROVIDES: thousands affected, zone-level isolation possible
+  Can one scenario contain both?   50: ____
+
+ITEM 51   [domain: electrical grid cascading failure]
+  CONTAINMENT — Islanding into sub-grids
+      REQUIRES: pre-planned separation points and local generation
+      PROVIDES: preservation of parts of the system, seconds to act
+  RESTORATION TIME — Days
+      REQUIRES: physical equipment damage or total collapse
+      PROVIDES: repair or replacement before restoration
+  Can one scenario contain both?   51: ____
+
+ITEM 52   [domain: mine safety incident]
+  MINE TYPE — Open cut surface
+      REQUIRES: excavation from the surface
+      PROVIDES: unlimited natural ventilation, no confined atmosphere, bench stability concerns only
+  CONTROL — Real-time gas monitoring
+      REQUIRES: sensors and a data link
+      PROVIDES: warning of atmospheric change, no physical control of anything
+  Can one scenario contain both?   52: ____
+
+ITEM 53   [domain: counterfeit currency operation]
+  PRODUCER — Organised criminal group
+      REQUIRES: capital, distribution network, sustained operation
+      PROVIDES: industrial equipment, bulk volume, layered distribution, no state protection
+  DISTRIBUTION — Passing at retail point of sale
+      REQUIRES: physical presence and small denominations
+      PROVIDES: immediate value, direct personal exposure, one note at a time
+  Can one scenario contain both?   53: ____
+
+ITEM 54   [domain: urban water supply contamination]
+  RESPONSE — Boil water notice
+      REQUIRES: a contaminant destroyed by boiling
+      PROVIDES: immediate protection from microbes, useless against chemicals
+  POPULATION AFFECTED — Nobody exposed
+      REQUIRES: detection before water reaches consumers
+      PROVIDES: no health consequence
+  Can one scenario contain both?   54: ____
+
+ITEM 55   [domain: ransomware incident response]
+  INITIAL ACCESS — Phishing attachment
+      REQUIRES: a user to open an attachment
+      PROVIDES: a single user-level foothold, email evidence, no privileged access initially
+  RESPONSE ACTION — Pay the ransom
+      REQUIRES: an attacker holding something not otherwise recoverable
+      PROVIDES: a decryption key of uncertain quality, no remediation, legal exposure
+  Can one scenario contain both?   55: ____
+
+ITEM 56   [domain: bank liquidity crisis]
+  TRIGGER — Interest rate mark-to-market loss
+      REQUIRES: rates rising against a long bond portfolio
+      PROVIDES: unrealised loss crystallised only if assets are sold, no credit deterioration at all
+  OUTCOME — Disorderly failure
+      REQUIRES: no buyer and no facility
+      PROVIDES: depositor loss, contagion to peers
+  Can one scenario contain both?   56: ____
+
+ITEM 57   [domain: urban water supply contamination]
+  RESPONSE — Switch to alternative source
+      REQUIRES: a second source to exist
+      PROVIDES: elimination of a source-side problem, no effect on distribution or household issues
+  POPULATION AFFECTED — Entire city
+      REQUIRES: contamination upstream of all distribution
+      PROVIDES: whole population affected, no unaffected zone to switch to
+  Can one scenario contain both?   57: ____
+
+ITEM 58   [domain: narcotics trafficking route]
+  CONCEALMENT — Internally concealed
+      REQUIRES: a human carrier and small packaged volume
+      PROVIDES: defeats all external search, lethal risk to the carrier
+  ORGANISATION — Independent small operator
+      REQUIRES: personal capital only
+      PROVIDES: kilogram quantities, no infrastructure, no corruption reach
+  Can one scenario contain both?   58: ____
+
+ITEM 59   [domain: narcotics trafficking route]
+  CONCEALMENT — Openly declared as something else
+      REQUIRES: the goods to be plausibly legitimate
+      PROVIDES: no physical concealment, defeated by any test
+  ORGANISATION — Independent small operator
+      REQUIRES: personal capital only
+      PROVIDES: kilogram quantities, no infrastructure, no corruption reach
+  Can one scenario contain both?   59: ____
+
+ITEM 60   [domain: dam safety failure]
+  WARNING INDICATOR — Visible crest settlement
+      REQUIRES: deformation large enough to see
+      PROVIDES: late-stage warning, unambiguous
+  DOWNSTREAM EXPOSURE — Farmland only
+      REQUIRES: agricultural land downstream
+      PROVIDES: economic loss, no immediate life safety concern
+  Can one scenario contain both?   60: ____

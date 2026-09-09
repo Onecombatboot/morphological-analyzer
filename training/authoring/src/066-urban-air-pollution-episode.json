@@ -1,0 +1,187 @@
+{
+ "domain": "urban air pollution episode",
+ "group": "environment",
+ "parameters": {
+  "POLLUTANT": [
+   "Traffic nitrogen dioxide",
+   "Secondary particulate",
+   "Wood smoke from domestic heating",
+   "Industrial plume grounding"
+  ],
+  "METEOROLOGY": [
+   "Temperature inversion",
+   "Strong wind",
+   "Stagnant high pressure",
+   "Heavy rain"
+  ],
+  "INTERVENTION": [
+   "Traffic restriction by number plate",
+   "Solid fuel burning ban",
+   "Industrial abatement order",
+   "Public health advisory only"
+  ],
+  "OUTCOME": [
+   "Limits not exceeded",
+   "Short exceedance",
+   "Prolonged episode with excess mortality",
+   "Attribution dispute"
+  ]
+ },
+ "characterisations": {
+  "Traffic nitrogen dioxide": {
+   "requires": "vehicle exhaust in a street canyon",
+   "provides": "concentrations highest beside the kerb, falling away within tens of metres, weekday peaks"
+  },
+  "Secondary particulate": {
+   "requires": "precursors reacting downwind over hours",
+   "provides": "uniform concentrations across a whole city, no local source to control"
+  },
+  "Wood smoke from domestic heating": {
+   "requires": "solid fuel burning in dwellings",
+   "provides": "evening and overnight peaks, worst in cold still weather, residential rather than roadside"
+  },
+  "Industrial plume grounding": {
+   "requires": "a stack plume brought to the surface",
+   "provides": "a narrow downwind sector, episodic and short, a single identifiable operator"
+  },
+  "Temperature inversion": {
+   "requires": "a stable layer trapping air near the ground",
+   "provides": "no vertical dispersion, accumulation over days"
+  },
+  "Strong wind": {
+   "requires": "rapid horizontal transport",
+   "provides": "dilution of everything local, possible import from elsewhere"
+  },
+  "Stagnant high pressure": {
+   "requires": "light winds over a wide area",
+   "provides": "regional accumulation, no direction to the transport"
+  },
+  "Heavy rain": {
+   "requires": "precipitation scavenging",
+   "provides": "removal of particulate, little effect on gaseous nitrogen dioxide"
+  },
+  "Traffic restriction by number plate": {
+   "requires": "a legal scheme and enforcement",
+   "provides": "reduction of vehicle emissions within a day, no effect on any other source"
+  },
+  "Solid fuel burning ban": {
+   "requires": "enforceable local rules",
+   "provides": "reduction of domestic smoke, compliance difficult to verify indoors"
+  },
+  "Industrial abatement order": {
+   "requires": "a permit condition and a named operator",
+   "provides": "reduction at one stack, no effect on diffuse sources"
+  },
+  "Public health advisory only": {
+   "requires": "a communication channel",
+   "provides": "behaviour change by vulnerable people, no reduction in concentration at all"
+  },
+  "Limits not exceeded": {
+   "requires": "concentrations remaining within standards",
+   "provides": "no exceedance to report"
+  },
+  "Short exceedance": {
+   "requires": "standards breached for a day or two",
+   "provides": "reporting obligation, no lasting health signal"
+  },
+  "Prolonged episode with excess mortality": {
+   "requires": "high concentrations sustained for a week",
+   "provides": "measurable excess deaths, political consequence"
+  },
+  "Attribution dispute": {
+   "requires": "sources contested between parties",
+   "provides": "regulatory paralysis, no action taken"
+  }
+ },
+ "exclusions": {
+  "POLLUTANT|INTERVENTION": [
+   {
+    "row": "Secondary particulate",
+    "col": "Traffic restriction by number plate",
+    "code": "N7",
+    "requires": "reduction of vehicle emissions within a day",
+    "blocked_by": "no local source to control"
+   },
+   {
+    "row": "Secondary particulate",
+    "col": "Industrial abatement order",
+    "code": "N3",
+    "requires": "reduction at one stack",
+    "blocked_by": "no local source to control"
+   },
+   {
+    "row": "Wood smoke from domestic heating",
+    "col": "Traffic restriction by number plate",
+    "code": "N3",
+    "requires": "reduction of vehicle emissions within a day",
+    "blocked_by": "residential rather than roadside"
+   },
+   {
+    "row": "Traffic nitrogen dioxide",
+    "col": "Solid fuel burning ban",
+    "code": "N3",
+    "requires": "reduction of domestic smoke",
+    "blocked_by": "vehicle exhaust in a street canyon"
+   },
+   {
+    "row": "Industrial plume grounding",
+    "col": "Solid fuel burning ban",
+    "code": "N3",
+    "requires": "reduction of domestic smoke",
+    "blocked_by": "a single identifiable operator"
+   }
+  ],
+  "POLLUTANT|OUTCOME": [
+   {
+    "row": "Industrial plume grounding",
+    "col": "Attribution dispute",
+    "code": "N7",
+    "requires": "sources contested between parties",
+    "blocked_by": "a single identifiable operator"
+   },
+   {
+    "row": "Industrial plume grounding",
+    "col": "Prolonged episode with excess mortality",
+    "code": "N7",
+    "requires": "high concentrations sustained for a week",
+    "blocked_by": "episodic and short"
+   }
+  ],
+  "METEOROLOGY|OUTCOME": [
+   {
+    "row": "Strong wind",
+    "col": "Prolonged episode with excess mortality",
+    "code": "N3",
+    "requires": "high concentrations sustained for a week",
+    "blocked_by": "dilution of everything local"
+   }
+  ],
+  "METEOROLOGY|INTERVENTION": [
+   {
+    "row": "Heavy rain",
+    "col": "Industrial abatement order",
+    "code": "N7",
+    "requires": "reduction at one stack",
+    "blocked_by": "removal of particulate"
+   }
+  ],
+  "INTERVENTION|OUTCOME": [
+   {
+    "row": "Public health advisory only",
+    "col": "Limits not exceeded",
+    "code": "N3",
+    "requires": "concentrations remaining within standards",
+    "blocked_by": "no reduction in concentration at all"
+   }
+  ],
+  "POLLUTANT|METEOROLOGY": [
+   {
+    "row": "Wood smoke from domestic heating",
+    "col": "Strong wind",
+    "code": "N7",
+    "requires": "dilution of everything local",
+    "blocked_by": "worst in cold still weather"
+   }
+  ]
+ }
+}

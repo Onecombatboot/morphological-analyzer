@@ -1,0 +1,180 @@
+{
+ "domain": "semiconductor supply shock",
+ "group": "logistics",
+ "parameters": {
+  "SHOCK ORIGIN": [
+   "Fabrication plant fire",
+   "Export control imposed",
+   "Substrate material shortage",
+   "Demand surge from a new product"
+  ],
+  "PART CHARACTER": [
+   "Leading-edge logic",
+   "Mature analogue component",
+   "Custom application-specific device",
+   "Memory commodity"
+  ],
+  "BUYER RESPONSE": [
+   "Qualify a second source",
+   "Buy on the spot market",
+   "Redesign around available parts",
+   "Allocate output to priority customers"
+  ],
+  "DOWNSTREAM EFFECT": [
+   "No production impact",
+   "Reduced build rate",
+   "Product line suspended",
+   "Feature removal to ship"
+  ]
+ },
+ "characterisations": {
+  "Fabrication plant fire": {
+   "requires": "a fire in a wafer fab",
+   "provides": "months of lost output from one site, no alternative qualified source"
+  },
+  "Export control imposed": {
+   "requires": "a government restricting a technology",
+   "provides": "legal rather than physical unavailability, alternatives outside the controlling jurisdiction"
+  },
+  "Substrate material shortage": {
+   "requires": "an upstream input constrained",
+   "provides": "every fab affected simultaneously, no site-specific remedy"
+  },
+  "Demand surge from a new product": {
+   "requires": "an unexpected order book",
+   "provides": "no supply failure at all, allocation between customers the only issue"
+  },
+  "Leading-edge logic": {
+   "requires": "a process node available at very few fabs",
+   "provides": "no second source in practice, years to qualify anywhere else"
+  },
+  "Mature analogue component": {
+   "requires": "a legacy process with many suppliers",
+   "provides": "multiple qualified sources, very low unit value"
+  },
+  "Custom application-specific device": {
+   "requires": "a design owned by one customer",
+   "provides": "mask sets tied to one foundry, redesign required to move"
+  },
+  "Memory commodity": {
+   "requires": "a fungible standard product",
+   "provides": "interchangeable between suppliers, price volatility rather than availability"
+  },
+  "Qualify a second source": {
+   "requires": "an alternative supplier and engineering time",
+   "provides": "durable resilience, six to eighteen months to achieve"
+  },
+  "Buy on the spot market": {
+   "requires": "brokers holding inventory",
+   "provides": "immediate supply, extreme price and counterfeit risk"
+  },
+  "Redesign around available parts": {
+   "requires": "engineering capacity and certification headroom",
+   "provides": "permanent removal of the dependency, months and recertification cost"
+  },
+  "Allocate output to priority customers": {
+   "requires": "a supplier decision on rationing",
+   "provides": "continuity for some, complete cut-off for others"
+  },
+  "No production impact": {
+   "requires": "buffers and substitution sufficient",
+   "provides": "no consequence"
+  },
+  "Reduced build rate": {
+   "requires": "partial supply",
+   "provides": "lower output, order backlog growing"
+  },
+  "Product line suspended": {
+   "requires": "a part with no substitute at all",
+   "provides": "revenue loss, workforce idled"
+  },
+  "Feature removal to ship": {
+   "requires": "a redesign shipping without a function",
+   "provides": "product shipped in degraded form"
+  }
+ },
+ "exclusions": {
+  "SHOCK ORIGIN|PART CHARACTER": [
+   {
+    "row": "Demand surge from a new product",
+    "col": "Mature analogue component",
+    "code": "N7",
+    "requires": "multiple qualified sources",
+    "blocked_by": "no supply failure at all"
+   }
+  ],
+  "SHOCK ORIGIN|BUYER RESPONSE": [
+   {
+    "row": "Substrate material shortage",
+    "col": "Qualify a second source",
+    "code": "N3",
+    "requires": "an alternative supplier and engineering time",
+    "blocked_by": "every fab affected simultaneously"
+   },
+   {
+    "row": "Export control imposed",
+    "col": "Buy on the spot market",
+    "code": "N7",
+    "requires": "brokers holding inventory",
+    "blocked_by": "legal rather than physical unavailability"
+   }
+  ],
+  "PART CHARACTER|BUYER RESPONSE": [
+   {
+    "row": "Leading-edge logic",
+    "col": "Qualify a second source",
+    "code": "N3",
+    "requires": "an alternative supplier and engineering time",
+    "blocked_by": "no second source in practice"
+   },
+   {
+    "row": "Custom application-specific device",
+    "col": "Qualify a second source",
+    "code": "N3",
+    "requires": "an alternative supplier and engineering time",
+    "blocked_by": "mask sets tied to one foundry"
+   },
+   {
+    "row": "Custom application-specific device",
+    "col": "Buy on the spot market",
+    "code": "N3",
+    "requires": "brokers holding inventory",
+    "blocked_by": "a design owned by one customer"
+   }
+  ],
+  "PART CHARACTER|DOWNSTREAM EFFECT": [
+   {
+    "row": "Memory commodity",
+    "col": "Product line suspended",
+    "code": "N7",
+    "requires": "a part with no substitute at all",
+    "blocked_by": "interchangeable between suppliers"
+   },
+   {
+    "row": "Mature analogue component",
+    "col": "Product line suspended",
+    "code": "N7",
+    "requires": "a part with no substitute at all",
+    "blocked_by": "multiple qualified sources"
+   }
+  ],
+  "BUYER RESPONSE|DOWNSTREAM EFFECT": [
+   {
+    "row": "Redesign around available parts",
+    "col": "No production impact",
+    "code": "N7",
+    "requires": "buffers and substitution sufficient",
+    "blocked_by": "months and recertification cost"
+   }
+  ],
+  "SHOCK ORIGIN|DOWNSTREAM EFFECT": [
+   {
+    "row": "Demand surge from a new product",
+    "col": "Feature removal to ship",
+    "code": "N7",
+    "requires": "a redesign shipping without a function",
+    "blocked_by": "no supply failure at all"
+   }
+  ]
+ }
+}

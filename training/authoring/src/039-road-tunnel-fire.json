@@ -1,0 +1,187 @@
+{
+ "domain": "road tunnel fire",
+ "group": "transport safety",
+ "parameters": {
+  "FIRE SOURCE": [
+   "Passenger car fire",
+   "Heavy goods vehicle load fire",
+   "Tanker carrying flammable liquid",
+   "Electrical plant fire"
+  ],
+  "VENTILATION SYSTEM": [
+   "Longitudinal jet fans",
+   "Transverse extraction",
+   "Natural ventilation only",
+   "Ventilation disabled by the fire"
+  ],
+  "ESCAPE PROVISION": [
+   "Cross passages to a parallel bore",
+   "Emergency exits to the surface",
+   "Escape along the bore to a portal",
+   "Protected refuge chambers"
+  ],
+  "TRAFFIC STATE": [
+   "Free flowing",
+   "Congested and stationary",
+   "Closed to traffic for works",
+   "Bidirectional single bore"
+  ]
+ },
+ "characterisations": {
+  "Passenger car fire": {
+   "requires": "a vehicle ignition inside the bore",
+   "provides": "small heat release, slow growth, smoke limited at first"
+  },
+  "Heavy goods vehicle load fire": {
+   "requires": "a lorry carrying combustible freight",
+   "provides": "very high heat release, rapid growth, structural damage to the lining"
+  },
+  "Tanker carrying flammable liquid": {
+   "requires": "a fuel tanker breaching",
+   "provides": "pool fire and explosion risk, spread along the drainage, no survivable approach"
+  },
+  "Electrical plant fire": {
+   "requires": "a fault in the tunnel services",
+   "provides": "loss of tunnel systems themselves, limited heat, smoke in service spaces"
+  },
+  "Longitudinal jet fans": {
+   "requires": "fans along the bore and a single traffic direction",
+   "provides": "smoke pushed one way, clear air upstream"
+  },
+  "Transverse extraction": {
+   "requires": "ducts and dampers over the length",
+   "provides": "smoke removed near the fire, stratification preserved"
+  },
+  "Natural ventilation only": {
+   "requires": "a short bore and open portals",
+   "provides": "no control of smoke movement whatsoever"
+  },
+  "Ventilation disabled by the fire": {
+   "requires": "damage to the ventilation plant",
+   "provides": "no smoke control available, conditions deteriorating"
+  },
+  "Cross passages to a parallel bore": {
+   "requires": "a second bore alongside",
+   "provides": "short escape distance to a protected space"
+  },
+  "Emergency exits to the surface": {
+   "requires": "shafts or adits at intervals",
+   "provides": "escape without traversing the bore, a long vertical climb"
+  },
+  "Escape along the bore to a portal": {
+   "requires": "no intermediate exits",
+   "provides": "very long travel in the smoke path"
+  },
+  "Protected refuge chambers": {
+   "requires": "sealed rooms with an independent air supply",
+   "provides": "survival in place, no self-rescue to the outside"
+  },
+  "Free flowing": {
+   "requires": "normal running speed",
+   "provides": "vehicles clear the bore quickly, few people exposed"
+  },
+  "Congested and stationary": {
+   "requires": "a queue standing inside the bore",
+   "provides": "many people in the smoke path, vehicles that cannot be moved"
+  },
+  "Closed to traffic for works": {
+   "requires": "a possession with only workers present",
+   "provides": "a small known population, trained staff"
+  },
+  "Bidirectional single bore": {
+   "requires": "two-way running in one tube",
+   "provides": "traffic on both sides of any incident"
+  }
+ },
+ "exclusions": {
+  "FIRE SOURCE|VENTILATION SYSTEM": [
+   {
+    "row": "Heavy goods vehicle load fire",
+    "col": "Natural ventilation only",
+    "code": "N7",
+    "requires": "a short bore and open portals",
+    "blocked_by": "very high heat release"
+   },
+   {
+    "row": "Tanker carrying flammable liquid",
+    "col": "Natural ventilation only",
+    "code": "N7",
+    "requires": "a short bore and open portals",
+    "blocked_by": "pool fire and explosion risk"
+   }
+  ],
+  "FIRE SOURCE|ESCAPE PROVISION": [
+   {
+    "row": "Tanker carrying flammable liquid",
+    "col": "Escape along the bore to a portal",
+    "code": "N3",
+    "requires": "very long travel in the smoke path",
+    "blocked_by": "no survivable approach"
+   },
+   {
+    "row": "Tanker carrying flammable liquid",
+    "col": "Protected refuge chambers",
+    "code": "N7",
+    "requires": "survival in place",
+    "blocked_by": "no survivable approach"
+   }
+  ],
+  "FIRE SOURCE|TRAFFIC STATE": [
+   {
+    "row": "Passenger car fire",
+    "col": "Closed to traffic for works",
+    "code": "N7",
+    "requires": "a possession with only workers present",
+    "blocked_by": "a vehicle ignition inside the bore"
+   },
+   {
+    "row": "Heavy goods vehicle load fire",
+    "col": "Closed to traffic for works",
+    "code": "N7",
+    "requires": "a possession with only workers present",
+    "blocked_by": "a lorry carrying combustible freight"
+   },
+   {
+    "row": "Tanker carrying flammable liquid",
+    "col": "Closed to traffic for works",
+    "code": "N7",
+    "requires": "a possession with only workers present",
+    "blocked_by": "a fuel tanker breaching"
+   }
+  ],
+  "VENTILATION SYSTEM|ESCAPE PROVISION": [
+   {
+    "row": "Ventilation disabled by the fire",
+    "col": "Escape along the bore to a portal",
+    "code": "N7",
+    "requires": "very long travel in the smoke path",
+    "blocked_by": "no smoke control available"
+   }
+  ],
+  "VENTILATION SYSTEM|TRAFFIC STATE": [
+   {
+    "row": "Longitudinal jet fans",
+    "col": "Bidirectional single bore",
+    "code": "N3",
+    "requires": "a single traffic direction",
+    "blocked_by": "two-way running in one tube"
+   }
+  ],
+  "ESCAPE PROVISION|TRAFFIC STATE": [
+   {
+    "row": "Cross passages to a parallel bore",
+    "col": "Bidirectional single bore",
+    "code": "N3",
+    "requires": "a second bore alongside",
+    "blocked_by": "two-way running in one tube"
+   },
+   {
+    "row": "Escape along the bore to a portal",
+    "col": "Congested and stationary",
+    "code": "N7",
+    "requires": "very long travel in the smoke path",
+    "blocked_by": "many people in the smoke path"
+   }
+  ]
+ }
+}

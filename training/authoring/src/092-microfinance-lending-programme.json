@@ -1,0 +1,155 @@
+{
+ "domain": "microfinance lending programme",
+ "group": "finance",
+ "parameters": {
+  "LENDING MODEL": [
+   "Group liability circle",
+   "Individual secured loan",
+   "Digital nano-credit",
+   "Savings-led group fund"
+  ],
+  "BORROWER PROFILE": [
+   "Established market trader",
+   "First-time borrower with no record",
+   "Smallholder farmer",
+   "Salaried worker with payslips"
+  ],
+  "EXTERNAL SHOCK": [
+   "Drought destroying the harvest",
+   "Currency collapse",
+   "Political ban on collection",
+   "Stable conditions throughout"
+  ],
+  "PORTFOLIO OUTCOME": [
+   "Full repayment achieved",
+   "Localised arrears absorbed",
+   "Correlated mass default",
+   "Programme closed to new lending"
+  ]
+ },
+ "characterisations": {
+  "Group liability circle": {
+   "requires": "several borrowers guaranteeing each other",
+   "provides": "repayment enforced by peers, exclusion of anyone the group rejects"
+  },
+  "Individual secured loan": {
+   "requires": "an asset that can be pledged",
+   "provides": "larger sums possible, loss of the asset on default"
+  },
+  "Digital nano-credit": {
+   "requires": "a smartphone and a data trail",
+   "provides": "instant disbursement at scale, no human assessment at all"
+  },
+  "Savings-led group fund": {
+   "requires": "members saving before borrowing",
+   "provides": "no external capital needed, very small loan sizes"
+  },
+  "Established market trader": {
+   "requires": "a running business with turnover",
+   "provides": "predictable cash flow, capacity for a larger loan"
+  },
+  "First-time borrower with no record": {
+   "requires": "no credit history of any kind",
+   "provides": "no basis for scoring, reliance on character assessment"
+  },
+  "Smallholder farmer": {
+   "requires": "land access and a single harvest cycle",
+   "provides": "income only once a year, exposure to weather"
+  },
+  "Salaried worker with payslips": {
+   "requires": "formal employment",
+   "provides": "verifiable regular income, low assessed risk"
+  },
+  "Drought destroying the harvest": {
+   "requires": "rain-fed cultivation",
+   "provides": "no farm income that season, widespread simultaneous default"
+  },
+  "Currency collapse": {
+   "requires": "a loan denominated in hard currency",
+   "provides": "repayment burden multiplying, no fault of the borrower"
+  },
+  "Political ban on collection": {
+   "requires": "a moratorium declared",
+   "provides": "no lawful recovery of any kind, portfolio frozen"
+  },
+  "Stable conditions throughout": {
+   "requires": "no external disturbance",
+   "provides": "repayment determined by the business alone, normal arrears only"
+  },
+  "Full repayment achieved": {
+   "requires": "borrowers able and willing to pay",
+   "provides": "capital recycled, the programme sustainable"
+  },
+  "Localised arrears absorbed": {
+   "requires": "a minority failing to repay",
+   "provides": "provisions cover the loss, the programme continuing"
+  },
+  "Correlated mass default": {
+   "requires": "a shock hitting all borrowers at once",
+   "provides": "the loan book impaired, refinancing required"
+  },
+  "Programme closed to new lending": {
+   "requires": "capital exhausted or withdrawn",
+   "provides": "no further loans issued, existing loans run off"
+  }
+ },
+ "exclusions": {
+  "LENDING MODEL|BORROWER PROFILE": [
+   {
+    "row": "Individual secured loan",
+    "col": "First-time borrower with no record",
+    "code": "N7",
+    "requires": "an asset that can be pledged",
+    "blocked_by": "no credit history of any kind"
+   },
+   {
+    "row": "Digital nano-credit",
+    "col": "First-time borrower with no record",
+    "code": "N3",
+    "requires": "a smartphone and a data trail",
+    "blocked_by": "no basis for scoring"
+   }
+  ],
+  "BORROWER PROFILE|EXTERNAL SHOCK": [
+   {
+    "row": "Salaried worker with payslips",
+    "col": "Drought destroying the harvest",
+    "code": "N3",
+    "requires": "rain-fed cultivation",
+    "blocked_by": "formal employment"
+   },
+   {
+    "row": "Established market trader",
+    "col": "Drought destroying the harvest",
+    "code": "N3",
+    "requires": "rain-fed cultivation",
+    "blocked_by": "a running business with turnover"
+   }
+  ],
+  "EXTERNAL SHOCK|PORTFOLIO OUTCOME": [
+   {
+    "row": "Stable conditions throughout",
+    "col": "Correlated mass default",
+    "code": "N3",
+    "requires": "a shock hitting all borrowers at once",
+    "blocked_by": "no external disturbance"
+   },
+   {
+    "row": "Political ban on collection",
+    "col": "Full repayment achieved",
+    "code": "N3",
+    "requires": "borrowers able and willing to pay",
+    "blocked_by": "no lawful recovery of any kind"
+   }
+  ],
+  "LENDING MODEL|PORTFOLIO OUTCOME": [
+   {
+    "row": "Savings-led group fund",
+    "col": "Programme closed to new lending",
+    "code": "N7",
+    "requires": "capital exhausted or withdrawn",
+    "blocked_by": "no external capital needed"
+   }
+  ]
+ }
+}

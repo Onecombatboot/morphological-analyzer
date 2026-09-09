@@ -1,0 +1,148 @@
+{
+ "domain": "railway timetable recast",
+ "group": "transport",
+ "parameters": {
+  "NETWORK CONSTRAINT": [
+   "Two track railway with mixed speeds",
+   "Four track with segregated pairs",
+   "Single track with passing loops",
+   "Terminal station platform limit"
+  ],
+  "SERVICE ASPIRATION": [
+   "Clock-face regular interval",
+   "Peak-focused commuter provision",
+   "Long distance express priority",
+   "Freight paths preserved"
+  ],
+  "RESOURCE POSITION": [
+   "Sufficient rolling stock and crew",
+   "Rolling stock shortage",
+   "Crew shortage at weekends",
+   "Depot capacity exhausted"
+  ],
+  "TIMETABLE OUTCOME": [
+   "Recast delivered in full",
+   "Recast delivered with reductions",
+   "Recast deferred to a later date",
+   "Recast collapses in operation"
+  ]
+ },
+ "characterisations": {
+  "Two track railway with mixed speeds": {
+   "requires": "shared track for fast and slow services",
+   "provides": "overtaking only at loops, capacity lost to speed differences"
+  },
+  "Four track with segregated pairs": {
+   "requires": "separate fast and slow lines",
+   "provides": "independent paths, high capacity for both"
+  },
+  "Single track with passing loops": {
+   "requires": "one line and timed crossings",
+   "provides": "services locked to loop positions, a delay to one delays the other"
+  },
+  "Terminal station platform limit": {
+   "requires": "a fixed number of platforms",
+   "provides": "a hard ceiling on trains per hour, no expansion possible"
+  },
+  "Clock-face regular interval": {
+   "requires": "even spacing throughout the day",
+   "provides": "memorable pattern, inefficient use of uneven capacity"
+  },
+  "Peak-focused commuter provision": {
+   "requires": "concentration of stock at peak",
+   "provides": "maximum peak seats, idle resources off peak"
+  },
+  "Long distance express priority": {
+   "requires": "paths cleared for fast services",
+   "provides": "competitive journey times, fewer stops served"
+  },
+  "Freight paths preserved": {
+   "requires": "guaranteed slots for freight",
+   "provides": "rail freight retained, capacity removed from passenger use"
+  },
+  "Sufficient rolling stock and crew": {
+   "requires": "fleet and rosters matched to the plan",
+   "provides": "the timetable deliverable as written, normal costs"
+  },
+  "Rolling stock shortage": {
+   "requires": "fewer units than diagrams require",
+   "provides": "services cancelled or shortened, no growth possible"
+  },
+  "Crew shortage at weekends": {
+   "requires": "rest day working relied upon",
+   "provides": "unreliable weekend delivery, a plan that works only on paper"
+  },
+  "Depot capacity exhausted": {
+   "requires": "no space to stable more units",
+   "provides": "no additional units deployable, growth blocked regardless of funding"
+  },
+  "Recast delivered in full": {
+   "requires": "capacity and resources aligned",
+   "provides": "the intended pattern operating, benefits realised"
+  },
+  "Recast delivered with reductions": {
+   "requires": "a plan trimmed to fit resources",
+   "provides": "a partial pattern, some aspirations dropped"
+  },
+  "Recast deferred to a later date": {
+   "requires": "a decision that it cannot be run",
+   "provides": "the existing timetable retained, sunk planning cost"
+  },
+  "Recast collapses in operation": {
+   "requires": "a plan beyond what the railway can deliver",
+   "provides": "mass cancellation, emergency timetable imposed"
+  }
+ },
+ "exclusions": {
+  "NETWORK CONSTRAINT|SERVICE ASPIRATION": [
+   {
+    "row": "Single track with passing loops",
+    "col": "Clock-face regular interval",
+    "code": "N3",
+    "requires": "even spacing throughout the day",
+    "blocked_by": "services locked to loop positions"
+   }
+  ],
+  "RESOURCE POSITION|TIMETABLE OUTCOME": [
+   {
+    "row": "Rolling stock shortage",
+    "col": "Recast delivered in full",
+    "code": "N3",
+    "requires": "capacity and resources aligned",
+    "blocked_by": "services cancelled or shortened"
+   },
+   {
+    "row": "Depot capacity exhausted",
+    "col": "Recast delivered in full",
+    "code": "N3",
+    "requires": "capacity and resources aligned",
+    "blocked_by": "no additional units deployable"
+   },
+   {
+    "row": "Sufficient rolling stock and crew",
+    "col": "Recast collapses in operation",
+    "code": "N7",
+    "requires": "a plan beyond what the railway can deliver",
+    "blocked_by": "the timetable deliverable as written"
+   }
+  ],
+  "SERVICE ASPIRATION|RESOURCE POSITION": [
+   {
+    "row": "Peak-focused commuter provision",
+    "col": "Rolling stock shortage",
+    "code": "N3",
+    "requires": "concentration of stock at peak",
+    "blocked_by": "fewer units than diagrams require"
+   }
+  ],
+  "NETWORK CONSTRAINT|TIMETABLE OUTCOME": [
+   {
+    "row": "Terminal station platform limit",
+    "col": "Recast delivered in full",
+    "code": "N7",
+    "requires": "capacity and resources aligned",
+    "blocked_by": "a hard ceiling on trains per hour"
+   }
+  ]
+ }
+}

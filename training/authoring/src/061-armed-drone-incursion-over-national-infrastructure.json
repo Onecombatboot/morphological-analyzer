@@ -1,0 +1,187 @@
+{
+ "domain": "armed drone incursion over national infrastructure",
+ "group": "security",
+ "parameters": {
+  "INCURSION PROFILE": [
+   "Single reconnaissance overflight",
+   "Loitering munition strike",
+   "Repeated harassment sorties",
+   "Decoy incursion masking another axis"
+  ],
+  "PROTECTED SITE": [
+   "Nuclear power station",
+   "Military airbase",
+   "Offshore energy platform",
+   "Urban government district"
+  ],
+  "RESPONSE OPTION": [
+   "Kinetic engagement",
+   "Electronic countermeasures",
+   "Track and do not engage",
+   "Diplomatic and legal response"
+  ],
+  "OUTCOME": [
+   "Airframe defeated before the objective",
+   "Objective achieved by the intruder",
+   "Incursion undetected until afterwards",
+   "Collateral harm from the response"
+  ]
+ },
+ "characterisations": {
+  "Single reconnaissance overflight": {
+   "requires": "one airframe transiting the site",
+   "provides": "imagery collection only, no weapon carried, deniable as a navigation error"
+  },
+  "Loitering munition strike": {
+   "requires": "an armed airframe with a target",
+   "provides": "destruction of a specific asset, unambiguous attack"
+  },
+  "Repeated harassment sorties": {
+   "requires": "sustained sorties over weeks",
+   "provides": "no damage individually, cumulative operational and political effect"
+  },
+  "Decoy incursion masking another axis": {
+   "requires": "cheap airframes drawing attention",
+   "provides": "no effect at the site itself, defensive attention diverted"
+  },
+  "Nuclear power station": {
+   "requires": "a licensed nuclear site",
+   "provides": "catastrophic consequence potential, extremely restricted airspace already"
+  },
+  "Military airbase": {
+   "requires": "an operational air force installation",
+   "provides": "organic air defence present, armed response available on site"
+  },
+  "Offshore energy platform": {
+   "requires": "an installation far from any shore",
+   "provides": "no ground-based defence within range, helicopter access only"
+  },
+  "Urban government district": {
+   "requires": "government buildings in a populated area",
+   "provides": "no kinetic engagement possible over the population, dense sensor coverage"
+  },
+  "Kinetic engagement": {
+   "requires": "a clear firing solution and an acceptable backdrop",
+   "provides": "certain destruction of the airframe, falling debris"
+  },
+  "Electronic countermeasures": {
+   "requires": "the airframe depending on a link or on satellite navigation",
+   "provides": "non-destructive defeat, interference with civil users nearby"
+  },
+  "Track and do not engage": {
+   "requires": "sensors and a decision to observe",
+   "provides": "intelligence gained, the incursion completes unimpeded"
+  },
+  "Diplomatic and legal response": {
+   "requires": "attribution to a state or operator",
+   "provides": "consequences after the event, no effect at the time"
+  },
+  "Airframe defeated before the objective": {
+   "requires": "an effective engagement",
+   "provides": "no damage, wreckage available for exploitation"
+  },
+  "Objective achieved by the intruder": {
+   "requires": "no effective defence",
+   "provides": "damage or imagery obtained"
+  },
+  "Incursion undetected until afterwards": {
+   "requires": "no sensor coverage at the time",
+   "provides": "awareness only from later evidence"
+  },
+  "Collateral harm from the response": {
+   "requires": "a defensive action causing damage",
+   "provides": "own-goal consequences, public and legal exposure"
+  }
+ },
+ "exclusions": {
+  "INCURSION PROFILE|RESPONSE OPTION": [
+   {
+    "row": "Decoy incursion masking another axis",
+    "col": "Kinetic engagement",
+    "code": "N7",
+    "requires": "certain destruction of the airframe",
+    "blocked_by": "no effect at the site itself"
+   }
+  ],
+  "INCURSION PROFILE|OUTCOME": [
+   {
+    "row": "Single reconnaissance overflight",
+    "col": "Collateral harm from the response",
+    "code": "N7",
+    "requires": "a defensive action causing damage",
+    "blocked_by": "deniable as a navigation error"
+   }
+  ],
+  "PROTECTED SITE|RESPONSE OPTION": [
+   {
+    "row": "Urban government district",
+    "col": "Kinetic engagement",
+    "code": "N3",
+    "requires": "an acceptable backdrop",
+    "blocked_by": "no kinetic engagement possible over the population"
+   },
+   {
+    "row": "Offshore energy platform",
+    "col": "Kinetic engagement",
+    "code": "N3",
+    "requires": "a clear firing solution and an acceptable backdrop",
+    "blocked_by": "no ground-based defence within range"
+   }
+  ],
+  "PROTECTED SITE|OUTCOME": [
+   {
+    "row": "Military airbase",
+    "col": "Incursion undetected until afterwards",
+    "code": "N7",
+    "requires": "no sensor coverage at the time",
+    "blocked_by": "organic air defence present"
+   },
+   {
+    "row": "Urban government district",
+    "col": "Incursion undetected until afterwards",
+    "code": "N7",
+    "requires": "no sensor coverage at the time",
+    "blocked_by": "dense sensor coverage"
+   }
+  ],
+  "RESPONSE OPTION|OUTCOME": [
+   {
+    "row": "Track and do not engage",
+    "col": "Airframe defeated before the objective",
+    "code": "N3",
+    "requires": "an effective engagement",
+    "blocked_by": "the incursion completes unimpeded"
+   },
+   {
+    "row": "Track and do not engage",
+    "col": "Collateral harm from the response",
+    "code": "N3",
+    "requires": "a defensive action causing damage",
+    "blocked_by": "sensors and a decision to observe"
+   },
+   {
+    "row": "Diplomatic and legal response",
+    "col": "Airframe defeated before the objective",
+    "code": "N3",
+    "requires": "an effective engagement",
+    "blocked_by": "no effect at the time"
+   },
+   {
+    "row": "Diplomatic and legal response",
+    "col": "Collateral harm from the response",
+    "code": "N7",
+    "requires": "a defensive action causing damage",
+    "blocked_by": "consequences after the event"
+   }
+  ],
+  "INCURSION PROFILE|PROTECTED SITE": [
+   {
+    "row": "Loitering munition strike",
+    "col": "Nuclear power station",
+    "code": "N7",
+    "requires": "destruction of a specific asset",
+    "blocked_by": "catastrophic consequence potential"
+   }
+  ]
+ }
+}

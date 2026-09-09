@@ -1,0 +1,106 @@
+DOMAIN: archaeological rescue excavation
+GROUP: heritage
+PARAM: SITE CONDITION
+- Waterlogged anaerobic deposit :: a permanently saturated burial environment :: survival of timber and leather, rapid decay once exposed to air
+- Dry stratified urban sequence :: deep accumulated occupation layers :: clear phasing and datable sequence, no organic survival
+- Ploughsoil scatter :: material repeatedly disturbed by cultivation :: artefacts without context, no intact stratigraphy at all
+- Site already destroyed by groundworks :: excavation after the machines :: no deposits remaining, a record only from spoil
+PARAM: RECORDING METHOD
+- Open area hand excavation :: a trained field team and unrestricted access :: full plan relationships recorded, slow progress
+- Watching brief during construction :: contractor plant working to programme :: observation only, no control over what is removed
+- Geophysical survey :: an undisturbed accessible ground surface :: buried features mapped without digging, no dating evidence
+- Standing building survey :: an upstanding structure to record :: fabric phasing recorded, nothing below ground addressed
+PARAM: PROGRAMME PRESSURE
+- Full pre-construction season :: a developer timetable with slack :: complete excavation to natural, adequate post-excavation
+- Fixed handover date :: a contractual completion that cannot move :: work truncated to the deadline, selective recording
+- Emergency response to discovery :: an unexpected find during works :: days rather than months, no design of the fieldwork
+- No archaeological condition imposed :: a consent granted without a heritage requirement :: no fieldwork required at all, destruction without record
+PARAM: ARCHIVE OUTCOME
+- Full publication and deposited archive :: funding through to publication :: results in the public record, an accessible archive
+- Grey literature report only :: a client report satisfying the condition :: a record that exists but is little read, no synthesis
+- Archive unable to be deposited :: no museum willing to accept it :: material retained indefinitely, no long term curation
+- No record produced :: nothing recovered or written :: total loss of the evidence, nothing to consult later
+EXCL: SITE CONDITION|RECORDING METHOD
+Site already destroyed by groundworks >< Open area hand excavation | N3 | full plan relationships recorded | no deposits remaining
+Site already destroyed by groundworks >< Geophysical survey | N3 | an undisturbed accessible ground surface | no deposits remaining
+Ploughsoil scatter >< Open area hand excavation | N3 | full plan relationships recorded | no intact stratigraphy at all
+EXCL: SITE CONDITION|ARCHIVE OUTCOME
+EXCL: RECORDING METHOD|PROGRAMME PRESSURE
+Open area hand excavation >< No archaeological condition imposed | N3 | a trained field team and unrestricted access | no fieldwork required at all
+Watching brief during construction >< No archaeological condition imposed | N3 | contractor plant working to programme | no fieldwork required at all
+Open area hand excavation >< Emergency response to discovery | N4 | slow progress | days rather than months
+EXCL: RECORDING METHOD|ARCHIVE OUTCOME
+EXCL: PROGRAMME PRESSURE|ARCHIVE OUTCOME
+No archaeological condition imposed >< Full publication and deposited archive | N3 | funding through to publication | no fieldwork required at all
+No archaeological condition imposed >< Grey literature report only | N3 | a client report satisfying the condition | no fieldwork required at all
+Full pre-construction season >< No record produced | N3 | complete excavation to natural | nothing recovered or written
+---
+DOMAIN: research misconduct investigation
+GROUP: academic
+PARAM: ALLEGATION TYPE
+- Image duplication in figures :: published figures available to compare :: objective evidence in the paper itself, no need for lab records
+- Fabricated data set :: results reported that were never collected :: reliance on raw records to prove, denial difficult to disprove without them
+- Plagiarism of text :: an earlier source to compare against :: mechanical detection, no scientific judgement required
+- Authorship dispute :: disagreement among collaborators :: no question about the validity of the results, a matter of credit only
+PARAM: EVIDENCE SOURCE
+- Original laboratory notebooks :: contemporaneous records retained :: verification of what was actually done, dating of the work
+- Raw instrument files :: an instrument archive with timestamps :: independent confirmation of acquisition, resistance to later alteration
+- Published record alone :: the paper as issued :: comparison across figures and papers, no insight into the underlying work
+- Records destroyed or unavailable :: retention periods expired or files lost :: no primary material of any kind, reliance on testimony
+PARAM: PROCESS STAGE
+- Confidential inquiry :: an allegation received and assessed :: a decision whether to proceed, no findings published
+- Full investigation panel :: a formal panel convened :: witnesses heard and a finding made, months of process
+- Journal-led correction process :: an editor acting on concerns :: correction or retraction of the literature, no employment consequence
+- Case closed without inquiry :: an allegation judged unfounded at screening :: no investigation held, no record beyond the file
+PARAM: RESOLUTION
+- Retraction and dismissal :: misconduct found and proven :: the paper withdrawn, employment terminated
+- Correction of the literature :: an error established without intent :: the record repaired, no misconduct finding
+- Allegation not upheld :: insufficient evidence to find misconduct :: no action against the researcher, lingering suspicion
+- Unresolved and abandoned :: a respondent who leaves the institution :: no finding of any kind, the literature left uncorrected
+EXCL: ALLEGATION TYPE|EVIDENCE SOURCE
+Plagiarism of text >< Original laboratory notebooks | N3 | verification of what was actually done | no scientific judgement required
+Authorship dispute >< Raw instrument files | N3 | independent confirmation of acquisition | a matter of credit only
+EXCL: ALLEGATION TYPE|RESOLUTION
+Authorship dispute >< Retraction and dismissal | N3 | misconduct found and proven | no question about the validity of the results
+EXCL: EVIDENCE SOURCE|PROCESS STAGE
+EXCL: EVIDENCE SOURCE|RESOLUTION
+EXCL: PROCESS STAGE|RESOLUTION
+Case closed without inquiry >< Retraction and dismissal | N3 | misconduct found and proven | no investigation held
+Case closed without inquiry >< Correction of the literature | N3 | the record repaired | no investigation held
+Confidential inquiry >< Retraction and dismissal | N3 | misconduct found and proven | no findings published
+Journal-led correction process >< Retraction and dismissal | N3 | employment terminated | no employment consequence
+---
+DOMAIN: deep sea mineral extraction
+GROUP: resource management
+PARAM: DEPOSIT TYPE
+- Polymetallic nodules on the abyssal plain :: a flat sediment surface at four thousand metres :: collection without cutting rock, a very slow recovering ecosystem
+- Seafloor massive sulphides at a vent :: an active or extinct hydrothermal system :: high grade ore in a small footprint, chemosynthetic communities present
+- Cobalt crusts on a seamount :: a hard substrate on a steep flank :: ore bonded to the rock beneath, difficult separation
+- Shallow shelf placer :: unconsolidated sediment in coastal water :: conventional dredging sufficient, no deep water technology needed
+PARAM: JURISDICTION
+- The Area beyond national jurisdiction :: a sponsoring state and an international licence :: a common heritage regime, international oversight
+- National exclusive economic zone :: a coastal state licensing regime :: a single national regulator, no international approval needed
+- Territorial sea :: full coastal state sovereignty :: complete domestic control, close proximity to inhabited coast
+- Disputed maritime boundary :: overlapping claims by two states :: no settled authority to license, exposure to protest and arrest
+PARAM: EXTRACTION METHOD
+- Seabed collector vehicle :: a tracked machine and a riser to the surface :: recovery of loose material, a sediment plume raised
+- Cutter head on hard substrate :: a rock cutting head and station keeping :: removal of consolidated ore, destruction of the substrate itself
+- Suction dredging :: a shallow depth and a simple pump :: cheap continuous recovery, restriction to shallow unconsolidated ground
+- No extraction attempted :: exploration only under licence :: baseline data gathered, no ore recovered at all
+PARAM: REGULATORY OUTCOME
+- Exploitation licence granted :: an approved environmental plan :: commercial recovery permitted, monitoring conditions attached
+- Precautionary moratorium :: scientific uncertainty accepted as decisive :: no exploitation permitted for now, exploration continuing
+- Licence refused on environmental grounds :: unacceptable predicted harm :: no operation, sunk exploration cost
+- Operation halted by legal challenge :: a successful action by a third party :: work stopped mid-programme, an uncertain resumption
+EXCL: DEPOSIT TYPE|EXTRACTION METHOD
+Polymetallic nodules on the abyssal plain >< Suction dredging | N3 | restriction to shallow unconsolidated ground | a flat sediment surface at four thousand metres
+Cobalt crusts on a seamount >< Suction dredging | N3 | restriction to shallow unconsolidated ground | ore bonded to the rock beneath
+Cobalt crusts on a seamount >< Seabed collector vehicle | N3 | recovery of loose material | ore bonded to the rock beneath
+Shallow shelf placer >< Seabed collector vehicle | N7 | a tracked machine and a riser to the surface | no deep water technology needed
+EXCL: DEPOSIT TYPE|JURISDICTION
+Shallow shelf placer >< The Area beyond national jurisdiction | N3 | a common heritage regime | unconsolidated sediment in coastal water
+EXCL: JURISDICTION|REGULATORY OUTCOME
+Disputed maritime boundary >< Exploitation licence granted | N5 | an approved environmental plan | no settled authority to license
+EXCL: EXTRACTION METHOD|REGULATORY OUTCOME
+No extraction attempted >< Exploitation licence granted | N3 | commercial recovery permitted | no ore recovered at all
+No extraction attempted >< Operation halted by legal challenge | N3 | work stopped mid-programme | no ore recovered at all

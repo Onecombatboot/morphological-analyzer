@@ -1,0 +1,74 @@
+DOMAIN: mass vaccination campaign
+GROUP: public health
+PARAM: VACCINE PRODUCT
+- Ultra-cold chain mRNA vaccine :: storage at minus seventy degrees :: rapid reformulation to variants, no distribution without specialist freezers
+- Conventional refrigerated vaccine :: a two to eight degree cold chain :: routine clinic handling, slower strain updating
+- Single dose viral vector vaccine :: one attendance per person :: no recall of the recipient needed, limitation by prior vector immunity
+- Vaccine not yet licensed :: trials still running :: no lawful administration outside a trial, no supply to allocate
+PARAM: DELIVERY CHANNEL
+- Mass vaccination centre :: a large venue and staff to run it :: very high throughput, travel required of the population
+- Primary care practice :: an existing patient list and cold storage :: trusted local delivery, limited daily throughput
+- Mobile outreach team :: a vehicle and a portable cold box :: reach into remote or marginalised groups, small numbers per day
+- Pharmacy network :: trained pharmacists and standard refrigeration :: convenient walk-in access, no ultra-cold capability
+PARAM: POPULATION FACTOR
+- High willingness and easy access :: an informed and reachable population :: rapid uptake, no persuasion needed
+- Vaccine hesitancy :: circulating distrust of the programme :: slow uptake despite available supply, a need for sustained engagement
+- Remote dispersed population :: long distances and poor roads :: no realistic travel to a central site, a high cost per dose
+- Housebound and care home residents :: people unable to leave home :: no attendance at any site, delivery to the person required
+PARAM: CAMPAIGN OUTCOME
+- Target coverage achieved :: sufficient supply and acceptance :: population protection reached, the campaign closed
+- Supply-limited partial coverage :: fewer doses than people :: prioritisation enforced, groups left unvaccinated
+- Uptake-limited partial coverage :: doses available and refused :: unused stock remaining, coverage below target
+- Campaign never started :: nothing to deliver :: no doses administered at all, no coverage of any kind
+EXCL: VACCINE PRODUCT|DELIVERY CHANNEL
+Ultra-cold chain mRNA vaccine >< Pharmacy network | N3 | no ultra-cold capability | no distribution without specialist freezers
+Vaccine not yet licensed >< Mass vaccination centre | N3 | very high throughput | no lawful administration outside a trial
+Vaccine not yet licensed >< Primary care practice | N3 | trusted local delivery | no lawful administration outside a trial
+Vaccine not yet licensed >< Pharmacy network | N3 | convenient walk-in access | no lawful administration outside a trial
+Vaccine not yet licensed >< Mobile outreach team | N3 | reach into remote or marginalised groups | no lawful administration outside a trial
+EXCL: VACCINE PRODUCT|CAMPAIGN OUTCOME
+Vaccine not yet licensed >< Target coverage achieved | N3 | population protection reached | no supply to allocate
+Vaccine not yet licensed >< Supply-limited partial coverage | N3 | fewer doses than people | no supply to allocate
+EXCL: DELIVERY CHANNEL|POPULATION FACTOR
+Mass vaccination centre >< Housebound and care home residents | N3 | travel required of the population | no attendance at any site
+Pharmacy network >< Housebound and care home residents | N3 | convenient walk-in access | no attendance at any site
+Primary care practice >< Housebound and care home residents | N3 | trusted local delivery | no attendance at any site
+Mass vaccination centre >< Remote dispersed population | N3 | travel required of the population | no realistic travel to a central site
+EXCL: POPULATION FACTOR|CAMPAIGN OUTCOME
+High willingness and easy access >< Uptake-limited partial coverage | N3 | doses available and refused | rapid uptake
+EXCL: DELIVERY CHANNEL|CAMPAIGN OUTCOME
+Mass vaccination centre >< Campaign never started | N3 | very high throughput | no doses administered at all
+Mobile outreach team >< Campaign never started | N3 | reach into remote or marginalised groups | no doses administered at all
+---
+DOMAIN: telecommunications network outage
+GROUP: infrastructure
+PARAM: FAILURE CAUSE
+- Fibre cut by excavation :: a physical break in the buried cable :: complete loss on that path, hours of splicing to restore
+- Core router software fault :: a defect triggered in the control plane :: wide area loss, restoration by rollback in minutes
+- Power failure at an exchange :: loss of mains with batteries draining :: progressive loss as batteries drain, restoration on power return
+- Submarine cable break :: a fault in the deep sea segment :: international capacity lost, weeks of waiting for a repair ship
+PARAM: RESILIENCE PROVISION
+- Diverse physical routing :: two paths sharing no duct :: automatic survival of a single cut, a higher recurring cost
+- Single path with no diversity :: one route and nothing else :: total dependence on that path, no protection of any kind
+- On-site generation :: a generator and fuel held on site :: indefinite operation without mains, refuelling logistics
+- Satellite backup link :: a terminal and a standing service contract :: a path independent of terrestrial cable, very limited capacity
+PARAM: AFFECTED SERVICE
+- Emergency call handling :: a working route to the emergency service :: a life safety consequence, a regulatory obligation
+- Consumer mobile data :: radio access and working backhaul :: economic and social disruption, no immediate safety impact
+- Financial trading connectivity :: microsecond-sensitive links :: direct financial loss per second, no tolerance of rerouting delay
+- Internal enterprise traffic only :: a private corporate network :: disruption contained to one organisation, no public impact
+PARAM: RESTORATION OUTCOME
+- Automatic failover unnoticed :: working protection switching :: no customer impact, an event visible only in logs
+- Manual reroute within hours :: spare capacity and an engineer available :: degraded service restored, a noticeable outage
+- Extended outage of days :: no alternative path available :: sustained loss, a regulatory and reputational consequence
+- Route permanently abandoned :: no economic case to rebuild :: the path given up, traffic permanently rehomed
+EXCL: FAILURE CAUSE|RESILIENCE PROVISION
+Power failure at an exchange >< On-site generation | N3 | indefinite operation without mains | progressive loss as batteries drain
+EXCL: RESILIENCE PROVISION|AFFECTED SERVICE
+Satellite backup link >< Financial trading connectivity | N3 | no tolerance of rerouting delay | very limited capacity
+EXCL: RESILIENCE PROVISION|RESTORATION OUTCOME
+Single path with no diversity >< Automatic failover unnoticed | N3 | working protection switching | no protection of any kind
+Diverse physical routing >< Extended outage of days | N7 | no alternative path available | automatic survival of a single cut
+EXCL: AFFECTED SERVICE|RESTORATION OUTCOME
+Financial trading connectivity >< Manual reroute within hours | N3 | degraded service restored | no tolerance of rerouting delay
+Internal enterprise traffic only >< Extended outage of days | N3 | a regulatory and reputational consequence | no public impact

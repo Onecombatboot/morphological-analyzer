@@ -1,0 +1,180 @@
+{
+ "domain": "mass movement of people at a frontier",
+ "group": "migration",
+ "parameters": {
+  "MOVEMENT DRIVER": [
+   "Sudden armed conflict",
+   "Slow-onset environmental collapse",
+   "Instrumentalised movement by a state",
+   "Economic pull from a labour market"
+  ],
+  "FRONTIER TYPE": [
+   "Formal land crossing",
+   "Green border in remote terrain",
+   "Maritime arrival by small boat",
+   "Airport transit zone"
+  ],
+  "RECEPTION CAPACITY": [
+   "Registration and accommodation available",
+   "Processing backlog of months",
+   "No reception system at all",
+   "Onward transfer under an agreement"
+  ],
+  "OUTCOME": [
+   "Orderly registration and integration",
+   "Humanitarian conditions at the frontier",
+   "Onward irregular movement",
+   "Frontier closure and pushback"
+  ]
+ },
+ "characterisations": {
+  "Sudden armed conflict": {
+   "requires": "fighting reaching a populated area",
+   "provides": "departure within hours, whole families, no preparation whatsoever"
+  },
+  "Slow-onset environmental collapse": {
+   "requires": "land ceasing to support livelihoods",
+   "provides": "movement over years, mostly working-age individuals"
+  },
+  "Instrumentalised movement by a state": {
+   "requires": "a state facilitating arrivals to create pressure",
+   "provides": "concentrated at one crossing, coordinated timing, a political rather than humanitarian origin"
+  },
+  "Economic pull from a labour market": {
+   "requires": "demand for workers across the border",
+   "provides": "continuous rather than spiked, responsive to enforcement and to wages"
+  },
+  "Formal land crossing": {
+   "requires": "a road and an official post",
+   "provides": "registration possible, processing capacity a hard limit"
+  },
+  "Green border in remote terrain": {
+   "requires": "unfenced country",
+   "provides": "no processing point at all, detection the only issue"
+  },
+  "Maritime arrival by small boat": {
+   "requires": "a sea route and departure beaches",
+   "provides": "rescue obligation engaged, arrival location unpredictable"
+  },
+  "Airport transit zone": {
+   "requires": "arrival by air without entry",
+   "provides": "identity documented on departure, a legally distinct space"
+  },
+  "Registration and accommodation available": {
+   "requires": "sites and staff in place",
+   "provides": "orderly processing, arrivals sheltered"
+  },
+  "Processing backlog of months": {
+   "requires": "caseload far exceeding decision capacity",
+   "provides": "prolonged limbo, informal settlements forming"
+  },
+  "No reception system at all": {
+   "requires": "no legal framework or facilities",
+   "provides": "arrivals unregistered, movement onward uncontrolled"
+  },
+  "Onward transfer under an agreement": {
+   "requires": "a receiving third country and a legal basis",
+   "provides": "transfer of the caseload, legal challenge likely"
+  },
+  "Orderly registration and integration": {
+   "requires": "capacity matching arrivals",
+   "provides": "no crisis"
+  },
+  "Humanitarian conditions at the frontier": {
+   "requires": "people held with inadequate shelter",
+   "provides": "illness and deaths, international attention"
+  },
+  "Onward irregular movement": {
+   "requires": "arrivals continuing beyond the frontier",
+   "provides": "pressure transferred to other states"
+  },
+  "Frontier closure and pushback": {
+   "requires": "physical prevention of entry",
+   "provides": "legal violation, people stranded on the far side"
+  }
+ },
+ "exclusions": {
+  "MOVEMENT DRIVER|FRONTIER TYPE": [
+   {
+    "row": "Instrumentalised movement by a state",
+    "col": "Green border in remote terrain",
+    "code": "N7",
+    "requires": "no processing point at all",
+    "blocked_by": "concentrated at one crossing"
+   }
+  ],
+  "MOVEMENT DRIVER|OUTCOME": [
+   {
+    "row": "Economic pull from a labour market",
+    "col": "Humanitarian conditions at the frontier",
+    "code": "N7",
+    "requires": "people held with inadequate shelter",
+    "blocked_by": "continuous rather than spiked"
+   }
+  ],
+  "FRONTIER TYPE|RECEPTION CAPACITY": [
+   {
+    "row": "Green border in remote terrain",
+    "col": "Registration and accommodation available",
+    "code": "N3",
+    "requires": "orderly processing",
+    "blocked_by": "no processing point at all"
+   },
+   {
+    "row": "Airport transit zone",
+    "col": "No reception system at all",
+    "code": "N7",
+    "requires": "arrivals unregistered",
+    "blocked_by": "identity documented on departure"
+   }
+  ],
+  "FRONTIER TYPE|OUTCOME": [
+   {
+    "row": "Airport transit zone",
+    "col": "Onward irregular movement",
+    "code": "N3",
+    "requires": "arrivals continuing beyond the frontier",
+    "blocked_by": "a legally distinct space"
+   },
+   {
+    "row": "Maritime arrival by small boat",
+    "col": "Frontier closure and pushback",
+    "code": "N7",
+    "requires": "physical prevention of entry",
+    "blocked_by": "rescue obligation engaged"
+   }
+  ],
+  "RECEPTION CAPACITY|OUTCOME": [
+   {
+    "row": "No reception system at all",
+    "col": "Orderly registration and integration",
+    "code": "N3",
+    "requires": "capacity matching arrivals",
+    "blocked_by": "no legal framework or facilities"
+   },
+   {
+    "row": "Registration and accommodation available",
+    "col": "Humanitarian conditions at the frontier",
+    "code": "N3",
+    "requires": "people held with inadequate shelter",
+    "blocked_by": "arrivals sheltered"
+   },
+   {
+    "row": "Onward transfer under an agreement",
+    "col": "Orderly registration and integration",
+    "code": "N7",
+    "requires": "capacity matching arrivals",
+    "blocked_by": "transfer of the caseload"
+   }
+  ],
+  "MOVEMENT DRIVER|RECEPTION CAPACITY": [
+   {
+    "row": "Sudden armed conflict",
+    "col": "Onward transfer under an agreement",
+    "code": "N7",
+    "requires": "a receiving third country and a legal basis",
+    "blocked_by": "departure within hours"
+   }
+  ]
+ }
+}

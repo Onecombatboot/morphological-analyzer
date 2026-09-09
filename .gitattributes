@@ -1,0 +1,12 @@
+# Normalise line endings so the repository is not full of CRLF churn.
+* text=auto eol=lf
+
+# Windows launchers must keep CRLF or cmd.exe mishandles them.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Binary, never diffed or line-ending-converted.
+*.png  binary
+*.ico  binary
+*.docx binary
+*.pdf  binary

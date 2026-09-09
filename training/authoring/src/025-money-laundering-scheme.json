@@ -1,0 +1,293 @@
+{
+ "domain": "money laundering scheme",
+ "group": "institutional",
+ "parameters": {
+  "PREDICATE CRIME": [
+   "Narcotics trafficking",
+   "Public sector corruption",
+   "Cyber fraud proceeds",
+   "Tax evasion"
+  ],
+  "PLACEMENT METHOD": [
+   "Cash deposit structuring",
+   "Cash-intensive business",
+   "Trade mis-invoicing",
+   "Cryptocurrency conversion"
+  ],
+  "LAYERING VEHICLE": [
+   "Shell company chain",
+   "Real estate purchase",
+   "Correspondent banking",
+   "Professional intermediary account"
+  ],
+  "JURISDICTION": [
+   "Domestic only",
+   "Offshore secrecy centre",
+   "Sanctioned state",
+   "High-regulation financial centre"
+  ],
+  "DETECTION TRIGGER": [
+   "Suspicious transaction report",
+   "Beneficial ownership registry",
+   "Tax authority mismatch",
+   "Foreign law enforcement request"
+  ]
+ },
+ "characterisations": {
+  "Narcotics trafficking": {
+   "requires": "street-level sales",
+   "provides": "large volumes of physical cash in small denominations, no legitimate paper trail"
+  },
+  "Public sector corruption": {
+   "requires": "an official position and a payer",
+   "provides": "wire transfers from identifiable counterparties, politically exposed persons, no cash bulk"
+  },
+  "Cyber fraud proceeds": {
+   "requires": "victim payments obtained electronically",
+   "provides": "funds already in the banking system, no cash, international from the outset"
+  },
+  "Tax evasion": {
+   "requires": "legitimately earned but undeclared income",
+   "provides": "funds of lawful origin, documentary trail exists, no placement problem"
+  },
+  "Cash deposit structuring": {
+   "requires": "physical cash and multiple accounts",
+   "provides": "conversion of cash to deposits, generates reportable patterns"
+  },
+  "Cash-intensive business": {
+   "requires": "a plausible business with genuine cash turnover",
+   "provides": "commingling of illicit cash with real revenue, tax paid on the proceeds"
+  },
+  "Trade mis-invoicing": {
+   "requires": "cross-border trade in goods",
+   "provides": "value transfer disguised as commerce, no cash handling"
+  },
+  "Cryptocurrency conversion": {
+   "requires": "an exchange and either cash or bank access",
+   "provides": "fast movement, exchange records at on and off ramps"
+  },
+  "Shell company chain": {
+   "requires": "incorporation in permissive jurisdictions",
+   "provides": "obscured ownership, no economic substance, registry exposure"
+  },
+  "Real estate purchase": {
+   "requires": "large single sums and a conveyancing process",
+   "provides": "value storage, illiquidity, professional gatekeepers involved"
+  },
+  "Correspondent banking": {
+   "requires": "a bank relationship crossing borders",
+   "provides": "movement between jurisdictions, correspondent bank scrutiny"
+  },
+  "Professional intermediary account": {
+   "requires": "a lawyer or accountant willing to hold funds",
+   "provides": "privilege and pooled client accounts, gatekeeper exposure"
+  },
+  "Domestic only": {
+   "requires": "no cross-border movement",
+   "provides": "single regulator, full visibility to one authority, no international friction"
+  },
+  "Offshore secrecy centre": {
+   "requires": "a jurisdiction with limited disclosure",
+   "provides": "ownership opacity, weak registry, increasing international pressure"
+  },
+  "Sanctioned state": {
+   "requires": "willingness to breach sanctions",
+   "provides": "no correspondent banking access, severe secondary exposure"
+  },
+  "High-regulation financial centre": {
+   "requires": "meeting strict onboarding standards",
+   "provides": "credibility, intense monitoring, full beneficial ownership disclosure"
+  },
+  "Suspicious transaction report": {
+   "requires": "a regulated institution observing the activity",
+   "provides": "detection of patterns within the banking system"
+  },
+  "Beneficial ownership registry": {
+   "requires": "a registry that is populated and accurate",
+   "provides": "identification of the person behind a structure"
+  },
+  "Tax authority mismatch": {
+   "requires": "declared income to compare against",
+   "provides": "detection of unexplained wealth"
+  },
+  "Foreign law enforcement request": {
+   "requires": "an investigation already running abroad",
+   "provides": "cross-border visibility, slow"
+  }
+ },
+ "exclusions": {
+  "PREDICATE CRIME|PLACEMENT METHOD": [
+   {
+    "row": "Public sector corruption",
+    "col": "Cash deposit structuring",
+    "code": "N3",
+    "requires": "physical cash and multiple accounts",
+    "blocked_by": "no cash bulk"
+   },
+   {
+    "row": "Public sector corruption",
+    "col": "Cash-intensive business",
+    "code": "N3",
+    "requires": "a plausible business with genuine cash turnover",
+    "blocked_by": "no cash bulk"
+   },
+   {
+    "row": "Cyber fraud proceeds",
+    "col": "Cash deposit structuring",
+    "code": "N3",
+    "requires": "physical cash and multiple accounts",
+    "blocked_by": "funds already in the banking system, no cash"
+   },
+   {
+    "row": "Cyber fraud proceeds",
+    "col": "Cash-intensive business",
+    "code": "N3",
+    "requires": "a plausible business with genuine cash turnover",
+    "blocked_by": "funds already in the banking system, no cash"
+   },
+   {
+    "row": "Tax evasion",
+    "col": "Cash deposit structuring",
+    "code": "N7",
+    "requires": "physical cash and multiple accounts",
+    "blocked_by": "no placement problem"
+   }
+  ],
+  "PREDICATE CRIME|JURISDICTION": [
+   {
+    "row": "Tax evasion",
+    "col": "Sanctioned state",
+    "code": "N7",
+    "requires": "willingness to breach sanctions",
+    "blocked_by": "funds of lawful origin"
+   }
+  ],
+  "PLACEMENT METHOD|JURISDICTION": [
+   {
+    "row": "Cash deposit structuring",
+    "col": "Sanctioned state",
+    "code": "N7",
+    "requires": "physical cash and multiple accounts",
+    "blocked_by": "no correspondent banking access"
+   },
+   {
+    "row": "Trade mis-invoicing",
+    "col": "Domestic only",
+    "code": "N3",
+    "requires": "cross-border trade in goods",
+    "blocked_by": "no cross-border movement"
+   }
+  ],
+  "PLACEMENT METHOD|DETECTION TRIGGER": [
+   {
+    "row": "Cash deposit structuring",
+    "col": "Beneficial ownership registry",
+    "code": "N7",
+    "requires": "identification of the person behind a structure",
+    "blocked_by": "generates reportable patterns"
+   },
+   {
+    "row": "Trade mis-invoicing",
+    "col": "Beneficial ownership registry",
+    "code": "N7",
+    "requires": "identification of the person behind a structure",
+    "blocked_by": "value transfer disguised as commerce"
+   },
+   {
+    "row": "Cryptocurrency conversion",
+    "col": "Beneficial ownership registry",
+    "code": "N7",
+    "requires": "identification of the person behind a structure",
+    "blocked_by": "exchange records at on and off ramps"
+   }
+  ],
+  "LAYERING VEHICLE|JURISDICTION": [
+   {
+    "row": "Shell company chain",
+    "col": "Domestic only",
+    "code": "N3",
+    "requires": "incorporation in permissive jurisdictions",
+    "blocked_by": "no cross-border movement"
+   },
+   {
+    "row": "Correspondent banking",
+    "col": "Domestic only",
+    "code": "N3",
+    "requires": "a bank relationship crossing borders",
+    "blocked_by": "no cross-border movement"
+   },
+   {
+    "row": "Correspondent banking",
+    "col": "Sanctioned state",
+    "code": "N3",
+    "requires": "a bank relationship crossing borders",
+    "blocked_by": "no correspondent banking access"
+   }
+  ],
+  "LAYERING VEHICLE|DETECTION TRIGGER": [
+   {
+    "row": "Shell company chain",
+    "col": "Tax authority mismatch",
+    "code": "N7",
+    "requires": "declared income to compare against",
+    "blocked_by": "no economic substance"
+   }
+  ],
+  "JURISDICTION|DETECTION TRIGGER": [
+   {
+    "row": "Domestic only",
+    "col": "Foreign law enforcement request",
+    "code": "N3",
+    "requires": "an investigation already running abroad",
+    "blocked_by": "no cross-border movement"
+   },
+   {
+    "row": "Offshore secrecy centre",
+    "col": "Beneficial ownership registry",
+    "code": "N3",
+    "requires": "a registry that is populated and accurate",
+    "blocked_by": "weak registry"
+   },
+   {
+    "row": "Offshore secrecy centre",
+    "col": "Tax authority mismatch",
+    "code": "N7",
+    "requires": "declared income to compare against",
+    "blocked_by": "ownership opacity"
+   },
+   {
+    "row": "Sanctioned state",
+    "col": "Suspicious transaction report",
+    "code": "N3",
+    "requires": "a regulated institution observing the activity",
+    "blocked_by": "no correspondent banking access"
+   },
+   {
+    "row": "Sanctioned state",
+    "col": "Beneficial ownership registry",
+    "code": "N7",
+    "requires": "a registry that is populated and accurate",
+    "blocked_by": "willingness to breach sanctions"
+   },
+   {
+    "row": "Sanctioned state",
+    "col": "Tax authority mismatch",
+    "code": "N7",
+    "requires": "declared income to compare against",
+    "blocked_by": "no correspondent banking access"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "PREDICATE CRIME|PLACEMENT METHOD": "corruption and cyber fraud generate no physical cash, so structuring and cash-intensive businesses are both N for them - the funds are already electronic. Tax evasion has no placement problem at all for structuring (funds are lawful and banked) and N for crypto conversion, which would create a problem rather than solve one.",
+  "PREDICATE CRIME|LAYERING VEHICLE": "cyber fraud x real estate is N: proceeds move fast and internationally, not into illiquid property. Tax evasion x correspondent banking is N as a layering step - the funds are lawful and already resident.",
+  "PREDICATE CRIME|JURISDICTION": "tax evasion x sanctioned state is N: the point is concealment from one's own revenue authority, not sanctions exposure.",
+  "PREDICATE CRIME|DETECTION TRIGGER": "narcotics x beneficial ownership registry is N - street cash does not surface through ownership structures first. Cyber fraud x registry and x tax mismatch are both N. Tax evasion x foreign law enforcement request is N.",
+  "PLACEMENT METHOD|LAYERING VEHICLE": "trade mis-invoicing and crypto conversion are both N for real estate as the immediate next step.",
+  "PLACEMENT METHOD|JURISDICTION": "structuring, cash-intensive business and crypto conversion are all N in a sanctioned state, which lacks the banking access each depends on. Trade mis-invoicing is N domestically (it requires a border) and N in a high-regulation centre.",
+  "PLACEMENT METHOD|DETECTION TRIGGER": "structuring, cash businesses and crypto are all N for beneficial ownership registry. Trade mis-invoicing is N for suspicious transaction reports and N for registries.",
+  "LAYERING VEHICLE|JURISDICTION": "shell chains are N domestically - the point is jurisdictional opacity. Real estate and intermediary accounts are both N in a sanctioned state. Correspondent banking is N domestically and N in a sanctioned state, which is cut off from it.",
+  "LAYERING VEHICLE|DETECTION TRIGGER": "shell chains, correspondent banking and intermediary accounts are all N for tax authority mismatch. Correspondent banking is N for beneficial ownership registry.",
+  "JURISDICTION|DETECTION TRIGGER": "domestic only is N for foreign law enforcement request. An offshore centre is N for registry and N for tax mismatch. A sanctioned state is N for all three domestic-style triggers, leaving only foreign law enforcement."
+ }
+}

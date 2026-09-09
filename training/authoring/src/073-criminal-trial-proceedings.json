@@ -1,0 +1,162 @@
+{
+ "domain": "criminal trial proceedings",
+ "group": "legal",
+ "parameters": {
+  "EVIDENCE AVAILABLE": [
+   "Eyewitness identification",
+   "Forensic DNA match",
+   "Digital device records",
+   "No evidence recovered at all"
+  ],
+  "DEFENCE POSITION": [
+   "Denial of presence",
+   "Admission with lawful excuse",
+   "Challenge to procedure",
+   "Guilty plea entered"
+  ],
+  "PROCEDURAL POSTURE": [
+   "Full jury trial",
+   "Pre-trial admissibility hearing",
+   "Sentencing hearing",
+   "Appeal against conviction"
+  ],
+  "CASE OUTCOME": [
+   "Conviction on all counts",
+   "Acquittal",
+   "Prosecution offers no evidence",
+   "Retrial ordered"
+  ]
+ },
+ "characterisations": {
+  "Eyewitness identification": {
+   "requires": "a witness who saw the event",
+   "provides": "direct testimony, vulnerability to challenge on reliability"
+  },
+  "Forensic DNA match": {
+   "requires": "a recovered sample and a reference profile",
+   "provides": "a statistical match figure, no account of how the sample arrived"
+  },
+  "Digital device records": {
+   "requires": "a seized device and lawful access to it",
+   "provides": "timestamps and locations, dependence on attributing the device to a person"
+  },
+  "No evidence recovered at all": {
+   "requires": "a scene and an investigation yielding nothing",
+   "provides": "no forensic link of any kind, no material to put before a court"
+  },
+  "Denial of presence": {
+   "requires": "an alibi advanced",
+   "provides": "a claim of being elsewhere, no dispute about the act itself"
+  },
+  "Admission with lawful excuse": {
+   "requires": "the act accepted",
+   "provides": "a claim of self-defence or consent, no dispute about presence"
+  },
+  "Challenge to procedure": {
+   "requires": "an alleged breach in obtaining evidence",
+   "provides": "an application to exclude material, no engagement with the facts"
+  },
+  "Guilty plea entered": {
+   "requires": "an admission to the charge",
+   "provides": "no trial of the facts, sentencing only"
+  },
+  "Full jury trial": {
+   "requires": "a not guilty plea and a listed court",
+   "provides": "contested evidence heard, a verdict by jury"
+  },
+  "Pre-trial admissibility hearing": {
+   "requires": "a challenge lodged before trial",
+   "provides": "a ruling on admissibility, no verdict of any kind"
+  },
+  "Sentencing hearing": {
+   "requires": "a conviction or a plea already entered",
+   "provides": "mitigation heard, no finding of guilt left to make"
+  },
+  "Appeal against conviction": {
+   "requires": "a concluded trial and an arguable ground",
+   "provides": "review of the record, no fresh jury empanelled"
+  },
+  "Conviction on all counts": {
+   "requires": "a tribunal satisfied to the criminal standard",
+   "provides": "a finding of guilt, a sentence to follow"
+  },
+  "Acquittal": {
+   "requires": "a tribunal not satisfied",
+   "provides": "no conviction recorded, no retrial on the same facts"
+  },
+  "Prosecution offers no evidence": {
+   "requires": "a case that cannot be sustained",
+   "provides": "proceedings discontinued, no adjudication on the merits"
+  },
+  "Retrial ordered": {
+   "requires": "a conviction quashed with a direction",
+   "provides": "the matter heard again, no final determination yet"
+  }
+ },
+ "exclusions": {
+  "EVIDENCE AVAILABLE|CASE OUTCOME": [
+   {
+    "row": "No evidence recovered at all",
+    "col": "Conviction on all counts",
+    "code": "N3",
+    "requires": "a tribunal satisfied to the criminal standard",
+    "blocked_by": "no material to put before a court"
+   }
+  ],
+  "DEFENCE POSITION|PROCEDURAL POSTURE": [
+   {
+    "row": "Guilty plea entered",
+    "col": "Full jury trial",
+    "code": "N1",
+    "requires": "contested evidence heard",
+    "blocked_by": "no trial of the facts"
+   },
+   {
+    "row": "Challenge to procedure",
+    "col": "Sentencing hearing",
+    "code": "N3",
+    "requires": "no finding of guilt left to make",
+    "blocked_by": "an application to exclude material"
+   }
+  ],
+  "DEFENCE POSITION|CASE OUTCOME": [
+   {
+    "row": "Guilty plea entered",
+    "col": "Acquittal",
+    "code": "N1",
+    "requires": "a tribunal not satisfied",
+    "blocked_by": "an admission to the charge"
+   },
+   {
+    "row": "Guilty plea entered",
+    "col": "Prosecution offers no evidence",
+    "code": "N3",
+    "requires": "a case that cannot be sustained",
+    "blocked_by": "an admission to the charge"
+   }
+  ],
+  "PROCEDURAL POSTURE|CASE OUTCOME": [
+   {
+    "row": "Pre-trial admissibility hearing",
+    "col": "Conviction on all counts",
+    "code": "N1",
+    "requires": "a finding of guilt",
+    "blocked_by": "no verdict of any kind"
+   },
+   {
+    "row": "Pre-trial admissibility hearing",
+    "col": "Acquittal",
+    "code": "N1",
+    "requires": "no conviction recorded",
+    "blocked_by": "no verdict of any kind"
+   },
+   {
+    "row": "Sentencing hearing",
+    "col": "Acquittal",
+    "code": "N1",
+    "requires": "a tribunal not satisfied",
+    "blocked_by": "no finding of guilt left to make"
+   }
+  ]
+ }
+}

@@ -1,0 +1,66 @@
+DOMAIN: urban heat wave response
+GROUP: public health
+PARAM: HEAT EVENT
+- Sustained daytime extreme :: several consecutive days above the threshold :: cumulative physiological strain, no respite during the day
+- No overnight cooling :: night temperatures remaining high :: no recovery period, mortality rising sharply
+- Short single-day spike :: one exceptional day only :: acute presentations, a rapid return to normal
+- Warm spell within the normal range :: temperatures below any threshold :: no health impact expected, no trigger for any alert
+PARAM: EXPOSED GROUP
+- Isolated older residents :: people living alone with little contact :: the highest mortality, nobody to raise the alarm
+- Outdoor manual workers :: work that cannot be moved indoors :: exertional heat illness, exposure through the hottest hours
+- Residents of a care home :: an institution responsible for them :: staff able to act on their behalf, dependence entirely on that institution
+- Occupants of cooled buildings :: air conditioning throughout the day :: negligible indoor exposure, risk only when outside
+PARAM: RESPONSE MEASURE
+- Heat health alert issued :: a forecast crossing the threshold :: services warned in advance, action possible before onset
+- Public cooling centres opened :: buildings with cooling and staff to run them :: refuge for those able to travel, no benefit to anyone housebound
+- Welfare visits to a register :: a list of at-risk residents and staff to visit :: contact with the isolated, a high staffing cost
+- No measure of any kind :: no plan and no trigger in place :: nothing done anywhere, no protection for anyone
+PARAM: HEALTH OUTCOME
+- Excess deaths recorded :: mortality above the seasonal baseline :: a measurable toll, an inquiry likely
+- Emergency admissions surge :: presentations exceeding capacity :: ambulance delays, elective work cancelled
+- No detectable health impact :: mortality remaining at baseline :: nothing above normal, no review required afterwards
+- Deaths concentrated in one institution :: a failure inside a single setting :: a cluster, a regulatory investigation
+EXCL: HEAT EVENT|RESPONSE MEASURE
+Warm spell within the normal range >< Heat health alert issued | N3 | a forecast crossing the threshold | no trigger for any alert
+EXCL: HEAT EVENT|HEALTH OUTCOME
+Warm spell within the normal range >< Excess deaths recorded | N3 | mortality above the seasonal baseline | no health impact expected
+Warm spell within the normal range >< Emergency admissions surge | N3 | presentations exceeding capacity | no health impact expected
+EXCL: EXPOSED GROUP|RESPONSE MEASURE
+Occupants of cooled buildings >< Public cooling centres opened | N7 | refuge for those able to travel | negligible indoor exposure
+EXCL: EXPOSED GROUP|HEALTH OUTCOME
+Isolated older residents >< Deaths concentrated in one institution | N3 | a failure inside a single setting | people living alone with little contact
+EXCL: RESPONSE MEASURE|HEALTH OUTCOME
+No measure of any kind >< No detectable health impact | N7 | mortality remaining at baseline | no protection for anyone
+---
+DOMAIN: electric vehicle charging rollout
+GROUP: energy
+PARAM: CHARGER TYPE
+- Rapid motorway charger :: a high capacity grid connection :: a usable charge in minutes, a very large power draw
+- Destination slow charger :: a standard supply and a long dwell :: cheap installation, hours needed for a useful charge
+- On-street residential post :: pavement space and local network capacity :: overnight charging without a driveway, low power only
+- Battery-buffered unit :: a storage pack behind the charge point :: rapid charging on a weak connection, a high capital cost
+PARAM: SITE CONSTRAINT
+- No grid capacity available :: a substation already at its limit :: no high power connection possible, years of reinforcement lead time
+- Restricted physical footprint :: a site with almost no spare land :: no room for additional plant, limited number of bays
+- Heritage or conservation area :: planning protection over the streetscape :: no visible street furniture permitted, lengthy consent
+- Ample capacity and space :: a strong connection and open land :: any charger type installable, normal programme
+PARAM: USER PATTERN
+- Long distance transit stop :: drivers travelling onward within the hour :: a short dwell only, high turnover expected
+- Overnight residential parking :: vehicles left for eight hours :: long dwell, tolerance of low power
+- Commercial fleet depot :: vehicles returning to one base :: predictable scheduled charging, a known daily energy need
+- Occasional shopper parking :: visits of an hour or two :: moderate dwell, unpredictable demand
+PARAM: DEPLOYMENT OUTCOME
+- Chargers installed and well used :: matched capacity, siting and demand :: high utilisation, a viable commercial return
+- Installed but underused :: chargers in the wrong place :: stranded capital, poor return
+- Project blocked before installation :: an insurmountable site constraint :: nothing built, sunk development cost
+- Installed with capacity limits :: a connection smaller than designed :: reduced power per bay, slower charging than advertised
+EXCL: CHARGER TYPE|SITE CONSTRAINT
+Rapid motorway charger >< No grid capacity available | N3 | a high capacity grid connection | no high power connection possible
+On-street residential post >< Heritage or conservation area | N3 | pavement space and local network capacity | no visible street furniture permitted
+EXCL: CHARGER TYPE|USER PATTERN
+Destination slow charger >< Long distance transit stop | N3 | a short dwell only | hours needed for a useful charge
+On-street residential post >< Long distance transit stop | N3 | a short dwell only | low power only
+EXCL: SITE CONSTRAINT|DEPLOYMENT OUTCOME
+No grid capacity available >< Chargers installed and well used | N7 | matched capacity, siting and demand | no high power connection possible
+Ample capacity and space >< Project blocked before installation | N3 | an insurmountable site constraint | any charger type installable
+Ample capacity and space >< Installed with capacity limits | N3 | a connection smaller than designed | a strong connection and open land

@@ -1,0 +1,66 @@
+DOMAIN: clinical laboratory diagnostic error
+GROUP: healthcare
+PARAM: ERROR ORIGIN
+- Sample mislabelled at collection :: two patients bled in sequence :: a result attributed to the wrong person, nothing detectable in the laboratory
+- Analyser calibration drift :: an instrument out of specification :: results systematically shifted, every sample on that run affected
+- Reagent lot contamination :: a defective batch in use :: false results for one analyte, a defined window of affected samples
+- Transcription error in reporting :: a manual step between result and record :: a single wrong value released, the analysis itself correct
+PARAM: DETECTION CONTROL
+- Internal quality control samples :: known material run alongside :: drift and reagent faults caught, no protection against identity errors
+- Delta check against prior results :: a previous result for the same patient :: implausible changes flagged, useless for a first presentation
+- Two-person identity verification :: staff and time at the bedside :: identity errors prevented at source, no effect on analysis
+- No systematic check at all :: an absent quality system :: nothing caught by design, discovery only by chance
+PARAM: CLINICAL CONTEXT
+- Result contradicts the picture :: a clinician who knows the patient :: the error questioned before acting, a repeat requested
+- Result plausible but wrong :: a value inside the expected range :: no suspicion raised, action taken on the wrong number
+- Screening of a well population :: people with no symptoms :: no clinical picture to contradict, reliance entirely on the assay
+- Urgent result acted on at once :: a time-critical decision :: no opportunity to verify, immediate consequence
+PARAM: PATIENT OUTCOME
+- Error caught before any action :: a check operating in time :: no harm to the patient, an incident logged
+- Unnecessary treatment given :: action on a false positive :: avoidable harm from the treatment itself, a complaint likely
+- Necessary treatment withheld :: action on a false negative :: harm from the untreated condition, delayed diagnosis
+- No consequence despite the error :: a wrong result that changed nothing :: no harm arising, the error often never noticed
+EXCL: ERROR ORIGIN|DETECTION CONTROL
+Sample mislabelled at collection >< Internal quality control samples | N3 | known material run alongside | nothing detectable in the laboratory
+Transcription error in reporting >< Internal quality control samples | N3 | known material run alongside | the analysis itself correct
+EXCL: DETECTION CONTROL|CLINICAL CONTEXT
+Delta check against prior results >< Screening of a well population | N3 | a previous result for the same patient | people with no symptoms
+EXCL: CLINICAL CONTEXT|PATIENT OUTCOME
+Result contradicts the picture >< Unnecessary treatment given | N3 | action on a false positive | the error questioned before acting
+Urgent result acted on at once >< Error caught before any action | N3 | a check operating in time | no opportunity to verify
+EXCL: DETECTION CONTROL|PATIENT OUTCOME
+No systematic check at all >< Error caught before any action | N3 | a check operating in time | nothing caught by design
+---
+DOMAIN: municipal recycling contamination
+GROUP: public services
+PARAM: COLLECTION SCHEME
+- Fully commingled single bin :: one container for all recyclables :: very high participation, heavy sorting burden downstream
+- Kerbside sort by the crew :: staff sorting at the vehicle :: clean separated streams, slow rounds and high labour cost
+- Two-stream paper and containers :: two containers per household :: a workable compromise, some cross-contamination
+- Deposit return for containers :: reverse vending machines and a deposit :: very clean material returned, only the containers covered
+PARAM: CONTAMINANT
+- Food residue in packaging :: containers not rinsed :: paper fibre spoiled, whole bales downgraded
+- Non-recyclable plastic film :: bags and wrapping in the bin :: machinery wrapped and stopped, manual removal needed
+- Broken glass in mixed material :: glass shattering in collection :: fragments through every stream, a safety hazard to sorters
+- No significant contamination :: material presented correctly :: streams within specification, full market value
+PARAM: PROCESSING CAPABILITY
+- Optical sorting plant :: capital investment and throughput :: automatic separation by polymer, tolerance of mixed input
+- Manual picking line :: staff on a conveyor :: judgement on difficult items, limited throughput and high cost
+- Simple baling only :: a baler and nothing else :: material compressed as received, no ability to remove anything
+- Export without processing :: an overseas buyer accepting the grade :: no domestic capacity needed, exposure to import bans
+PARAM: MATERIAL OUTCOME
+- Sold at full market grade :: material meeting specification :: revenue to the authority, genuine recycling
+- Downgraded to low value :: contamination above the threshold :: minimal revenue, some material still used
+- Rejected load sent to landfill :: contamination beyond recovery :: disposal cost paid twice, no recycling at all
+- Stockpiled awaiting a buyer :: no market at the current grade :: storage cost accruing, an uncertain destination
+EXCL: COLLECTION SCHEME|CONTAMINANT
+Kerbside sort by the crew >< Non-recyclable plastic film | N3 | clean separated streams | bags and wrapping in the bin
+Deposit return for containers >< Food residue in packaging | N3 | very clean material returned | containers not rinsed
+EXCL: CONTAMINANT|PROCESSING CAPABILITY
+Non-recyclable plastic film >< Simple baling only | N3 | manual removal needed | no ability to remove anything
+Broken glass in mixed material >< Simple baling only | N3 | fragments through every stream | no ability to remove anything
+EXCL: CONTAMINANT|MATERIAL OUTCOME
+No significant contamination >< Rejected load sent to landfill | N3 | contamination beyond recovery | streams within specification
+No significant contamination >< Downgraded to low value | N3 | contamination above the threshold | streams within specification
+EXCL: PROCESSING CAPABILITY|MATERIAL OUTCOME
+Simple baling only >< Sold at full market grade | N7 | material meeting specification | no ability to remove anything

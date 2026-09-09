@@ -1,0 +1,180 @@
+{
+ "domain": "undersea cable damage",
+ "group": "infrastructure",
+ "parameters": {
+  "DAMAGE CAUSE": [
+   "Fishing trawl or anchor",
+   "Submarine landslide",
+   "Deliberate cutting by a state actor",
+   "Equipment failure in a repeater"
+  ],
+  "ROUTE REDUNDANCY": [
+   "Single cable serving the territory",
+   "Multiple cables on the same corridor",
+   "Geographically diverse cables",
+   "Satellite backup available"
+  ],
+  "DETECTION AND LOCATION": [
+   "Optical time-domain reflectometry",
+   "Traffic monitoring at the landing station",
+   "Vessel tracking correlation",
+   "Repair ship survey"
+  ],
+  "SERVICE CONSEQUENCE": [
+   "No user impact",
+   "Degraded capacity",
+   "Complete outage for the territory",
+   "Financial market disruption"
+  ]
+ },
+ "characterisations": {
+  "Fishing trawl or anchor": {
+   "requires": "a vessel working over the cable route",
+   "provides": "shallow water damage, an identifiable vessel track, the commonest cause by far"
+  },
+  "Submarine landslide": {
+   "requires": "seabed instability on a slope",
+   "provides": "multiple cables cut simultaneously, deep water, no responsible party"
+  },
+  "Deliberate cutting by a state actor": {
+   "requires": "a vessel or vehicle capable of reaching the cable",
+   "provides": "precise simultaneous cuts, deniability, no accidental signature"
+  },
+  "Equipment failure in a repeater": {
+   "requires": "an electronic fault in the wet plant",
+   "provides": "no physical break in the cable, capacity lost on some fibres only"
+  },
+  "Single cable serving the territory": {
+   "requires": "one physical path",
+   "provides": "total loss of connectivity on any break, no alternative at all"
+  },
+  "Multiple cables on the same corridor": {
+   "requires": "several cables sharing a seabed route",
+   "provides": "apparent redundancy, common-mode failure from one seabed event"
+  },
+  "Geographically diverse cables": {
+   "requires": "paths separated by hundreds of kilometres",
+   "provides": "genuine redundancy against any local event"
+  },
+  "Satellite backup available": {
+   "requires": "contracted capacity on orbit",
+   "provides": "continuity of essential traffic, a small fraction of cable capacity"
+  },
+  "Optical time-domain reflectometry": {
+   "requires": "access to the fibre from a landing station",
+   "provides": "distance to the fault along the cable, no cause information"
+  },
+  "Traffic monitoring at the landing station": {
+   "requires": "network telemetry",
+   "provides": "immediate awareness of loss, no location"
+  },
+  "Vessel tracking correlation": {
+   "requires": "an automatic identification system record",
+   "provides": "identification of a vessel over the fault at the time, only for surface vessels"
+  },
+  "Repair ship survey": {
+   "requires": "a cable ship on site",
+   "provides": "definitive location and cause, days to weeks to arrive"
+  },
+  "No user impact": {
+   "requires": "capacity absorbed by other paths",
+   "provides": "no consequence"
+  },
+  "Degraded capacity": {
+   "requires": "reduced bandwidth on surviving paths",
+   "provides": "congestion and latency, service continues"
+  },
+  "Complete outage for the territory": {
+   "requires": "all paths lost",
+   "provides": "national-scale disconnection"
+  },
+  "Financial market disruption": {
+   "requires": "latency-sensitive traffic rerouted",
+   "provides": "trading impact, measurable economic cost"
+  }
+ },
+ "exclusions": {
+  "DAMAGE CAUSE|ROUTE REDUNDANCY": [
+   {
+    "row": "Submarine landslide",
+    "col": "Geographically diverse cables",
+    "code": "N7",
+    "requires": "paths separated by hundreds of kilometres",
+    "blocked_by": "multiple cables cut simultaneously"
+   }
+  ],
+  "DAMAGE CAUSE|DETECTION AND LOCATION": [
+   {
+    "row": "Equipment failure in a repeater",
+    "col": "Vessel tracking correlation",
+    "code": "N3",
+    "requires": "identification of a vessel over the fault at the time",
+    "blocked_by": "no physical break in the cable"
+   },
+   {
+    "row": "Submarine landslide",
+    "col": "Vessel tracking correlation",
+    "code": "N3",
+    "requires": "only for surface vessels",
+    "blocked_by": "no responsible party"
+   },
+   {
+    "row": "Deliberate cutting by a state actor",
+    "col": "Vessel tracking correlation",
+    "code": "N7",
+    "requires": "identification of a vessel over the fault at the time",
+    "blocked_by": "deniability"
+   },
+   {
+    "row": "Deliberate cutting by a state actor",
+    "col": "Optical time-domain reflectometry",
+    "code": "N7",
+    "requires": "no cause information",
+    "blocked_by": "precise simultaneous cuts"
+   }
+  ],
+  "DAMAGE CAUSE|SERVICE CONSEQUENCE": [
+   {
+    "row": "Equipment failure in a repeater",
+    "col": "Complete outage for the territory",
+    "code": "N7",
+    "requires": "all paths lost",
+    "blocked_by": "capacity lost on some fibres only"
+   }
+  ],
+  "ROUTE REDUNDANCY|SERVICE CONSEQUENCE": [
+   {
+    "row": "Single cable serving the territory",
+    "col": "No user impact",
+    "code": "N3",
+    "requires": "capacity absorbed by other paths",
+    "blocked_by": "no alternative at all"
+   },
+   {
+    "row": "Geographically diverse cables",
+    "col": "Complete outage for the territory",
+    "code": "N7",
+    "requires": "all paths lost",
+    "blocked_by": "genuine redundancy against any local event"
+   }
+  ],
+  "DETECTION AND LOCATION|SERVICE CONSEQUENCE": [
+   {
+    "row": "Traffic monitoring at the landing station",
+    "col": "No user impact",
+    "code": "N7",
+    "requires": "capacity absorbed by other paths",
+    "blocked_by": "immediate awareness of loss"
+   }
+  ],
+  "ROUTE REDUNDANCY|DETECTION AND LOCATION": [
+   {
+    "row": "Satellite backup available",
+    "col": "Repair ship survey",
+    "code": "N7",
+    "requires": "a cable ship on site",
+    "blocked_by": "contracted capacity on orbit"
+   }
+  ]
+ }
+}

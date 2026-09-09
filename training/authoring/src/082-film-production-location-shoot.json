@@ -1,0 +1,148 @@
+{
+ "domain": "film production location shoot",
+ "group": "media",
+ "parameters": {
+  "SHOOT ENVIRONMENT": [
+   "Controlled sound stage",
+   "Public street location",
+   "Remote wilderness location",
+   "Practical working building"
+  ],
+  "KEY REQUIREMENT": [
+   "Large crowd of extras",
+   "Live animal work",
+   "Heavy rigged lighting",
+   "Simple two-person dialogue"
+  ],
+  "SCHEDULE STATE": [
+   "Ample prep and contingency",
+   "Single day with no return",
+   "Night shooting only",
+   "Overrunning and out of budget"
+  ],
+  "DELIVERY OUTCOME": [
+   "Scene completed as storyboarded",
+   "Scene rewritten to fit constraints",
+   "Scene abandoned entirely",
+   "Reshoot scheduled later"
+  ]
+ },
+ "characterisations": {
+  "Controlled sound stage": {
+   "requires": "a booked stage and built sets",
+   "provides": "total control of light and sound, no weather risk, high daily cost"
+  },
+  "Public street location": {
+   "requires": "a filming permit and traffic management",
+   "provides": "authentic backdrop, uncontrolled passers-by and noise"
+  },
+  "Remote wilderness location": {
+   "requires": "vehicle access and self-sufficiency",
+   "provides": "landscape unavailable elsewhere, no mains power on site"
+  },
+  "Practical working building": {
+   "requires": "agreement of the owner and occupants",
+   "provides": "real interiors at low cost, restriction to the hours the building is free"
+  },
+  "Large crowd of extras": {
+   "requires": "casting and a budget for background artists",
+   "provides": "scale on screen, hours of wrangling per setup"
+  },
+  "Live animal work": {
+   "requires": "a trainer and welfare supervision",
+   "provides": "authentic creature performance, no control of exact timing"
+  },
+  "Heavy rigged lighting": {
+   "requires": "a grid or scaffold able to bear the load",
+   "provides": "precise control of the image, a long rig and derig"
+  },
+  "Simple two-person dialogue": {
+   "requires": "two actors and a quiet space",
+   "provides": "fast turnaround, minimal crew"
+  },
+  "Ample prep and contingency": {
+   "requires": "a financed schedule with float",
+   "provides": "reshoots possible, weather days absorbed"
+  },
+  "Single day with no return": {
+   "requires": "a location available once only",
+   "provides": "everything captured that day, no second chance"
+  },
+  "Night shooting only": {
+   "requires": "darkness for the scene",
+   "provides": "limited usable hours per night, penalty rates"
+  },
+  "Overrunning and out of budget": {
+   "requires": "days lost earlier in the schedule",
+   "provides": "no contingency remaining, scenes cut to finish"
+  },
+  "Scene completed as storyboarded": {
+   "requires": "coverage of every planned setup",
+   "provides": "the edit assembled as designed, no compromise"
+  },
+  "Scene rewritten to fit constraints": {
+   "requires": "a director willing to adapt",
+   "provides": "a workable sequence, a departure from the script"
+  },
+  "Scene abandoned entirely": {
+   "requires": "an unrecoverable failure on the day",
+   "provides": "the material never shot, an edit built around the gap"
+  },
+  "Reshoot scheduled later": {
+   "requires": "budget and availability for a return",
+   "provides": "the scene recovered, added cost"
+  }
+ },
+ "exclusions": {
+  "SHOOT ENVIRONMENT|KEY REQUIREMENT": [
+   {
+    "row": "Remote wilderness location",
+    "col": "Heavy rigged lighting",
+    "code": "N3",
+    "requires": "a grid or scaffold able to bear the load",
+    "blocked_by": "no mains power on site"
+   }
+  ],
+  "SHOOT ENVIRONMENT|DELIVERY OUTCOME": [
+   {
+    "row": "Controlled sound stage",
+    "col": "Scene abandoned entirely",
+    "code": "N7",
+    "requires": "an unrecoverable failure on the day",
+    "blocked_by": "total control of light and sound"
+   }
+  ],
+  "SCHEDULE STATE|DELIVERY OUTCOME": [
+   {
+    "row": "Single day with no return",
+    "col": "Reshoot scheduled later",
+    "code": "N3",
+    "requires": "budget and availability for a return",
+    "blocked_by": "no second chance"
+   },
+   {
+    "row": "Overrunning and out of budget",
+    "col": "Reshoot scheduled later",
+    "code": "N3",
+    "requires": "budget and availability for a return",
+    "blocked_by": "no contingency remaining"
+   },
+   {
+    "row": "Ample prep and contingency",
+    "col": "Scene abandoned entirely",
+    "code": "N7",
+    "requires": "an unrecoverable failure on the day",
+    "blocked_by": "reshoots possible"
+   }
+  ],
+  "KEY REQUIREMENT|SCHEDULE STATE": [
+   {
+    "row": "Large crowd of extras",
+    "col": "Overrunning and out of budget",
+    "code": "N3",
+    "requires": "a budget for background artists",
+    "blocked_by": "no contingency remaining"
+   }
+  ]
+ }
+}

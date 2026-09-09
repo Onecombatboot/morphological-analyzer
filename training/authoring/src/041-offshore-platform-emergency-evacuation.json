@@ -1,0 +1,174 @@
+{
+ "domain": "offshore platform emergency evacuation",
+ "group": "industrial safety",
+ "parameters": {
+  "EMERGENCY": [
+   "Gas release without ignition",
+   "Fire on the process deck",
+   "Structural or stability failure",
+   "Helideck unavailable"
+  ],
+  "EVACUATION MEANS": [
+   "Helicopter shuttle",
+   "Lifeboat launch",
+   "Walk to a bridge-linked platform",
+   "Sea entry and rescue craft"
+  ],
+  "WEATHER": [
+   "Calm sea and clear air",
+   "Storm sea state",
+   "Fog with no ceiling",
+   "Freezing conditions"
+  ],
+  "MUSTER OUTCOME": [
+   "All personnel accounted for",
+   "Personnel missing at muster",
+   "Evacuation under fire conditions",
+   "Shelter in the temporary refuge"
+  ]
+ },
+ "characterisations": {
+  "Gas release without ignition": {
+   "requires": "loss of hydrocarbon containment",
+   "provides": "a toxic and explosive atmosphere, no fire yet, muster still possible"
+  },
+  "Fire on the process deck": {
+   "requires": "ignition of released hydrocarbon",
+   "provides": "escalation risk to the inventory, escape routes cut by heat"
+  },
+  "Structural or stability failure": {
+   "requires": "loss of buoyancy or structural integrity",
+   "provides": "the installation itself is lost, no safe muster point"
+  },
+  "Helideck unavailable": {
+   "requires": "obstruction, weather or damage to the deck",
+   "provides": "no rotary evacuation, no hazard by itself"
+  },
+  "Helicopter shuttle": {
+   "requires": "a serviceable helideck and flyable weather",
+   "provides": "rapid removal of small groups, dependence on aviation limits"
+  },
+  "Lifeboat launch": {
+   "requires": "davits and a launch envelope",
+   "provides": "whole-complement removal in one movement, exposure to the sea state"
+  },
+  "Walk to a bridge-linked platform": {
+   "requires": "a physical bridge to an adjacent installation",
+   "provides": "escape without entering the sea, only where a bridge exists"
+  },
+  "Sea entry and rescue craft": {
+   "requires": "personal survival equipment and a standby vessel",
+   "provides": "a last resort, high injury and hypothermia risk"
+  },
+  "Calm sea and clear air": {
+   "requires": "benign conditions",
+   "provides": "all evacuation means available"
+  },
+  "Storm sea state": {
+   "requires": "high wind and wave",
+   "provides": "lifeboat launch marginal, sea entry survivable only briefly"
+  },
+  "Fog with no ceiling": {
+   "requires": "visibility below aviation minima",
+   "provides": "no helicopter movement, sea state unaffected"
+  },
+  "Freezing conditions": {
+   "requires": "air and sea below survival thresholds",
+   "provides": "very short survival time in the water, icing on equipment"
+  },
+  "All personnel accounted for": {
+   "requires": "a successful muster",
+   "provides": "complete evacuation, no casualties"
+  },
+  "Personnel missing at muster": {
+   "requires": "someone not reaching the muster station",
+   "provides": "a search required, delay to evacuation"
+  },
+  "Evacuation under fire conditions": {
+   "requires": "escape routes already compromised",
+   "provides": "casualties likely, partial evacuation"
+  },
+  "Shelter in the temporary refuge": {
+   "requires": "a refuge holding its integrity",
+   "provides": "survival in place pending rescue, no evacuation yet"
+  }
+ },
+ "exclusions": {
+  "EMERGENCY|EVACUATION MEANS": [
+   {
+    "row": "Fire on the process deck",
+    "col": "Walk to a bridge-linked platform",
+    "code": "N7",
+    "requires": "a physical bridge to an adjacent installation",
+    "blocked_by": "escape routes cut by heat"
+   },
+   {
+    "row": "Structural or stability failure",
+    "col": "Walk to a bridge-linked platform",
+    "code": "N7",
+    "requires": "a physical bridge to an adjacent installation",
+    "blocked_by": "the installation itself is lost"
+   },
+   {
+    "row": "Helideck unavailable",
+    "col": "Helicopter shuttle",
+    "code": "N3",
+    "requires": "a serviceable helideck and flyable weather",
+    "blocked_by": "no rotary evacuation"
+   },
+   {
+    "row": "Gas release without ignition",
+    "col": "Sea entry and rescue craft",
+    "code": "N7",
+    "requires": "a last resort",
+    "blocked_by": "muster still possible"
+   }
+  ],
+  "EMERGENCY|MUSTER OUTCOME": [
+   {
+    "row": "Structural or stability failure",
+    "col": "Shelter in the temporary refuge",
+    "code": "N3",
+    "requires": "a refuge holding its integrity",
+    "blocked_by": "no safe muster point"
+   },
+   {
+    "row": "Helideck unavailable",
+    "col": "Evacuation under fire conditions",
+    "code": "N3",
+    "requires": "escape routes already compromised",
+    "blocked_by": "no hazard by itself"
+   }
+  ],
+  "EVACUATION MEANS|WEATHER": [
+   {
+    "row": "Helicopter shuttle",
+    "col": "Fog with no ceiling",
+    "code": "N3",
+    "requires": "a serviceable helideck and flyable weather",
+    "blocked_by": "no helicopter movement"
+   },
+   {
+    "row": "Lifeboat launch",
+    "col": "Storm sea state",
+    "code": "N7",
+    "requires": "davits and a launch envelope",
+    "blocked_by": "lifeboat launch marginal"
+   },
+   {
+    "row": "Sea entry and rescue craft",
+    "col": "Storm sea state",
+    "code": "N7",
+    "requires": "personal survival equipment and a standby vessel",
+    "blocked_by": "sea entry survivable only briefly"
+   },
+   {
+    "row": "Sea entry and rescue craft",
+    "col": "Freezing conditions",
+    "code": "N7",
+    "requires": "personal survival equipment and a standby vessel",
+    "blocked_by": "very short survival time in the water"
+   }
+  ]
+ }
+}

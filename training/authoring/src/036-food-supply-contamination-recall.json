@@ -1,0 +1,368 @@
+{
+ "domain": "food supply contamination recall",
+ "group": "industrial",
+ "parameters": {
+  "CONTAMINANT": [
+   "Pathogenic bacteria",
+   "Undeclared allergen",
+   "Foreign body fragment",
+   "Chemical residue above limit"
+  ],
+  "ORIGIN STAGE": [
+   "Primary production",
+   "Processing plant",
+   "Packaging line",
+   "Retail handling"
+  ],
+  "DETECTION ROUTE": [
+   "Routine end-product testing",
+   "Consumer complaint",
+   "Public health surveillance",
+   "Supplier notification"
+  ],
+  "RECALL SCOPE": [
+   "Single batch",
+   "All production from one plant",
+   "All product of one brand",
+   "No recall required"
+  ],
+  "HEALTH IMPACT": [
+   "No illness reported",
+   "Localised illness cluster",
+   "Multi-region outbreak",
+   "Fatalities"
+  ]
+ },
+ "characterisations": {
+  "Pathogenic bacteria": {
+   "requires": "contamination plus conditions allowing growth",
+   "provides": "acute illness days after consumption, amplifies over time, killed by cooking"
+  },
+  "Undeclared allergen": {
+   "requires": "cross-contact or a labelling error",
+   "provides": "harmless to most consumers, severe reaction in a sensitised minority, immediate onset"
+  },
+  "Foreign body fragment": {
+   "requires": "physical ingress of material",
+   "provides": "injury on consumption, affects individual units only, no biological growth"
+  },
+  "Chemical residue above limit": {
+   "requires": "excess application or process carryover",
+   "provides": "chronic risk, uniform across a production run, no acute illness"
+  },
+  "Primary production": {
+   "requires": "the farm or fishery stage",
+   "provides": "contamination present before any processing, affects everything downstream of that input"
+  },
+  "Processing plant": {
+   "requires": "a transformation step",
+   "provides": "wide distribution of the fault across a production run"
+  },
+  "Packaging line": {
+   "requires": "the filling and sealing stage",
+   "provides": "faults confined to what passed that line, labelling errors originate here"
+  },
+  "Retail handling": {
+   "requires": "storage and display at point of sale",
+   "provides": "faults confined to one store, no production record"
+  },
+  "Routine end-product testing": {
+   "requires": "a sampling programme",
+   "provides": "detection before release, statistical coverage only"
+  },
+  "Consumer complaint": {
+   "requires": "a consumer noticing and reporting",
+   "provides": "detection of visible or immediately felt problems, product already sold"
+  },
+  "Public health surveillance": {
+   "requires": "illness reported and linked epidemiologically",
+   "provides": "detection of outbreaks weeks later, only for illness-causing agents"
+  },
+  "Supplier notification": {
+   "requires": "an upstream supplier discovering their own fault",
+   "provides": "early warning covering everything using that input"
+  },
+  "Single batch": {
+   "requires": "the fault traceable to identifiable units",
+   "provides": "minimal commercial impact, precise removal"
+  },
+  "All production from one plant": {
+   "requires": "a plant-wide cause or loss of traceability",
+   "provides": "wide removal, major commercial impact"
+  },
+  "All product of one brand": {
+   "requires": "an input used across the brand",
+   "provides": "maximal removal, reputational consequence"
+  },
+  "No recall required": {
+   "requires": "the fault contained before distribution",
+   "provides": "no market action"
+  },
+  "No illness reported": {
+   "requires": "detection before consumption or a non-acute hazard",
+   "provides": "no health consequence"
+  },
+  "Localised illness cluster": {
+   "requires": "consumption in one area",
+   "provides": "a traceable group of cases"
+  },
+  "Multi-region outbreak": {
+   "requires": "wide distribution before detection",
+   "provides": "cases across jurisdictions, complex traceback"
+  },
+  "Fatalities": {
+   "requires": "a severe hazard reaching a vulnerable consumer",
+   "provides": "the highest consequence, criminal exposure"
+  }
+ },
+ "exclusions": {
+  "CONTAMINANT|ORIGIN STAGE": [
+   {
+    "row": "Undeclared allergen",
+    "col": "Primary production",
+    "code": "N7",
+    "requires": "cross-contact or a labelling error",
+    "blocked_by": "the farm or fishery stage"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Packaging line",
+    "code": "N7",
+    "requires": "excess application or process carryover",
+    "blocked_by": "the filling and sealing stage"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Retail handling",
+    "code": "N7",
+    "requires": "excess application or process carryover",
+    "blocked_by": "storage and display at point of sale"
+   }
+  ],
+  "CONTAMINANT|DETECTION ROUTE": [
+   {
+    "row": "Foreign body fragment",
+    "col": "Public health surveillance",
+    "code": "N3",
+    "requires": "only for illness-causing agents",
+    "blocked_by": "no biological growth"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Consumer complaint",
+    "code": "N3",
+    "requires": "detection of visible or immediately felt problems",
+    "blocked_by": "chronic risk"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Public health surveillance",
+    "code": "N7",
+    "requires": "only for illness-causing agents",
+    "blocked_by": "no acute illness"
+   }
+  ],
+  "CONTAMINANT|RECALL SCOPE": [
+   {
+    "row": "Foreign body fragment",
+    "col": "All production from one plant",
+    "code": "N7",
+    "requires": "a plant-wide cause or loss of traceability",
+    "blocked_by": "affects individual units only"
+   },
+   {
+    "row": "Foreign body fragment",
+    "col": "All product of one brand",
+    "code": "N7",
+    "requires": "an input used across the brand",
+    "blocked_by": "affects individual units only"
+   }
+  ],
+  "CONTAMINANT|HEALTH IMPACT": [
+   {
+    "row": "Foreign body fragment",
+    "col": "Multi-region outbreak",
+    "code": "N3",
+    "requires": "wide distribution before detection",
+    "blocked_by": "affects individual units only"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Localised illness cluster",
+    "code": "N3",
+    "requires": "consumption in one area",
+    "blocked_by": "no acute illness"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Multi-region outbreak",
+    "code": "N3",
+    "requires": "wide distribution before detection",
+    "blocked_by": "no acute illness"
+   },
+   {
+    "row": "Chemical residue above limit",
+    "col": "Fatalities",
+    "code": "N7",
+    "requires": "a severe hazard reaching a vulnerable consumer",
+    "blocked_by": "chronic risk"
+   }
+  ],
+  "ORIGIN STAGE|DETECTION ROUTE": [
+   {
+    "row": "Processing plant",
+    "col": "Supplier notification",
+    "code": "N6",
+    "requires": "an upstream supplier discovering their own fault",
+    "blocked_by": "a transformation step"
+   },
+   {
+    "row": "Packaging line",
+    "col": "Supplier notification",
+    "code": "N6",
+    "requires": "an upstream supplier discovering their own fault",
+    "blocked_by": "the filling and sealing stage"
+   },
+   {
+    "row": "Retail handling",
+    "col": "Routine end-product testing",
+    "code": "N6",
+    "requires": "detection before release",
+    "blocked_by": "storage and display at point of sale"
+   },
+   {
+    "row": "Retail handling",
+    "col": "Supplier notification",
+    "code": "N6",
+    "requires": "an upstream supplier discovering their own fault",
+    "blocked_by": "storage and display at point of sale"
+   }
+  ],
+  "ORIGIN STAGE|RECALL SCOPE": [
+   {
+    "row": "Packaging line",
+    "col": "All product of one brand",
+    "code": "N3",
+    "requires": "an input used across the brand",
+    "blocked_by": "faults confined to what passed that line"
+   },
+   {
+    "row": "Retail handling",
+    "col": "All production from one plant",
+    "code": "N3",
+    "requires": "a plant-wide cause or loss of traceability",
+    "blocked_by": "faults confined to one store"
+   },
+   {
+    "row": "Retail handling",
+    "col": "All product of one brand",
+    "code": "N3",
+    "requires": "an input used across the brand",
+    "blocked_by": "faults confined to one store"
+   }
+  ],
+  "ORIGIN STAGE|HEALTH IMPACT": [
+   {
+    "row": "Retail handling",
+    "col": "Multi-region outbreak",
+    "code": "N3",
+    "requires": "wide distribution before detection",
+    "blocked_by": "faults confined to one store"
+   }
+  ],
+  "DETECTION ROUTE|RECALL SCOPE": [
+   {
+    "row": "Public health surveillance",
+    "col": "No recall required",
+    "code": "N3",
+    "requires": "the fault contained before distribution",
+    "blocked_by": "detection of outbreaks weeks later"
+   }
+  ],
+  "DETECTION ROUTE|HEALTH IMPACT": [
+   {
+    "row": "Routine end-product testing",
+    "col": "Localised illness cluster",
+    "code": "N7",
+    "requires": "consumption in one area",
+    "blocked_by": "detection before release"
+   },
+   {
+    "row": "Routine end-product testing",
+    "col": "Multi-region outbreak",
+    "code": "N7",
+    "requires": "wide distribution before detection",
+    "blocked_by": "detection before release"
+   },
+   {
+    "row": "Routine end-product testing",
+    "col": "Fatalities",
+    "code": "N7",
+    "requires": "a severe hazard reaching a vulnerable consumer",
+    "blocked_by": "detection before release"
+   },
+   {
+    "row": "Public health surveillance",
+    "col": "No illness reported",
+    "code": "N1",
+    "requires": "illness reported and linked epidemiologically",
+    "blocked_by": "no health consequence"
+   },
+   {
+    "row": "Supplier notification",
+    "col": "Localised illness cluster",
+    "code": "N7",
+    "requires": "consumption in one area",
+    "blocked_by": "early warning covering everything using that input"
+   },
+   {
+    "row": "Supplier notification",
+    "col": "Multi-region outbreak",
+    "code": "N7",
+    "requires": "wide distribution before detection",
+    "blocked_by": "early warning covering everything using that input"
+   },
+   {
+    "row": "Supplier notification",
+    "col": "Fatalities",
+    "code": "N7",
+    "requires": "a severe hazard reaching a vulnerable consumer",
+    "blocked_by": "early warning covering everything using that input"
+   }
+  ],
+  "RECALL SCOPE|HEALTH IMPACT": [
+   {
+    "row": "No recall required",
+    "col": "Localised illness cluster",
+    "code": "N3",
+    "requires": "consumption in one area",
+    "blocked_by": "the fault contained before distribution"
+   },
+   {
+    "row": "No recall required",
+    "col": "Multi-region outbreak",
+    "code": "N3",
+    "requires": "wide distribution before detection",
+    "blocked_by": "the fault contained before distribution"
+   },
+   {
+    "row": "No recall required",
+    "col": "Fatalities",
+    "code": "N3",
+    "requires": "a severe hazard reaching a vulnerable consumer",
+    "blocked_by": "the fault contained before distribution"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CONTAMINANT|ORIGIN STAGE": "an undeclared allergen originates at processing or packaging - a labelling or cross-contact fault - so primary production and retail are N. Foreign bodies are N at primary production as posed. Chemical residue is N at packaging and retail, arising from application or process carryover upstream.",
+  "CONTAMINANT|DETECTION ROUTE": "public health surveillance detects only illness-causing agents, so chemical residue is N and foreign bodies are N. Allergens are N for surveillance as an outbreak signal. Chemical residue is N for consumer complaint and N for surveillance.",
+  "CONTAMINANT|RECALL SCOPE": "a foreign body affects individual units, so plant-wide and brand-wide recalls are N.",
+  "CONTAMINANT|HEALTH IMPACT": "an allergen produces individual severe reactions, not a multi-region outbreak, so that is N. Foreign bodies are N for multi-region outbreak and N for fatalities as posed. Chemical residue is chronic, so localised cluster, outbreak and fatalities are all N.",
+  "ORIGIN STAGE|DETECTION ROUTE": "retail handling is N for routine end-product testing and N for supplier notification - no production record and no upstream supplier involvement. Processing and packaging are both N for supplier notification, the fault being their own.",
+  "ORIGIN STAGE|RECALL SCOPE": "packaging is N for brand-wide recall. Retail handling is N for plant-wide and brand-wide recalls, being confined to one store.",
+  "ORIGIN STAGE|HEALTH IMPACT": "retail handling is N for multi-region outbreak - one store cannot produce it.",
+  "DETECTION ROUTE|RECALL SCOPE": "public health surveillance is N for no-recall-required: if surveillance found it, product is in the market.",
+  "DETECTION ROUTE|HEALTH IMPACT": "routine testing and supplier notification both catch product before consumption, so cluster, outbreak and fatalities are N. Public health surveillance is N for no-illness-reported by definition."
+ }
+}

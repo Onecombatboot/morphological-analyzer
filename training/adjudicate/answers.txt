@@ -1,0 +1,70 @@
+1: Y
+2: Y
+3: Y
+4: Y
+5: Y
+6: Y
+7: N
+7! a chlorine-susceptible contaminant >< not removed by chlorination
+8: Y
+9: Y
+10: N
+10! population at risk and warning time >< no immediate life safety concern
+11: Y
+12: Y
+13: Y
+14: Y
+15: Y
+16: Y
+17: Y
+18: Y
+19: Y
+20: Y
+21: Y
+22: Y
+23: Y
+24: Y
+25: Y
+26: Y
+27: Y
+28: Y
+29: N
+29! checked baggage entering the system >< a weapon placed in a bag entering the cabin
+30: N
+30! detection before water reaches consumers >< a perceptible change and a consumer reporting it
+31: N
+31! combustion equipment in a confined airway >< no confined atmosphere
+32: Y
+33: Y
+34: Y
+35: Y
+36: Y
+37: Y
+38: N
+38! contamination of the raw water body >< corrosive water in contact with metal pipe or solder
+39: N
+39! large volume and a trusted network >< limited volume
+40: Y
+41: Y
+42: Y
+43: Y
+44: Y
+45: N
+45! requires a laboratory at destination >< no infrastructure
+46: Y
+47: Y
+48: Y
+49: N
+49! the compromise being confined to identifiable hosts >< simultaneous access across every installation
+50: Y
+51: Y
+52: Y
+53: Y
+54: Y
+55: Y
+56: Y
+57: N
+57! a second source to exist >< no unaffected zone to switch to
+58: Y
+59: Y
+60: Y

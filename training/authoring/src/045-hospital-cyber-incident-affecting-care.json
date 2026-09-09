@@ -1,0 +1,187 @@
+{
+ "domain": "hospital cyber incident affecting care",
+ "group": "cyber",
+ "parameters": {
+  "SYSTEM AFFECTED": [
+   "Electronic patient record",
+   "Diagnostic imaging archive",
+   "Laboratory information system",
+   "Networked infusion devices"
+  ],
+  "ATTACK EFFECT": [
+   "Encryption of data at rest",
+   "Silent alteration of records",
+   "Denial of network access",
+   "Exfiltration without disruption"
+  ],
+  "CLINICAL MITIGATION": [
+   "Paper downtime procedures",
+   "Divert emergency admissions",
+   "Cancel elective activity",
+   "Manual device operation"
+  ],
+  "PATIENT CONSEQUENCE": [
+   "No clinical impact",
+   "Delayed diagnosis or treatment",
+   "Incorrect treatment given",
+   "Death attributable to the incident"
+  ]
+ },
+ "characterisations": {
+  "Electronic patient record": {
+   "requires": "the central clinical record system",
+   "provides": "loss of history, allergies and current orders, every department affected at once"
+  },
+  "Diagnostic imaging archive": {
+   "requires": "the store and viewer for radiology",
+   "provides": "images unavailable for reporting, no effect on acquisition itself"
+  },
+  "Laboratory information system": {
+   "requires": "the analyser and results pipeline",
+   "provides": "no results returned, specimens still collectable"
+  },
+  "Networked infusion devices": {
+   "requires": "bedside pumps with a management link",
+   "provides": "direct patient harm potential, device-level rather than record-level"
+  },
+  "Encryption of data at rest": {
+   "requires": "ransomware reaching the storage",
+   "provides": "total unavailability, recovery from backup possible"
+  },
+  "Silent alteration of records": {
+   "requires": "write access without detection",
+   "provides": "data present but untrustworthy, no obvious outage"
+  },
+  "Denial of network access": {
+   "requires": "saturation or segmentation failure",
+   "provides": "systems intact but unreachable, immediate restoration once cleared"
+  },
+  "Exfiltration without disruption": {
+   "requires": "outbound copying of data",
+   "provides": "confidentiality loss only, care unaffected"
+  },
+  "Paper downtime procedures": {
+   "requires": "pre-printed forms and trained staff",
+   "provides": "continuity of documentation, no access to prior history"
+  },
+  "Divert emergency admissions": {
+   "requires": "another receiving hospital with capacity",
+   "provides": "reduced load, transfer risk to patients"
+  },
+  "Cancel elective activity": {
+   "requires": "a schedule that can be postponed",
+   "provides": "capacity freed for urgent care, no benefit to anyone already mid-treatment"
+  },
+  "Manual device operation": {
+   "requires": "devices usable without the network",
+   "provides": "continued treatment, heavy staffing cost"
+  },
+  "No clinical impact": {
+   "requires": "containment before any care is affected",
+   "provides": "no consequence"
+  },
+  "Delayed diagnosis or treatment": {
+   "requires": "care postponed rather than wrong",
+   "provides": "harm from delay only"
+  },
+  "Incorrect treatment given": {
+   "requires": "a clinician acting on wrong information",
+   "provides": "direct iatrogenic harm"
+  },
+  "Death attributable to the incident": {
+   "requires": "harm severe enough to be causal",
+   "provides": "mortality, regulatory and criminal exposure"
+  }
+ },
+ "exclusions": {
+  "SYSTEM AFFECTED|ATTACK EFFECT": [
+   {
+    "row": "Networked infusion devices",
+    "col": "Exfiltration without disruption",
+    "code": "N7",
+    "requires": "outbound copying of data",
+    "blocked_by": "device-level rather than record-level"
+   }
+  ],
+  "SYSTEM AFFECTED|CLINICAL MITIGATION": [
+   {
+    "row": "Laboratory information system",
+    "col": "Manual device operation",
+    "code": "N7",
+    "requires": "devices usable without the network",
+    "blocked_by": "specimens still collectable"
+   },
+   {
+    "row": "Electronic patient record",
+    "col": "Manual device operation",
+    "code": "N7",
+    "requires": "devices usable without the network",
+    "blocked_by": "every department affected at once"
+   }
+  ],
+  "ATTACK EFFECT|CLINICAL MITIGATION": [
+   {
+    "row": "Silent alteration of records",
+    "col": "Paper downtime procedures",
+    "code": "N7",
+    "requires": "continuity of documentation",
+    "blocked_by": "data present but untrustworthy"
+   },
+   {
+    "row": "Exfiltration without disruption",
+    "col": "Divert emergency admissions",
+    "code": "N3",
+    "requires": "reduced load",
+    "blocked_by": "care unaffected"
+   },
+   {
+    "row": "Exfiltration without disruption",
+    "col": "Cancel elective activity",
+    "code": "N3",
+    "requires": "capacity freed for urgent care",
+    "blocked_by": "care unaffected"
+   }
+  ],
+  "ATTACK EFFECT|PATIENT CONSEQUENCE": [
+   {
+    "row": "Exfiltration without disruption",
+    "col": "Delayed diagnosis or treatment",
+    "code": "N3",
+    "requires": "care postponed rather than wrong",
+    "blocked_by": "care unaffected"
+   },
+   {
+    "row": "Exfiltration without disruption",
+    "col": "Incorrect treatment given",
+    "code": "N3",
+    "requires": "a clinician acting on wrong information",
+    "blocked_by": "care unaffected"
+   },
+   {
+    "row": "Exfiltration without disruption",
+    "col": "Death attributable to the incident",
+    "code": "N3",
+    "requires": "harm severe enough to be causal",
+    "blocked_by": "care unaffected"
+   }
+  ],
+  "SYSTEM AFFECTED|PATIENT CONSEQUENCE": [
+   {
+    "row": "Diagnostic imaging archive",
+    "col": "Incorrect treatment given",
+    "code": "N7",
+    "requires": "a clinician acting on wrong information",
+    "blocked_by": "no effect on acquisition itself"
+   }
+  ],
+  "CLINICAL MITIGATION|PATIENT CONSEQUENCE": [
+   {
+    "row": "Cancel elective activity",
+    "col": "No clinical impact",
+    "code": "N7",
+    "requires": "containment before any care is affected",
+    "blocked_by": "capacity freed for urgent care"
+   }
+  ]
+ }
+}

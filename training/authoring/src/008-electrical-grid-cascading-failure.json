@@ -1,0 +1,223 @@
+{
+ "domain": "electrical grid cascading failure",
+ "group": "industrial",
+ "parameters": {
+  "INITIATING EVENT": [
+   "Transmission line fault",
+   "Generator trip",
+   "Substation cyber intrusion",
+   "Extreme demand peak",
+   "Geomagnetic storm"
+  ],
+  "PROPAGATION MECHANISM": [
+   "Overload on remaining lines",
+   "Frequency collapse",
+   "Voltage collapse",
+   "Protection system mis-operation"
+  ],
+  "CONTAINMENT": [
+   "Automatic load shedding",
+   "Islanding into sub-grids",
+   "Manual dispatch reconfiguration",
+   "Black start from reserve"
+  ],
+  "RESTORATION TIME": [
+   "Minutes",
+   "Hours",
+   "Days"
+  ]
+ },
+ "characterisations": {
+  "Transmission line fault": {
+   "requires": "a physical fault on a single circuit",
+   "provides": "instant loss of one path, power redistributing to parallel lines"
+  },
+  "Generator trip": {
+   "requires": "loss of a synchronised generating unit",
+   "provides": "instant loss of supply, frequency deviation, no change to network topology"
+  },
+  "Substation cyber intrusion": {
+   "requires": "remote access to control systems",
+   "provides": "adversarial simultaneous switching, false telemetry, no physical damage"
+  },
+  "Extreme demand peak": {
+   "requires": "sustained load approaching capacity",
+   "provides": "slow build over hours, forecastable, no equipment failure"
+  },
+  "Geomagnetic storm": {
+   "requires": "solar activity inducing ground currents",
+   "provides": "hours of warning, transformer saturation, wide simultaneous geographic effect"
+  },
+  "Overload on remaining lines": {
+   "requires": "a topology change that redistributes flow",
+   "provides": "sequential trips over seconds to minutes"
+  },
+  "Frequency collapse": {
+   "requires": "a generation-demand imbalance",
+   "provides": "system-wide effect within seconds, no dependence on topology"
+  },
+  "Voltage collapse": {
+   "requires": "insufficient reactive power support",
+   "provides": "localised progressive decline over minutes"
+  },
+  "Protection system mis-operation": {
+   "requires": "relays acting on incorrect or adversarial inputs",
+   "provides": "trips of healthy equipment, no underlying physical fault"
+  },
+  "Automatic load shedding": {
+   "requires": "pre-armed relays and a measurable frequency or voltage trigger",
+   "provides": "response within cycles, blunt and indiscriminate"
+  },
+  "Islanding into sub-grids": {
+   "requires": "pre-planned separation points and local generation",
+   "provides": "preservation of parts of the system, seconds to act"
+  },
+  "Manual dispatch reconfiguration": {
+   "requires": "operators with a valid system picture and minutes to act",
+   "provides": "targeted correction, useless against sub-second events"
+  },
+  "Black start from reserve": {
+   "requires": "the system already fully collapsed",
+   "provides": "restoration from nothing, hours to days"
+  },
+  "Minutes": {
+   "requires": "the disturbance contained before collapse",
+   "provides": "recovery by reclosing and redispatch"
+  },
+  "Hours": {
+   "requires": "partial collapse with generation still synchronised somewhere",
+   "provides": "sequential restoration of load blocks"
+  },
+  "Days": {
+   "requires": "physical equipment damage or total collapse",
+   "provides": "repair or replacement before restoration"
+  }
+ },
+ "exclusions": {
+  "INITIATING EVENT|PROPAGATION MECHANISM": [
+   {
+    "row": "Transmission line fault",
+    "col": "Frequency collapse",
+    "code": "N3",
+    "requires": "a generation-demand imbalance",
+    "blocked_by": "power redistributing to parallel lines"
+   },
+   {
+    "row": "Transmission line fault",
+    "col": "Protection system mis-operation",
+    "code": "N1",
+    "requires": "no underlying physical fault",
+    "blocked_by": "a physical fault on a single circuit"
+   },
+   {
+    "row": "Generator trip",
+    "col": "Overload on remaining lines",
+    "code": "N3",
+    "requires": "a topology change that redistributes flow",
+    "blocked_by": "no change to network topology"
+   }
+  ],
+  "INITIATING EVENT|CONTAINMENT": [
+   {
+    "row": "Transmission line fault",
+    "col": "Black start from reserve",
+    "code": "N7",
+    "requires": "the system already fully collapsed",
+    "blocked_by": "instant loss of one path"
+   },
+   {
+    "row": "Generator trip",
+    "col": "Black start from reserve",
+    "code": "N7",
+    "requires": "the system already fully collapsed",
+    "blocked_by": "instant loss of supply, frequency deviation"
+   },
+   {
+    "row": "Substation cyber intrusion",
+    "col": "Automatic load shedding",
+    "code": "N7",
+    "requires": "pre-armed relays and a measurable frequency or voltage trigger",
+    "blocked_by": "false telemetry"
+   },
+   {
+    "row": "Extreme demand peak",
+    "col": "Islanding into sub-grids",
+    "code": "N7",
+    "requires": "pre-planned separation points and local generation",
+    "blocked_by": "slow build over hours, forecastable"
+   },
+   {
+    "row": "Extreme demand peak",
+    "col": "Black start from reserve",
+    "code": "N7",
+    "requires": "the system already fully collapsed",
+    "blocked_by": "no equipment failure"
+   }
+  ],
+  "INITIATING EVENT|RESTORATION TIME": [
+   {
+    "row": "Extreme demand peak",
+    "col": "Days",
+    "code": "N3",
+    "requires": "physical equipment damage or total collapse",
+    "blocked_by": "no equipment failure"
+   }
+  ],
+  "PROPAGATION MECHANISM|CONTAINMENT": [
+   {
+    "row": "Overload on remaining lines",
+    "col": "Automatic load shedding",
+    "code": "N7",
+    "requires": "pre-armed relays and a measurable frequency or voltage trigger",
+    "blocked_by": "sequential trips over seconds to minutes"
+   },
+   {
+    "row": "Frequency collapse",
+    "col": "Manual dispatch reconfiguration",
+    "code": "N4",
+    "requires": "operators with a valid system picture and minutes to act",
+    "blocked_by": "system-wide effect within seconds"
+   },
+   {
+    "row": "Voltage collapse",
+    "col": "Black start from reserve",
+    "code": "N7",
+    "requires": "the system already fully collapsed",
+    "blocked_by": "localised progressive decline over minutes"
+   }
+  ],
+  "PROPAGATION MECHANISM|RESTORATION TIME": [
+   {
+    "row": "Voltage collapse",
+    "col": "Days",
+    "code": "N7",
+    "requires": "physical equipment damage or total collapse",
+    "blocked_by": "localised progressive decline over minutes"
+   },
+   {
+    "row": "Protection system mis-operation",
+    "col": "Days",
+    "code": "N3",
+    "requires": "physical equipment damage or total collapse",
+    "blocked_by": "no underlying physical fault"
+   }
+  ],
+  "CONTAINMENT|RESTORATION TIME": [
+   {
+    "row": "Black start from reserve",
+    "col": "Minutes",
+    "code": "N4",
+    "requires": "the disturbance contained before collapse",
+    "blocked_by": "restoration from nothing, hours to days"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INITIATING EVENT|PROPAGATION MECHANISM": "frequency collapse requires a generation-demand imbalance, so only a generator trip produces it directly - a line fault, a cyber intrusion, a demand peak and a storm all act through topology or equipment, not through instantaneous imbalance. Protection mis-operation requires incorrect inputs, which a cyber intrusion and a geomagnetic storm supply but a simple line fault, generator trip or demand peak do not. Voltage collapse needs reactive shortfall, absent in a cyber intrusion with no physical damage.",
+  "INITIATING EVENT|CONTAINMENT": "black start requires total collapse, which a line fault, a generator trip and a demand peak do not produce on their own. Automatic load shedding is N against a cyber intrusion because the intrusion supplies false telemetry, which is exactly what defeats a trigger-based scheme. Islanding is N against a demand peak: separation does not create generation.",
+  "INITIATING EVENT|RESTORATION TIME": "days requires physical damage, so a line fault, a generator trip and a demand peak are N. Cyber intrusion and geomagnetic storm are N at minutes: the first requires forensic confidence before reconnecting, the second saturates transformers.",
+  "PROPAGATION MECHANISM|CONTAINMENT": "overload cascades are sequential, not triggered by frequency or voltage thresholds, so automatic shedding is N. Voltage collapse is localised and progressive, so islanding is N and black start is N. Protection mis-operation defeats automatic shedding (same faulty inputs) and manual reconfiguration (the operator's picture is wrong).",
+  "PROPAGATION MECHANISM|RESTORATION TIME": "only frequency collapse routinely leaves damaged plant behind, so days is Y there and N for the others.",
+  "CONTAINMENT|RESTORATION TIME": "black start takes hours to days by definition, so minutes and hours are N. Everything else is N at days, since a containment measure that worked does not leave a multi-day outage."
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "domain": "hospital operating theatre scheduling",
+ "group": "healthcare",
+ "parameters": {
+  "CASE TYPE": [
+   "Elective day surgery",
+   "Major planned resection",
+   "Emergency laparotomy",
+   "Trauma call in resuscitation"
+  ],
+  "CONSTRAINT": [
+   "No critical care bed available",
+   "Surgeon unavailable",
+   "Equipment set unsterilised",
+   "Full staffing and capacity"
+  ],
+  "PRIORITISATION RULE": [
+   "Strict clinical urgency",
+   "Longest waiting first",
+   "Efficiency of list packing",
+   "Cancel and reschedule"
+  ],
+  "SESSION OUTCOME": [
+   "Full list completed",
+   "Late cases cancelled",
+   "List abandoned for emergencies",
+   "Session under-run"
+  ]
+ },
+ "characterisations": {
+  "Elective day surgery": {
+   "requires": "a fit patient and a routine list",
+   "provides": "predictable duration, discharge the same day"
+  },
+  "Major planned resection": {
+   "requires": "a long booked slot and critical care backup",
+   "provides": "many hours of theatre time, a post-operative bed required"
+  },
+  "Emergency laparotomy": {
+   "requires": "an acutely unwell patient",
+   "provides": "displacement of planned work, no possibility of deferral"
+  },
+  "Trauma call in resuscitation": {
+   "requires": "a major injury arriving unannounced",
+   "provides": "immediate theatre access, everything else stopped"
+  },
+  "No critical care bed available": {
+   "requires": "an intensive care unit at capacity",
+   "provides": "cancellation of any case needing one, no effect on day cases"
+  },
+  "Surgeon unavailable": {
+   "requires": "illness or competing commitment",
+   "provides": "only cases the remaining team can do, a list part-used"
+  },
+  "Equipment set unsterilised": {
+   "requires": "a decontamination backlog",
+   "provides": "no procedure needing that set, other work unaffected"
+  },
+  "Full staffing and capacity": {
+   "requires": "theatres, beds and teams all available",
+   "provides": "the planned list deliverable, normal running"
+  },
+  "Strict clinical urgency": {
+   "requires": "an agreed triage standard",
+   "provides": "the sickest treated first, planned work displaced"
+  },
+  "Longest waiting first": {
+   "requires": "a waiting list order",
+   "provides": "fairness on time waited, no regard to acuity"
+  },
+  "Efficiency of list packing": {
+   "requires": "durations known in advance",
+   "provides": "maximum cases per session, short cases favoured"
+  },
+  "Cancel and reschedule": {
+   "requires": "capacity to offer another date",
+   "provides": "the list relieved, harm to waiting time targets"
+  },
+  "Full list completed": {
+   "requires": "time and resources sufficient",
+   "provides": "every booked patient treated, no cancellations"
+  },
+  "Late cases cancelled": {
+   "requires": "the list overrunning",
+   "provides": "patients sent home unoperated, theatre time lost"
+  },
+  "List abandoned for emergencies": {
+   "requires": "emergency demand consuming the session",
+   "provides": "no elective work done, all capacity to urgent cases"
+  },
+  "Session under-run": {
+   "requires": "cases finishing early",
+   "provides": "theatre time unused, capacity wasted"
+  }
+ },
+ "exclusions": {
+  "CASE TYPE|CONSTRAINT": [
+   {
+    "row": "Major planned resection",
+    "col": "No critical care bed available",
+    "code": "N3",
+    "requires": "a post-operative bed required",
+    "blocked_by": "cancellation of any case needing one"
+   }
+  ],
+  "CASE TYPE|PRIORITISATION RULE": [
+   {
+    "row": "Trauma call in resuscitation",
+    "col": "Longest waiting first",
+    "code": "N3",
+    "requires": "a waiting list order",
+    "blocked_by": "immediate theatre access"
+   },
+   {
+    "row": "Emergency laparotomy",
+    "col": "Longest waiting first",
+    "code": "N3",
+    "requires": "a waiting list order",
+    "blocked_by": "no possibility of deferral"
+   },
+   {
+    "row": "Trauma call in resuscitation",
+    "col": "Cancel and reschedule",
+    "code": "N3",
+    "requires": "capacity to offer another date",
+    "blocked_by": "immediate theatre access"
+   },
+   {
+    "row": "Emergency laparotomy",
+    "col": "Cancel and reschedule",
+    "code": "N3",
+    "requires": "capacity to offer another date",
+    "blocked_by": "no possibility of deferral"
+   }
+  ],
+  "CONSTRAINT|SESSION OUTCOME": [
+   {
+    "row": "Full staffing and capacity",
+    "col": "List abandoned for emergencies",
+    "code": "N7",
+    "requires": "emergency demand consuming the session",
+    "blocked_by": "the planned list deliverable"
+   }
+  ],
+  "PRIORITISATION RULE|SESSION OUTCOME": [
+   {
+    "row": "Cancel and reschedule",
+    "col": "Full list completed",
+    "code": "N3",
+    "requires": "every booked patient treated",
+    "blocked_by": "the list relieved"
+   }
+  ]
+ }
+}

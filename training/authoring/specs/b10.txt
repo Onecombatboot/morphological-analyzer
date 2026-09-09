@@ -1,0 +1,104 @@
+DOMAIN: organ transplant allocation
+GROUP: healthcare
+PARAM: ORGAN OFFERED
+- Living donor kidney :: a healthy volunteer donor and elective scheduling :: a planned operating date, tolerance of long preparation, no dependence on a deceased donor
+- Deceased donor heart :: a brain-dead donor with an intact circulation :: a four hour ischaemia limit, no tolerance of a long retrieval
+- Donation after circulatory death liver :: retrieval within minutes of circulatory arrest :: a short warm ischaemia window, no time for a national matching run
+- Deceased donor kidney :: a deceased donor and a compatible recipient :: long cold ischaemia tolerance, time for a national matching run
+PARAM: ALLOCATION ROUTE
+- National matching run :: a central registry and hours to compute :: optimal matching across the country, transport time added
+- Local centre allocation :: an organ offered at the retrieving centre :: minimal transport delay, no national optimisation
+- Paired exchange scheme :: two incompatible living pairs registered :: compatible transplants for both pairs, only living donation
+- Super-urgent national listing :: a patient hours from death :: first refusal on every offer, no regard to waiting time
+PARAM: RECIPIENT STATE
+- Stable outpatient :: a patient on maintenance therapy at home :: an elective admission, tolerance of a long wait
+- Highly sensitised patient :: broad antibodies from prior exposure :: very few compatible donors, years on the waiting list
+- Critically ill inpatient :: deterioration despite maximal support :: survival measured in days, no tolerance of a long wait
+- Paediatric recipient :: a child on the waiting list :: size-matched organs only, no adult-sized organ usable
+PARAM: TRANSPORT
+- Charter flight retrieval :: flyable weather and an aircraft on call :: national reach, two to four hours of transport
+- Road transfer within the region :: a donor hospital within driving distance :: a short predictable transfer, regional reach only
+- Same centre retrieval and implant :: donor and recipient in one hospital :: minimal ischaemia, no transport at all
+- Aviation grounded by weather :: conditions below aviation minima :: no flight available, road transfer only
+EXCL: ORGAN OFFERED|ALLOCATION ROUTE
+Deceased donor heart >< Paired exchange scheme | N1 | only living donation | a brain-dead donor with an intact circulation
+Donation after circulatory death liver >< Paired exchange scheme | N1 | only living donation | retrieval within minutes of circulatory arrest
+Deceased donor kidney >< Paired exchange scheme | N1 | only living donation | a deceased donor and a compatible recipient
+Donation after circulatory death liver >< National matching run | N4 | a central registry and hours to compute | no time for a national matching run
+Living donor kidney >< Super-urgent national listing | N7 | a patient hours from death | a planned operating date
+EXCL: ORGAN OFFERED|RECIPIENT STATE
+Living donor kidney >< Critically ill inpatient | N7 | a healthy volunteer donor and elective scheduling | survival measured in days
+EXCL: ALLOCATION ROUTE|RECIPIENT STATE
+Super-urgent national listing >< Stable outpatient | N3 | a patient hours from death | an elective admission
+Paired exchange scheme >< Critically ill inpatient | N7 | two incompatible living pairs registered | survival measured in days
+EXCL: ALLOCATION ROUTE|TRANSPORT
+Local centre allocation >< Charter flight retrieval | N3 | two to four hours of transport | minimal transport delay
+---
+DOMAIN: air traffic control sector operations
+GROUP: aviation
+PARAM: TRAFFIC SITUATION
+- Routine en route cruise :: aircraft established on published airways :: predictable trajectories, ample separation, no immediate action needed
+- Converging traffic conflict :: two aircraft on intersecting tracks :: minutes to resolve, a vectoring or level solution required
+- Aircraft in distress :: an emergency declared on frequency :: priority handling, airspace cleared around it
+- Total radar failure :: loss of the surveillance picture :: no position information, procedural separation only
+PARAM: CONTROL TOOL
+- Radar vectoring :: a surveillance picture and radio contact :: precise lateral control, immediate effect
+- Level allocation :: vertical separation available :: separation without changing track, dependence on aircraft performance
+- Procedural separation :: published routes and position reports :: separation without radar, very large spacing required
+- Datalink clearance :: an equipped aircraft and a working datalink :: uplinked instructions, no voice channel needed
+PARAM: COMMUNICATION STATE
+- Normal two-way radio :: a serviceable radio on both sides :: instructions acknowledged, immediate confirmation
+- Radio failure on the aircraft :: a transmitter or receiver fault :: no instruction can reach the aircraft by voice, a lost-communication procedure followed
+- Frequency congestion :: many aircraft on one frequency :: delayed transmissions, no loss of capability
+- Language difficulty :: non-standard phraseology in use :: risk of misunderstanding, slower exchanges
+PARAM: OUTCOME
+- Separation maintained :: correct and timely action :: no loss of separation, normal operations continue
+- Loss of separation reported :: minimum separation infringed :: a mandatory occurrence report, an investigation opened
+- Airprox with avoiding action :: a close encounter and a collision avoidance manoeuvre :: a crew-initiated manoeuvre, separation restored by the aircraft
+- Conflict undetected by anyone :: no surveillance and no report :: no report raised, no action taken
+EXCL: TRAFFIC SITUATION|CONTROL TOOL
+Total radar failure >< Radar vectoring | N3 | a surveillance picture and radio contact | no position information
+EXCL: TRAFFIC SITUATION|OUTCOME
+Routine en route cruise >< Airprox with avoiding action | N3 | a close encounter and a collision avoidance manoeuvre | ample separation
+Routine en route cruise >< Loss of separation reported | N3 | minimum separation infringed | ample separation
+EXCL: CONTROL TOOL|COMMUNICATION STATE
+Radar vectoring >< Radio failure on the aircraft | N3 | a surveillance picture and radio contact | no instruction can reach the aircraft by voice
+EXCL: CONTROL TOOL|OUTCOME
+Procedural separation >< Conflict undetected by anyone | N3 | published routes and position reports | no surveillance and no report
+Radar vectoring >< Conflict undetected by anyone | N3 | a surveillance picture and radio contact | no surveillance and no report
+EXCL: COMMUNICATION STATE|OUTCOME
+---
+DOMAIN: criminal trial proceedings
+GROUP: legal
+PARAM: EVIDENCE AVAILABLE
+- Eyewitness identification :: a witness who saw the event :: direct testimony, vulnerability to challenge on reliability
+- Forensic DNA match :: a recovered sample and a reference profile :: a statistical match figure, no account of how the sample arrived
+- Digital device records :: a seized device and lawful access to it :: timestamps and locations, dependence on attributing the device to a person
+- No evidence recovered at all :: a scene and an investigation yielding nothing :: no forensic link of any kind, no material to put before a court
+PARAM: DEFENCE POSITION
+- Denial of presence :: an alibi advanced :: a claim of being elsewhere, no dispute about the act itself
+- Admission with lawful excuse :: the act accepted :: a claim of self-defence or consent, no dispute about presence
+- Challenge to procedure :: an alleged breach in obtaining evidence :: an application to exclude material, no engagement with the facts
+- Guilty plea entered :: an admission to the charge :: no trial of the facts, sentencing only
+PARAM: PROCEDURAL POSTURE
+- Full jury trial :: a not guilty plea and a listed court :: contested evidence heard, a verdict by jury
+- Pre-trial admissibility hearing :: a challenge lodged before trial :: a ruling on admissibility, no verdict of any kind
+- Sentencing hearing :: a conviction or a plea already entered :: mitigation heard, no finding of guilt left to make
+- Appeal against conviction :: a concluded trial and an arguable ground :: review of the record, no fresh jury empanelled
+PARAM: CASE OUTCOME
+- Conviction on all counts :: a tribunal satisfied to the criminal standard :: a finding of guilt, a sentence to follow
+- Acquittal :: a tribunal not satisfied :: no conviction recorded, no retrial on the same facts
+- Prosecution offers no evidence :: a case that cannot be sustained :: proceedings discontinued, no adjudication on the merits
+- Retrial ordered :: a conviction quashed with a direction :: the matter heard again, no final determination yet
+EXCL: EVIDENCE AVAILABLE|CASE OUTCOME
+No evidence recovered at all >< Conviction on all counts | N3 | a tribunal satisfied to the criminal standard | no material to put before a court
+EXCL: DEFENCE POSITION|PROCEDURAL POSTURE
+Guilty plea entered >< Full jury trial | N1 | contested evidence heard | no trial of the facts
+Challenge to procedure >< Sentencing hearing | N3 | no finding of guilt left to make | an application to exclude material
+EXCL: DEFENCE POSITION|CASE OUTCOME
+Guilty plea entered >< Acquittal | N1 | a tribunal not satisfied | an admission to the charge
+Guilty plea entered >< Prosecution offers no evidence | N3 | a case that cannot be sustained | an admission to the charge
+EXCL: PROCEDURAL POSTURE|CASE OUTCOME
+Pre-trial admissibility hearing >< Conviction on all counts | N1 | a finding of guilt | no verdict of any kind
+Pre-trial admissibility hearing >< Acquittal | N1 | no conviction recorded | no verdict of any kind
+Sentencing hearing >< Acquittal | N1 | a tribunal not satisfied | no finding of guilt left to make

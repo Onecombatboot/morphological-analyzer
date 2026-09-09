@@ -1,0 +1,436 @@
+{
+ "domain": "spacecraft launch failure",
+ "group": "industrial",
+ "parameters": {
+  "FLIGHT PHASE": [
+   "Pad operations before ignition",
+   "First-stage ascent",
+   "Stage separation",
+   "Upper-stage burn",
+   "Orbital insertion"
+  ],
+  "FAILED SUBSYSTEM": [
+   "Propulsion",
+   "Guidance and navigation",
+   "Structural airframe",
+   "Ground support equipment",
+   "Payload fairing"
+  ],
+  "DETECTION": [
+   "Pad camera and acoustics",
+   "Onboard telemetry downlink",
+   "Ground tracking radar",
+   "Post-flight debris recovery"
+  ],
+  "MITIGATION": [
+   "Hold and safe the vehicle",
+   "Abort and range destruct",
+   "Switch to redundant channel",
+   "Accept degraded orbit"
+  ]
+ },
+ "characterisations": {
+  "Pad operations before ignition": {
+   "requires": "vehicle stationary, crew and ground systems connected",
+   "provides": "full physical access, no flight dynamics, unlimited time to decide"
+  },
+  "First-stage ascent": {
+   "requires": "engines running, vehicle within the atmosphere",
+   "provides": "maximum aerodynamic load, range safety coverage, seconds of decision time"
+  },
+  "Stage separation": {
+   "requires": "first stage burnout, pyrotechnic or pneumatic release",
+   "provides": "a single irreversible event lasting under a second, high structural transient"
+  },
+  "Upper-stage burn": {
+   "requires": "vacuum flight above the atmosphere",
+   "provides": "no aerodynamic load, beyond most ground radar, minutes of burn"
+  },
+  "Orbital insertion": {
+   "requires": "near-orbital velocity already achieved",
+   "provides": "final trim only, no gross thrust available, no range safety coverage"
+  },
+  "Propulsion": {
+   "requires": "combustion and turbomachinery under load",
+   "provides": "loss of thrust, no redundant channel, immediate trajectory effect"
+  },
+  "Guidance and navigation": {
+   "requires": "powered avionics and sensor references",
+   "provides": "wrong trajectory with engines healthy, usually a redundant channel available"
+  },
+  "Structural airframe": {
+   "requires": "mechanical load on the vehicle",
+   "provides": "irreversible breakup, no redundancy, no recovery path"
+  },
+  "Ground support equipment": {
+   "requires": "physical connection to the pad",
+   "provides": "faults only while connected, fully recoverable, no flight consequence"
+  },
+  "Payload fairing": {
+   "requires": "atmospheric flight or a separation event",
+   "provides": "payload exposure or retained mass, no effect on propulsion or guidance"
+  },
+  "Pad camera and acoustics": {
+   "requires": "the vehicle within sight and earshot of the pad",
+   "provides": "immediate observation on the ground only"
+  },
+  "Onboard telemetry downlink": {
+   "requires": "powered avionics and a link to a ground station",
+   "provides": "subsystem-level data throughout flight, lost if the vehicle is destroyed"
+  },
+  "Ground tracking radar": {
+   "requires": "the vehicle within radar horizon",
+   "provides": "position and velocity only, no subsystem detail, lost beyond the horizon"
+  },
+  "Post-flight debris recovery": {
+   "requires": "debris reaching a recoverable location",
+   "provides": "physical evidence weeks later, nothing in real time"
+  },
+  "Hold and safe the vehicle": {
+   "requires": "the vehicle not yet committed to flight",
+   "provides": "full recovery, no loss"
+  },
+  "Abort and range destruct": {
+   "requires": "range safety coverage and a vehicle inside it",
+   "provides": "controlled destruction, total loss of vehicle and payload"
+  },
+  "Switch to redundant channel": {
+   "requires": "a redundant unit to exist for that subsystem",
+   "provides": "continued flight, no loss"
+  },
+  "Accept degraded orbit": {
+   "requires": "the payload already near a usable orbit",
+   "provides": "reduced mission life, partial success"
+  }
+ },
+ "exclusions": {
+  "FLIGHT PHASE|FAILED SUBSYSTEM": [
+   {
+    "row": "Pad operations before ignition",
+    "col": "Payload fairing",
+    "code": "N3",
+    "requires": "atmospheric flight or a separation event",
+    "blocked_by": "no flight dynamics"
+   },
+   {
+    "row": "First-stage ascent",
+    "col": "Ground support equipment",
+    "code": "N3",
+    "requires": "physical connection to the pad",
+    "blocked_by": "faults only while connected"
+   },
+   {
+    "row": "Stage separation",
+    "col": "Ground support equipment",
+    "code": "N3",
+    "requires": "physical connection to the pad",
+    "blocked_by": "faults only while connected"
+   },
+   {
+    "row": "Upper-stage burn",
+    "col": "Ground support equipment",
+    "code": "N3",
+    "requires": "physical connection to the pad",
+    "blocked_by": "faults only while connected"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Structural airframe",
+    "code": "N7",
+    "requires": "mechanical load on the vehicle",
+    "blocked_by": "final trim only, no gross thrust available"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Ground support equipment",
+    "code": "N3",
+    "requires": "physical connection to the pad",
+    "blocked_by": "faults only while connected"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Payload fairing",
+    "code": "N4",
+    "requires": "atmospheric flight or a separation event",
+    "blocked_by": "near-orbital velocity already achieved"
+   }
+  ],
+  "FLIGHT PHASE|DETECTION": [
+   {
+    "row": "Pad operations before ignition",
+    "col": "Ground tracking radar",
+    "code": "N7",
+    "requires": "the vehicle within radar horizon",
+    "blocked_by": "vehicle stationary, crew and ground systems connected"
+   },
+   {
+    "row": "Pad operations before ignition",
+    "col": "Post-flight debris recovery",
+    "code": "N6",
+    "requires": "debris reaching a recoverable location",
+    "blocked_by": "no flight dynamics"
+   },
+   {
+    "row": "Stage separation",
+    "col": "Pad camera and acoustics",
+    "code": "N3",
+    "requires": "the vehicle within sight and earshot of the pad",
+    "blocked_by": "first stage burnout, pyrotechnic or pneumatic release"
+   },
+   {
+    "row": "Upper-stage burn",
+    "col": "Pad camera and acoustics",
+    "code": "N3",
+    "requires": "the vehicle within sight and earshot of the pad",
+    "blocked_by": "vacuum flight above the atmosphere"
+   },
+   {
+    "row": "Upper-stage burn",
+    "col": "Ground tracking radar",
+    "code": "N3",
+    "requires": "the vehicle within radar horizon",
+    "blocked_by": "beyond most ground radar"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Pad camera and acoustics",
+    "code": "N3",
+    "requires": "the vehicle within sight and earshot of the pad",
+    "blocked_by": "near-orbital velocity already achieved"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Ground tracking radar",
+    "code": "N3",
+    "requires": "the vehicle within radar horizon",
+    "blocked_by": "near-orbital velocity already achieved"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Post-flight debris recovery",
+    "code": "N7",
+    "requires": "debris reaching a recoverable location",
+    "blocked_by": "near-orbital velocity already achieved"
+   }
+  ],
+  "FLIGHT PHASE|MITIGATION": [
+   {
+    "row": "Pad operations before ignition",
+    "col": "Abort and range destruct",
+    "code": "N7",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "no flight dynamics"
+   },
+   {
+    "row": "Pad operations before ignition",
+    "col": "Accept degraded orbit",
+    "code": "N3",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "no flight dynamics"
+   },
+   {
+    "row": "First-stage ascent",
+    "col": "Hold and safe the vehicle",
+    "code": "N3",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "engines running, vehicle within the atmosphere"
+   },
+   {
+    "row": "First-stage ascent",
+    "col": "Accept degraded orbit",
+    "code": "N3",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "maximum aerodynamic load"
+   },
+   {
+    "row": "Stage separation",
+    "col": "Hold and safe the vehicle",
+    "code": "N3",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "first stage burnout, pyrotechnic or pneumatic release"
+   },
+   {
+    "row": "Stage separation",
+    "col": "Switch to redundant channel",
+    "code": "N4",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "a single irreversible event lasting under a second"
+   },
+   {
+    "row": "Stage separation",
+    "col": "Accept degraded orbit",
+    "code": "N3",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "high structural transient"
+   },
+   {
+    "row": "Upper-stage burn",
+    "col": "Hold and safe the vehicle",
+    "code": "N3",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "vacuum flight above the atmosphere"
+   },
+   {
+    "row": "Upper-stage burn",
+    "col": "Abort and range destruct",
+    "code": "N3",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "beyond most ground radar"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Hold and safe the vehicle",
+    "code": "N3",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "near-orbital velocity already achieved"
+   },
+   {
+    "row": "Orbital insertion",
+    "col": "Abort and range destruct",
+    "code": "N3",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "no range safety coverage"
+   }
+  ],
+  "FAILED SUBSYSTEM|DETECTION": [
+   {
+    "row": "Guidance and navigation",
+    "col": "Pad camera and acoustics",
+    "code": "N7",
+    "requires": "the vehicle within sight and earshot of the pad",
+    "blocked_by": "wrong trajectory with engines healthy"
+   },
+   {
+    "row": "Ground support equipment",
+    "col": "Ground tracking radar",
+    "code": "N7",
+    "requires": "the vehicle within radar horizon",
+    "blocked_by": "faults only while connected"
+   },
+   {
+    "row": "Ground support equipment",
+    "col": "Post-flight debris recovery",
+    "code": "N3",
+    "requires": "debris reaching a recoverable location",
+    "blocked_by": "no flight consequence"
+   },
+   {
+    "row": "Payload fairing",
+    "col": "Ground tracking radar",
+    "code": "N7",
+    "requires": "position and velocity only, no subsystem detail",
+    "blocked_by": "no effect on propulsion or guidance"
+   }
+  ],
+  "FAILED SUBSYSTEM|MITIGATION": [
+   {
+    "row": "Propulsion",
+    "col": "Switch to redundant channel",
+    "code": "N3",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "no redundant channel"
+   },
+   {
+    "row": "Structural airframe",
+    "col": "Switch to redundant channel",
+    "code": "N3",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "no redundancy"
+   },
+   {
+    "row": "Structural airframe",
+    "col": "Accept degraded orbit",
+    "code": "N3",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "no recovery path"
+   },
+   {
+    "row": "Ground support equipment",
+    "col": "Abort and range destruct",
+    "code": "N7",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "fully recoverable, no flight consequence"
+   },
+   {
+    "row": "Ground support equipment",
+    "col": "Accept degraded orbit",
+    "code": "N3",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "no flight consequence"
+   },
+   {
+    "row": "Payload fairing",
+    "col": "Abort and range destruct",
+    "code": "N7",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "no effect on propulsion or guidance"
+   },
+   {
+    "row": "Payload fairing",
+    "col": "Switch to redundant channel",
+    "code": "N3",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "payload exposure or retained mass"
+   }
+  ],
+  "DETECTION|MITIGATION": [
+   {
+    "row": "Pad camera and acoustics",
+    "col": "Accept degraded orbit",
+    "code": "N6",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "immediate observation on the ground only"
+   },
+   {
+    "row": "Ground tracking radar",
+    "col": "Hold and safe the vehicle",
+    "code": "N6",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "the vehicle within radar horizon"
+   },
+   {
+    "row": "Ground tracking radar",
+    "col": "Switch to redundant channel",
+    "code": "N3",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "position and velocity only, no subsystem detail"
+   },
+   {
+    "row": "Post-flight debris recovery",
+    "col": "Hold and safe the vehicle",
+    "code": "N4",
+    "requires": "the vehicle not yet committed to flight",
+    "blocked_by": "physical evidence weeks later, nothing in real time"
+   },
+   {
+    "row": "Post-flight debris recovery",
+    "col": "Abort and range destruct",
+    "code": "N4",
+    "requires": "range safety coverage and a vehicle inside it",
+    "blocked_by": "nothing in real time"
+   },
+   {
+    "row": "Post-flight debris recovery",
+    "col": "Switch to redundant channel",
+    "code": "N4",
+    "requires": "a redundant unit to exist for that subsystem",
+    "blocked_by": "nothing in real time"
+   },
+   {
+    "row": "Post-flight debris recovery",
+    "col": "Accept degraded orbit",
+    "code": "N4",
+    "requires": "the payload already near a usable orbit",
+    "blocked_by": "nothing in real time"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "FLIGHT PHASE|FAILED SUBSYSTEM": "ground support equipment can only fail while physically connected, so it is Y on the pad and N everywhere after. Structural failure on the pad is N: there is no mechanical flight load before ignition. Fairing failure is N on the pad (not yet loaded) and N at insertion (already jettisoned). Fairing at upper-stage burn is Y only if not yet separated - here N, since separation precedes upper-stage burn on most vehicles.",
+  "FLIGHT PHASE|DETECTION": "pad cameras see only the pad, so N for everything after first-stage ascent. Radar is N on the pad (stationary, nothing to track), N at upper-stage burn and insertion (beyond the horizon). Debris recovery is N on the pad because nothing has flown.",
+  "FLIGHT PHASE|MITIGATION": "hold and safe requires a vehicle not yet committed, so Y only on the pad. Range destruct requires range safety coverage, which exists during ascent and separation but not on the pad (never destruct a fuelled vehicle on the pad) nor at orbital altitude. Degraded orbit is meaningful only once near orbit.",
+  "FAILED SUBSYSTEM|DETECTION": "guidance failure is invisible to pad cameras, radar (which sees position, not why) and debris. Ground support faults never leave the pad, so telemetry, radar and debris are all N. Fairing failure is invisible to radar.",
+  "FAILED SUBSYSTEM|MITIGATION": "propulsion has no redundant channel, so N. Structural failure admits neither redundancy nor a degraded orbit - the vehicle is gone. Ground support faults never warrant destruct and never produce a degraded orbit. Fairing failure has no redundant channel.",
+  "DETECTION|MITIGATION": "debris recovery is post-hoc and supports no mitigation at all. Pad cameras cannot support a degraded-orbit decision. Radar gives position only, insufficient to decide a redundancy switch, and cannot support hold-and-safe since the vehicle has flown."
+ }
+}

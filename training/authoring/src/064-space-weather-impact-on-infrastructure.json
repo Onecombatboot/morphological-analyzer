@@ -1,0 +1,185 @@
+{
+ "domain": "space weather impact on infrastructure",
+ "group": "natural hazard",
+ "parameters": {
+  "SOLAR EVENT": [
+   "X-ray flare",
+   "Solar energetic particle event",
+   "Coronal mass ejection",
+   "Solar radio burst"
+  ],
+  "AFFECTED SYSTEM": [
+   "High-voltage transformer",
+   "Satellite in orbit",
+   "Polar aviation route",
+   "Precision positioning service"
+  ],
+  "WARNING AND MITIGATION": [
+   "Forecast from a solar observatory",
+   "Grid operator load reconfiguration",
+   "Satellite safe mode",
+   "Reroute aircraft to lower latitudes"
+  ],
+  "CONSEQUENCE": [
+   "No operational effect",
+   "Temporary service degradation",
+   "Permanent equipment damage",
+   "Cascading grid disturbance"
+  ]
+ },
+ "characterisations": {
+  "X-ray flare": {
+   "requires": "a solar flare on the visible disc",
+   "provides": "effect at the speed of light with no warning at all, minutes of high-frequency radio blackout"
+  },
+  "Solar energetic particle event": {
+   "requires": "particles accelerated toward the earth",
+   "provides": "arrival within tens of minutes, radiation hazard at altitude, no ground currents"
+  },
+  "Coronal mass ejection": {
+   "requires": "an ejection directed at the earth",
+   "provides": "one to three days of transit warning, geomagnetically induced currents at ground level"
+  },
+  "Solar radio burst": {
+   "requires": "broadband radio emission from the sun",
+   "provides": "interference on the sunlit hemisphere only, no particle or magnetic effect"
+  },
+  "High-voltage transformer": {
+   "requires": "a long conductor grounded at both ends",
+   "provides": "saturation and heating from induced currents, months to replace a failed unit"
+  },
+  "Satellite in orbit": {
+   "requires": "a spacecraft outside the atmosphere",
+   "provides": "charging and single-event upsets, no shielding by the atmosphere"
+  },
+  "Polar aviation route": {
+   "requires": "flights at high latitude and altitude",
+   "provides": "crew radiation dose and loss of high-frequency communication, reroutable at a fuel cost"
+  },
+  "Precision positioning service": {
+   "requires": "users depending on ionospheric corrections",
+   "provides": "degraded accuracy from ionospheric disturbance, no hardware damage"
+  },
+  "Forecast from a solar observatory": {
+   "requires": "a spacecraft at the sun-earth line",
+   "provides": "fifteen to sixty minutes of warning of arrival, no warning for light-speed effects"
+  },
+  "Grid operator load reconfiguration": {
+   "requires": "hours of notice and switching capability",
+   "provides": "reduced induced current path, loss of transfer capability"
+  },
+  "Satellite safe mode": {
+   "requires": "onboard autonomy and a command link",
+   "provides": "protection of the payload, loss of service during the event"
+  },
+  "Reroute aircraft to lower latitudes": {
+   "requires": "fuel and airspace availability",
+   "provides": "dose reduction, longer flights and schedule disruption"
+  },
+  "No operational effect": {
+   "requires": "the event below the threshold for any system",
+   "provides": "no consequence"
+  },
+  "Temporary service degradation": {
+   "requires": "effects lasting hours",
+   "provides": "reduced accuracy or availability, full recovery"
+  },
+  "Permanent equipment damage": {
+   "requires": "hardware stressed beyond tolerance",
+   "provides": "replacement required, long outage"
+  },
+  "Cascading grid disturbance": {
+   "requires": "protection operating on distorted waveforms",
+   "provides": "wide-area loss of supply"
+  }
+ },
+ "exclusions": {
+  "SOLAR EVENT|AFFECTED SYSTEM": [
+   {
+    "row": "Solar radio burst",
+    "col": "High-voltage transformer",
+    "code": "N3",
+    "requires": "saturation and heating from induced currents",
+    "blocked_by": "no particle or magnetic effect"
+   },
+   {
+    "row": "Solar energetic particle event",
+    "col": "High-voltage transformer",
+    "code": "N3",
+    "requires": "saturation and heating from induced currents",
+    "blocked_by": "no ground currents"
+   }
+  ],
+  "SOLAR EVENT|WARNING AND MITIGATION": [
+   {
+    "row": "X-ray flare",
+    "col": "Forecast from a solar observatory",
+    "code": "N3",
+    "requires": "fifteen to sixty minutes of warning of arrival",
+    "blocked_by": "effect at the speed of light with no warning at all"
+   },
+   {
+    "row": "X-ray flare",
+    "col": "Grid operator load reconfiguration",
+    "code": "N4",
+    "requires": "hours of notice and switching capability",
+    "blocked_by": "effect at the speed of light with no warning at all"
+   }
+  ],
+  "SOLAR EVENT|CONSEQUENCE": [
+   {
+    "row": "Solar radio burst",
+    "col": "Cascading grid disturbance",
+    "code": "N3",
+    "requires": "protection operating on distorted waveforms",
+    "blocked_by": "no particle or magnetic effect"
+   },
+   {
+    "row": "Solar radio burst",
+    "col": "Permanent equipment damage",
+    "code": "N7",
+    "requires": "hardware stressed beyond tolerance",
+    "blocked_by": "interference on the sunlit hemisphere only"
+   }
+  ],
+  "AFFECTED SYSTEM|WARNING AND MITIGATION": [
+   {
+    "row": "Precision positioning service",
+    "col": "Satellite safe mode",
+    "code": "N7",
+    "requires": "protection of the payload",
+    "blocked_by": "no hardware damage"
+   },
+   {
+    "row": "High-voltage transformer",
+    "col": "Reroute aircraft to lower latitudes",
+    "code": "N3",
+    "requires": "fuel and airspace availability",
+    "blocked_by": "a long conductor grounded at both ends"
+   },
+   {
+    "row": "Polar aviation route",
+    "col": "Grid operator load reconfiguration",
+    "code": "N3",
+    "requires": "reduced induced current path",
+    "blocked_by": "flights at high latitude and altitude"
+   }
+  ],
+  "AFFECTED SYSTEM|CONSEQUENCE": [
+   {
+    "row": "Precision positioning service",
+    "col": "Permanent equipment damage",
+    "code": "N3",
+    "requires": "hardware stressed beyond tolerance",
+    "blocked_by": "no hardware damage"
+   },
+   {
+    "row": "Precision positioning service",
+    "col": "Cascading grid disturbance",
+    "code": "N3",
+    "requires": "protection operating on distorted waveforms",
+    "blocked_by": "degraded accuracy from ionospheric disturbance"
+   }
+  ]
+ }
+}

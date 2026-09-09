@@ -1,0 +1,155 @@
+{
+ "domain": "art market provenance dispute",
+ "group": "heritage",
+ "parameters": {
+  "OBJECT STATUS": [
+   "Documented unbroken provenance",
+   "Gap in the ownership record",
+   "Known forgery exposed",
+   "Recently excavated antiquity"
+  ],
+  "EVIDENCE AVAILABLE": [
+   "Scientific dating of materials",
+   "Archival ownership documents",
+   "Connoisseurship judgement",
+   "No documentation whatsoever"
+  ],
+  "CLAIMANT": [
+   "Heirs of a dispossessed owner",
+   "Source country authority",
+   "Defrauded purchaser",
+   "No claimant at all"
+  ],
+  "RESOLUTION": [
+   "Sale proceeds at full value",
+   "Restitution to the claimant",
+   "Object withdrawn from sale",
+   "Object seized by authorities"
+  ]
+ },
+ "characterisations": {
+  "Documented unbroken provenance": {
+   "requires": "records covering every owner",
+   "provides": "confident attribution and title, a premium price"
+  },
+  "Gap in the ownership record": {
+   "requires": "years unaccounted for",
+   "provides": "suspicion of wartime looting, a discount and slow sale"
+  },
+  "Known forgery exposed": {
+   "requires": "technical analysis proving it modern",
+   "provides": "no artistic value at all, a criminal question"
+  },
+  "Recently excavated antiquity": {
+   "requires": "an object with no collecting history",
+   "provides": "near-certain illicit export, no lawful market"
+  },
+  "Scientific dating of materials": {
+   "requires": "a laboratory and a sample",
+   "provides": "an objective date range for the materials, no evidence about authorship"
+  },
+  "Archival ownership documents": {
+   "requires": "surviving papers and access to them",
+   "provides": "a chain of title, vulnerability to forged paperwork"
+  },
+  "Connoisseurship judgement": {
+   "requires": "an acknowledged expert in the artist",
+   "provides": "an attribution opinion, no objective test"
+  },
+  "No documentation whatsoever": {
+   "requires": "nothing surviving or ever created",
+   "provides": "no chain of title available, reliance on the object alone"
+  },
+  "Heirs of a dispossessed owner": {
+   "requires": "proof of the original ownership",
+   "provides": "a restitution claim, strong moral weight"
+  },
+  "Source country authority": {
+   "requires": "a national patrimony law",
+   "provides": "a state demand for return, diplomatic pressure"
+  },
+  "Defrauded purchaser": {
+   "requires": "a sale contract and payment",
+   "provides": "a civil claim against the seller, no claim to the object itself"
+  },
+  "No claimant at all": {
+   "requires": "nobody asserting a competing right",
+   "provides": "undisputed possession, a free sale"
+  },
+  "Sale proceeds at full value": {
+   "requires": "clear title and no dispute",
+   "provides": "the object transferred, the price realised"
+  },
+  "Restitution to the claimant": {
+   "requires": "a claim accepted or ordered",
+   "provides": "the object handed over, compensation sometimes paid"
+  },
+  "Object withdrawn from sale": {
+   "requires": "doubt sufficient to stop the lot",
+   "provides": "no transaction, the object returned to the consignor"
+  },
+  "Object seized by authorities": {
+   "requires": "a criminal or export offence",
+   "provides": "possession lost entirely, prosecution possible"
+  }
+ },
+ "exclusions": {
+  "OBJECT STATUS|RESOLUTION": [
+   {
+    "row": "Known forgery exposed",
+    "col": "Sale proceeds at full value",
+    "code": "N3",
+    "requires": "clear title and no dispute",
+    "blocked_by": "no artistic value at all"
+   },
+   {
+    "row": "Recently excavated antiquity",
+    "col": "Sale proceeds at full value",
+    "code": "N3",
+    "requires": "clear title and no dispute",
+    "blocked_by": "no lawful market"
+   }
+  ],
+  "OBJECT STATUS|EVIDENCE AVAILABLE": [
+   {
+    "row": "Documented unbroken provenance",
+    "col": "No documentation whatsoever",
+    "code": "N1",
+    "requires": "nothing surviving or ever created",
+    "blocked_by": "records covering every owner"
+   },
+   {
+    "row": "Recently excavated antiquity",
+    "col": "Archival ownership documents",
+    "code": "N3",
+    "requires": "surviving papers and access to them",
+    "blocked_by": "an object with no collecting history"
+   }
+  ],
+  "EVIDENCE AVAILABLE|CLAIMANT": [
+   {
+    "row": "No documentation whatsoever",
+    "col": "Heirs of a dispossessed owner",
+    "code": "N3",
+    "requires": "proof of the original ownership",
+    "blocked_by": "no chain of title available"
+   }
+  ],
+  "CLAIMANT|RESOLUTION": [
+   {
+    "row": "No claimant at all",
+    "col": "Restitution to the claimant",
+    "code": "N3",
+    "requires": "a claim accepted or ordered",
+    "blocked_by": "nobody asserting a competing right"
+   },
+   {
+    "row": "Defrauded purchaser",
+    "col": "Restitution to the claimant",
+    "code": "N3",
+    "requires": "the object handed over",
+    "blocked_by": "no claim to the object itself"
+   }
+  ]
+ }
+}

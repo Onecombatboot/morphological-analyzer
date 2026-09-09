@@ -1,0 +1,156 @@
+DOMAIN: harmful algal bloom in a water reservoir
+GROUP: environment
+PARAM: BLOOM DRIVER
+- Agricultural nutrient runoff :: fertiliser reaching the catchment watercourses :: diffuse origin with no single responsible party, loading concentrated after rainfall
+- Sewage treatment discharge :: a consented outfall to the reservoir catchment :: a single identifiable operator, continuous rather than event-driven loading
+- Internal phosphorus release from sediment :: anoxic conditions at the reservoir bed :: loading with no external input at all, unresponsive to any catchment measure
+- Prolonged warm still weather :: an extended heatwave over the water body :: stratification and surface accumulation, no change in nutrient supply whatsoever
+PARAM: BLOOM CHARACTER
+- Surface cyanobacterial scum :: buoyant colonies accumulating at the surface :: visible discoloration, wind-driven accumulation on one shore, toxin production possible
+- Dispersed subsurface growth :: cells distributed through the water column :: no visible surface sign at all, detectable only by sampling
+- Toxin-producing strain :: a strain carrying the toxin genes :: hepatotoxin or neurotoxin in the raw water, a public health rather than aesthetic problem
+- Non-toxic nuisance species :: a bloom-forming species without toxin genes :: taste and odour complaints, no health risk of any kind
+PARAM: MONITORING
+- Routine laboratory sampling :: a scheduled sampling round and a laboratory :: species identification and toxin assay, results days later
+- In-situ fluorescence probe :: an instrument moored in the reservoir :: continuous pigment concentration, no species or toxin information
+- Satellite surface imagery :: cloud-free conditions and a large water body :: mapping of surface accumulation extent, blind below the surface
+- Public complaint :: someone noticing and reporting :: rapid unstructured signal, only for visible or smellable blooms
+PARAM: RESPONSE
+- Change abstraction depth :: multi-level offtake structures :: withdrawal below a surface accumulation, no help against a dispersed bloom
+- Activated carbon dosing at treatment :: dosing capacity and contact time :: removal of toxins and taste compounds, cost and sludge burden
+- Algicide application to the reservoir :: regulatory permission and a treatment vessel :: rapid cell kill, release of intracellular toxin as the cells lyse
+- Catchment nutrient controls :: landowner agreement and years of time :: durable reduction of loading, no effect on the bloom under way
+EXCL: BLOOM DRIVER|MONITORING
+Internal phosphorus release from sediment >< Satellite surface imagery | N7 | mapping of surface accumulation extent | loading with no external input at all
+EXCL: BLOOM DRIVER|RESPONSE
+Internal phosphorus release from sediment >< Catchment nutrient controls | N3 | durable reduction of loading | unresponsive to any catchment measure
+Prolonged warm still weather >< Catchment nutrient controls | N3 | durable reduction of loading | no change in nutrient supply whatsoever
+EXCL: BLOOM CHARACTER|MONITORING
+Dispersed subsurface growth >< Satellite surface imagery | N3 | mapping of surface accumulation extent | no visible surface sign at all
+Dispersed subsurface growth >< Public complaint | N3 | only for visible or smellable blooms | no visible surface sign at all
+Toxin-producing strain >< In-situ fluorescence probe | N3 | no species or toxin information | a strain carrying the toxin genes
+EXCL: BLOOM CHARACTER|RESPONSE
+Dispersed subsurface growth >< Change abstraction depth | N3 | withdrawal below a surface accumulation | no visible surface sign at all
+Non-toxic nuisance species >< Activated carbon dosing at treatment | N7 | removal of toxins and taste compounds | no health risk of any kind
+Toxin-producing strain >< Algicide application to the reservoir | N7 | rapid cell kill | hepatotoxin or neurotoxin in the raw water
+EXCL: MONITORING|RESPONSE
+Public complaint >< Change abstraction depth | N7 | multi-level offtake structures | rapid unstructured signal
+In-situ fluorescence probe >< Activated carbon dosing at treatment | N7 | removal of toxins and taste compounds | no species or toxin information
+---
+DOMAIN: level crossing collision
+GROUP: transport safety
+PARAM: CROSSING TYPE
+- Automatic half barrier :: train-actuated barriers over half the carriageway :: a deliberate gap allowing escape, reliance on road user compliance
+- Full barrier with obstacle detection :: barriers across the full width and a detector :: no gap to drive through, the signaller or system confirming the crossing is clear
+- Open crossing with signs only :: sight lines and passive signage :: no barrier or light of any kind, total reliance on the road user looking
+- User-worked gate on a farm track :: gates opened by the user :: the user judging the approach themselves, telephone to the signaller in some cases
+PARAM: ROAD USER ERROR
+- Zigzagging round a half barrier :: a gap wide enough to pass :: a deliberate violation, no equipment failure involved
+- Misjudging train speed at an open crossing :: an approaching train visible but its speed misread :: an honest error, sight lines adequate in principle
+- Vehicle stalling on the crossing :: a mechanical breakdown at the worst place :: no violation and no misjudgement, the vehicle immobile
+- Long low vehicle grounding :: a vehicle whose profile fouls the crossing deck :: a predictable geometric incompatibility, no driver error in the moment
+PARAM: PROTECTIVE SYSTEM
+- Obstacle detection radar :: an installed detector and an interface to signalling :: signals held at danger when the crossing is occupied, only where fitted
+- Train protection with automatic braking :: trackside and onboard equipment :: enforced braking at a signal at danger, no ability to stop within sighting distance
+- Signaller closed-circuit television :: a camera view and a signaller watching :: confirmation the crossing is clear before releasing the signal, dependent on attention
+- No protective system :: nothing beyond the crossing itself :: the driver of the train seeing the obstruction as the only defence
+PARAM: CONSEQUENCE
+- Near miss reported :: the conflict resolved without contact :: an incident report, no damage
+- Road vehicle struck, no derailment :: a light vehicle displaced by the train :: road user casualties, train damage only
+- Train derailed :: a heavy vehicle or grounding derailing the train :: potential mass casualties among passengers
+- Crossing closed after the event :: a decision to remove the risk permanently :: no further exposure, road diversion cost
+EXCL: CROSSING TYPE|ROAD USER ERROR
+Full barrier with obstacle detection >< Zigzagging round a half barrier | N3 | a gap wide enough to pass | no gap to drive through
+Open crossing with signs only >< Zigzagging round a half barrier | N3 | a gap wide enough to pass | no barrier or light of any kind
+User-worked gate on a farm track >< Zigzagging round a half barrier | N3 | a gap wide enough to pass | gates opened by the user
+EXCL: CROSSING TYPE|PROTECTIVE SYSTEM
+Open crossing with signs only >< Obstacle detection radar | N7 | an installed detector and an interface to signalling | no barrier or light of any kind
+Open crossing with signs only >< Signaller closed-circuit television | N7 | a camera view and a signaller watching | no barrier or light of any kind
+EXCL: ROAD USER ERROR|PROTECTIVE SYSTEM
+Vehicle stalling on the crossing >< Train protection with automatic braking | N7 | enforced braking at a signal at danger | the vehicle immobile
+EXCL: ROAD USER ERROR|CONSEQUENCE
+Long low vehicle grounding >< Road vehicle struck, no derailment | N7 | a light vehicle displaced by the train | a predictable geometric incompatibility
+EXCL: PROTECTIVE SYSTEM|CONSEQUENCE
+No protective system >< Near miss reported | N7 | the conflict resolved without contact | the driver of the train seeing the obstruction as the only defence
+Obstacle detection radar >< Train derailed | N7 | a heavy vehicle or grounding derailing the train | signals held at danger when the crossing is occupied
+EXCL: CROSSING TYPE|CONSEQUENCE
+Full barrier with obstacle detection >< Train derailed | N7 | a heavy vehicle or grounding derailing the train | no gap to drive through
+---
+DOMAIN: offshore wind farm installation delay
+GROUP: construction
+PARAM: DELAY CAUSE
+- Installation vessel unavailability :: a specialist jack-up vessel on charter :: a global fleet of very few suitable vessels, day rates continuing during any wait
+- Weather window shortfall :: sea state limits for lifting operations :: seasonal, forecastable in aggregate but not in detail, no party at fault
+- Seabed condition worse than surveyed :: ground truth differing from the geotechnical model :: foundation redesign, applies only to the affected positions
+- Grid connection not ready :: onshore substation or cable works behind schedule :: turbines installed but unable to export, no offshore work affected at all
+PARAM: FOUNDATION TYPE
+- Monopile :: a single driven tube in suitable ground :: fastest installation, unsuitable in hard rock or very deep water
+- Jacket structure :: a fabricated lattice with piles :: tolerance of difficult seabed and depth, long fabrication lead time
+- Gravity base :: a heavy structure placed on a prepared bed :: no piling noise at all, very large dredging and ballast operation
+- Floating platform :: a moored hull in deep water :: independence from seabed conditions entirely, quayside assembly and towing
+PARAM: CONTRACT STRUCTURE
+- Single turnkey contractor :: one party taking whole-scope responsibility :: a single point of accountability, the highest price
+- Multi-contract package split :: several packages let separately :: lower price, interface risk carried by the developer
+- Alliance with shared risk :: an agreement to share overruns :: aligned incentives, complex governance
+- Owner-managed construction :: an in-house project organisation :: full control and full risk, dependence on scarce internal expertise
+PARAM: PROJECT EFFECT
+- Recovered within the programme :: float absorbing the delay :: no change to the commissioning date
+- Commissioning slipped one season :: a weather window missed :: a year of lost revenue, financing cost
+- Cost overrun without schedule impact :: additional resources bought to hold the date :: budget exceeded, programme intact
+- Contractual dispute :: responsibility for the delay contested :: arbitration cost, relationship damage
+EXCL: DELAY CAUSE|FOUNDATION TYPE
+Seabed condition worse than surveyed >< Floating platform | N3 | independence from seabed conditions entirely | foundation redesign
+EXCL: DELAY CAUSE|CONTRACT STRUCTURE
+Grid connection not ready >< Single turnkey contractor | N7 | a single point of accountability | onshore substation or cable works behind schedule
+EXCL: DELAY CAUSE|PROJECT EFFECT
+Weather window shortfall >< Contractual dispute | N7 | responsibility for the delay contested | no party at fault
+Grid connection not ready >< Cost overrun without schedule impact | N7 | additional resources bought to hold the date | turbines installed but unable to export
+EXCL: FOUNDATION TYPE|CONTRACT STRUCTURE
+Gravity base >< Owner-managed construction | N7 | dependence on scarce internal expertise | very large dredging and ballast operation
+EXCL: FOUNDATION TYPE|PROJECT EFFECT
+Jacket structure >< Recovered within the programme | N7 | float absorbing the delay | long fabrication lead time
+EXCL: CONTRACT STRUCTURE|PROJECT EFFECT
+Single turnkey contractor >< Contractual dispute | N7 | responsibility for the delay contested | a single point of accountability
+Alliance with shared risk >< Contractual dispute | N7 | responsibility for the delay contested | aligned incentives
+Multi-contract package split >< Recovered within the programme | N7 | float absorbing the delay | interface risk carried by the developer
+EXCL: DELAY CAUSE|FOUNDATION TYPE
+Installation vessel unavailability >< Floating platform | N7 | a global fleet of very few suitable vessels | quayside assembly and towing
+---
+DOMAIN: municipal solid waste disposal crisis
+GROUP: public services
+PARAM: DISPOSAL ROUTE LOST
+- Landfill void exhausted :: the permitted void filled :: a permanent loss requiring a new permitted site, years to replace
+- Incinerator outage :: a thermal treatment plant off line :: a temporary loss of tonnage capacity, weeks to months
+- Export market closed :: a receiving country refusing refuse-derived fuel :: loss of an outlet with no domestic substitute, immediate and indefinite
+- Recycling contamination rejection :: material quality below the specification :: rejection of collected material only, correctable by better sorting
+PARAM: WASTE STREAM
+- Residual household waste :: material after any separation :: continuous daily arisings that cannot be paused, public health consequence if uncollected
+- Separated dry recyclables :: a clean sorted stream :: a market value when clean, storable for weeks without nuisance
+- Food and garden waste :: putrescible organic material :: odour and vermin within days, no storage option at all
+- Hazardous and clinical waste :: regulated material requiring specific treatment :: no substitution of route permitted, small tonnage and very high unit cost
+PARAM: CONTINGENCY
+- Divert to another authority :: a neighbouring facility with spare capacity :: continuity at higher haulage cost, dependence on a neighbour not also constrained
+- Temporary storage on a licensed site :: a permit variation and a hardstanding :: days to weeks of buffer, odour and fire risk
+- Suspend collections :: an operational decision :: immediate relief to the disposal system, waste accumulating at the kerbside
+- Emergency permit for an alternative route :: a regulator willing to vary conditions :: a lawful outlet quickly, environmental safeguards reduced
+PARAM: PUBLIC CONSEQUENCE
+- No visible impact :: contingency absorbing the loss :: no consequence to residents
+- Collections delayed :: rounds missed and rescheduled :: complaints, no health risk
+- Waste accumulating in the street :: collections suspended for weeks :: vermin, odour and public health risk
+- Environmental harm from disposal :: material handled outside normal safeguards :: pollution incident, regulatory enforcement
+EXCL: DISPOSAL ROUTE LOST|WASTE STREAM
+Recycling contamination rejection >< Hazardous and clinical waste | N3 | no substitution of route permitted | rejection of collected material only
+Recycling contamination rejection >< Residual household waste | N3 | material after any separation | rejection of collected material only
+EXCL: DISPOSAL ROUTE LOST|CONTINGENCY
+Landfill void exhausted >< Temporary storage on a licensed site | N7 | days to weeks of buffer | years to replace
+Export market closed >< Divert to another authority | N7 | a neighbouring facility with spare capacity | no domestic substitute
+EXCL: WASTE STREAM|CONTINGENCY
+Food and garden waste >< Temporary storage on a licensed site | N3 | days to weeks of buffer | no storage option at all
+Hazardous and clinical waste >< Emergency permit for an alternative route | N3 | environmental safeguards reduced | no substitution of route permitted
+Residual household waste >< Suspend collections | N7 | immediate relief to the disposal system | continuous daily arisings that cannot be paused
+EXCL: WASTE STREAM|PUBLIC CONSEQUENCE
+Separated dry recyclables >< Waste accumulating in the street | N7 | collections suspended for weeks | storable for weeks without nuisance
+Hazardous and clinical waste >< Waste accumulating in the street | N3 | collections suspended for weeks | no substitution of route permitted
+EXCL: CONTINGENCY|PUBLIC CONSEQUENCE
+Suspend collections >< No visible impact | N3 | contingency absorbing the loss | waste accumulating at the kerbside
+Emergency permit for an alternative route >< No visible impact | N7 | contingency absorbing the loss | environmental safeguards reduced

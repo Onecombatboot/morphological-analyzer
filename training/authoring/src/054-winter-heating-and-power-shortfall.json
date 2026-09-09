@@ -1,0 +1,180 @@
+{
+ "domain": "winter heating and power shortfall",
+ "group": "resource management",
+ "parameters": {
+  "SHORTFALL CAUSE": [
+   "Gas import interruption",
+   "Generation plant unavailability",
+   "Extreme cold demand peak",
+   "Network damage from storm"
+  ],
+  "BUFFER AVAILABLE": [
+   "Full seasonal gas storage",
+   "Interconnector imports",
+   "Contracted demand response",
+   "No buffer of any kind"
+  ],
+  "ALLOCATION MEASURE": [
+   "Voluntary conservation appeal",
+   "Industrial curtailment",
+   "Rota disconnection of households",
+   "Price rationing in the market"
+  ],
+  "OUTCOME": [
+   "Shortfall covered",
+   "Industrial output lost",
+   "Household disconnections",
+   "System collapse and black start"
+  ]
+ },
+ "characterisations": {
+  "Gas import interruption": {
+   "requires": "a pipeline or terminal ceasing to deliver",
+   "provides": "fuel shortage rather than network failure, weeks of storage buffer"
+  },
+  "Generation plant unavailability": {
+   "requires": "units out on fault or maintenance",
+   "provides": "capacity shortfall at peak only, no fuel problem"
+  },
+  "Extreme cold demand peak": {
+   "requires": "temperatures far below the design assumption",
+   "provides": "simultaneous heating and electrical demand, forecastable days ahead"
+  },
+  "Network damage from storm": {
+   "requires": "physical damage to distribution lines",
+   "provides": "localised loss regardless of generation, repair crews the limiting factor"
+  },
+  "Full seasonal gas storage": {
+   "requires": "injection completed before winter",
+   "provides": "weeks of substitution for imports, no help against network damage"
+  },
+  "Interconnector imports": {
+   "requires": "a neighbouring system with surplus",
+   "provides": "rapid substitution, dependence on the neighbour not being short simultaneously"
+  },
+  "Contracted demand response": {
+   "requires": "industrial users paid to reduce",
+   "provides": "hundreds of megawatts within minutes, a limited number of activations"
+  },
+  "No buffer of any kind": {
+   "requires": "an isolated system running without reserve",
+   "provides": "immediate shortfall on any loss"
+  },
+  "Voluntary conservation appeal": {
+   "requires": "a public communication channel",
+   "provides": "modest saving, no compulsion, no equity concern"
+  },
+  "Industrial curtailment": {
+   "requires": "contractual or statutory power to instruct",
+   "provides": "large blocks of demand removed, employment and output cost"
+  },
+  "Rota disconnection of households": {
+   "requires": "network switching by feeder",
+   "provides": "enforced reduction, no discrimination between vulnerable and other users"
+  },
+  "Price rationing in the market": {
+   "requires": "a functioning wholesale market",
+   "provides": "demand reduced by cost, severe distributional consequences"
+  },
+  "Shortfall covered": {
+   "requires": "buffers and measures sufficient",
+   "provides": "no interruption to any user"
+  },
+  "Industrial output lost": {
+   "requires": "curtailment sustained over days",
+   "provides": "economic loss concentrated on industry"
+  },
+  "Household disconnections": {
+   "requires": "demand reduction reaching domestic users",
+   "provides": "cold homes, excess winter mortality risk"
+  },
+  "System collapse and black start": {
+   "requires": "frequency control lost",
+   "provides": "total loss followed by staged restoration over days"
+  }
+ },
+ "exclusions": {
+  "SHORTFALL CAUSE|BUFFER AVAILABLE": [
+   {
+    "row": "Network damage from storm",
+    "col": "Full seasonal gas storage",
+    "code": "N3",
+    "requires": "no help against network damage",
+    "blocked_by": "physical damage to distribution lines"
+   },
+   {
+    "row": "Network damage from storm",
+    "col": "Contracted demand response",
+    "code": "N7",
+    "requires": "hundreds of megawatts within minutes",
+    "blocked_by": "localised loss regardless of generation"
+   }
+  ],
+  "SHORTFALL CAUSE|ALLOCATION MEASURE": [
+   {
+    "row": "Network damage from storm",
+    "col": "Price rationing in the market",
+    "code": "N7",
+    "requires": "demand reduced by cost",
+    "blocked_by": "localised loss regardless of generation"
+   },
+   {
+    "row": "Generation plant unavailability",
+    "col": "Voluntary conservation appeal",
+    "code": "N7",
+    "requires": "modest saving",
+    "blocked_by": "capacity shortfall at peak only"
+   }
+  ],
+  "BUFFER AVAILABLE|ALLOCATION MEASURE": [
+   {
+    "row": "Interconnector imports",
+    "col": "Price rationing in the market",
+    "code": "N7",
+    "requires": "a functioning wholesale market",
+    "blocked_by": "dependence on the neighbour not being short simultaneously"
+   }
+  ],
+  "BUFFER AVAILABLE|OUTCOME": [
+   {
+    "row": "No buffer of any kind",
+    "col": "Shortfall covered",
+    "code": "N3",
+    "requires": "buffers and measures sufficient",
+    "blocked_by": "immediate shortfall on any loss"
+   }
+  ],
+  "ALLOCATION MEASURE|OUTCOME": [
+   {
+    "row": "Voluntary conservation appeal",
+    "col": "Industrial output lost",
+    "code": "N3",
+    "requires": "curtailment sustained over days",
+    "blocked_by": "no compulsion"
+   },
+   {
+    "row": "Voluntary conservation appeal",
+    "col": "Household disconnections",
+    "code": "N3",
+    "requires": "demand reduction reaching domestic users",
+    "blocked_by": "no compulsion"
+   },
+   {
+    "row": "Industrial curtailment",
+    "col": "Household disconnections",
+    "code": "N3",
+    "requires": "demand reduction reaching domestic users",
+    "blocked_by": "large blocks of demand removed"
+   }
+  ],
+  "SHORTFALL CAUSE|OUTCOME": [
+   {
+    "row": "Network damage from storm",
+    "col": "System collapse and black start",
+    "code": "N7",
+    "requires": "frequency control lost",
+    "blocked_by": "localised loss regardless of generation"
+   }
+  ]
+ }
+}

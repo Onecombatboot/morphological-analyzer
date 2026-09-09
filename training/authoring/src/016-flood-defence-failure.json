@@ -1,0 +1,258 @@
+{
+ "domain": "flood defence failure",
+ "group": "civil",
+ "parameters": {
+  "FLOOD SOURCE": [
+   "River overtopping",
+   "Coastal storm surge",
+   "Flash surface runoff",
+   "Groundwater rise"
+  ],
+  "DEFENCE TYPE": [
+   "Earth embankment",
+   "Concrete flood wall",
+   "Demountable barrier",
+   "Upstream storage reservoir"
+  ],
+  "FAILURE MODE": [
+   "Overtopping without breach",
+   "Internal erosion and piping",
+   "Structural collapse",
+   "Not deployed in time"
+  ],
+  "WARNING TIME": [
+   "Under two hours",
+   "Half a day",
+   "Several days"
+  ]
+ },
+ "characterisations": {
+  "River overtopping": {
+   "requires": "sustained catchment rainfall upstream",
+   "provides": "hours to days of forecastable rise, predictable location along the channel"
+  },
+  "Coastal storm surge": {
+   "requires": "low pressure and onshore wind at high tide",
+   "provides": "days of meteorological warning, short violent duration, wave action"
+  },
+  "Flash surface runoff": {
+   "requires": "intense rainfall on impermeable or saturated ground",
+   "provides": "minutes to an hour of warning, unpredictable location, short duration"
+  },
+  "Groundwater rise": {
+   "requires": "prolonged saturation of an aquifer",
+   "provides": "weeks of slow rise, no flow velocity, no barrier can exclude it"
+  },
+  "Earth embankment": {
+   "requires": "space for a wide footprint and a maintained core",
+   "provides": "large volume retention, vulnerable to saturation and internal erosion"
+  },
+  "Concrete flood wall": {
+   "requires": "engineered foundations",
+   "provides": "narrow footprint, high resistance to wave impact, brittle failure if undermined"
+  },
+  "Demountable barrier": {
+   "requires": "people and hours to install before the event",
+   "provides": "no permanent structure, protection only if deployed in time"
+  },
+  "Upstream storage reservoir": {
+   "requires": "a catchment upstream of the receptor",
+   "provides": "reduction of a flood peak before it arrives, no effect on anything generated downstream of it"
+  },
+  "Overtopping without breach": {
+   "requires": "water level exceeding crest height",
+   "provides": "flooding while the structure survives, repairable"
+  },
+  "Internal erosion and piping": {
+   "requires": "a porous or poorly compacted body under prolonged head",
+   "provides": "sudden collapse after hours of loading, no warning at the crest"
+  },
+  "Structural collapse": {
+   "requires": "load exceeding structural capacity",
+   "provides": "catastrophic sudden release, total loss of defence"
+  },
+  "Not deployed in time": {
+   "requires": "a defence that must be installed rather than standing",
+   "provides": "complete absence of protection, no structural failure at all"
+  },
+  "Under two hours": {
+   "requires": "an event with almost no lead time",
+   "provides": "time only for what is already in place"
+  },
+  "Half a day": {
+   "requires": "a forecast several hours ahead",
+   "provides": "time to deploy temporary measures and evacuate"
+  },
+  "Several days": {
+   "requires": "a meteorological forecast horizon",
+   "provides": "time for anything, including reservoir drawdown"
+  }
+ },
+ "exclusions": {
+  "FLOOD SOURCE|DEFENCE TYPE": [
+   {
+    "row": "Coastal storm surge",
+    "col": "Upstream storage reservoir",
+    "code": "N3",
+    "requires": "a catchment upstream of the receptor",
+    "blocked_by": "low pressure and onshore wind at high tide"
+   },
+   {
+    "row": "Flash surface runoff",
+    "col": "Demountable barrier",
+    "code": "N4",
+    "requires": "people and hours to install before the event",
+    "blocked_by": "minutes to an hour of warning"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Earth embankment",
+    "code": "N3",
+    "requires": "large volume retention",
+    "blocked_by": "no barrier can exclude it"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Concrete flood wall",
+    "code": "N3",
+    "requires": "narrow footprint, high resistance to wave impact",
+    "blocked_by": "no barrier can exclude it"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Demountable barrier",
+    "code": "N3",
+    "requires": "protection only if deployed in time",
+    "blocked_by": "no barrier can exclude it"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Upstream storage reservoir",
+    "code": "N3",
+    "requires": "a catchment upstream of the receptor",
+    "blocked_by": "no barrier can exclude it"
+   }
+  ],
+  "FLOOD SOURCE|FAILURE MODE": [
+   {
+    "row": "Flash surface runoff",
+    "col": "Internal erosion and piping",
+    "code": "N4",
+    "requires": "a porous or poorly compacted body under prolonged head",
+    "blocked_by": "short duration"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Structural collapse",
+    "code": "N3",
+    "requires": "load exceeding structural capacity",
+    "blocked_by": "no flow velocity"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Not deployed in time",
+    "code": "N7",
+    "requires": "a defence that must be installed rather than standing",
+    "blocked_by": "no barrier can exclude it"
+   }
+  ],
+  "FLOOD SOURCE|WARNING TIME": [
+   {
+    "row": "River overtopping",
+    "col": "Under two hours",
+    "code": "N3",
+    "requires": "an event with almost no lead time",
+    "blocked_by": "hours to days of forecastable rise"
+   },
+   {
+    "row": "Coastal storm surge",
+    "col": "Under two hours",
+    "code": "N3",
+    "requires": "an event with almost no lead time",
+    "blocked_by": "days of meteorological warning"
+   },
+   {
+    "row": "Flash surface runoff",
+    "col": "Half a day",
+    "code": "N3",
+    "requires": "a forecast several hours ahead",
+    "blocked_by": "minutes to an hour of warning"
+   },
+   {
+    "row": "Flash surface runoff",
+    "col": "Several days",
+    "code": "N3",
+    "requires": "a meteorological forecast horizon",
+    "blocked_by": "minutes to an hour of warning"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Under two hours",
+    "code": "N3",
+    "requires": "an event with almost no lead time",
+    "blocked_by": "weeks of slow rise"
+   },
+   {
+    "row": "Groundwater rise",
+    "col": "Half a day",
+    "code": "N3",
+    "requires": "a forecast several hours ahead",
+    "blocked_by": "weeks of slow rise"
+   }
+  ],
+  "DEFENCE TYPE|FAILURE MODE": [
+   {
+    "row": "Earth embankment",
+    "col": "Not deployed in time",
+    "code": "N1",
+    "requires": "a defence that must be installed rather than standing",
+    "blocked_by": "space for a wide footprint and a maintained core"
+   },
+   {
+    "row": "Concrete flood wall",
+    "col": "Internal erosion and piping",
+    "code": "N3",
+    "requires": "a porous or poorly compacted body",
+    "blocked_by": "engineered foundations"
+   },
+   {
+    "row": "Concrete flood wall",
+    "col": "Not deployed in time",
+    "code": "N1",
+    "requires": "a defence that must be installed rather than standing",
+    "blocked_by": "engineered foundations"
+   },
+   {
+    "row": "Demountable barrier",
+    "col": "Internal erosion and piping",
+    "code": "N3",
+    "requires": "a porous or poorly compacted body under prolonged head",
+    "blocked_by": "no permanent structure"
+   },
+   {
+    "row": "Upstream storage reservoir",
+    "col": "Not deployed in time",
+    "code": "N1",
+    "requires": "a defence that must be installed rather than standing",
+    "blocked_by": "a catchment upstream of the receptor"
+   }
+  ],
+  "DEFENCE TYPE|WARNING TIME": [
+   {
+    "row": "Demountable barrier",
+    "col": "Under two hours",
+    "code": "N4",
+    "requires": "people and hours to install before the event",
+    "blocked_by": "time only for what is already in place"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "FLOOD SOURCE|DEFENCE TYPE": "groundwater rise defeats every barrier type - water arrives from beneath, so embankments, walls, demountables and upstream storage are all N. A storage reservoir is N for coastal surge, which originates seaward of any catchment. A demountable barrier is N for flash runoff, which gives no time to install it.",
+  "FLOOD SOURCE|FAILURE MODE": "flash runoff is N for internal erosion, which requires hours of sustained head. Groundwater rise produces no failure mode other than overtopping in the loosest sense - piping, collapse and non-deployment all presuppose a barrier doing work, which none is.",
+  "FLOOD SOURCE|WARNING TIME": "river and coastal events are N under two hours - both are forecastable well ahead. Flash runoff is N at half a day and several days, being definitionally short-notice. Groundwater rise is N at both short horizons, developing over weeks.",
+  "DEFENCE TYPE|FAILURE MODE": "only a demountable barrier can fail by not being deployed, so N for the other three. Internal erosion requires a porous body, so it is Y for an earth embankment and N for a concrete wall, a demountable and a reservoir dam treated as a control structure here.",
+  "DEFENCE TYPE|WARNING TIME": "a demountable barrier is N under two hours - it cannot be installed in the time. Upstream storage is N under two hours and N at half a day: reservoir drawdown to create capacity takes longer than that.",
+  "FAILURE MODE|WARNING TIME": "not-deployed-in-time is N when there were several days of warning, since the failure is definitionally one of insufficient lead time or organisation."
+ }
+}

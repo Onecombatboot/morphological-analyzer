@@ -1,0 +1,334 @@
+{
+ "domain": "oil spill response",
+ "group": "civil",
+ "parameters": {
+  "SPILL SOURCE": [
+   "Tanker hull breach",
+   "Offshore wellhead blowout",
+   "Pipeline rupture onshore",
+   "Refinery storage tank failure"
+  ],
+  "OIL TYPE": [
+   "Light crude",
+   "Heavy bunker fuel",
+   "Refined diesel",
+   "Condensate"
+  ],
+  "RESPONSE TECHNIQUE": [
+   "Mechanical boom and skimmer",
+   "Chemical dispersant",
+   "In-situ burning",
+   "Shoreline manual cleanup"
+  ],
+  "ENVIRONMENT": [
+   "Open sea",
+   "Enclosed harbour",
+   "River and wetland",
+   "Rocky shoreline"
+  ],
+  "SEA STATE": [
+   "Calm",
+   "Moderate swell",
+   "Storm conditions"
+  ]
+ },
+ "characterisations": {
+  "Tanker hull breach": {
+   "requires": "a vessel casualty at sea or in port",
+   "provides": "a finite cargo volume, a known location, release stopping when the tank empties"
+  },
+  "Offshore wellhead blowout": {
+   "requires": "loss of well control at the seabed",
+   "provides": "continuous release for weeks, subsea origin, gas and oil together"
+  },
+  "Pipeline rupture onshore": {
+   "requires": "a buried or surface line failing",
+   "provides": "release into land and watercourses, isolatable by valves, no marine origin"
+  },
+  "Refinery storage tank failure": {
+   "requires": "a fixed tank losing containment",
+   "provides": "release inside a bunded industrial site, contained by design, no open water origin"
+  },
+  "Light crude": {
+   "requires": "nothing beyond release",
+   "provides": "high evaporation, spreads thinly, amenable to dispersant, brief window"
+  },
+  "Heavy bunker fuel": {
+   "requires": "nothing beyond release",
+   "provides": "little evaporation, persistent, sinks or tar-balls, defeats dispersant"
+  },
+  "Refined diesel": {
+   "requires": "nothing beyond release",
+   "provides": "very high evaporation, acutely toxic, largely gone within days"
+  },
+  "Condensate": {
+   "requires": "a gas-associated source",
+   "provides": "almost complete evaporation within hours, explosive vapour, nothing left to recover"
+  },
+  "Mechanical boom and skimmer": {
+   "requires": "workable sea state and a coherent slick",
+   "provides": "physical removal, defeated by swell, no chemical input"
+  },
+  "Chemical dispersant": {
+   "requires": "oil that will disperse and sufficient water depth for dilution",
+   "provides": "removal from the surface into the water column, ineffective on persistent heavy oil"
+  },
+  "In-situ burning": {
+   "requires": "a thick fresh slick and containment, away from population",
+   "provides": "rapid volume removal, air quality impact, unusable near people"
+  },
+  "Shoreline manual cleanup": {
+   "requires": "oil already stranded on a shore",
+   "provides": "slow labour-intensive removal, no offshore application"
+  },
+  "Open sea": {
+   "requires": "distance from shore",
+   "provides": "dilution volume, room for aerial application, no immediate receptor"
+  },
+  "Enclosed harbour": {
+   "requires": "confined water with structures",
+   "provides": "containment by geometry, shallow water, adjacent population"
+  },
+  "River and wetland": {
+   "requires": "shallow flowing or vegetated water",
+   "provides": "high ecological sensitivity, no dilution depth, difficult access"
+  },
+  "Rocky shoreline": {
+   "requires": "oil making landfall",
+   "provides": "complex surfaces retaining oil, no vessel access"
+  },
+  "Calm": {
+   "requires": "low wind and sea",
+   "provides": "workable conditions for all offshore techniques"
+  },
+  "Moderate swell": {
+   "requires": "wind-driven wave action",
+   "provides": "boom performance degraded, aerial application still possible"
+  },
+  "Storm conditions": {
+   "requires": "high wind and sea",
+   "provides": "no vessel operations, natural dispersion accelerated"
+  }
+ },
+ "exclusions": {
+  "SPILL SOURCE|OIL TYPE": [
+   {
+    "row": "Offshore wellhead blowout",
+    "col": "Heavy bunker fuel",
+    "code": "N7",
+    "requires": "gas and oil together",
+    "blocked_by": "little evaporation, persistent"
+   },
+   {
+    "row": "Offshore wellhead blowout",
+    "col": "Refined diesel",
+    "code": "N7",
+    "requires": "gas and oil together",
+    "blocked_by": "very high evaporation, acutely toxic"
+   }
+  ],
+  "SPILL SOURCE|RESPONSE TECHNIQUE": [
+   {
+    "row": "Pipeline rupture onshore",
+    "col": "Chemical dispersant",
+    "code": "N3",
+    "requires": "sufficient water depth for dilution",
+    "blocked_by": "no marine origin"
+   },
+   {
+    "row": "Refinery storage tank failure",
+    "col": "Chemical dispersant",
+    "code": "N3",
+    "requires": "sufficient water depth for dilution",
+    "blocked_by": "no open water origin"
+   }
+  ],
+  "SPILL SOURCE|ENVIRONMENT": [
+   {
+    "row": "Offshore wellhead blowout",
+    "col": "Enclosed harbour",
+    "code": "N3",
+    "requires": "loss of well control at the seabed",
+    "blocked_by": "confined water with structures"
+   },
+   {
+    "row": "Offshore wellhead blowout",
+    "col": "River and wetland",
+    "code": "N3",
+    "requires": "loss of well control at the seabed",
+    "blocked_by": "shallow flowing or vegetated water"
+   },
+   {
+    "row": "Pipeline rupture onshore",
+    "col": "Open sea",
+    "code": "N3",
+    "requires": "distance from shore",
+    "blocked_by": "no marine origin"
+   },
+   {
+    "row": "Refinery storage tank failure",
+    "col": "Open sea",
+    "code": "N3",
+    "requires": "distance from shore",
+    "blocked_by": "no open water origin"
+   },
+   {
+    "row": "Refinery storage tank failure",
+    "col": "Rocky shoreline",
+    "code": "N7",
+    "requires": "oil making landfall",
+    "blocked_by": "release inside a bunded industrial site"
+   }
+  ],
+  "OIL TYPE|RESPONSE TECHNIQUE": [
+   {
+    "row": "Heavy bunker fuel",
+    "col": "Chemical dispersant",
+    "code": "N3",
+    "requires": "oil that will disperse",
+    "blocked_by": "defeats dispersant"
+   },
+   {
+    "row": "Heavy bunker fuel",
+    "col": "In-situ burning",
+    "code": "N7",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "little evaporation, persistent"
+   },
+   {
+    "row": "Refined diesel",
+    "col": "In-situ burning",
+    "code": "N7",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "very high evaporation"
+   },
+   {
+    "row": "Condensate",
+    "col": "Mechanical boom and skimmer",
+    "code": "N3",
+    "requires": "workable sea state and a coherent slick",
+    "blocked_by": "nothing left to recover"
+   },
+   {
+    "row": "Condensate",
+    "col": "Chemical dispersant",
+    "code": "N3",
+    "requires": "oil that will disperse",
+    "blocked_by": "nothing left to recover"
+   },
+   {
+    "row": "Condensate",
+    "col": "In-situ burning",
+    "code": "N3",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "almost complete evaporation within hours"
+   },
+   {
+    "row": "Condensate",
+    "col": "Shoreline manual cleanup",
+    "code": "N3",
+    "requires": "oil already stranded on a shore",
+    "blocked_by": "nothing left to recover"
+   }
+  ],
+  "OIL TYPE|ENVIRONMENT": [
+   {
+    "row": "Condensate",
+    "col": "Rocky shoreline",
+    "code": "N7",
+    "requires": "oil making landfall",
+    "blocked_by": "almost complete evaporation within hours"
+   }
+  ],
+  "RESPONSE TECHNIQUE|ENVIRONMENT": [
+   {
+    "row": "Mechanical boom and skimmer",
+    "col": "Rocky shoreline",
+    "code": "N3",
+    "requires": "workable sea state and a coherent slick",
+    "blocked_by": "complex surfaces retaining oil"
+   },
+   {
+    "row": "Chemical dispersant",
+    "col": "Enclosed harbour",
+    "code": "N3",
+    "requires": "sufficient water depth for dilution",
+    "blocked_by": "shallow water"
+   },
+   {
+    "row": "Chemical dispersant",
+    "col": "River and wetland",
+    "code": "N3",
+    "requires": "sufficient water depth for dilution",
+    "blocked_by": "no dilution depth"
+   },
+   {
+    "row": "Chemical dispersant",
+    "col": "Rocky shoreline",
+    "code": "N3",
+    "requires": "oil that will disperse and sufficient water depth for dilution",
+    "blocked_by": "complex surfaces retaining oil"
+   },
+   {
+    "row": "In-situ burning",
+    "col": "Enclosed harbour",
+    "code": "N3",
+    "requires": "away from population",
+    "blocked_by": "adjacent population"
+   },
+   {
+    "row": "In-situ burning",
+    "col": "Rocky shoreline",
+    "code": "N3",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "complex surfaces retaining oil"
+   },
+   {
+    "row": "Shoreline manual cleanup",
+    "col": "Open sea",
+    "code": "N3",
+    "requires": "oil already stranded on a shore",
+    "blocked_by": "distance from shore"
+   }
+  ],
+  "RESPONSE TECHNIQUE|SEA STATE": [
+   {
+    "row": "Mechanical boom and skimmer",
+    "col": "Storm conditions",
+    "code": "N3",
+    "requires": "workable sea state and a coherent slick",
+    "blocked_by": "no vessel operations"
+   },
+   {
+    "row": "Chemical dispersant",
+    "col": "Storm conditions",
+    "code": "N7",
+    "requires": "removal from the surface into the water column",
+    "blocked_by": "natural dispersion accelerated"
+   },
+   {
+    "row": "In-situ burning",
+    "col": "Moderate swell",
+    "code": "N3",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "boom performance degraded"
+   },
+   {
+    "row": "In-situ burning",
+    "col": "Storm conditions",
+    "code": "N3",
+    "requires": "a thick fresh slick and containment",
+    "blocked_by": "no vessel operations"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "SPILL SOURCE|OIL TYPE": "condensate is gas-associated, so it is Y only for a wellhead blowout and N for a tanker, a pipeline and a storage tank as posed. A blowout produces crude and condensate, not bunker fuel or refined diesel.",
+  "SPILL SOURCE|RESPONSE TECHNIQUE": "an onshore pipeline rupture and a refinery tank failure are both N for dispersant (no marine water column to disperse into) and N for in-situ burning near a populated industrial site.",
+  "SPILL SOURCE|ENVIRONMENT": "a tanker breach is N in a river and wetland. A blowout is N in a harbour and N in a river - it is a subsea event offshore. A pipeline rupture is Y only in a river and wetland. A tank failure is Y only in an enclosed harbour setting adjacent to the site.",
+  "OIL TYPE|RESPONSE TECHNIQUE": "condensate defeats every technique - it evaporates within hours, leaving nothing to boom, disperse, burn or clean. Heavy bunker fuel defeats dispersant and burning. Diesel is N for in-situ burning, evaporating faster than a burn can be organised.",
+  "OIL TYPE|ENVIRONMENT": "condensate is N in a river and wetland and N on a rocky shoreline - it does not persist to strand.",
+  "RESPONSE TECHNIQUE|ENVIRONMENT": "boom and skimmer are N in a river and wetland and N on a rocky shoreline - no vessel access. Dispersant needs dilution depth so it is N everywhere except open sea. In-situ burning is N except open sea, being unusable near people or vegetation. Shoreline cleanup is N at open sea.",
+  "RESPONSE TECHNIQUE|SEA STATE": "boom, dispersant and burning are all N in storm conditions - no vessel or aerial operations. Burning is also N in moderate swell, which breaks up the thick slick it requires."
+ }
+}

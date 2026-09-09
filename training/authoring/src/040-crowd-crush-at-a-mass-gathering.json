@@ -1,0 +1,169 @@
+{
+ "domain": "crowd crush at a mass gathering",
+ "group": "public safety",
+ "parameters": {
+  "VENUE TYPE": [
+   "Enclosed stadium bowl",
+   "Open field festival",
+   "Street procession",
+   "Transport interchange"
+  ],
+  "CROWD DYNAMIC": [
+   "Progressive crowd collapse",
+   "Counterflow at a bottleneck",
+   "Sudden surge toward an attraction",
+   "Evacuation rush from a threat"
+  ],
+  "CONTROL MEASURE": [
+   "Timed entry ticketing",
+   "Physical barriers and pens",
+   "Real-time density monitoring",
+   "Stewarding and messaging"
+  ],
+  "OUTCOME": [
+   "No incident",
+   "Injuries without fatalities",
+   "Mass fatality crush",
+   "Event abandoned safely"
+  ]
+ },
+ "characterisations": {
+  "Enclosed stadium bowl": {
+   "requires": "fixed seating and controlled entry",
+   "provides": "known capacity, ticketed entry, defined exit routes"
+  },
+  "Open field festival": {
+   "requires": "temporary infrastructure on open ground",
+   "provides": "no fixed capacity, many informal routes, weather exposure"
+  },
+  "Street procession": {
+   "requires": "a public highway route",
+   "provides": "no entry control at all, unbounded numbers, buildings constraining the width"
+  },
+  "Transport interchange": {
+   "requires": "a station concourse serving the event",
+   "provides": "surge arrivals and departures, fixed narrow passages"
+  },
+  "Progressive crowd collapse": {
+   "requires": "density above about six people per square metre",
+   "provides": "people unable to control their own movement, asphyxia without any panic"
+  },
+  "Counterflow at a bottleneck": {
+   "requires": "two streams meeting in a constricted space",
+   "provides": "sustained pressure at one point, no escape valve"
+  },
+  "Sudden surge toward an attraction": {
+   "requires": "a focal point drawing movement",
+   "provides": "rapid density rise in one area, short duration"
+  },
+  "Evacuation rush from a threat": {
+   "requires": "a perceived danger behind the crowd",
+   "provides": "unidirectional flight, disregard of designated routes"
+  },
+  "Timed entry ticketing": {
+   "requires": "an entry system and enforcement",
+   "provides": "arrival rate limited, no effect once people are inside"
+  },
+  "Physical barriers and pens": {
+   "requires": "installed barriers and stewarding",
+   "provides": "subdivision of the crowd, new bottlenecks if misplaced"
+  },
+  "Real-time density monitoring": {
+   "requires": "cameras or sensors and someone watching",
+   "provides": "warning of dangerous density, no physical effect by itself"
+  },
+  "Stewarding and messaging": {
+   "requires": "trained staff and a public address system",
+   "provides": "influence on behaviour, defeated by noise and by a crowd already immobile"
+  },
+  "No incident": {
+   "requires": "capacity and flow within design",
+   "provides": "no consequence"
+  },
+  "Injuries without fatalities": {
+   "requires": "pressure relieved before asphyxia",
+   "provides": "casualties, incident contained"
+  },
+  "Mass fatality crush": {
+   "requires": "sustained pressure with no relief",
+   "provides": "multiple deaths, criminal and public inquiry exposure"
+  },
+  "Event abandoned safely": {
+   "requires": "a decision taken before the crowd becomes critical",
+   "provides": "economic loss, no casualties"
+  }
+ },
+ "exclusions": {
+  "VENUE TYPE|CONTROL MEASURE": [
+   {
+    "row": "Street procession",
+    "col": "Timed entry ticketing",
+    "code": "N3",
+    "requires": "an entry system and enforcement",
+    "blocked_by": "no entry control at all"
+   },
+   {
+    "row": "Street procession",
+    "col": "Physical barriers and pens",
+    "code": "N7",
+    "requires": "installed barriers and stewarding",
+    "blocked_by": "no entry control at all"
+   },
+   {
+    "row": "Transport interchange",
+    "col": "Timed entry ticketing",
+    "code": "N7",
+    "requires": "an entry system and enforcement",
+    "blocked_by": "surge arrivals and departures"
+   }
+  ],
+  "CROWD DYNAMIC|CONTROL MEASURE": [
+   {
+    "row": "Progressive crowd collapse",
+    "col": "Stewarding and messaging",
+    "code": "N3",
+    "requires": "influence on behaviour",
+    "blocked_by": "people unable to control their own movement"
+   },
+   {
+    "row": "Progressive crowd collapse",
+    "col": "Timed entry ticketing",
+    "code": "N7",
+    "requires": "no effect once people are inside",
+    "blocked_by": "people unable to control their own movement"
+   },
+   {
+    "row": "Counterflow at a bottleneck",
+    "col": "Timed entry ticketing",
+    "code": "N7",
+    "requires": "no effect once people are inside",
+    "blocked_by": "sustained pressure at one point"
+   },
+   {
+    "row": "Evacuation rush from a threat",
+    "col": "Stewarding and messaging",
+    "code": "N7",
+    "requires": "influence on behaviour",
+    "blocked_by": "disregard of designated routes"
+   }
+  ],
+  "CROWD DYNAMIC|OUTCOME": [
+   {
+    "row": "Progressive crowd collapse",
+    "col": "No incident",
+    "code": "N3",
+    "requires": "capacity and flow within design",
+    "blocked_by": "density above about six people per square metre"
+   }
+  ],
+  "CONTROL MEASURE|OUTCOME": [
+   {
+    "row": "Real-time density monitoring",
+    "col": "Event abandoned safely",
+    "code": "N7",
+    "requires": "a decision taken before the crowd becomes critical",
+    "blocked_by": "no physical effect by itself"
+   }
+  ]
+ }
+}

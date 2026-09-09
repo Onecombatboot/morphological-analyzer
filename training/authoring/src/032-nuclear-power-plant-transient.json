@@ -1,0 +1,393 @@
+{
+ "domain": "nuclear power plant transient",
+ "group": "industrial",
+ "parameters": {
+  "INITIATING EVENT": [
+   "Loss of offsite power",
+   "Steam generator tube rupture",
+   "Reactor coolant pump trip",
+   "Control rod ejection"
+  ],
+  "SAFETY SYSTEM DEMANDED": [
+   "Emergency diesel generators",
+   "Emergency core cooling injection",
+   "Reactor protection system scram",
+   "Containment isolation"
+  ],
+  "OPERATOR ACTION": [
+   "Manual scram",
+   "Feed and bleed cooling",
+   "Isolate the affected loop",
+   "Monitor and take no action"
+  ],
+  "PLANT STATE": [
+   "Full power operation",
+   "Low power startup",
+   "Cold shutdown",
+   "Refuelling outage"
+  ],
+  "RADIOLOGICAL CONSEQUENCE": [
+   "No release",
+   "Release inside containment only",
+   "Minor release to environment",
+   "Significant release to environment"
+  ]
+ },
+ "characterisations": {
+  "Loss of offsite power": {
+   "requires": "failure of the grid connection",
+   "provides": "loss of normal AC power, no primary circuit breach, immediate demand on diesels"
+  },
+  "Steam generator tube rupture": {
+   "requires": "a breach between primary and secondary circuits",
+   "provides": "a direct path bypassing containment, primary coolant loss, radioactive release route"
+  },
+  "Reactor coolant pump trip": {
+   "requires": "loss of forced circulation",
+   "provides": "reduced heat removal, no breach, natural circulation available"
+  },
+  "Control rod ejection": {
+   "requires": "failure of a control rod housing under pressure",
+   "provides": "rapid reactivity insertion, localised fuel damage, primary breach at the housing"
+  },
+  "Emergency diesel generators": {
+   "requires": "loss of offsite AC power",
+   "provides": "restoration of power to safety buses, no cooling function itself"
+  },
+  "Emergency core cooling injection": {
+   "requires": "loss of coolant inventory or pressure",
+   "provides": "makeup water to the core, only meaningful when inventory is lost"
+  },
+  "Reactor protection system scram": {
+   "requires": "a parameter exceeding its trip setpoint",
+   "provides": "termination of the chain reaction within seconds, no effect on decay heat"
+  },
+  "Containment isolation": {
+   "requires": "a signal indicating release inside containment",
+   "provides": "closure of penetrations, useless against a path that bypasses containment"
+  },
+  "Manual scram": {
+   "requires": "an operator and a reactor that is critical",
+   "provides": "immediate shutdown, no effect if already shut down"
+  },
+  "Feed and bleed cooling": {
+   "requires": "loss of normal heat sink and available injection",
+   "provides": "heat removal at the cost of deliberate coolant discharge"
+  },
+  "Isolate the affected loop": {
+   "requires": "a fault confined to one identifiable loop",
+   "provides": "termination of the leak path, reduced cooling capacity"
+  },
+  "Monitor and take no action": {
+   "requires": "automatic systems performing correctly",
+   "provides": "no operator-induced error, no correction of anything automatic systems miss"
+  },
+  "Full power operation": {
+   "requires": "the reactor critical at rated output",
+   "provides": "maximum decay heat, maximum stored energy, all systems in service"
+  },
+  "Low power startup": {
+   "requires": "the reactor critical at low output",
+   "provides": "low decay heat, reduced margins, some systems not yet in service"
+  },
+  "Cold shutdown": {
+   "requires": "the reactor subcritical and depressurised",
+   "provides": "low decay heat, no scram possible, residual heat removal in service"
+  },
+  "Refuelling outage": {
+   "requires": "the vessel head removed and fuel being moved",
+   "provides": "no reactor operation at all, open containment, fuel handling hazards only"
+  },
+  "No release": {
+   "requires": "all barriers intact",
+   "provides": "no radiological consequence"
+  },
+  "Release inside containment only": {
+   "requires": "a primary breach with containment intact",
+   "provides": "contained consequence, cleanup burden"
+  },
+  "Minor release to environment": {
+   "requires": "a bypass path or partial containment failure",
+   "provides": "measurable offsite dose, no protective action needed"
+  },
+  "Significant release to environment": {
+   "requires": "major fuel damage plus a bypass or containment failure",
+   "provides": "offsite protective action required"
+  }
+ },
+ "exclusions": {
+  "INITIATING EVENT|SAFETY SYSTEM DEMANDED": [
+   {
+    "row": "Loss of offsite power",
+    "col": "Emergency core cooling injection",
+    "code": "N3",
+    "requires": "loss of coolant inventory or pressure",
+    "blocked_by": "no primary circuit breach"
+   },
+   {
+    "row": "Loss of offsite power",
+    "col": "Containment isolation",
+    "code": "N3",
+    "requires": "a signal indicating release inside containment",
+    "blocked_by": "no primary circuit breach"
+   },
+   {
+    "row": "Steam generator tube rupture",
+    "col": "Emergency diesel generators",
+    "code": "N3",
+    "requires": "loss of offsite AC power",
+    "blocked_by": "a breach between primary and secondary circuits"
+   },
+   {
+    "row": "Steam generator tube rupture",
+    "col": "Containment isolation",
+    "code": "N3",
+    "requires": "useless against a path that bypasses containment",
+    "blocked_by": "a direct path bypassing containment"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Emergency diesel generators",
+    "code": "N3",
+    "requires": "loss of offsite AC power",
+    "blocked_by": "loss of forced circulation"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Emergency core cooling injection",
+    "code": "N3",
+    "requires": "loss of coolant inventory or pressure",
+    "blocked_by": "no breach"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Containment isolation",
+    "code": "N3",
+    "requires": "a signal indicating release inside containment",
+    "blocked_by": "no breach"
+   },
+   {
+    "row": "Control rod ejection",
+    "col": "Emergency diesel generators",
+    "code": "N3",
+    "requires": "loss of offsite AC power",
+    "blocked_by": "failure of a control rod housing under pressure"
+   }
+  ],
+  "INITIATING EVENT|OPERATOR ACTION": [
+   {
+    "row": "Loss of offsite power",
+    "col": "Isolate the affected loop",
+    "code": "N3",
+    "requires": "a fault confined to one identifiable loop",
+    "blocked_by": "failure of the grid connection"
+   },
+   {
+    "row": "Steam generator tube rupture",
+    "col": "Feed and bleed cooling",
+    "code": "N7",
+    "requires": "loss of normal heat sink and available injection",
+    "blocked_by": "a direct path bypassing containment"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Feed and bleed cooling",
+    "code": "N7",
+    "requires": "loss of normal heat sink and available injection",
+    "blocked_by": "natural circulation available"
+   },
+   {
+    "row": "Control rod ejection",
+    "col": "Isolate the affected loop",
+    "code": "N3",
+    "requires": "a fault confined to one identifiable loop",
+    "blocked_by": "failure of a control rod housing under pressure"
+   },
+   {
+    "row": "Control rod ejection",
+    "col": "Monitor and take no action",
+    "code": "N7",
+    "requires": "automatic systems performing correctly",
+    "blocked_by": "rapid reactivity insertion, localised fuel damage"
+   }
+  ],
+  "INITIATING EVENT|PLANT STATE": [
+   {
+    "row": "Steam generator tube rupture",
+    "col": "Cold shutdown",
+    "code": "N7",
+    "requires": "a breach between primary and secondary circuits",
+    "blocked_by": "the reactor subcritical and depressurised"
+   },
+   {
+    "row": "Steam generator tube rupture",
+    "col": "Refuelling outage",
+    "code": "N3",
+    "requires": "a breach between primary and secondary circuits",
+    "blocked_by": "no reactor operation at all"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Refuelling outage",
+    "code": "N7",
+    "requires": "loss of forced circulation",
+    "blocked_by": "no reactor operation at all"
+   },
+   {
+    "row": "Control rod ejection",
+    "col": "Cold shutdown",
+    "code": "N3",
+    "requires": "failure of a control rod housing under pressure",
+    "blocked_by": "the reactor subcritical and depressurised"
+   },
+   {
+    "row": "Control rod ejection",
+    "col": "Refuelling outage",
+    "code": "N3",
+    "requires": "failure of a control rod housing under pressure",
+    "blocked_by": "no reactor operation at all"
+   }
+  ],
+  "INITIATING EVENT|RADIOLOGICAL CONSEQUENCE": [
+   {
+    "row": "Loss of offsite power",
+    "col": "Release inside containment only",
+    "code": "N7",
+    "requires": "a primary breach with containment intact",
+    "blocked_by": "no primary circuit breach"
+   },
+   {
+    "row": "Loss of offsite power",
+    "col": "Minor release to environment",
+    "code": "N7",
+    "requires": "a bypass path or partial containment failure",
+    "blocked_by": "no primary circuit breach"
+   },
+   {
+    "row": "Loss of offsite power",
+    "col": "Significant release to environment",
+    "code": "N7",
+    "requires": "major fuel damage plus a bypass or containment failure",
+    "blocked_by": "no primary circuit breach"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Release inside containment only",
+    "code": "N7",
+    "requires": "a primary breach with containment intact",
+    "blocked_by": "no breach"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Minor release to environment",
+    "code": "N7",
+    "requires": "a bypass path or partial containment failure",
+    "blocked_by": "no breach"
+   },
+   {
+    "row": "Reactor coolant pump trip",
+    "col": "Significant release to environment",
+    "code": "N7",
+    "requires": "major fuel damage plus a bypass or containment failure",
+    "blocked_by": "no breach"
+   }
+  ],
+  "SAFETY SYSTEM DEMANDED|OPERATOR ACTION": [
+   {
+    "row": "Emergency diesel generators",
+    "col": "Isolate the affected loop",
+    "code": "N7",
+    "requires": "a fault confined to one identifiable loop",
+    "blocked_by": "restoration of power to safety buses"
+   }
+  ],
+  "SAFETY SYSTEM DEMANDED|PLANT STATE": [
+   {
+    "row": "Emergency core cooling injection",
+    "col": "Refuelling outage",
+    "code": "N7",
+    "requires": "loss of coolant inventory or pressure",
+    "blocked_by": "no reactor operation at all"
+   },
+   {
+    "row": "Reactor protection system scram",
+    "col": "Cold shutdown",
+    "code": "N3",
+    "requires": "a parameter exceeding its trip setpoint",
+    "blocked_by": "no scram possible"
+   },
+   {
+    "row": "Reactor protection system scram",
+    "col": "Refuelling outage",
+    "code": "N3",
+    "requires": "a parameter exceeding its trip setpoint",
+    "blocked_by": "no reactor operation at all"
+   }
+  ],
+  "OPERATOR ACTION|PLANT STATE": [
+   {
+    "row": "Manual scram",
+    "col": "Cold shutdown",
+    "code": "N3",
+    "requires": "an operator and a reactor that is critical",
+    "blocked_by": "no scram possible"
+   },
+   {
+    "row": "Manual scram",
+    "col": "Refuelling outage",
+    "code": "N3",
+    "requires": "an operator and a reactor that is critical",
+    "blocked_by": "no reactor operation at all"
+   },
+   {
+    "row": "Feed and bleed cooling",
+    "col": "Cold shutdown",
+    "code": "N7",
+    "requires": "loss of normal heat sink and available injection",
+    "blocked_by": "residual heat removal in service"
+   },
+   {
+    "row": "Feed and bleed cooling",
+    "col": "Refuelling outage",
+    "code": "N3",
+    "requires": "loss of normal heat sink and available injection",
+    "blocked_by": "no reactor operation at all"
+   }
+  ],
+  "PLANT STATE|RADIOLOGICAL CONSEQUENCE": [
+   {
+    "row": "Cold shutdown",
+    "col": "Minor release to environment",
+    "code": "N7",
+    "requires": "a bypass path or partial containment failure",
+    "blocked_by": "the reactor subcritical and depressurised"
+   },
+   {
+    "row": "Cold shutdown",
+    "col": "Significant release to environment",
+    "code": "N7",
+    "requires": "major fuel damage plus a bypass or containment failure",
+    "blocked_by": "low decay heat"
+   },
+   {
+    "row": "Refuelling outage",
+    "col": "Significant release to environment",
+    "code": "N7",
+    "requires": "major fuel damage plus a bypass or containment failure",
+    "blocked_by": "no reactor operation at all"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INITIATING EVENT|SAFETY SYSTEM DEMANDED": "diesels are demanded only by loss of offsite power. Core cooling injection is demanded by inventory loss, so N for loss of power and pump trip. Containment isolation is N for loss of power, tube rupture (which bypasses containment entirely) and pump trip; Y only for rod ejection.",
+  "INITIATING EVENT|OPERATOR ACTION": "loop isolation is N for loss of offsite power and pump trip - no loop is leaking. Feed and bleed is N for tube rupture (the leak is the problem, not the heat sink) and N for pump trip. Rod ejection is N for isolation and N for no-action.",
+  "INITIATING EVENT|PLANT STATE": "tube rupture, pump trip and rod ejection are all N in cold shutdown and refuelling - the primary circuit is not at pressure and the reactor is not operating.",
+  "INITIATING EVENT|RADIOLOGICAL CONSEQUENCE": "loss of offsite power and pump trip cause no breach, so anything beyond no-release is N. Tube rupture and rod ejection can reach any level.",
+  "SAFETY SYSTEM DEMANDED|OPERATOR ACTION": "diesels x isolate loop is N. Containment isolation x manual scram is N as a paired action.",
+  "SAFETY SYSTEM DEMANDED|PLANT STATE": "core cooling injection is N during refuelling. Scram is N in cold shutdown and refuelling - the reactor is already subcritical, there is nothing to scram.",
+  "SAFETY SYSTEM DEMANDED|RADIOLOGICAL CONSEQUENCE": "diesels are N for every release category - restoring power causes no release. Scram is N for minor and significant release.",
+  "OPERATOR ACTION|PLANT STATE": "manual scram and feed and bleed are both N in cold shutdown and refuelling.",
+  "OPERATOR ACTION|RADIOLOGICAL CONSEQUENCE": "manual scram is N for minor and significant release - a successful scram does not produce them.",
+  "PLANT STATE|RADIOLOGICAL CONSEQUENCE": "cold shutdown and refuelling are N for minor and significant environmental release as posed."
+ }
+}

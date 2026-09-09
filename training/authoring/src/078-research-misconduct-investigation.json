@@ -1,0 +1,155 @@
+{
+ "domain": "research misconduct investigation",
+ "group": "academic",
+ "parameters": {
+  "ALLEGATION TYPE": [
+   "Image duplication in figures",
+   "Fabricated data set",
+   "Plagiarism of text",
+   "Authorship dispute"
+  ],
+  "EVIDENCE SOURCE": [
+   "Original laboratory notebooks",
+   "Raw instrument files",
+   "Published record alone",
+   "Records destroyed or unavailable"
+  ],
+  "PROCESS STAGE": [
+   "Confidential inquiry",
+   "Full investigation panel",
+   "Journal-led correction process",
+   "Case closed without inquiry"
+  ],
+  "RESOLUTION": [
+   "Retraction and dismissal",
+   "Correction of the literature",
+   "Allegation not upheld",
+   "Unresolved and abandoned"
+  ]
+ },
+ "characterisations": {
+  "Image duplication in figures": {
+   "requires": "published figures available to compare",
+   "provides": "objective evidence in the paper itself, no need for lab records"
+  },
+  "Fabricated data set": {
+   "requires": "results reported that were never collected",
+   "provides": "reliance on raw records to prove, denial difficult to disprove without them"
+  },
+  "Plagiarism of text": {
+   "requires": "an earlier source to compare against",
+   "provides": "mechanical detection, no scientific judgement required"
+  },
+  "Authorship dispute": {
+   "requires": "disagreement among collaborators",
+   "provides": "no question about the validity of the results, a matter of credit only"
+  },
+  "Original laboratory notebooks": {
+   "requires": "contemporaneous records retained",
+   "provides": "verification of what was actually done, dating of the work"
+  },
+  "Raw instrument files": {
+   "requires": "an instrument archive with timestamps",
+   "provides": "independent confirmation of acquisition, resistance to later alteration"
+  },
+  "Published record alone": {
+   "requires": "the paper as issued",
+   "provides": "comparison across figures and papers, no insight into the underlying work"
+  },
+  "Records destroyed or unavailable": {
+   "requires": "retention periods expired or files lost",
+   "provides": "no primary material of any kind, reliance on testimony"
+  },
+  "Confidential inquiry": {
+   "requires": "an allegation received and assessed",
+   "provides": "a decision whether to proceed, no findings published"
+  },
+  "Full investigation panel": {
+   "requires": "a formal panel convened",
+   "provides": "witnesses heard and a finding made, months of process"
+  },
+  "Journal-led correction process": {
+   "requires": "an editor acting on concerns",
+   "provides": "correction or retraction of the literature, no employment consequence"
+  },
+  "Case closed without inquiry": {
+   "requires": "an allegation judged unfounded at screening",
+   "provides": "no investigation held, no record beyond the file"
+  },
+  "Retraction and dismissal": {
+   "requires": "misconduct found and proven",
+   "provides": "the paper withdrawn, employment terminated"
+  },
+  "Correction of the literature": {
+   "requires": "an error established without intent",
+   "provides": "the record repaired, no misconduct finding"
+  },
+  "Allegation not upheld": {
+   "requires": "insufficient evidence to find misconduct",
+   "provides": "no action against the researcher, lingering suspicion"
+  },
+  "Unresolved and abandoned": {
+   "requires": "a respondent who leaves the institution",
+   "provides": "no finding of any kind, the literature left uncorrected"
+  }
+ },
+ "exclusions": {
+  "ALLEGATION TYPE|EVIDENCE SOURCE": [
+   {
+    "row": "Plagiarism of text",
+    "col": "Original laboratory notebooks",
+    "code": "N3",
+    "requires": "verification of what was actually done",
+    "blocked_by": "no scientific judgement required"
+   },
+   {
+    "row": "Authorship dispute",
+    "col": "Raw instrument files",
+    "code": "N3",
+    "requires": "independent confirmation of acquisition",
+    "blocked_by": "a matter of credit only"
+   }
+  ],
+  "ALLEGATION TYPE|RESOLUTION": [
+   {
+    "row": "Authorship dispute",
+    "col": "Retraction and dismissal",
+    "code": "N3",
+    "requires": "misconduct found and proven",
+    "blocked_by": "no question about the validity of the results"
+   }
+  ],
+  "EVIDENCE SOURCE|PROCESS STAGE": [],
+  "EVIDENCE SOURCE|RESOLUTION": [],
+  "PROCESS STAGE|RESOLUTION": [
+   {
+    "row": "Case closed without inquiry",
+    "col": "Retraction and dismissal",
+    "code": "N3",
+    "requires": "misconduct found and proven",
+    "blocked_by": "no investigation held"
+   },
+   {
+    "row": "Case closed without inquiry",
+    "col": "Correction of the literature",
+    "code": "N3",
+    "requires": "the record repaired",
+    "blocked_by": "no investigation held"
+   },
+   {
+    "row": "Confidential inquiry",
+    "col": "Retraction and dismissal",
+    "code": "N3",
+    "requires": "misconduct found and proven",
+    "blocked_by": "no findings published"
+   },
+   {
+    "row": "Journal-led correction process",
+    "col": "Retraction and dismissal",
+    "code": "N3",
+    "requires": "employment terminated",
+    "blocked_by": "no employment consequence"
+   }
+  ]
+ }
+}

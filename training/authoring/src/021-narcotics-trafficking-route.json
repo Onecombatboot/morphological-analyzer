@@ -1,0 +1,364 @@
+{
+ "domain": "narcotics trafficking route",
+ "group": "security",
+ "parameters": {
+  "PRODUCT": [
+   "Cocaine base",
+   "Synthetic opioid",
+   "Cannabis herbal",
+   "Precursor chemicals"
+  ],
+  "TRANSPORT MODE": [
+   "Container shipping",
+   "Small aircraft",
+   "Body-carried by courier",
+   "Postal parcel"
+  ],
+  "CONCEALMENT": [
+   "Dissolved in a legitimate liquid",
+   "Sealed in machinery",
+   "Internally concealed",
+   "Openly declared as something else"
+  ],
+  "ORGANISATION": [
+   "Transnational cartel",
+   "Regional distribution network",
+   "Independent small operator",
+   "Corrupt logistics insider"
+  ],
+  "INTERDICTION POINT": [
+   "Origin production site",
+   "Transit border",
+   "Destination distribution",
+   "Financial flow"
+  ]
+ },
+ "characterisations": {
+  "Cocaine base": {
+   "requires": "coca cultivation and processing",
+   "provides": "high value density, distinctive odour, chemically convertible for concealment"
+  },
+  "Synthetic opioid": {
+   "requires": "a laboratory and precursors, no agriculture",
+   "provides": "extreme value density, tiny volume, lethal in trace quantities"
+  },
+  "Cannabis herbal": {
+   "requires": "bulk cultivation",
+   "provides": "low value density, very large volume, strong persistent odour"
+  },
+  "Precursor chemicals": {
+   "requires": "industrial supply and a legitimate use",
+   "provides": "not itself illegal in most places, bulk volume, documentation offence at most"
+  },
+  "Container shipping": {
+   "requires": "a commercial consignment and a port",
+   "provides": "tonnage capacity, weeks of transit, no personal exposure"
+  },
+  "Small aircraft": {
+   "requires": "an airstrip or airdrop capability and a pilot",
+   "provides": "hundreds of kilograms, direct route, high per-trip risk"
+  },
+  "Body-carried by courier": {
+   "requires": "a willing person and a passenger route",
+   "provides": "a kilogram at most, high personal risk, no cargo documentation"
+  },
+  "Postal parcel": {
+   "requires": "an address and a shipping label",
+   "provides": "grams to a few kilograms, anonymity, per-parcel loss acceptable"
+  },
+  "Dissolved in a legitimate liquid": {
+   "requires": "a substance chemically recoverable afterwards",
+   "provides": "defeats odour and visual search, requires a laboratory at destination"
+  },
+  "Sealed in machinery": {
+   "requires": "bulky freight and a workshop",
+   "provides": "defeats casual search, immobile once loaded"
+  },
+  "Internally concealed": {
+   "requires": "a human carrier and small packaged volume",
+   "provides": "defeats all external search, lethal risk to the carrier"
+  },
+  "Openly declared as something else": {
+   "requires": "the goods to be plausibly legitimate",
+   "provides": "no physical concealment, defeated by any test"
+  },
+  "Transnational cartel": {
+   "requires": "production control and international reach",
+   "provides": "tonnage, own transport, corruption capacity, tolerance of losses"
+  },
+  "Regional distribution network": {
+   "requires": "wholesale purchase and local distribution",
+   "provides": "hundreds of kilograms, no production, no international reach"
+  },
+  "Independent small operator": {
+   "requires": "personal capital only",
+   "provides": "kilogram quantities, no infrastructure, no corruption reach"
+  },
+  "Corrupt logistics insider": {
+   "requires": "employment in a freight or postal chain",
+   "provides": "access to the pipeline, no product ownership, no distribution"
+  },
+  "Origin production site": {
+   "requires": "jurisdiction over the producing region",
+   "provides": "destruction of capacity, no effect on product already moving"
+  },
+  "Transit border": {
+   "requires": "the consignment presenting at a control",
+   "provides": "seizure of product in motion, no effect on organisation"
+  },
+  "Destination distribution": {
+   "requires": "surveillance of local networks",
+   "provides": "arrests and network mapping, product already imported"
+  },
+  "Financial flow": {
+   "requires": "money moving through traceable channels",
+   "provides": "disruption of the organisation, no product seized"
+  }
+ },
+ "exclusions": {
+  "PRODUCT|TRANSPORT MODE": [
+   {
+    "row": "Cannabis herbal",
+    "col": "Body-carried by courier",
+    "code": "N3",
+    "requires": "a kilogram at most",
+    "blocked_by": "very large volume"
+   },
+   {
+    "row": "Precursor chemicals",
+    "col": "Body-carried by courier",
+    "code": "N3",
+    "requires": "a kilogram at most",
+    "blocked_by": "bulk volume"
+   },
+   {
+    "row": "Precursor chemicals",
+    "col": "Postal parcel",
+    "code": "N3",
+    "requires": "grams to a few kilograms",
+    "blocked_by": "bulk volume"
+   }
+  ],
+  "PRODUCT|CONCEALMENT": [
+   {
+    "row": "Cocaine base",
+    "col": "Openly declared as something else",
+    "code": "N3",
+    "requires": "the goods to be plausibly legitimate",
+    "blocked_by": "distinctive odour"
+   },
+   {
+    "row": "Synthetic opioid",
+    "col": "Openly declared as something else",
+    "code": "N3",
+    "requires": "the goods to be plausibly legitimate",
+    "blocked_by": "lethal in trace quantities"
+   },
+   {
+    "row": "Cannabis herbal",
+    "col": "Dissolved in a legitimate liquid",
+    "code": "N3",
+    "requires": "a substance chemically recoverable afterwards",
+    "blocked_by": "very large volume"
+   },
+   {
+    "row": "Cannabis herbal",
+    "col": "Internally concealed",
+    "code": "N3",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "very large volume"
+   },
+   {
+    "row": "Cannabis herbal",
+    "col": "Openly declared as something else",
+    "code": "N3",
+    "requires": "the goods to be plausibly legitimate",
+    "blocked_by": "strong persistent odour"
+   },
+   {
+    "row": "Precursor chemicals",
+    "col": "Internally concealed",
+    "code": "N3",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "bulk volume"
+   }
+  ],
+  "PRODUCT|ORGANISATION": [
+   {
+    "row": "Precursor chemicals",
+    "col": "Regional distribution network",
+    "code": "N3",
+    "requires": "industrial supply and a legitimate use",
+    "blocked_by": "no production"
+   },
+   {
+    "row": "Precursor chemicals",
+    "col": "Independent small operator",
+    "code": "N3",
+    "requires": "industrial supply and a legitimate use",
+    "blocked_by": "no infrastructure"
+   }
+  ],
+  "PRODUCT|INTERDICTION POINT": [
+   {
+    "row": "Precursor chemicals",
+    "col": "Destination distribution",
+    "code": "N7",
+    "requires": "surveillance of local networks",
+    "blocked_by": "industrial supply and a legitimate use"
+   }
+  ],
+  "TRANSPORT MODE|CONCEALMENT": [
+   {
+    "row": "Container shipping",
+    "col": "Internally concealed",
+    "code": "N3",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "a commercial consignment and a port"
+   },
+   {
+    "row": "Small aircraft",
+    "col": "Internally concealed",
+    "code": "N3",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "an airstrip or airdrop capability and a pilot"
+   },
+   {
+    "row": "Body-carried by courier",
+    "col": "Sealed in machinery",
+    "code": "N3",
+    "requires": "bulky freight and a workshop",
+    "blocked_by": "a kilogram at most"
+   },
+   {
+    "row": "Body-carried by courier",
+    "col": "Openly declared as something else",
+    "code": "N3",
+    "requires": "the goods to be plausibly legitimate",
+    "blocked_by": "no cargo documentation"
+   },
+   {
+    "row": "Postal parcel",
+    "col": "Sealed in machinery",
+    "code": "N3",
+    "requires": "bulky freight and a workshop",
+    "blocked_by": "grams to a few kilograms"
+   },
+   {
+    "row": "Postal parcel",
+    "col": "Internally concealed",
+    "code": "N3",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "an address and a shipping label"
+   }
+  ],
+  "TRANSPORT MODE|ORGANISATION": [
+   {
+    "row": "Container shipping",
+    "col": "Independent small operator",
+    "code": "N3",
+    "requires": "a commercial consignment and a port",
+    "blocked_by": "no infrastructure"
+   },
+   {
+    "row": "Small aircraft",
+    "col": "Independent small operator",
+    "code": "N3",
+    "requires": "an airstrip or airdrop capability and a pilot",
+    "blocked_by": "no infrastructure"
+   },
+   {
+    "row": "Small aircraft",
+    "col": "Corrupt logistics insider",
+    "code": "N7",
+    "requires": "an airstrip or airdrop capability and a pilot",
+    "blocked_by": "employment in a freight or postal chain"
+   },
+   {
+    "row": "Body-carried by courier",
+    "col": "Corrupt logistics insider",
+    "code": "N7",
+    "requires": "a willing person and a passenger route",
+    "blocked_by": "access to the pipeline, no product ownership"
+   }
+  ],
+  "CONCEALMENT|ORGANISATION": [
+   {
+    "row": "Dissolved in a legitimate liquid",
+    "col": "Independent small operator",
+    "code": "N3",
+    "requires": "requires a laboratory at destination",
+    "blocked_by": "no infrastructure"
+   },
+   {
+    "row": "Sealed in machinery",
+    "col": "Independent small operator",
+    "code": "N3",
+    "requires": "bulky freight and a workshop",
+    "blocked_by": "no infrastructure"
+   },
+   {
+    "row": "Internally concealed",
+    "col": "Corrupt logistics insider",
+    "code": "N7",
+    "requires": "a human carrier and small packaged volume",
+    "blocked_by": "access to the pipeline, no product ownership"
+   },
+   {
+    "row": "Openly declared as something else",
+    "col": "Independent small operator",
+    "code": "N7",
+    "requires": "the goods to be plausibly legitimate",
+    "blocked_by": "no infrastructure"
+   }
+  ],
+  "ORGANISATION|INTERDICTION POINT": [
+   {
+    "row": "Regional distribution network",
+    "col": "Origin production site",
+    "code": "N3",
+    "requires": "jurisdiction over the producing region",
+    "blocked_by": "no production"
+   },
+   {
+    "row": "Independent small operator",
+    "col": "Origin production site",
+    "code": "N7",
+    "requires": "jurisdiction over the producing region",
+    "blocked_by": "no infrastructure"
+   },
+   {
+    "row": "Independent small operator",
+    "col": "Financial flow",
+    "code": "N7",
+    "requires": "money moving through traceable channels",
+    "blocked_by": "personal capital only"
+   },
+   {
+    "row": "Corrupt logistics insider",
+    "col": "Origin production site",
+    "code": "N3",
+    "requires": "jurisdiction over the producing region",
+    "blocked_by": "no product ownership"
+   },
+   {
+    "row": "Corrupt logistics insider",
+    "col": "Destination distribution",
+    "code": "N3",
+    "requires": "surveillance of local networks",
+    "blocked_by": "no distribution"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "PRODUCT|TRANSPORT MODE": "cannabis is N for body-carrying and postal parcels - the volume per unit value makes both pointless. Precursors are N for aircraft, couriers and parcels: they move as industrial bulk or not at all.",
+  "PRODUCT|CONCEALMENT": "cannabis cannot be dissolved, cannot be internally concealed at useful volume, and cannot be declared as something else - its odour and bulk defeat all three; only machinery concealment works. Precursors are N for dissolution and internal concealment, and Y for open declaration, which is their characteristic offence. Cocaine and opioids are N for open declaration.",
+  "PRODUCT|ORGANISATION": "precursors are N for a regional network and an independent operator - neither has an industrial supply relationship.",
+  "PRODUCT|INTERDICTION POINT": "synthetic opioid is N at origin production site: a laboratory has no fixed agricultural footprint to interdict. Precursors are N at destination distribution, since the offence completes before that.",
+  "TRANSPORT MODE|CONCEALMENT": "internal concealment is Y only for a body courier. Containers, aircraft and parcels are all N for it. Aircraft and parcels are N for open declaration; parcels are N for machinery concealment.",
+  "TRANSPORT MODE|ORGANISATION": "small aircraft is N for a regional network, an independent operator and an insider - none owns air assets. Container shipping is N for an independent operator. Postal is N for a cartel, which does not move tonnage by parcel.",
+  "TRANSPORT MODE|INTERDICTION POINT": "body courier and postal are both N at origin production site - neither passes through it.",
+  "CONCEALMENT|ORGANISATION": "dissolution, machinery and open declaration all require infrastructure an independent operator lacks. Internal concealment is N for a cartel and N for an insider - neither uses it as a method.",
+  "ORGANISATION|INTERDICTION POINT": "only a cartel is interdictable at the origin production site. An independent operator has no financial flow worth targeting. An insider has no product ownership, so origin and destination distribution are N."
+ }
+}

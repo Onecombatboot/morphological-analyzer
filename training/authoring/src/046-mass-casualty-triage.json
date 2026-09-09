@@ -1,0 +1,180 @@
+{
+ "domain": "mass casualty triage",
+ "group": "emergency response",
+ "parameters": {
+  "INCIDENT MECHANISM": [
+   "Blast in a confined space",
+   "Multi-vehicle collision",
+   "Chemical exposure at a plant",
+   "Building collapse after an earthquake"
+  ],
+  "TRIAGE METHOD": [
+   "Sieve at the point of injury",
+   "Sort at a casualty clearing station",
+   "Reverse triage",
+   "No formal triage"
+  ],
+  "TRANSPORT CONSTRAINT": [
+   "Ample ambulance capacity",
+   "Single access route",
+   "Helicopter only",
+   "Casualties must walk out"
+  ],
+  "RECEIVING CAPACITY": [
+   "Major trauma centre available",
+   "District general hospital only",
+   "Field hospital established",
+   "All hospitals at capacity"
+  ]
+ },
+ "characterisations": {
+  "Blast in a confined space": {
+   "requires": "an explosive device in an enclosed structure",
+   "provides": "many patients with blast lung and penetrating injury, structural collapse alongside"
+  },
+  "Multi-vehicle collision": {
+   "requires": "a high-speed motorway pile-up",
+   "provides": "blunt trauma and entrapment, casualties spread along a corridor"
+  },
+  "Chemical exposure at a plant": {
+   "requires": "a toxic release reaching people",
+   "provides": "contamination of every casualty, responders at risk until decontamination"
+  },
+  "Building collapse after an earthquake": {
+   "requires": "structural failure with people inside",
+   "provides": "crush injury, casualties released over hours to days"
+  },
+  "Sieve at the point of injury": {
+   "requires": "responders reaching the casualties",
+   "provides": "rapid sorting on physiology alone, no diagnosis"
+  },
+  "Sort at a casualty clearing station": {
+   "requires": "a secured area and clinical staff",
+   "provides": "measured physiological scoring, delays first definitive care"
+  },
+  "Reverse triage": {
+   "requires": "overwhelming numbers relative to capacity",
+   "provides": "treatment of those most likely to survive, expectant category applied"
+  },
+  "No formal triage": {
+   "requires": "casualties self-presenting to hospitals",
+   "provides": "arrival in order of mobility rather than severity, the worst arriving last"
+  },
+  "Ample ambulance capacity": {
+   "requires": "a dense urban service",
+   "provides": "everyone moved promptly, hospital load the limiting factor"
+  },
+  "Single access route": {
+   "requires": "one road in and out",
+   "provides": "convoy movement only, arrival in batches"
+  },
+  "Helicopter only": {
+   "requires": "no ground access to the site",
+   "provides": "two patients at a time, weather dependence"
+  },
+  "Casualties must walk out": {
+   "requires": "no vehicle access whatsoever",
+   "provides": "only ambulant casualties leave, the immobile remain on site"
+  },
+  "Major trauma centre available": {
+   "requires": "a centre within transport time",
+   "provides": "definitive surgical care, all specialties present"
+  },
+  "District general hospital only": {
+   "requires": "a local hospital without trauma specialisation",
+   "provides": "stabilisation and transfer, limited surgical capacity"
+  },
+  "Field hospital established": {
+   "requires": "deployable clinical capability on site",
+   "provides": "damage control surgery near the scene, no intensive care beyond hours"
+  },
+  "All hospitals at capacity": {
+   "requires": "a saturated regional system",
+   "provides": "no receiving facility, care delivered where the patient lies"
+  }
+ },
+ "exclusions": {
+  "INCIDENT MECHANISM|TRIAGE METHOD": [
+   {
+    "row": "Chemical exposure at a plant",
+    "col": "Sieve at the point of injury",
+    "code": "N3",
+    "requires": "responders reaching the casualties",
+    "blocked_by": "responders at risk until decontamination"
+   }
+  ],
+  "INCIDENT MECHANISM|TRANSPORT CONSTRAINT": [
+   {
+    "row": "Building collapse after an earthquake",
+    "col": "Casualties must walk out",
+    "code": "N7",
+    "requires": "only ambulant casualties leave",
+    "blocked_by": "crush injury, casualties released over hours to days"
+   }
+  ],
+  "TRIAGE METHOD|TRANSPORT CONSTRAINT": [
+   {
+    "row": "No formal triage",
+    "col": "Casualties must walk out",
+    "code": "N7",
+    "requires": "casualties self-presenting to hospitals",
+    "blocked_by": "no vehicle access whatsoever"
+   },
+   {
+    "row": "No formal triage",
+    "col": "Helicopter only",
+    "code": "N3",
+    "requires": "casualties self-presenting to hospitals",
+    "blocked_by": "no ground access to the site"
+   },
+   {
+    "row": "Reverse triage",
+    "col": "Ample ambulance capacity",
+    "code": "N7",
+    "requires": "overwhelming numbers relative to capacity",
+    "blocked_by": "everyone moved promptly"
+   }
+  ],
+  "TRIAGE METHOD|RECEIVING CAPACITY": [
+   {
+    "row": "Reverse triage",
+    "col": "Major trauma centre available",
+    "code": "N7",
+    "requires": "overwhelming numbers relative to capacity",
+    "blocked_by": "definitive surgical care, all specialties present"
+   },
+   {
+    "row": "No formal triage",
+    "col": "Field hospital established",
+    "code": "N7",
+    "requires": "casualties self-presenting to hospitals",
+    "blocked_by": "damage control surgery near the scene"
+   }
+  ],
+  "TRANSPORT CONSTRAINT|RECEIVING CAPACITY": [
+   {
+    "row": "Casualties must walk out",
+    "col": "Major trauma centre available",
+    "code": "N7",
+    "requires": "a centre within transport time",
+    "blocked_by": "no vehicle access whatsoever"
+   },
+   {
+    "row": "Helicopter only",
+    "col": "All hospitals at capacity",
+    "code": "N7",
+    "requires": "two patients at a time",
+    "blocked_by": "no receiving facility"
+   }
+  ],
+  "INCIDENT MECHANISM|RECEIVING CAPACITY": [
+   {
+    "row": "Chemical exposure at a plant",
+    "col": "Field hospital established",
+    "code": "N7",
+    "requires": "damage control surgery near the scene",
+    "blocked_by": "contamination of every casualty"
+   }
+  ]
+ }
+}

@@ -1,0 +1,385 @@
+{
+ "domain": "aviation security screening",
+ "group": "security",
+ "parameters": {
+  "THREAT ITEM": [
+   "Firearm in cabin baggage",
+   "Improvised explosive in hold baggage",
+   "Prohibited liquid",
+   "Concealed blade on person"
+  ],
+  "SCREENING POINT": [
+   "Passenger walk-through detector",
+   "Cabin baggage X-ray",
+   "Hold baggage explosive detection",
+   "Behavioural observation"
+  ],
+  "CONCEALMENT": [
+   "Openly in the bag",
+   "Disassembled into components",
+   "Inside electronics",
+   "Carried on the body"
+  ],
+  "PASSENGER TYPE": [
+   "Ordinary passenger",
+   "Airport staff with airside access",
+   "Transit passenger not re-screened",
+   "Crew member"
+  ],
+  "OUTCOME": [
+   "Item detected at screening",
+   "Item detected after boarding",
+   "Item not detected",
+   "No item present"
+  ]
+ },
+ "characterisations": {
+  "Firearm in cabin baggage": {
+   "requires": "a weapon placed in a bag entering the cabin",
+   "provides": "strong dense X-ray signature, recognisable shape, no explosive trace"
+  },
+  "Improvised explosive in hold baggage": {
+   "requires": "explosive material and an initiator in checked baggage",
+   "provides": "explosive trace and vapour, unremarkable X-ray shape, no metal necessarily"
+  },
+  "Prohibited liquid": {
+   "requires": "a container above volume limits",
+   "provides": "no metal, no explosive trace if benign, detectable by volume rule only"
+  },
+  "Concealed blade on person": {
+   "requires": "the item carried on the body",
+   "provides": "small metal signature, no explosive trace, defeats baggage screening entirely"
+  },
+  "Passenger walk-through detector": {
+   "requires": "the passenger passing through the portal",
+   "provides": "metal detection on the body, nothing about baggage or explosives"
+  },
+  "Cabin baggage X-ray": {
+   "requires": "the bag entering the machine",
+   "provides": "shape and density imaging of cabin items, no explosive trace, nothing on the body"
+  },
+  "Hold baggage explosive detection": {
+   "requires": "checked baggage entering the system",
+   "provides": "explosive detection on hold items only, nothing in the cabin or on the body"
+  },
+  "Behavioural observation": {
+   "requires": "trained officers watching passengers",
+   "provides": "indication of intent, no detection of any object"
+  },
+  "Openly in the bag": {
+   "requires": "no effort at concealment",
+   "provides": "defeated by any imaging of that bag"
+  },
+  "Disassembled into components": {
+   "requires": "an item that can be broken down",
+   "provides": "no recognisable shape, each part individually innocuous"
+  },
+  "Inside electronics": {
+   "requires": "a device with internal volume",
+   "provides": "cluttered X-ray image, requires the device to be opened or separately screened"
+  },
+  "Carried on the body": {
+   "requires": "the item small enough to conceal on a person",
+   "provides": "invisible to all baggage screening, exposed to body screening only"
+  },
+  "Ordinary passenger": {
+   "requires": "a ticket and standard processing",
+   "provides": "full screening exposure at every point"
+  },
+  "Airport staff with airside access": {
+   "requires": "employment and a pass",
+   "provides": "entry bypassing passenger screening, insider knowledge of procedure"
+  },
+  "Transit passenger not re-screened": {
+   "requires": "an inbound flight from an accepted origin",
+   "provides": "no screening at this airport, reliance on the origin airport"
+  },
+  "Crew member": {
+   "requires": "operating duty on the flight",
+   "provides": "expedited screening, flight deck access, professional trust"
+  },
+  "Item detected at screening": {
+   "requires": "the item passing a point capable of seeing it",
+   "provides": "interdiction before boarding"
+  },
+  "Item detected after boarding": {
+   "requires": "discovery in the cabin or hold in flight",
+   "provides": "the threat already aboard, no interdiction"
+  },
+  "Item not detected": {
+   "requires": "concealment defeating every point encountered",
+   "provides": "successful carriage"
+  },
+  "No item present": {
+   "requires": "a false alarm or no threat at all",
+   "provides": "no consequence"
+  }
+ },
+ "exclusions": {
+  "THREAT ITEM|SCREENING POINT": [
+   {
+    "row": "Firearm in cabin baggage",
+    "col": "Hold baggage explosive detection",
+    "code": "N3",
+    "requires": "explosive detection on hold items only",
+    "blocked_by": "a weapon placed in a bag entering the cabin"
+   },
+   {
+    "row": "Improvised explosive in hold baggage",
+    "col": "Passenger walk-through detector",
+    "code": "N3",
+    "requires": "nothing about baggage or explosives",
+    "blocked_by": "explosive material and an initiator in checked baggage"
+   },
+   {
+    "row": "Improvised explosive in hold baggage",
+    "col": "Cabin baggage X-ray",
+    "code": "N3",
+    "requires": "shape and density imaging of cabin items",
+    "blocked_by": "explosive material and an initiator in checked baggage"
+   },
+   {
+    "row": "Prohibited liquid",
+    "col": "Passenger walk-through detector",
+    "code": "N3",
+    "requires": "nothing about baggage or explosives",
+    "blocked_by": "a container above volume limits"
+   },
+   {
+    "row": "Prohibited liquid",
+    "col": "Hold baggage explosive detection",
+    "code": "N3",
+    "requires": "explosive detection on hold items only",
+    "blocked_by": "detectable by volume rule only"
+   },
+   {
+    "row": "Concealed blade on person",
+    "col": "Cabin baggage X-ray",
+    "code": "N3",
+    "requires": "the bag entering the machine",
+    "blocked_by": "defeats baggage screening entirely"
+   },
+   {
+    "row": "Concealed blade on person",
+    "col": "Hold baggage explosive detection",
+    "code": "N3",
+    "requires": "explosive detection on hold items only",
+    "blocked_by": "defeats baggage screening entirely"
+   }
+  ],
+  "THREAT ITEM|CONCEALMENT": [
+   {
+    "row": "Firearm in cabin baggage",
+    "col": "Carried on the body",
+    "code": "N1",
+    "requires": "the item small enough to conceal on a person",
+    "blocked_by": "a weapon placed in a bag entering the cabin"
+   },
+   {
+    "row": "Improvised explosive in hold baggage",
+    "col": "Carried on the body",
+    "code": "N1",
+    "requires": "the item small enough to conceal on a person",
+    "blocked_by": "explosive material and an initiator in checked baggage"
+   },
+   {
+    "row": "Prohibited liquid",
+    "col": "Disassembled into components",
+    "code": "N3",
+    "requires": "an item that can be broken down",
+    "blocked_by": "a container above volume limits"
+   },
+   {
+    "row": "Concealed blade on person",
+    "col": "Openly in the bag",
+    "code": "N1",
+    "requires": "no effort at concealment",
+    "blocked_by": "the item carried on the body"
+   },
+   {
+    "row": "Concealed blade on person",
+    "col": "Inside electronics",
+    "code": "N1",
+    "requires": "a device with internal volume",
+    "blocked_by": "the item carried on the body"
+   }
+  ],
+  "SCREENING POINT|CONCEALMENT": [
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Openly in the bag",
+    "code": "N3",
+    "requires": "nothing about baggage or explosives",
+    "blocked_by": "no effort at concealment"
+   },
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Disassembled into components",
+    "code": "N7",
+    "requires": "an item that can be broken down",
+    "blocked_by": "nothing about baggage or explosives"
+   },
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Inside electronics",
+    "code": "N3",
+    "requires": "a device with internal volume",
+    "blocked_by": "nothing about baggage or explosives"
+   },
+   {
+    "row": "Cabin baggage X-ray",
+    "col": "Carried on the body",
+    "code": "N3",
+    "requires": "the item small enough to conceal on a person",
+    "blocked_by": "nothing on the body"
+   },
+   {
+    "row": "Hold baggage explosive detection",
+    "col": "Carried on the body",
+    "code": "N3",
+    "requires": "the item small enough to conceal on a person",
+    "blocked_by": "nothing in the cabin or on the body"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Openly in the bag",
+    "code": "N3",
+    "requires": "no detection of any object",
+    "blocked_by": "no effort at concealment"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Disassembled into components",
+    "code": "N3",
+    "requires": "an item that can be broken down",
+    "blocked_by": "no detection of any object"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Inside electronics",
+    "code": "N3",
+    "requires": "a device with internal volume",
+    "blocked_by": "no detection of any object"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Carried on the body",
+    "code": "N3",
+    "requires": "the item small enough to conceal on a person",
+    "blocked_by": "no detection of any object"
+   }
+  ],
+  "SCREENING POINT|PASSENGER TYPE": [
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Airport staff with airside access",
+    "code": "N3",
+    "requires": "the passenger passing through the portal",
+    "blocked_by": "entry bypassing passenger screening"
+   },
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Transit passenger not re-screened",
+    "code": "N3",
+    "requires": "the passenger passing through the portal",
+    "blocked_by": "no screening at this airport"
+   },
+   {
+    "row": "Cabin baggage X-ray",
+    "col": "Airport staff with airside access",
+    "code": "N3",
+    "requires": "the bag entering the machine",
+    "blocked_by": "entry bypassing passenger screening"
+   },
+   {
+    "row": "Cabin baggage X-ray",
+    "col": "Transit passenger not re-screened",
+    "code": "N3",
+    "requires": "the bag entering the machine",
+    "blocked_by": "no screening at this airport"
+   },
+   {
+    "row": "Hold baggage explosive detection",
+    "col": "Airport staff with airside access",
+    "code": "N7",
+    "requires": "checked baggage entering the system",
+    "blocked_by": "entry bypassing passenger screening"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Transit passenger not re-screened",
+    "code": "N3",
+    "requires": "trained officers watching passengers",
+    "blocked_by": "no screening at this airport"
+   }
+  ],
+  "SCREENING POINT|OUTCOME": [
+   {
+    "row": "Passenger walk-through detector",
+    "col": "Item detected after boarding",
+    "code": "N6",
+    "requires": "discovery in the cabin or hold in flight",
+    "blocked_by": "the passenger passing through the portal"
+   },
+   {
+    "row": "Cabin baggage X-ray",
+    "col": "Item detected after boarding",
+    "code": "N6",
+    "requires": "discovery in the cabin or hold in flight",
+    "blocked_by": "the bag entering the machine"
+   },
+   {
+    "row": "Hold baggage explosive detection",
+    "col": "Item detected after boarding",
+    "code": "N6",
+    "requires": "discovery in the cabin or hold in flight",
+    "blocked_by": "checked baggage entering the system"
+   },
+   {
+    "row": "Behavioural observation",
+    "col": "Item detected after boarding",
+    "code": "N6",
+    "requires": "discovery in the cabin or hold in flight",
+    "blocked_by": "trained officers watching passengers"
+   }
+  ],
+  "CONCEALMENT|OUTCOME": [
+   {
+    "row": "Openly in the bag",
+    "col": "No item present",
+    "code": "N1",
+    "requires": "a false alarm or no threat at all",
+    "blocked_by": "no effort at concealment"
+   },
+   {
+    "row": "Disassembled into components",
+    "col": "No item present",
+    "code": "N1",
+    "requires": "a false alarm or no threat at all",
+    "blocked_by": "an item that can be broken down"
+   },
+   {
+    "row": "Inside electronics",
+    "col": "No item present",
+    "code": "N1",
+    "requires": "a false alarm or no threat at all",
+    "blocked_by": "a device with internal volume"
+   },
+   {
+    "row": "Carried on the body",
+    "col": "No item present",
+    "code": "N1",
+    "requires": "a false alarm or no threat at all",
+    "blocked_by": "the item small enough to conceal on a person"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "THREAT ITEM|SCREENING POINT": "a firearm in cabin baggage is N for hold explosive detection, which never sees cabin items. A hold IED is N for the walk-through detector and N for cabin X-ray. Liquids are N for the walk-through and N for hold detection. A blade on the body is N for both baggage screening points.",
+  "THREAT ITEM|CONCEALMENT": "a firearm carried on the body is N here - that is the blade case. A hold IED on the body is N by definition of hold baggage. Liquids cannot be disassembled, cannot be hidden in electronics usefully, and are N on the body at volume. A blade is N openly in a bag and N inside electronics.",
+  "SCREENING POINT|CONCEALMENT": "the walk-through detector sees only body-carried items, so open-in-bag, disassembled and in-electronics are all N. Cabin X-ray and hold detection are both N for body-carried. Behavioural observation detects no object at all, so every concealment is N.",
+  "SCREENING POINT|PASSENGER TYPE": "airport staff bypass passenger screening entirely, so the walk-through, cabin X-ray and hold detection are all N; only behavioural observation applies. A transit passenger not re-screened is N for the walk-through and cabin X-ray at this airport, though hold baggage may still be screened on transfer.",
+  "SCREENING POINT|OUTCOME": "every screening point is N for detected-after-boarding - by then screening is complete and the point played no part.",
+  "CONCEALMENT|OUTCOME": "every concealment method is N for no-item-present, which by definition involves no concealment."
+ }
+}

@@ -1,0 +1,180 @@
+{
+ "domain": "antimicrobial resistance outbreak in a hospital",
+ "group": "healthcare",
+ "parameters": {
+  "ORGANISM": [
+   "Carbapenem-resistant enterobacteria",
+   "Meticillin-resistant staphylococcus",
+   "Clostridioides difficile",
+   "Multi-resistant fungal species"
+  ],
+  "TRANSMISSION ROUTE": [
+   "Hands of staff",
+   "Contaminated environment and equipment",
+   "Wastewater plumbing",
+   "Patient transfer between units"
+  ],
+  "CONTROL MEASURE": [
+   "Hand hygiene campaign",
+   "Contact precautions and isolation",
+   "Sporicidal terminal cleaning",
+   "Antimicrobial stewardship"
+  ],
+  "OUTCOME": [
+   "Single case, no transmission",
+   "Ward outbreak controlled",
+   "Hospital-wide endemic spread",
+   "Unit closure to admissions"
+  ]
+ },
+ "characterisations": {
+  "Carbapenem-resistant enterobacteria": {
+   "requires": "gut colonisation and selection pressure",
+   "provides": "silent carriage for months, spread by hands and by sinks, very few treatment options"
+  },
+  "Meticillin-resistant staphylococcus": {
+   "requires": "skin and nasal colonisation",
+   "provides": "decolonisation possible, spread by direct contact, established screening exists"
+  },
+  "Clostridioides difficile": {
+   "requires": "disruption of gut flora by antibiotics",
+   "provides": "spore survival on surfaces for months, defeated only by sporicidal cleaning"
+  },
+  "Multi-resistant fungal species": {
+   "requires": "environmental persistence on surfaces and skin",
+   "provides": "survival of routine disinfection, no decolonisation regimen at all"
+  },
+  "Hands of staff": {
+   "requires": "direct contact between patient and staff",
+   "provides": "interruptible by hand hygiene alone, the commonest route by far"
+  },
+  "Contaminated environment and equipment": {
+   "requires": "organism surviving on surfaces",
+   "provides": "independent of any individual staff behaviour, reservoir persisting between patients"
+  },
+  "Wastewater plumbing": {
+   "requires": "sink traps and drains harbouring biofilm",
+   "provides": "continuous reintroduction, no cleaning regimen reaching it, engineering works required"
+  },
+  "Patient transfer between units": {
+   "requires": "movement of a colonised patient",
+   "provides": "seeding of a new ward, detectable by admission screening"
+  },
+  "Hand hygiene campaign": {
+   "requires": "staff engagement and product availability",
+   "provides": "reduction of contact spread, no effect on an environmental reservoir"
+  },
+  "Contact precautions and isolation": {
+   "requires": "single rooms and enough of them",
+   "provides": "separation of colonised patients, limited by room availability"
+  },
+  "Sporicidal terminal cleaning": {
+   "requires": "an agent active against spores and time to apply it",
+   "provides": "removal of surface reservoir, no effect on carriage in a patient"
+  },
+  "Antimicrobial stewardship": {
+   "requires": "prescriber cooperation and pharmacy data",
+   "provides": "reduction of selection pressure over months, no effect on transmission already under way"
+  },
+  "Single case, no transmission": {
+   "requires": "colonisation identified and contained",
+   "provides": "no outbreak"
+  },
+  "Ward outbreak controlled": {
+   "requires": "transmission stopped within one unit",
+   "provides": "ward closure and deep clean, no wider spread"
+  },
+  "Hospital-wide endemic spread": {
+   "requires": "the organism established across units",
+   "provides": "permanent screening burden, elective activity constrained"
+  },
+  "Unit closure to admissions": {
+   "requires": "transmission uncontrolled despite measures",
+   "provides": "loss of capacity, transfer of pressure to other hospitals"
+  }
+ },
+ "exclusions": {
+  "ORGANISM|CONTROL MEASURE": [
+   {
+    "row": "Clostridioides difficile",
+    "col": "Hand hygiene campaign",
+    "code": "N7",
+    "requires": "reduction of contact spread",
+    "blocked_by": "defeated only by sporicidal cleaning"
+   },
+   {
+    "row": "Multi-resistant fungal species",
+    "col": "Sporicidal terminal cleaning",
+    "code": "N7",
+    "requires": "removal of surface reservoir",
+    "blocked_by": "survival of routine disinfection"
+   }
+  ],
+  "ORGANISM|TRANSMISSION ROUTE": [
+   {
+    "row": "Multi-resistant fungal species",
+    "col": "Wastewater plumbing",
+    "code": "N7",
+    "requires": "sink traps and drains harbouring biofilm",
+    "blocked_by": "environmental persistence on surfaces and skin"
+   }
+  ],
+  "TRANSMISSION ROUTE|CONTROL MEASURE": [
+   {
+    "row": "Wastewater plumbing",
+    "col": "Hand hygiene campaign",
+    "code": "N3",
+    "requires": "reduction of contact spread",
+    "blocked_by": "no cleaning regimen reaching it"
+   },
+   {
+    "row": "Wastewater plumbing",
+    "col": "Sporicidal terminal cleaning",
+    "code": "N3",
+    "requires": "removal of surface reservoir",
+    "blocked_by": "no cleaning regimen reaching it"
+   },
+   {
+    "row": "Contaminated environment and equipment",
+    "col": "Hand hygiene campaign",
+    "code": "N3",
+    "requires": "reduction of contact spread",
+    "blocked_by": "independent of any individual staff behaviour"
+   }
+  ],
+  "TRANSMISSION ROUTE|OUTCOME": [
+   {
+    "row": "Wastewater plumbing",
+    "col": "Single case, no transmission",
+    "code": "N7",
+    "requires": "colonisation identified and contained",
+    "blocked_by": "continuous reintroduction"
+   }
+  ],
+  "CONTROL MEASURE|OUTCOME": [
+   {
+    "row": "Antimicrobial stewardship",
+    "col": "Ward outbreak controlled",
+    "code": "N7",
+    "requires": "transmission stopped within one unit",
+    "blocked_by": "no effect on transmission already under way"
+   },
+   {
+    "row": "Hand hygiene campaign",
+    "col": "Ward outbreak controlled",
+    "code": "N7",
+    "requires": "transmission stopped within one unit",
+    "blocked_by": "no effect on an environmental reservoir"
+   }
+  ],
+  "ORGANISM|OUTCOME": [
+   {
+    "row": "Carbapenem-resistant enterobacteria",
+    "col": "Single case, no transmission",
+    "code": "N7",
+    "requires": "colonisation identified and contained",
+    "blocked_by": "silent carriage for months"
+   }
+  ]
+ }
+}

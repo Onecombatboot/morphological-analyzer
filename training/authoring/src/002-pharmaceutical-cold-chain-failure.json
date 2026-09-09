@@ -1,0 +1,233 @@
+{
+ "domain": "pharmaceutical cold chain failure",
+ "group": "industrial",
+ "parameters": {
+  "FAILURE POINT": [
+   "Manufacturing site",
+   "International air freight",
+   "Regional distribution centre",
+   "Final-mile delivery",
+   "End-user storage"
+  ],
+  "DETECTION MECHANISM": [
+   "Continuous telemetry",
+   "Arrival-point spot check",
+   "Patient adverse event",
+   "Batch recall audit"
+  ],
+  "PRODUCT TYPE": [
+   "mRNA vaccine",
+   "Insulin",
+   "Lyophilised antibiotic",
+   "Whole blood"
+  ],
+  "RESPONSE": [
+   "Quarantine and destroy",
+   "Re-test and release",
+   "Expedite remaining stock",
+   "Notify regulator only"
+  ]
+ },
+ "characterisations": {
+  "Manufacturing site": {
+   "requires": "production under GMP conditions",
+   "provides": "full instrumentation, controlled environment, staff on site"
+  },
+  "International air freight": {
+   "requires": "sealed transit, hours to days unattended",
+   "provides": "no intervention possible in flight, logged conditions only"
+  },
+  "Regional distribution centre": {
+   "requires": "bulk storage, a staffed facility",
+   "provides": "monitored warehousing, inspection at intake"
+  },
+  "Final-mile delivery": {
+   "requires": "short transit, often uninstrumented vehicles",
+   "provides": "brief exposure, minimal monitoring"
+  },
+  "End-user storage": {
+   "requires": "a clinic or domestic refrigerator",
+   "provides": "uncontrolled conditions, no logging, long dwell time"
+  },
+  "Continuous telemetry": {
+   "requires": "an instrumented container or facility",
+   "provides": "immediate detection at the moment of excursion"
+  },
+  "Arrival-point spot check": {
+   "requires": "a staffed receiving point",
+   "provides": "detection at handover, not during transit"
+  },
+  "Patient adverse event": {
+   "requires": "the product already administered",
+   "provides": "detection only after clinical harm"
+  },
+  "Batch recall audit": {
+   "requires": "retrospective investigation of records",
+   "provides": "detection weeks later, whole-batch scope"
+  },
+  "mRNA vaccine": {
+   "requires": "ultra-cold storage, minutes of tolerance",
+   "provides": "immediate irreversible loss on excursion, no salvage"
+  },
+  "Insulin": {
+   "requires": "refrigeration, hours of tolerance",
+   "provides": "gradual potency loss, partial salvage possible"
+  },
+  "Lyophilised antibiotic": {
+   "requires": "dry ambient storage",
+   "provides": "high thermal tolerance, salvage usually possible"
+  },
+  "Whole blood": {
+   "requires": "narrow temperature band, days of shelf life",
+   "provides": "rapid spoilage, no salvage, traceable to a donor"
+  },
+  "Quarantine and destroy": {
+   "requires": "stock still under institutional control",
+   "provides": "certainty of safety, total loss of value"
+  },
+  "Re-test and release": {
+   "requires": "a product whose potency can be assayed",
+   "provides": "recovered value, testing delay"
+  },
+  "Expedite remaining stock": {
+   "requires": "product still within tolerance",
+   "provides": "continued supply, accepted risk"
+  },
+  "Notify regulator only": {
+   "requires": "no immediate patient risk",
+   "provides": "compliance record, no corrective action"
+  }
+ },
+ "exclusions": {
+  "FAILURE POINT|DETECTION MECHANISM": [
+   {
+    "row": "Manufacturing site",
+    "col": "Patient adverse event",
+    "code": "N7",
+    "requires": "detection only after clinical harm",
+    "blocked_by": "full instrumentation, controlled environment"
+   },
+   {
+    "row": "International air freight",
+    "col": "Patient adverse event",
+    "code": "N7",
+    "requires": "detection only after clinical harm",
+    "blocked_by": "logged conditions only"
+   },
+   {
+    "row": "Regional distribution centre",
+    "col": "Patient adverse event",
+    "code": "N7",
+    "requires": "detection only after clinical harm",
+    "blocked_by": "inspection at intake"
+   },
+   {
+    "row": "Final-mile delivery",
+    "col": "Continuous telemetry",
+    "code": "N7",
+    "requires": "an instrumented container or facility",
+    "blocked_by": "often uninstrumented vehicles"
+   },
+   {
+    "row": "End-user storage",
+    "col": "Continuous telemetry",
+    "code": "N3",
+    "requires": "an instrumented container or facility",
+    "blocked_by": "no logging"
+   },
+   {
+    "row": "End-user storage",
+    "col": "Arrival-point spot check",
+    "code": "N6",
+    "requires": "detection at handover, not during transit",
+    "blocked_by": "long dwell time"
+   }
+  ],
+  "FAILURE POINT|PRODUCT TYPE": [
+   {
+    "row": "International air freight",
+    "col": "Whole blood",
+    "code": "N7",
+    "requires": "narrow temperature band, days of shelf life",
+    "blocked_by": "hours to days unattended"
+   },
+   {
+    "row": "End-user storage",
+    "col": "Whole blood",
+    "code": "N7",
+    "requires": "narrow temperature band, days of shelf life",
+    "blocked_by": "uncontrolled conditions, no logging"
+   }
+  ],
+  "FAILURE POINT|RESPONSE": [
+   {
+    "row": "End-user storage",
+    "col": "Re-test and release",
+    "code": "N7",
+    "requires": "a product whose potency can be assayed",
+    "blocked_by": "uncontrolled conditions, no logging"
+   }
+  ],
+  "DETECTION MECHANISM|RESPONSE": [
+   {
+    "row": "Patient adverse event",
+    "col": "Expedite remaining stock",
+    "code": "N7",
+    "requires": "product still within tolerance",
+    "blocked_by": "detection only after clinical harm"
+   },
+   {
+    "row": "Patient adverse event",
+    "col": "Notify regulator only",
+    "code": "N1",
+    "requires": "no immediate patient risk",
+    "blocked_by": "detection only after clinical harm"
+   },
+   {
+    "row": "Batch recall audit",
+    "col": "Expedite remaining stock",
+    "code": "N1",
+    "requires": "product still within tolerance",
+    "blocked_by": "detection weeks later, whole-batch scope"
+   }
+  ],
+  "PRODUCT TYPE|RESPONSE": [
+   {
+    "row": "mRNA vaccine",
+    "col": "Re-test and release",
+    "code": "N3",
+    "requires": "a product whose potency can be assayed",
+    "blocked_by": "no salvage"
+   },
+   {
+    "row": "mRNA vaccine",
+    "col": "Notify regulator only",
+    "code": "N7",
+    "requires": "no immediate patient risk",
+    "blocked_by": "immediate irreversible loss on excursion"
+   },
+   {
+    "row": "Whole blood",
+    "col": "Re-test and release",
+    "code": "N3",
+    "requires": "a product whose potency can be assayed",
+    "blocked_by": "rapid spoilage, no salvage"
+   },
+   {
+    "row": "Whole blood",
+    "col": "Notify regulator only",
+    "code": "N7",
+    "requires": "no immediate patient risk",
+    "blocked_by": "rapid spoilage, no salvage"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "FAILURE POINT|DETECTION MECHANISM": "manufacturing/air freight/distribution x patient adverse event are all N: an excursion caught only when a patient is harmed implies no release testing at all, contradicting GMP. Final-mile and end-user x telemetry are N: uninstrumented vehicles and domestic refrigerators provide no instrumentation. End-user x spot check is N: there is no receiving point below the clinic.",
+  "FAILURE POINT|PRODUCT TYPE": "air freight x whole blood is N: shelf life in days does not survive multi-day sealed transit. End-user x whole blood is N: whole blood is not stored by end users.",
+  "FAILURE POINT|RESPONSE": "final-mile x expedite is N: stock already out for delivery cannot be expedited. End-user x re-test is N (no assay capability at a clinic fridge), x expedite is N, x notify-only is N (product already in patients' reach means there is immediate risk).",
+  "DETECTION MECHANISM|PRODUCT TYPE": "patient adverse event x mRNA vaccine is N and x whole blood is N: both fail irreversibly and visibly long before administration, so clinical harm is not the detection route.",
+  "DETECTION MECHANISM|RESPONSE": "patient adverse event x re-test/expedite/notify-only are all N: once harm has occurred, only quarantine is coherent. Batch recall audit x expedite is N: an audit that finds a fault cannot conclude with expediting the same stock.",
+  "PRODUCT TYPE|RESPONSE": "mRNA and whole blood x re-test, expedite, notify-only are all N: neither is salvageable and both carry immediate patient risk, so quarantine is the only coherent response."
+ }
+}

@@ -1,0 +1,70 @@
+DOMAIN: carbon offset project verification
+GROUP: environment
+PARAM: PROJECT TYPE
+- Avoided deforestation :: a credible threat to standing forest :: large volumes of credits, dependence on a counterfactual baseline
+- New woodland planting :: land available and secured for decades :: measurable growth on the ground, sequestration only over many years
+- Industrial gas destruction :: a plant emitting a high-potency gas :: precise metering at the stack, no land use question at all
+- Cookstove distribution :: households using inefficient stoves :: many small dispersed reductions, reliance on surveys of usage
+PARAM: BASELINE METHOD
+- Counterfactual scenario modelling :: an argued account of what would otherwise happen :: credits for avoided emissions, unverifiable in principle
+- Direct metering of the flow :: an instrument on the emission point :: measurement rather than inference, no scenario argument needed
+- Sampled household survey :: a representative sample and fieldwork :: an estimate with confidence bounds, exposure to reporting bias
+- Remote sensing of land cover :: satellite imagery over time :: independent observation of change, no insight into causation
+PARAM: PERMANENCE RISK
+- Reversal by wildfire :: stored carbon in living biomass :: loss of the entire stock in one event, a buffer pool required
+- Political or tenure change :: land rights that can be revoked :: protection lasting only as long as the regime, no physical guarantee
+- Permanent chemical destruction :: a molecule destroyed rather than stored :: no possibility of reversal, permanence by physics
+- Behavioural relapse :: users returning to the old practice :: reductions ending when the project ends, no lasting asset
+PARAM: VERIFICATION OUTCOME
+- Credits issued in full :: an auditor satisfied on all counts :: tradeable units created, revenue to the developer
+- Volume discounted for uncertainty :: doubts over the baseline :: fewer credits than claimed, the project still viable
+- Registration refused :: a methodology not accepted :: no credits at all, sunk development cost
+- Credits invalidated after issue :: a reversal or an audit failure :: units cancelled, buyers left exposed
+EXCL: PROJECT TYPE|BASELINE METHOD
+Industrial gas destruction >< Remote sensing of land cover | N3 | satellite imagery over time | no land use question at all
+Industrial gas destruction >< Sampled household survey | N3 | a representative sample and fieldwork | no land use question at all
+Cookstove distribution >< Direct metering of the flow | N3 | an instrument on the emission point | many small dispersed reductions
+EXCL: PROJECT TYPE|PERMANENCE RISK
+Industrial gas destruction >< Reversal by wildfire | N3 | stored carbon in living biomass | no land use question at all
+Cookstove distribution >< Reversal by wildfire | N3 | stored carbon in living biomass | many small dispersed reductions
+New woodland planting >< Permanent chemical destruction | N3 | a molecule destroyed rather than stored | measurable growth on the ground
+EXCL: BASELINE METHOD|PERMANENCE RISK
+Direct metering of the flow >< Behavioural relapse | N3 | users returning to the old practice | an instrument on the emission point
+EXCL: PERMANENCE RISK|VERIFICATION OUTCOME
+Permanent chemical destruction >< Credits invalidated after issue | N7 | a reversal or an audit failure | no possibility of reversal
+EXCL: BASELINE METHOD|VERIFICATION OUTCOME
+Direct metering of the flow >< Volume discounted for uncertainty | N7 | doubts over the baseline | no scenario argument needed
+---
+DOMAIN: hospital operating theatre scheduling
+GROUP: healthcare
+PARAM: CASE TYPE
+- Elective day surgery :: a fit patient and a routine list :: predictable duration, discharge the same day
+- Major planned resection :: a long booked slot and critical care backup :: many hours of theatre time, a post-operative bed required
+- Emergency laparotomy :: an acutely unwell patient :: displacement of planned work, no possibility of deferral
+- Trauma call in resuscitation :: a major injury arriving unannounced :: immediate theatre access, everything else stopped
+PARAM: CONSTRAINT
+- No critical care bed available :: an intensive care unit at capacity :: cancellation of any case needing one, no effect on day cases
+- Surgeon unavailable :: illness or competing commitment :: only cases the remaining team can do, a list part-used
+- Equipment set unsterilised :: a decontamination backlog :: no procedure needing that set, other work unaffected
+- Full staffing and capacity :: theatres, beds and teams all available :: the planned list deliverable, normal running
+PARAM: PRIORITISATION RULE
+- Strict clinical urgency :: an agreed triage standard :: the sickest treated first, planned work displaced
+- Longest waiting first :: a waiting list order :: fairness on time waited, no regard to acuity
+- Efficiency of list packing :: durations known in advance :: maximum cases per session, short cases favoured
+- Cancel and reschedule :: capacity to offer another date :: the list relieved, harm to waiting time targets
+PARAM: SESSION OUTCOME
+- Full list completed :: time and resources sufficient :: every booked patient treated, no cancellations
+- Late cases cancelled :: the list overrunning :: patients sent home unoperated, theatre time lost
+- List abandoned for emergencies :: emergency demand consuming the session :: no elective work done, all capacity to urgent cases
+- Session under-run :: cases finishing early :: theatre time unused, capacity wasted
+EXCL: CASE TYPE|CONSTRAINT
+Major planned resection >< No critical care bed available | N3 | a post-operative bed required | cancellation of any case needing one
+EXCL: CASE TYPE|PRIORITISATION RULE
+Trauma call in resuscitation >< Longest waiting first | N3 | a waiting list order | immediate theatre access
+Emergency laparotomy >< Longest waiting first | N3 | a waiting list order | no possibility of deferral
+Trauma call in resuscitation >< Cancel and reschedule | N3 | capacity to offer another date | immediate theatre access
+Emergency laparotomy >< Cancel and reschedule | N3 | capacity to offer another date | no possibility of deferral
+EXCL: CONSTRAINT|SESSION OUTCOME
+Full staffing and capacity >< List abandoned for emergencies | N7 | emergency demand consuming the session | the planned list deliverable
+EXCL: PRIORITISATION RULE|SESSION OUTCOME
+Cancel and reschedule >< Full list completed | N3 | every booked patient treated | the list relieved

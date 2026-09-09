@@ -1,0 +1,154 @@
+DOMAIN: mass casualty triage
+GROUP: emergency response
+PARAM: INCIDENT MECHANISM
+- Blast in a confined space :: an explosive device in an enclosed structure :: many patients with blast lung and penetrating injury, structural collapse alongside
+- Multi-vehicle collision :: a high-speed motorway pile-up :: blunt trauma and entrapment, casualties spread along a corridor
+- Chemical exposure at a plant :: a toxic release reaching people :: contamination of every casualty, responders at risk until decontamination
+- Building collapse after an earthquake :: structural failure with people inside :: crush injury, casualties released over hours to days
+PARAM: TRIAGE METHOD
+- Sieve at the point of injury :: responders reaching the casualties :: rapid sorting on physiology alone, no diagnosis
+- Sort at a casualty clearing station :: a secured area and clinical staff :: measured physiological scoring, delays first definitive care
+- Reverse triage :: overwhelming numbers relative to capacity :: treatment of those most likely to survive, expectant category applied
+- No formal triage :: casualties self-presenting to hospitals :: arrival in order of mobility rather than severity, the worst arriving last
+PARAM: TRANSPORT CONSTRAINT
+- Ample ambulance capacity :: a dense urban service :: everyone moved promptly, hospital load the limiting factor
+- Single access route :: one road in and out :: convoy movement only, arrival in batches
+- Helicopter only :: no ground access to the site :: two patients at a time, weather dependence
+- Casualties must walk out :: no vehicle access whatsoever :: only ambulant casualties leave, the immobile remain on site
+PARAM: RECEIVING CAPACITY
+- Major trauma centre available :: a centre within transport time :: definitive surgical care, all specialties present
+- District general hospital only :: a local hospital without trauma specialisation :: stabilisation and transfer, limited surgical capacity
+- Field hospital established :: deployable clinical capability on site :: damage control surgery near the scene, no intensive care beyond hours
+- All hospitals at capacity :: a saturated regional system :: no receiving facility, care delivered where the patient lies
+EXCL: INCIDENT MECHANISM|TRIAGE METHOD
+Chemical exposure at a plant >< Sieve at the point of injury | N3 | responders reaching the casualties | responders at risk until decontamination
+EXCL: INCIDENT MECHANISM|TRANSPORT CONSTRAINT
+Building collapse after an earthquake >< Casualties must walk out | N7 | only ambulant casualties leave | crush injury, casualties released over hours to days
+EXCL: TRIAGE METHOD|TRANSPORT CONSTRAINT
+No formal triage >< Casualties must walk out | N7 | casualties self-presenting to hospitals | no vehicle access whatsoever
+No formal triage >< Helicopter only | N3 | casualties self-presenting to hospitals | no ground access to the site
+EXCL: TRIAGE METHOD|RECEIVING CAPACITY
+Reverse triage >< Major trauma centre available | N7 | overwhelming numbers relative to capacity | definitive surgical care, all specialties present
+No formal triage >< Field hospital established | N7 | casualties self-presenting to hospitals | damage control surgery near the scene
+EXCL: TRANSPORT CONSTRAINT|RECEIVING CAPACITY
+Casualties must walk out >< Major trauma centre available | N7 | a centre within transport time | no vehicle access whatsoever
+Helicopter only >< All hospitals at capacity | N7 | two patients at a time | no receiving facility
+EXCL: INCIDENT MECHANISM|RECEIVING CAPACITY
+Chemical exposure at a plant >< Field hospital established | N7 | damage control surgery near the scene | contamination of every casualty
+EXCL: TRANSPORT CONSTRAINT|TRIAGE METHOD
+Ample ambulance capacity >< Reverse triage | N7 | overwhelming numbers relative to capacity | everyone moved promptly
+---
+DOMAIN: tsunami warning and evacuation
+GROUP: natural hazard
+PARAM: SOURCE EVENT
+- Distant subduction earthquake :: a great earthquake across an ocean basin :: hours of travel time, confident modelling, no local ground shaking
+- Local offshore earthquake :: a rupture close to the coast :: minutes of travel time, felt ground shaking as the only warning
+- Submarine landslide :: slope failure with or without an earthquake :: no seismic signature proportionate to the wave, very localised run-up
+- Volcanic flank collapse :: a coastal edifice failing into the sea :: extreme local run-up, no useful precursor
+PARAM: WARNING CHANNEL
+- Basin-wide warning centre :: seismic and sea-level networks across the basin :: authoritative bulletins within minutes, only for seismically generated waves
+- Coastal siren network :: installed sirens and a trigger authority :: immediate alerting of a defined coastal strip, nothing to anyone indoors or inland
+- Cell broadcast to handsets :: a functioning mobile network :: reach of everyone carrying a handset, failure if the network is down
+- Natural warning only :: people recognising shaking or sea withdrawal :: no institutional latency at all, dependence on public knowledge
+PARAM: EXPOSED COMMUNITY
+- Dense coastal city :: high-rise construction on a low coastal plain :: vertical evacuation feasible, very large exposed population
+- Low-lying fishing village :: single-storey buildings at sea level :: no vertical refuge whatsoever, short distance to high ground
+- Resort with transient visitors :: a population unfamiliar with the coast :: no local knowledge, no idea where high ground lies
+- Port and industrial zone :: infrastructure with few residents :: economic exposure, few lives at risk
+PARAM: EVACUATION RESPONSE
+- Horizontal movement inland :: usable routes and sufficient time :: removal from the inundation zone entirely
+- Vertical evacuation in place :: engineered buildings of sufficient height :: survival above the wave, no movement needed
+- Shelter without evacuation :: a belief that the site is safe :: no movement, total dependence on that belief being correct
+- Spontaneous flight :: no plan and no direction :: movement without coordination, congestion on any route
+EXCL: SOURCE EVENT|WARNING CHANNEL
+Submarine landslide >< Basin-wide warning centre | N3 | only for seismically generated waves | no seismic signature proportionate to the wave
+Volcanic flank collapse >< Basin-wide warning centre | N3 | only for seismically generated waves | no useful precursor
+Local offshore earthquake >< Basin-wide warning centre | N7 | authoritative bulletins within minutes | minutes of travel time
+EXCL: SOURCE EVENT|EVACUATION RESPONSE
+Volcanic flank collapse >< Horizontal movement inland | N4 | usable routes and sufficient time | no useful precursor
+EXCL: WARNING CHANNEL|EVACUATION RESPONSE
+Natural warning only >< Vertical evacuation in place | N7 | engineered buildings of sufficient height | dependence on public knowledge
+EXCL: EXPOSED COMMUNITY|EVACUATION RESPONSE
+Low-lying fishing village >< Vertical evacuation in place | N3 | engineered buildings of sufficient height | no vertical refuge whatsoever
+Resort with transient visitors >< Horizontal movement inland | N7 | usable routes and sufficient time | no idea where high ground lies
+EXCL: EXPOSED COMMUNITY|WARNING CHANNEL
+Resort with transient visitors >< Natural warning only | N3 | dependence on public knowledge | no local knowledge
+EXCL: SOURCE EVENT|EXPOSED COMMUNITY
+Volcanic flank collapse >< Dense coastal city | N7 | high-rise construction on a low coastal plain | extreme local run-up
+---
+DOMAIN: avalanche risk management
+GROUP: natural hazard
+PARAM: SNOWPACK PROBLEM
+- Persistent weak layer :: a buried facet or surface hoar layer :: failure propagating far from the trigger point, instability lasting weeks
+- Wind slab on a lee aspect :: transported snow deposited on a slope :: a stiff slab over softer snow, confined to specific aspects, days of instability
+- Wet snow instability :: melt water percolating through the pack :: predictable daily timing, slow-moving heavy debris
+- Cornice collapse :: an overhanging mass at a ridge :: a large trigger arriving without any skier action, hazard only directly below
+PARAM: TRIGGER
+- Skier or rider on the slope :: a person on the start zone :: a localised load, avoidable by route choice
+- Explosive control from a helicopter :: an aircraft and an operator :: deliberate release at a chosen time, no exposure of any person
+- Natural release without any trigger :: loading or warming beyond stability :: timing outside anyone control, occurring whether or not people are present
+- Snow groomer or machine :: a vehicle working the slope :: a very large load applied on a known schedule
+PARAM: EXPOSED ELEMENT
+- Marked piste inside a resort :: a controlled area open to the public :: many people, an operator with a duty of care, control work possible
+- Backcountry touring route :: uncontrolled terrain used by touring parties :: small self-reliant groups, no control work of any kind
+- Mountain road below a path :: a transport corridor crossing runout zones :: vehicles briefly exposed, closure feasible
+- Village in a runout zone :: permanent buildings within the historic extent :: no possibility of evacuation at short notice, defence structures needed
+PARAM: MITIGATION
+- Closure of the terrain :: an authority able to exclude people :: complete removal of exposure, economic cost
+- Explosive avalanche control :: a stable weather window and access to the start zone :: release under controlled conditions, no effect on unstable layers deeper than the charge
+- Snow supporting structures :: permanent works in the start zone :: prevention of release at all, decades to build and very high cost
+- Forecast and advisory only :: an observation network and a publication channel :: information for decision makers, no physical effect whatsoever
+EXCL: SNOWPACK PROBLEM|TRIGGER
+Cornice collapse >< Skier or rider on the slope | N7 | a localised load | a large trigger arriving without any skier action
+EXCL: SNOWPACK PROBLEM|MITIGATION
+Persistent weak layer >< Explosive avalanche control | N7 | release under controlled conditions | instability lasting weeks
+EXCL: TRIGGER|EXPOSED ELEMENT
+Explosive control from a helicopter >< Backcountry touring route | N3 | no control work of any kind | deliberate release at a chosen time
+Snow groomer or machine >< Backcountry touring route | N7 | a vehicle working the slope | uncontrolled terrain used by touring parties
+Snow groomer or machine >< Village in a runout zone | N7 | a vehicle working the slope | permanent buildings within the historic extent
+EXCL: EXPOSED ELEMENT|MITIGATION
+Backcountry touring route >< Explosive avalanche control | N3 | access to the start zone | no control work of any kind
+Backcountry touring route >< Closure of the terrain | N7 | an authority able to exclude people | uncontrolled terrain used by touring parties
+Village in a runout zone >< Closure of the terrain | N3 | complete removal of exposure | no possibility of evacuation at short notice
+EXCL: TRIGGER|MITIGATION
+Natural release without any trigger >< Explosive avalanche control | N7 | release under controlled conditions | timing outside anyone control
+EXCL: SNOWPACK PROBLEM|EXPOSED ELEMENT
+Cornice collapse >< Village in a runout zone | N7 | permanent buildings within the historic extent | hazard only directly below
+---
+DOMAIN: urban earthquake collapse rescue
+GROUP: emergency response
+PARAM: COLLAPSE PATTERN
+- Pancake collapse of floor slabs :: slabs falling flat onto one another :: almost no void space, very low survival probability, heavy lifting required
+- Lean-to void formation :: a slab coming to rest against a wall :: survivable voids along one edge, accessible from the standing side
+- Soft-storey failure :: a weak ground floor crushing :: upper floors intact and occupied, the void confined to one level
+- Unreinforced masonry disintegration :: brickwork losing coherence :: shallow burial in rubble, casualties reachable by hand
+PARAM: DETECTION TECHNIQUE
+- Acoustic listening devices :: a quiet site and a conscious casualty :: location of anyone able to make noise, defeated by ambient noise
+- Search dogs :: a trained dog and a workable surface :: rapid indication of living casualties, no depth or precise position
+- Thermal and optical cameras on poles :: an existing void to insert into :: visual confirmation inside a void, nothing through solid material
+- Structural survey only :: engineers assessing from outside :: identification of likely void locations, no confirmation anyone is alive
+PARAM: EXTRICATION METHOD
+- Selective debris removal by hand :: shallow burial and enough responders :: no risk of further collapse, very slow for deep casualties
+- Breaching and breaking concrete :: powered tools and a stable slab :: access through a slab to a known void, vibration risk to the casualty
+- Heavy lifting with cranes :: crane access and a stable footing :: removal of large elements, uncontrolled shifting of what remains
+- Shoring then tunnelling :: timber or hydraulic shoring and trained crews :: a protected route to a deep casualty, many hours per casualty
+PARAM: TIME SINCE COLLAPSE
+- First six hours :: an immediate response :: high survival probability, most live rescues occur here
+- One to three days :: a sustained international response :: declining survivability, specialist teams arriving
+- Beyond one week :: prolonged operations :: recovery rather than rescue, transition to demolition
+EXCL: COLLAPSE PATTERN|DETECTION TECHNIQUE
+Pancake collapse of floor slabs >< Thermal and optical cameras on poles | N3 | an existing void to insert into | almost no void space
+EXCL: COLLAPSE PATTERN|EXTRICATION METHOD
+Pancake collapse of floor slabs >< Selective debris removal by hand | N3 | shallow burial and enough responders | heavy lifting required
+Unreinforced masonry disintegration >< Shoring then tunnelling | N7 | a protected route to a deep casualty | shallow burial in rubble
+Unreinforced masonry disintegration >< Heavy lifting with cranes | N7 | removal of large elements | casualties reachable by hand
+EXCL: DETECTION TECHNIQUE|EXTRICATION METHOD
+Structural survey only >< Breaching and breaking concrete | N3 | access through a slab to a known void | no confirmation anyone is alive
+Structural survey only >< Shoring then tunnelling | N7 | a protected route to a deep casualty | no confirmation anyone is alive
+EXCL: DETECTION TECHNIQUE|TIME SINCE COLLAPSE
+Acoustic listening devices >< Beyond one week | N7 | a quiet site and a conscious casualty | recovery rather than rescue
+Search dogs >< Beyond one week | N7 | rapid indication of living casualties | recovery rather than rescue
+EXCL: EXTRICATION METHOD|TIME SINCE COLLAPSE
+Shoring then tunnelling >< First six hours | N4 | many hours per casualty | an immediate response
+EXCL: COLLAPSE PATTERN|TIME SINCE COLLAPSE
+Pancake collapse of floor slabs >< Beyond one week | N7 | recovery rather than rescue | very low survival probability

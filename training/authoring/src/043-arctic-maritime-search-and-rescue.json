@@ -1,0 +1,171 @@
+{
+ "domain": "arctic maritime search and rescue",
+ "group": "emergency response",
+ "parameters": {
+  "CASUALTY EVENT": [
+   "Cruise ship grounding",
+   "Fishing vessel capsize",
+   "Aircraft ditching offshore",
+   "Ice-trapped cargo vessel"
+  ],
+  "RESPONSE ASSET": [
+   "Long-range maritime patrol aircraft",
+   "Helicopter from a shore base",
+   "Icebreaker on task",
+   "Vessel of opportunity"
+  ],
+  "ENVIRONMENT": [
+   "Open water in summer",
+   "Marginal ice zone",
+   "Polar night",
+   "Blizzard conditions"
+  ],
+  "OUTCOME": [
+   "All recovered alive",
+   "Partial recovery",
+   "Search suspended without recovery",
+   "Self-rescue without assistance"
+  ]
+ },
+ "characterisations": {
+  "Cruise ship grounding": {
+   "requires": "a passenger vessel on an uncharted shoal",
+   "provides": "hundreds of untrained survivors, the hull initially intact, days of shelter aboard"
+  },
+  "Fishing vessel capsize": {
+   "requires": "a small hull losing stability",
+   "provides": "a handful of crew, immediate immersion, no shelter aboard at all"
+  },
+  "Aircraft ditching offshore": {
+   "requires": "an aircraft forced onto the water",
+   "provides": "survivors dispersed on the surface, minutes of survival time, a known last position"
+  },
+  "Ice-trapped cargo vessel": {
+   "requires": "a hull beset in moving pack ice",
+   "provides": "no immediate life risk, indefinite immobility, crew safe aboard"
+  },
+  "Long-range maritime patrol aircraft": {
+   "requires": "an airfield within range and flyable weather",
+   "provides": "rapid arrival and search capability, delivery of supplies only, no recovery of anyone"
+  },
+  "Helicopter from a shore base": {
+   "requires": "a base within radius of action",
+   "provides": "recovery of small numbers, limited by range and by icing"
+  },
+  "Icebreaker on task": {
+   "requires": "a vessel already in the region",
+   "provides": "recovery of large numbers and ice transit, days of steaming to arrive"
+  },
+  "Vessel of opportunity": {
+   "requires": "another ship close enough to divert",
+   "provides": "immediate assistance, untrained crew and no ice capability"
+  },
+  "Open water in summer": {
+   "requires": "an ice-free sea and long daylight",
+   "provides": "conventional operations, survivable immersion for a short period"
+  },
+  "Marginal ice zone": {
+   "requires": "broken drifting floes",
+   "provides": "hazard to any conventional hull, aircraft operations unaffected"
+  },
+  "Polar night": {
+   "requires": "continuous darkness",
+   "provides": "no visual search whatsoever, extreme cold"
+  },
+  "Blizzard conditions": {
+   "requires": "high wind and blowing snow",
+   "provides": "no flying of any kind, surface search severely degraded"
+  },
+  "All recovered alive": {
+   "requires": "assistance reaching survivors within survival time",
+   "provides": "no loss of life"
+  },
+  "Partial recovery": {
+   "requires": "some survivors reached in time",
+   "provides": "fatalities among those not reached"
+  },
+  "Search suspended without recovery": {
+   "requires": "conditions or endurance defeating the search",
+   "provides": "presumed loss of all"
+  },
+  "Self-rescue without assistance": {
+   "requires": "the casualties reaching safety unaided",
+   "provides": "no rescue resource consumed"
+  }
+ },
+ "exclusions": {
+  "CASUALTY EVENT|RESPONSE ASSET": [
+   {
+    "row": "Fishing vessel capsize",
+    "col": "Icebreaker on task",
+    "code": "N4",
+    "requires": "days of steaming to arrive",
+    "blocked_by": "immediate immersion"
+   },
+   {
+    "row": "Aircraft ditching offshore",
+    "col": "Icebreaker on task",
+    "code": "N4",
+    "requires": "days of steaming to arrive",
+    "blocked_by": "minutes of survival time"
+   }
+  ],
+  "CASUALTY EVENT|OUTCOME": [
+   {
+    "row": "Aircraft ditching offshore",
+    "col": "Self-rescue without assistance",
+    "code": "N7",
+    "requires": "the casualties reaching safety unaided",
+    "blocked_by": "minutes of survival time"
+   },
+   {
+    "row": "Ice-trapped cargo vessel",
+    "col": "Search suspended without recovery",
+    "code": "N3",
+    "requires": "conditions or endurance defeating the search",
+    "blocked_by": "no immediate life risk"
+   }
+  ],
+  "RESPONSE ASSET|ENVIRONMENT": [
+   {
+    "row": "Long-range maritime patrol aircraft",
+    "col": "Blizzard conditions",
+    "code": "N3",
+    "requires": "an airfield within range and flyable weather",
+    "blocked_by": "no flying of any kind"
+   },
+   {
+    "row": "Helicopter from a shore base",
+    "col": "Blizzard conditions",
+    "code": "N3",
+    "requires": "a base within radius of action",
+    "blocked_by": "no flying of any kind"
+   },
+   {
+    "row": "Vessel of opportunity",
+    "col": "Marginal ice zone",
+    "code": "N3",
+    "requires": "another ship close enough to divert",
+    "blocked_by": "hazard to any conventional hull"
+   }
+  ],
+  "RESPONSE ASSET|OUTCOME": [
+   {
+    "row": "Long-range maritime patrol aircraft",
+    "col": "All recovered alive",
+    "code": "N3",
+    "requires": "assistance reaching survivors within survival time",
+    "blocked_by": "no recovery of anyone"
+   }
+  ],
+  "ENVIRONMENT|OUTCOME": [
+   {
+    "row": "Polar night",
+    "col": "Self-rescue without assistance",
+    "code": "N7",
+    "requires": "the casualties reaching safety unaided",
+    "blocked_by": "extreme cold"
+   }
+  ]
+ }
+}

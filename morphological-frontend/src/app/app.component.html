@@ -1,0 +1,273 @@
+<div style="font-family: Arial, sans-serif; padding: 20px; max-width: 1400px; margin: 0 auto; color: #222;">
+
+  <h2>General Morphological Analysis Studio</h2>
+
+  <!-- STATUS LINE -->
+  <div *ngIf="statusMsg" style="background: #cfe2ff; border: 1px solid #9ec5fe; padding: 8px 12px; border-radius: 4px; margin-bottom: 12px; font-size: 13px;">
+    {{ statusMsg }}
+  </div>
+
+  <div *ngIf="restoredSession" style="background: #d1e7dd; border: 1px solid #a3cfbb; padding: 8px 12px; border-radius: 4px; margin-bottom: 12px; font-size: 13px;">
+    This grid was restored from your last session in this browser. Re-run the analysis to start fresh, or carry on editing.
+    <button (click)="clearSession()" style="margin-left: 12px; padding: 3px 10px; font-size: 12px; cursor: pointer;">Discard saved session</button>
+  </div>
+
+  <!-- PARAMETER DEFINITIONS -->
+  <div style="border: 1px solid #ccc; padding: 15px; border-radius: 6px; background: #fafafa; margin-bottom: 20px;">
+    <h3 style="margin-top: 0;">1. Define Matrix Dimensions</h3>
+    <div *ngFor="let p of parameters; let i = index" style="margin-bottom: 10px;">
+      <input [(ngModel)]="p.name" style="width: 15%; font-weight: bold; padding: 6px;" placeholder="Parameter Name">
+      <input [(ngModel)]="p.valuesStr" (change)="updateValues(i)" style="width: 80%; padding: 6px; margin-left: 1%;" placeholder="Comma separated values">
+    </div>
+    <button (click)="addParameter()" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">+ Add Parameter</button>
+
+    <button (click)="runFullAnalysis()" [disabled]="isCalculating" style="margin-left: 15px; padding: 10px 20px; background: #0d6efd; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+      {{ isCalculating ? 'Processing Cross-Consistency Matrix...' : 'Run Morphological Analysis' }}
+    </button>
+
+    <button (click)="clearSession()" style="margin-left: 10px; padding: 6px 12px; background: #fff; color: #6c757d; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; font-size: 12px;">
+      Clear saved session
+    </button>
+  </div>
+
+  <div *ngIf="analysisData">
+
+    <!-- TABLE 4.1: MULTIDIMENSIONAL MATRIX -->
+    <h3>Table 4.1: Multidimensional Matrix (Morphological Box)</h3>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; text-align: left; font-size: 14px;" border="1">
+      <thead>
+        <tr style="background-color: #f1f1f1;">
+          <th *ngFor="let param of parameters" style="padding: 10px; border: 1px solid #b0b0b0;">{{ param.name }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rowIndex of getMaxRows()">
+          <td *ngFor="let param of parameters" style="padding: 8px; border: 1px solid #d0d0d0; vertical-align: top;">
+            {{ param.values[rowIndex] || '' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TABLE 4.2: CROSS CONSISTENCY MATRIX -->
+    <h3>Table 4.2: Consistency Matrix (Cross-Consistency Assessment)</h3>
+    <p style="font-size: 13px; color: #555;">
+      Cells marked with an <strong>"x"</strong> indicate an inconsistent value pair. Black cells represent invalid comparisons.
+      <br>
+      <strong>Click any cell to set or clear its mark.</strong> Every click is recorded as a standing ruling on the
+      server, so it survives a re-run and applies to every future analysis. Hover a cell to see what decided it.
+    </p>
+
+    <!-- PROVENANCE LEGEND -->
+    <div style="display: flex; gap: 18px; flex-wrap: wrap; align-items: center; font-size: 12px; margin-bottom: 10px;">
+      <span><span style="display: inline-block; width: 14px; height: 14px; background: #f1aeb5; border: 1px solid #999; vertical-align: middle;"></span> your ruling &mdash; inconsistent</span>
+      <span><span style="display: inline-block; width: 14px; height: 14px; background: #d1e7dd; border: 1px solid #999; vertical-align: middle;"></span> your ruling &mdash; consistent</span>
+      <span><span style="display: inline-block; width: 14px; height: 14px; background: #fdeaea; border: 1px solid #999; vertical-align: middle;"></span> machine &mdash; inconsistent</span>
+      <span><span style="display: inline-block; width: 14px; height: 14px; background: #ffffff; border: 1px solid #999; vertical-align: middle;"></span> machine &mdash; consistent</span>
+    </div>
+
+    <div style="background: #fff3cd; border: 1px solid #ffe69c; padding: 8px 12px; border-radius: 4px; margin-bottom: 10px; font-size: 13px;">
+      <strong>{{ markedCount() }}</strong> pairs marked inconsistent
+      <span *ngIf="edited" style="color: #664d03;"> &mdash; includes your edits</span>
+      <span *ngIf="analysisData.sourceCounts" style="color: #664d03;">
+        &nbsp;|&nbsp; decided by: {{ analysisData.sourceCounts.OVERRIDE || 0 }} your rulings,
+        {{ (analysisData.sourceCounts.FINETUNED || 0) + (analysisData.sourceCounts.LLM || 0) }} assessment model
+      </span>
+      <br>
+      <button (click)="saveGridAsVerified()" style="margin-top: 8px; padding: 4px 12px; font-size: 12px; cursor: pointer; background: #198754; color: white; border: none; border-radius: 4px; font-weight: bold;">
+        Save whole grid as verified
+      </button>
+      <button (click)="clearAllMarks()" style="margin-left: 8px; margin-top: 8px; padding: 4px 12px; font-size: 12px; cursor: pointer;">
+        Clear all marks
+      </button>
+      <span style="color: #664d03; margin-left: 8px; font-size: 12px;">
+        Saving the grid records every assessed pair, not only the ones you changed.
+      </span>
+    </div>
+
+    <div style="overflow-x: auto; margin-bottom: 30px;">
+      <table style="border-collapse: collapse; font-size: 11px;" border="1">
+        <thead>
+          <tr>
+            <th style="min-width: 180px; background: #fff; border: 1px solid #ccc;"></th>
+            <th *ngFor="let item of analysisData.allValues" style="height: 140px; vertical-align: bottom; border: 1px solid #ccc; padding: 2px;">
+              <div style="writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; max-height: 130px; font-weight: bold;">
+                {{ item.value }}
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rowItem of analysisData.allValues; let rIndex = index">
+            <th style="text-align: left; padding: 4px; background: #f8f9fa; border: 1px solid #ccc; white-space: nowrap;">
+              {{ rowItem.value }}
+            </th>
+            <td *ngFor="let colItem of analysisData.allValues; let cIndex = index"
+                (click)="toggleCell(rIndex, cIndex)"
+                [title]="cellTitle(rIndex, cIndex)"
+                [style.background-color]="cellColor(rIndex, cIndex)"
+                [style.cursor]="analysisData.ccaMatrix[rIndex][cIndex] === 'BLACK' ? 'default' : 'pointer'"
+                style="width: 22px; height: 22px; text-align: center; vertical-align: middle; font-weight: bold; font-size: 13px; border: 1px solid #ccc;">
+              <span *ngIf="analysisData.ccaMatrix[rIndex][cIndex] === 'X'" style="color: #d9534f;">x</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- OVER-PRUNING RESCUE -->
+    <div *ngIf="analysisData.solutionSpaceSize === 0" style="background: #f8d7da; border: 2px solid #dc3545; padding: 14px; border-radius: 6px; margin-bottom: 15px;">
+      <h4 style="margin: 0 0 6px 0; color: #842029;">No configurations survive</h4>
+      <p style="margin: 0 0 8px 0; font-size: 13px; color: #842029;">
+        Every combination has been ruled out, so there is nothing left to analyse. This is almost
+        always caused by a value that was marked inconsistent against <em>every</em> option of another
+        parameter &mdash; which makes it unreachable on its own.
+      </p>
+      <div *ngIf="deadValues().length; else noSingleCause">
+        <div style="font-size: 13px; color: #842029; margin-bottom: 6px;">
+          These values are individually unreachable. Free one to bring the solution space back:
+        </div>
+        <div *ngFor="let dv of deadValues()" style="margin-bottom: 5px;">
+          <button (click)="freeValue(dv)"
+                  style="padding: 4px 10px; font-size: 12px; cursor: pointer; background: #dc3545; color: white; border: none; border-radius: 4px; font-weight: bold;">
+            Free "{{ dv.value }}"
+          </button>
+          <span style="font-size: 12px; color: #842029; margin-left: 8px;">
+            excluded against all {{ dv.count }} <strong>{{ dv.blockedBy }}</strong> options
+          </span>
+        </div>
+      </div>
+      <ng-template #noSingleCause>
+        <div style="font-size: 13px; color: #842029;">
+          No single value is the cause &mdash; the exclusions combine to eliminate everything. Use
+          <strong>Clear all marks</strong> and mark the grid yourself, or remove marks in Table 4.2
+          until configurations reappear.
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- TABLE 4.3: SOLUTION SPACE EXTRACTION -->
+    <h3>Table 4.3: Solution Space (Surviving Consistent Configurations)</h3>
+    <div style="background: #e9ecef; padding: 10px; border-radius: 4px; margin-bottom: 15px; font-size: 14px;">
+      Total Problem Space: <strong>{{ analysisData.totalProblemSpace }}</strong> configurations |
+      Consistent Solution Space: <strong>{{ analysisData.solutionSpaceSize }}</strong> configurations |
+      Reduction: <strong>{{ analysisData.reductionPercentage | number:'1.1-2' }}%</strong>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 30px;" border="1">
+      <thead>
+        <tr style="background: #e2e3e5;">
+          <th style="padding: 8px;">#</th>
+          <th *ngFor="let p of analysisData.parameters" style="padding: 8px;">{{ p }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let config of analysisData.solutionSpace; let idx = index">
+          <td style="padding: 6px; text-align: center; font-weight: bold;">{{ idx + 1 }}</td>
+          <td *ngFor="let p of analysisData.parameters" style="padding: 6px;">{{ config[p] }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SCENARIO INTELLIGENCE MATCHING -->
+    <div style="border: 2px solid #198754; padding: 20px; border-radius: 6px; background: #f4fff7; margin-bottom: 30px;">
+      <h3 style="margin-top: 0; color: #198754;">3. Scenario Vector Matching (Runs strictly over Table 4.3 Solution Space)</h3>
+
+      <textarea [(ngModel)]="scenarioDesc" placeholder="Describe scenario... (e.g., coercive diplomacy targeting national power grid)" style="width: 100%; height: 70px; padding: 8px; border-radius: 4px; border: 1px solid #ccc;"></textarea>
+
+      <h4 style="margin: 15px 0 5px 0;">Optional Fixed Value Constraints:</h4>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;">
+        <div *ngFor="let p of analysisData.parameters">
+          <label style="font-size: 12px; font-weight: bold; display: block;">{{ p }}</label>
+          <select [(ngModel)]="fixedValues[p]" style="padding: 5px;">
+            <option value="">-- Let AI Decide --</option>
+            <option *ngFor="let val of analysisData.parameterValues[p]" [value]="val">{{ val }}</option>
+          </select>
+        </div>
+      </div>
+
+      <button (click)="matchScenario()" [disabled]="isCalculating || !scenarioDesc" style="padding: 10px 20px; background: #198754; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+        Calculate Most Likely Threat Vector
+      </button>
+
+      <div *ngIf="bestScenario && (bestScenario | keyvalue).length > 0" style="margin-top: 20px; padding: 15px; background: #ffffff; border: 1px solid #198754; border-radius: 4px;">
+        <h4 style="margin-top: 0; color: #198754;">Optimal Scenario Match:</h4>
+        <ul style="margin: 0; padding-left: 20px;">
+          <li *ngFor="let item of bestScenario | keyvalue" style="margin-bottom: 4px;">
+            <strong>{{ item.key }}:</strong> {{ item.value }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================================================================
+       ACCUMULATED KNOWLEDGE
+       Shown whether or not an analysis has been run, because both parts
+       persist on the server independently of the current session.
+       ================================================================== -->
+  <div style="border: 2px solid #6f42c1; padding: 20px; border-radius: 6px; background: #faf8ff;">
+    <h3 style="margin-top: 0; color: #6f42c1;">4. Analyst Rulings</h3>
+    <p style="font-size: 13px; color: #555; margin-top: 0;">
+      Your rulings on specific pairs are kept between sessions. They outrank the model and record domain
+      knowledge that cannot be read from the words alone.
+    </p>
+
+    <!-- STANDING RULINGS -->
+    <div style="background: #fff; border: 1px solid #d6c8f0; border-radius: 4px; padding: 12px; margin-bottom: 15px;">
+      <h4 style="margin: 0 0 8px 0;">
+        Standing rulings
+        <span style="font-weight: normal; font-size: 13px; color: #555;">
+          &mdash; {{ overrideCount }} recorded ({{ overrideContradictions }} inconsistent, {{ overrideCompatible }} consistent)
+        </span>
+      </h4>
+      <button (click)="showOverrides = !showOverrides" style="padding: 4px 12px; font-size: 12px; cursor: pointer;">
+        {{ showOverrides ? 'Hide' : 'Show' }} rulings
+      </button>
+      <button (click)="refreshOverrides()" style="margin-left: 8px; padding: 4px 12px; font-size: 12px; cursor: pointer;">Refresh</button>
+      <button (click)="clearOverrides()" style="margin-left: 8px; padding: 4px 12px; font-size: 12px; cursor: pointer; color: #b02a37;">Delete all</button>
+
+      <div *ngIf="showOverrides" style="margin-top: 12px; max-height: 340px; overflow-y: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 12px;" border="1">
+          <thead>
+            <tr style="background: #f1f1f1;">
+              <th style="padding: 6px; text-align: left;">Parameter A</th>
+              <th style="padding: 6px; text-align: left;">Value A</th>
+              <th style="padding: 6px; text-align: left;">Parameter B</th>
+              <th style="padding: 6px; text-align: left;">Value B</th>
+              <th style="padding: 6px;">Verdict</th>
+              <th style="padding: 6px;">Recorded</th>
+              <th style="padding: 6px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of overrides"
+                [style.background-color]="o.verdict === 'CONTRADICTION' ? '#fdeaea' : '#f6fff9'">
+              <td style="padding: 5px;">{{ o.parameterA }}</td>
+              <td style="padding: 5px;">{{ o.valueA }}</td>
+              <td style="padding: 5px;">{{ o.parameterB }}</td>
+              <td style="padding: 5px;">{{ o.valueB }}</td>
+              <td style="padding: 5px; text-align: center; font-weight: bold;"
+                  [style.color]="o.verdict === 'CONTRADICTION' ? '#b02a37' : '#146c43'">
+                {{ o.verdict === 'CONTRADICTION' ? 'inconsistent' : 'consistent' }}
+              </td>
+              <td style="padding: 5px; font-size: 11px; color: #666;">{{ o.recordedAt }}</td>
+              <td style="padding: 5px; text-align: center;">
+                <button (click)="deleteOverride(o)" title="Remove this ruling"
+                        style="cursor: pointer; border: none; background: none; color: #b02a37; font-weight: bold;">&times;</button>
+              </td>
+            </tr>
+            <tr *ngIf="overrides.length === 0">
+              <td colspan="7" style="padding: 10px; text-align: center; color: #666;">
+                No rulings recorded yet. Click cells in the grid above, or use "Save whole grid as verified".
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,150 @@
+{
+ "domain": "urban heat wave response",
+ "group": "public health",
+ "parameters": {
+  "HEAT EVENT": [
+   "Sustained daytime extreme",
+   "No overnight cooling",
+   "Short single-day spike",
+   "Warm spell within the normal range"
+  ],
+  "EXPOSED GROUP": [
+   "Isolated older residents",
+   "Outdoor manual workers",
+   "Residents of a care home",
+   "Occupants of cooled buildings"
+  ],
+  "RESPONSE MEASURE": [
+   "Heat health alert issued",
+   "Public cooling centres opened",
+   "Welfare visits to a register",
+   "No measure of any kind"
+  ],
+  "HEALTH OUTCOME": [
+   "Excess deaths recorded",
+   "Emergency admissions surge",
+   "No detectable health impact",
+   "Deaths concentrated in one institution"
+  ]
+ },
+ "characterisations": {
+  "Sustained daytime extreme": {
+   "requires": "several consecutive days above the threshold",
+   "provides": "cumulative physiological strain, no respite during the day"
+  },
+  "No overnight cooling": {
+   "requires": "night temperatures remaining high",
+   "provides": "no recovery period, mortality rising sharply"
+  },
+  "Short single-day spike": {
+   "requires": "one exceptional day only",
+   "provides": "acute presentations, a rapid return to normal"
+  },
+  "Warm spell within the normal range": {
+   "requires": "temperatures below any threshold",
+   "provides": "no health impact expected, no trigger for any alert"
+  },
+  "Isolated older residents": {
+   "requires": "people living alone with little contact",
+   "provides": "the highest mortality, nobody to raise the alarm"
+  },
+  "Outdoor manual workers": {
+   "requires": "work that cannot be moved indoors",
+   "provides": "exertional heat illness, exposure through the hottest hours"
+  },
+  "Residents of a care home": {
+   "requires": "an institution responsible for them",
+   "provides": "staff able to act on their behalf, dependence entirely on that institution"
+  },
+  "Occupants of cooled buildings": {
+   "requires": "air conditioning throughout the day",
+   "provides": "negligible indoor exposure, risk only when outside"
+  },
+  "Heat health alert issued": {
+   "requires": "a forecast crossing the threshold",
+   "provides": "services warned in advance, action possible before onset"
+  },
+  "Public cooling centres opened": {
+   "requires": "buildings with cooling and staff to run them",
+   "provides": "refuge for those able to travel, no benefit to anyone housebound"
+  },
+  "Welfare visits to a register": {
+   "requires": "a list of at-risk residents and staff to visit",
+   "provides": "contact with the isolated, a high staffing cost"
+  },
+  "No measure of any kind": {
+   "requires": "no plan and no trigger in place",
+   "provides": "nothing done anywhere, no protection for anyone"
+  },
+  "Excess deaths recorded": {
+   "requires": "mortality above the seasonal baseline",
+   "provides": "a measurable toll, an inquiry likely"
+  },
+  "Emergency admissions surge": {
+   "requires": "presentations exceeding capacity",
+   "provides": "ambulance delays, elective work cancelled"
+  },
+  "No detectable health impact": {
+   "requires": "mortality remaining at baseline",
+   "provides": "nothing above normal, no review required afterwards"
+  },
+  "Deaths concentrated in one institution": {
+   "requires": "a failure inside a single setting",
+   "provides": "a cluster, a regulatory investigation"
+  }
+ },
+ "exclusions": {
+  "HEAT EVENT|RESPONSE MEASURE": [
+   {
+    "row": "Warm spell within the normal range",
+    "col": "Heat health alert issued",
+    "code": "N3",
+    "requires": "a forecast crossing the threshold",
+    "blocked_by": "no trigger for any alert"
+   }
+  ],
+  "HEAT EVENT|HEALTH OUTCOME": [
+   {
+    "row": "Warm spell within the normal range",
+    "col": "Excess deaths recorded",
+    "code": "N3",
+    "requires": "mortality above the seasonal baseline",
+    "blocked_by": "no health impact expected"
+   },
+   {
+    "row": "Warm spell within the normal range",
+    "col": "Emergency admissions surge",
+    "code": "N3",
+    "requires": "presentations exceeding capacity",
+    "blocked_by": "no health impact expected"
+   }
+  ],
+  "EXPOSED GROUP|RESPONSE MEASURE": [
+   {
+    "row": "Occupants of cooled buildings",
+    "col": "Public cooling centres opened",
+    "code": "N7",
+    "requires": "refuge for those able to travel",
+    "blocked_by": "negligible indoor exposure"
+   }
+  ],
+  "EXPOSED GROUP|HEALTH OUTCOME": [
+   {
+    "row": "Isolated older residents",
+    "col": "Deaths concentrated in one institution",
+    "code": "N3",
+    "requires": "a failure inside a single setting",
+    "blocked_by": "people living alone with little contact"
+   }
+  ],
+  "RESPONSE MEASURE|HEALTH OUTCOME": [
+   {
+    "row": "No measure of any kind",
+    "col": "No detectable health impact",
+    "code": "N7",
+    "requires": "mortality remaining at baseline",
+    "blocked_by": "no protection for anyone"
+   }
+  ]
+ }
+}

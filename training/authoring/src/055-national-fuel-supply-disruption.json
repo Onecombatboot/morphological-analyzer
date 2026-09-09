@@ -1,0 +1,180 @@
+{
+ "domain": "national fuel supply disruption",
+ "group": "resource management",
+ "parameters": {
+  "DISRUPTION POINT": [
+   "Refinery outage",
+   "Import terminal blockade",
+   "Road haulage stoppage",
+   "Retail panic buying"
+  ],
+  "STOCK POSITION": [
+   "Full compulsory stocks",
+   "Commercial stocks only",
+   "Forecourt tanks only",
+   "Strategic reserve inaccessible"
+  ],
+  "PRIORITY MECHANISM": [
+   "Designated filling stations",
+   "Purchase volume limits",
+   "Military tanker driving",
+   "No intervention"
+  ],
+  "OUTCOME": [
+   "Normal service maintained",
+   "Localised dry forecourts",
+   "Emergency services affected",
+   "Sustained national shortage"
+  ]
+ },
+ "characterisations": {
+  "Refinery outage": {
+   "requires": "a processing unit failing",
+   "provides": "loss of production capacity, imports substitutable over weeks"
+  },
+  "Import terminal blockade": {
+   "requires": "physical obstruction of a port",
+   "provides": "no receipt of product, stocks inland unaffected"
+  },
+  "Road haulage stoppage": {
+   "requires": "tanker drivers withdrawing",
+   "provides": "product available but immobile, forecourts emptying within days"
+  },
+  "Retail panic buying": {
+   "requires": "consumer behaviour ahead of any real shortage",
+   "provides": "demand spike with supply intact, self-reinforcing while it lasts"
+  },
+  "Full compulsory stocks": {
+   "requires": "a statutory reserve held and accessible",
+   "provides": "ninety days of cover, release requires a government decision"
+  },
+  "Commercial stocks only": {
+   "requires": "normal industry working inventory",
+   "provides": "days of cover, held at terminals rather than forecourts"
+  },
+  "Forecourt tanks only": {
+   "requires": "no upstream buffer at all",
+   "provides": "hours to days of cover, exhausted by any surge"
+  },
+  "Strategic reserve inaccessible": {
+   "requires": "stocks held but unable to move",
+   "provides": "nominal cover that cannot be delivered"
+  },
+  "Designated filling stations": {
+   "requires": "a scheme identifying priority sites",
+   "provides": "continuity for emergency services, ordinary users excluded from those sites"
+  },
+  "Purchase volume limits": {
+   "requires": "forecourt enforcement",
+   "provides": "slowing of the surge, no increase in total supply"
+  },
+  "Military tanker driving": {
+   "requires": "trained service personnel and vehicles",
+   "provides": "restoration of movement, weeks to reach full throughput"
+  },
+  "No intervention": {
+   "requires": "reliance on the market",
+   "provides": "no administrative cost, supply to whoever queues first"
+  },
+  "Normal service maintained": {
+   "requires": "disruption absorbed by stocks",
+   "provides": "no public impact"
+  },
+  "Localised dry forecourts": {
+   "requires": "distribution unable to keep pace",
+   "provides": "regional shortage, queueing"
+  },
+  "Emergency services affected": {
+   "requires": "priority users unable to refuel",
+   "provides": "risk to response capability"
+  },
+  "Sustained national shortage": {
+   "requires": "supply below demand for weeks",
+   "provides": "economic contraction, rationing by decree"
+  }
+ },
+ "exclusions": {
+  "DISRUPTION POINT|STOCK POSITION": [
+   {
+    "row": "Retail panic buying",
+    "col": "Forecourt tanks only",
+    "code": "N7",
+    "requires": "hours to days of cover",
+    "blocked_by": "demand spike with supply intact"
+   }
+  ],
+  "DISRUPTION POINT|PRIORITY MECHANISM": [
+   {
+    "row": "Road haulage stoppage",
+    "col": "Military tanker driving",
+    "code": "N7",
+    "requires": "trained service personnel and vehicles",
+    "blocked_by": "product available but immobile"
+   },
+   {
+    "row": "Retail panic buying",
+    "col": "Military tanker driving",
+    "code": "N7",
+    "requires": "restoration of movement",
+    "blocked_by": "demand spike with supply intact"
+   }
+  ],
+  "STOCK POSITION|PRIORITY MECHANISM": [
+   {
+    "row": "Strategic reserve inaccessible",
+    "col": "Military tanker driving",
+    "code": "N7",
+    "requires": "restoration of movement",
+    "blocked_by": "nominal cover that cannot be delivered"
+   }
+  ],
+  "STOCK POSITION|OUTCOME": [
+   {
+    "row": "Full compulsory stocks",
+    "col": "Sustained national shortage",
+    "code": "N7",
+    "requires": "supply below demand for weeks",
+    "blocked_by": "ninety days of cover"
+   },
+   {
+    "row": "Forecourt tanks only",
+    "col": "Normal service maintained",
+    "code": "N3",
+    "requires": "disruption absorbed by stocks",
+    "blocked_by": "no upstream buffer at all"
+   },
+   {
+    "row": "Strategic reserve inaccessible",
+    "col": "Normal service maintained",
+    "code": "N3",
+    "requires": "disruption absorbed by stocks",
+    "blocked_by": "nominal cover that cannot be delivered"
+   }
+  ],
+  "PRIORITY MECHANISM|OUTCOME": [
+   {
+    "row": "Designated filling stations",
+    "col": "Emergency services affected",
+    "code": "N7",
+    "requires": "priority users unable to refuel",
+    "blocked_by": "continuity for emergency services"
+   },
+   {
+    "row": "No intervention",
+    "col": "Emergency services affected",
+    "code": "N7",
+    "requires": "supply to whoever queues first",
+    "blocked_by": "reliance on the market"
+   }
+  ],
+  "DISRUPTION POINT|OUTCOME": [
+   {
+    "row": "Retail panic buying",
+    "col": "Sustained national shortage",
+    "code": "N7",
+    "requires": "supply below demand for weeks",
+    "blocked_by": "self-reinforcing while it lasts"
+   }
+  ]
+ }
+}

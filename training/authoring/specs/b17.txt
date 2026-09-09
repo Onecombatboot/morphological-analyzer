@@ -1,0 +1,66 @@
+DOMAIN: commercial aircraft maintenance defect
+GROUP: aviation
+PARAM: DEFECT TYPE
+- Structural fatigue crack :: cycles accumulated on the airframe :: growth over time, detection only by deliberate inspection
+- Engine component failure :: a part reaching its life limit :: loss of thrust, a possible uncontained release
+- Avionics software fault :: a latent coding defect :: erroneous indications, no physical wear anywhere
+- Corrosion in a hidden area :: moisture ingress over years :: strength lost where no one looks, discovery only on deep inspection
+PARAM: DETECTION MEANS
+- Line check before flight :: a walkaround and a few minutes :: gross external defects found, nothing internal seen
+- Scheduled heavy maintenance :: the aircraft out of service for weeks :: structure opened and inspected, a very high cost
+- Onboard monitoring system :: sensors and a data link :: continuous trend data, only what is instrumented
+- Defect reported by the crew :: a symptom noticed in flight :: real operational evidence, only after it has manifested
+PARAM: OPERATIONAL PRESSURE
+- Aircraft grounded pending fix :: a decision to stop flying it :: the aircraft not flown at all, no revenue earned
+- Deferred under the minimum equipment list :: an allowable deferral :: continued service with limitations, a fixed time to repair
+- Peak season with no spare aircraft :: full utilisation planned :: strong pressure to keep flying, cancellations if grounded
+- Aircraft due for retirement :: an airframe leaving the fleet shortly :: reluctance to invest in repair, an economic write-off possible
+PARAM: SAFETY OUTCOME
+- Defect rectified before flight :: parts and engineers available :: airworthiness restored, a delay only
+- In-flight event with safe landing :: a failure managed by the crew :: an occurrence report, the aircraft recovered
+- Accident with hull loss :: a failure beyond the crew's control :: fatalities possible, a formal investigation
+- Defect never found at all :: no inspection ever reaching it :: latent risk carried, no record of any kind
+EXCL: DEFECT TYPE|DETECTION MEANS
+Corrosion in a hidden area >< Line check before flight | N3 | a walkaround and a few minutes | discovery only on deep inspection
+Avionics software fault >< Scheduled heavy maintenance | N7 | structure opened and inspected | no physical wear anywhere
+EXCL: DETECTION MEANS|SAFETY OUTCOME
+Defect reported by the crew >< Defect never found at all | N1 | no inspection ever reaching it | real operational evidence
+EXCL: OPERATIONAL PRESSURE|SAFETY OUTCOME
+Aircraft grounded pending fix >< In-flight event with safe landing | N3 | a failure managed by the crew | the aircraft not flown at all
+Aircraft grounded pending fix >< Accident with hull loss | N3 | a failure beyond the crew's control | the aircraft not flown at all
+EXCL: DEFECT TYPE|SAFETY OUTCOME
+Avionics software fault >< Accident with hull loss | N7 | a failure beyond the crew's control | no physical wear anywhere
+---
+DOMAIN: art market provenance dispute
+GROUP: heritage
+PARAM: OBJECT STATUS
+- Documented unbroken provenance :: records covering every owner :: confident attribution and title, a premium price
+- Gap in the ownership record :: years unaccounted for :: suspicion of wartime looting, a discount and slow sale
+- Known forgery exposed :: technical analysis proving it modern :: no artistic value at all, a criminal question
+- Recently excavated antiquity :: an object with no collecting history :: near-certain illicit export, no lawful market
+PARAM: EVIDENCE AVAILABLE
+- Scientific dating of materials :: a laboratory and a sample :: an objective date range for the materials, no evidence about authorship
+- Archival ownership documents :: surviving papers and access to them :: a chain of title, vulnerability to forged paperwork
+- Connoisseurship judgement :: an acknowledged expert in the artist :: an attribution opinion, no objective test
+- No documentation whatsoever :: nothing surviving or ever created :: no chain of title available, reliance on the object alone
+PARAM: CLAIMANT
+- Heirs of a dispossessed owner :: proof of the original ownership :: a restitution claim, strong moral weight
+- Source country authority :: a national patrimony law :: a state demand for return, diplomatic pressure
+- Defrauded purchaser :: a sale contract and payment :: a civil claim against the seller, no claim to the object itself
+- No claimant at all :: nobody asserting a competing right :: undisputed possession, a free sale
+PARAM: RESOLUTION
+- Sale proceeds at full value :: clear title and no dispute :: the object transferred, the price realised
+- Restitution to the claimant :: a claim accepted or ordered :: the object handed over, compensation sometimes paid
+- Object withdrawn from sale :: doubt sufficient to stop the lot :: no transaction, the object returned to the consignor
+- Object seized by authorities :: a criminal or export offence :: possession lost entirely, prosecution possible
+EXCL: OBJECT STATUS|RESOLUTION
+Known forgery exposed >< Sale proceeds at full value | N3 | clear title and no dispute | no artistic value at all
+Recently excavated antiquity >< Sale proceeds at full value | N3 | clear title and no dispute | no lawful market
+EXCL: OBJECT STATUS|EVIDENCE AVAILABLE
+Documented unbroken provenance >< No documentation whatsoever | N1 | nothing surviving or ever created | records covering every owner
+Recently excavated antiquity >< Archival ownership documents | N3 | surviving papers and access to them | an object with no collecting history
+EXCL: EVIDENCE AVAILABLE|CLAIMANT
+No documentation whatsoever >< Heirs of a dispossessed owner | N3 | proof of the original ownership | no chain of title available
+EXCL: CLAIMANT|RESOLUTION
+No claimant at all >< Restitution to the claimant | N3 | a claim accepted or ordered | nobody asserting a competing right
+Defrauded purchaser >< Restitution to the claimant | N3 | the object handed over | no claim to the object itself

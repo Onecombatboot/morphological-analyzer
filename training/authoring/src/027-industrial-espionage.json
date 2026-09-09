@@ -1,0 +1,388 @@
+{
+ "domain": "industrial espionage",
+ "group": "security",
+ "parameters": {
+  "TARGET ASSET": [
+   "Manufacturing process know-how",
+   "Customer and pricing data",
+   "Unpublished research results",
+   "Source code"
+  ],
+  "COLLECTOR": [
+   "Competitor company",
+   "State-backed collection programme",
+   "Recruited employee",
+   "Contract research partner"
+  ],
+  "METHOD": [
+   "Recruitment of a serving employee",
+   "Network intrusion",
+   "Legitimate partnership access",
+   "Acquisition of the target company"
+  ],
+  "TRANSFER MECHANISM": [
+   "Physical documents removed",
+   "Encrypted upload",
+   "Verbal debrief only",
+   "Legally transferred under contract"
+  ],
+  "DISCOVERY": [
+   "Product appears with the same feature",
+   "Employee departure pattern",
+   "Network forensics",
+   "Whistleblower"
+  ]
+ },
+ "characterisations": {
+  "Manufacturing process know-how": {
+   "requires": "tacit knowledge held by practitioners",
+   "provides": "difficult to document, resides in people, years to replicate without them"
+  },
+  "Customer and pricing data": {
+   "requires": "access to commercial systems",
+   "provides": "fully documented, immediately useful, small in volume"
+  },
+  "Unpublished research results": {
+   "requires": "access to laboratories or research systems",
+   "provides": "documented, time-limited value until publication"
+  },
+  "Source code": {
+   "requires": "repository access",
+   "provides": "complete and copyable, large in volume, immediately usable"
+  },
+  "Competitor company": {
+   "requires": "commercial motive and deniability",
+   "provides": "understanding of what is valuable, limited intrusion capability, legal exposure"
+  },
+  "State-backed collection programme": {
+   "requires": "national tasking and resources",
+   "provides": "intrusion capability, patience, immunity from local prosecution"
+  },
+  "Recruited employee": {
+   "requires": "existing legitimate access",
+   "provides": "authorised access to everything in their role, no technical intrusion needed"
+  },
+  "Contract research partner": {
+   "requires": "a genuine commercial agreement",
+   "provides": "lawful access to a defined scope, presence on site, contractual limits"
+  },
+  "Recruitment of a serving employee": {
+   "requires": "a person with access and a motive",
+   "provides": "access to tacit and documented knowledge alike, human unreliability"
+  },
+  "Network intrusion": {
+   "requires": "technical capability and a reachable system",
+   "provides": "documented material only, no tacit knowledge, forensic traces"
+  },
+  "Legitimate partnership access": {
+   "requires": "a contract granting access",
+   "provides": "lawful acquisition within scope, no offence unless scope exceeded"
+  },
+  "Acquisition of the target company": {
+   "requires": "capital and regulatory clearance",
+   "provides": "lawful acquisition of everything, highly visible, expensive"
+  },
+  "Physical documents removed": {
+   "requires": "documents existing on paper and physical access",
+   "provides": "small volume, defeats network monitoring"
+  },
+  "Encrypted upload": {
+   "requires": "network egress",
+   "provides": "unlimited volume, a network record of the transfer"
+  },
+  "Verbal debrief only": {
+   "requires": "the knowledge being held in a person's head",
+   "provides": "no artefact of any kind, limited to what one person can convey"
+  },
+  "Legally transferred under contract": {
+   "requires": "a lawful agreement",
+   "provides": "complete transfer with no offence committed"
+  },
+  "Product appears with the same feature": {
+   "requires": "the collector bringing something to market",
+   "provides": "circumstantial evidence only, years later"
+  },
+  "Employee departure pattern": {
+   "requires": "several people leaving for the same destination",
+   "provides": "an indicator, no proof"
+  },
+  "Network forensics": {
+   "requires": "logging and retention",
+   "provides": "proof of transfer, blind to anything that never touched the network"
+  },
+  "Whistleblower": {
+   "requires": "an insider willing to speak",
+   "provides": "direct evidence, unpredictable"
+  }
+ },
+ "exclusions": {
+  "TARGET ASSET|COLLECTOR": [
+   {
+    "row": "Customer and pricing data",
+    "col": "Contract research partner",
+    "code": "N6",
+    "requires": "access to commercial systems",
+    "blocked_by": "lawful access to a defined scope"
+   }
+  ],
+  "TARGET ASSET|METHOD": [
+   {
+    "row": "Manufacturing process know-how",
+    "col": "Network intrusion",
+    "code": "N3",
+    "requires": "documented material only, no tacit knowledge",
+    "blocked_by": "resides in people"
+   },
+   {
+    "row": "Customer and pricing data",
+    "col": "Legitimate partnership access",
+    "code": "N7",
+    "requires": "lawful acquisition within scope",
+    "blocked_by": "access to commercial systems"
+   }
+  ],
+  "TARGET ASSET|TRANSFER MECHANISM": [
+   {
+    "row": "Manufacturing process know-how",
+    "col": "Encrypted upload",
+    "code": "N3",
+    "requires": "unlimited volume",
+    "blocked_by": "difficult to document"
+   },
+   {
+    "row": "Customer and pricing data",
+    "col": "Verbal debrief only",
+    "code": "N7",
+    "requires": "the knowledge being held in a person's head",
+    "blocked_by": "fully documented"
+   },
+   {
+    "row": "Unpublished research results",
+    "col": "Verbal debrief only",
+    "code": "N7",
+    "requires": "the knowledge being held in a person's head",
+    "blocked_by": "documented, time-limited value until publication"
+   },
+   {
+    "row": "Source code",
+    "col": "Physical documents removed",
+    "code": "N3",
+    "requires": "documents existing on paper and physical access",
+    "blocked_by": "complete and copyable, large in volume"
+   },
+   {
+    "row": "Source code",
+    "col": "Verbal debrief only",
+    "code": "N3",
+    "requires": "the knowledge being held in a person's head",
+    "blocked_by": "large in volume"
+   }
+  ],
+  "TARGET ASSET|DISCOVERY": [
+   {
+    "row": "Manufacturing process know-how",
+    "col": "Network forensics",
+    "code": "N3",
+    "requires": "blind to anything that never touched the network",
+    "blocked_by": "resides in people"
+   },
+   {
+    "row": "Customer and pricing data",
+    "col": "Product appears with the same feature",
+    "code": "N7",
+    "requires": "the collector bringing something to market",
+    "blocked_by": "fully documented, immediately useful"
+   }
+  ],
+  "COLLECTOR|METHOD": [
+   {
+    "row": "Competitor company",
+    "col": "Network intrusion",
+    "code": "N7",
+    "requires": "technical capability and a reachable system",
+    "blocked_by": "limited intrusion capability"
+   },
+   {
+    "row": "Recruited employee",
+    "col": "Network intrusion",
+    "code": "N7",
+    "requires": "technical capability and a reachable system",
+    "blocked_by": "no technical intrusion needed"
+   },
+   {
+    "row": "Recruited employee",
+    "col": "Legitimate partnership access",
+    "code": "N3",
+    "requires": "a contract granting access",
+    "blocked_by": "existing legitimate access"
+   },
+   {
+    "row": "Recruited employee",
+    "col": "Acquisition of the target company",
+    "code": "N3",
+    "requires": "capital and regulatory clearance",
+    "blocked_by": "existing legitimate access"
+   },
+   {
+    "row": "Contract research partner",
+    "col": "Network intrusion",
+    "code": "N7",
+    "requires": "technical capability and a reachable system",
+    "blocked_by": "contractual limits"
+   }
+  ],
+  "COLLECTOR|TRANSFER MECHANISM": [
+   {
+    "row": "State-backed collection programme",
+    "col": "Legally transferred under contract",
+    "code": "N7",
+    "requires": "a lawful agreement",
+    "blocked_by": "immunity from local prosecution"
+   },
+   {
+    "row": "Recruited employee",
+    "col": "Legally transferred under contract",
+    "code": "N7",
+    "requires": "a lawful agreement",
+    "blocked_by": "existing legitimate access"
+   }
+  ],
+  "METHOD|TRANSFER MECHANISM": [
+   {
+    "row": "Recruitment of a serving employee",
+    "col": "Legally transferred under contract",
+    "code": "N1",
+    "requires": "a lawful agreement",
+    "blocked_by": "a person with access and a motive"
+   },
+   {
+    "row": "Network intrusion",
+    "col": "Physical documents removed",
+    "code": "N3",
+    "requires": "documents existing on paper and physical access",
+    "blocked_by": "technical capability and a reachable system"
+   },
+   {
+    "row": "Network intrusion",
+    "col": "Verbal debrief only",
+    "code": "N3",
+    "requires": "the knowledge being held in a person's head",
+    "blocked_by": "documented material only, no tacit knowledge"
+   },
+   {
+    "row": "Network intrusion",
+    "col": "Legally transferred under contract",
+    "code": "N1",
+    "requires": "a lawful agreement",
+    "blocked_by": "forensic traces"
+   },
+   {
+    "row": "Acquisition of the target company",
+    "col": "Physical documents removed",
+    "code": "N7",
+    "requires": "documents existing on paper and physical access",
+    "blocked_by": "lawful acquisition of everything"
+   },
+   {
+    "row": "Acquisition of the target company",
+    "col": "Encrypted upload",
+    "code": "N7",
+    "requires": "network egress",
+    "blocked_by": "lawful acquisition of everything"
+   },
+   {
+    "row": "Acquisition of the target company",
+    "col": "Verbal debrief only",
+    "code": "N7",
+    "requires": "the knowledge being held in a person's head",
+    "blocked_by": "lawful acquisition of everything"
+   }
+  ],
+  "METHOD|DISCOVERY": [
+   {
+    "row": "Network intrusion",
+    "col": "Employee departure pattern",
+    "code": "N7",
+    "requires": "several people leaving for the same destination",
+    "blocked_by": "technical capability and a reachable system"
+   },
+   {
+    "row": "Legitimate partnership access",
+    "col": "Employee departure pattern",
+    "code": "N7",
+    "requires": "several people leaving for the same destination",
+    "blocked_by": "a contract granting access"
+   },
+   {
+    "row": "Legitimate partnership access",
+    "col": "Network forensics",
+    "code": "N7",
+    "requires": "proof of transfer",
+    "blocked_by": "no offence unless scope exceeded"
+   },
+   {
+    "row": "Acquisition of the target company",
+    "col": "Employee departure pattern",
+    "code": "N7",
+    "requires": "several people leaving for the same destination",
+    "blocked_by": "highly visible, expensive"
+   },
+   {
+    "row": "Acquisition of the target company",
+    "col": "Network forensics",
+    "code": "N7",
+    "requires": "proof of transfer",
+    "blocked_by": "lawful acquisition of everything"
+   }
+  ],
+  "TRANSFER MECHANISM|DISCOVERY": [
+   {
+    "row": "Physical documents removed",
+    "col": "Network forensics",
+    "code": "N3",
+    "requires": "proof of transfer",
+    "blocked_by": "defeats network monitoring"
+   },
+   {
+    "row": "Encrypted upload",
+    "col": "Employee departure pattern",
+    "code": "N7",
+    "requires": "several people leaving for the same destination",
+    "blocked_by": "network egress"
+   },
+   {
+    "row": "Verbal debrief only",
+    "col": "Network forensics",
+    "code": "N3",
+    "requires": "proof of transfer",
+    "blocked_by": "no artefact of any kind"
+   },
+   {
+    "row": "Legally transferred under contract",
+    "col": "Employee departure pattern",
+    "code": "N7",
+    "requires": "several people leaving for the same destination",
+    "blocked_by": "complete transfer with no offence committed"
+   },
+   {
+    "row": "Legally transferred under contract",
+    "col": "Network forensics",
+    "code": "N7",
+    "requires": "proof of transfer",
+    "blocked_by": "complete transfer with no offence committed"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "TARGET ASSET|COLLECTOR": "unpublished research x contract research partner is N only if the partnership does not cover it - here Y. Customer and pricing data x contract research partner is N: a research agreement gives no commercial system access.",
+  "TARGET ASSET|METHOD": "process know-how is N for network intrusion - tacit knowledge is not on a server. Customer data is N for legitimate partnership access.",
+  "TARGET ASSET|TRANSFER MECHANISM": "process know-how is N for encrypted upload (nothing to upload) and Y for verbal debrief. Customer data, research and source code are all N for verbal debrief - none can be conveyed by speech. Source code is N for physical documents.",
+  "TARGET ASSET|DISCOVERY": "customer data is N for product-appears and N for departure pattern - it produces no visible product. Process know-how is N for network forensics. Research and code are N for departure pattern as posed.",
+  "COLLECTOR|METHOD": "a competitor is N for network intrusion (no capability, extreme legal exposure). A state programme is N for legitimate partnership and N for acquisition. A recruited employee is only the recruitment method itself, so N for the other three. A contract partner is N for recruitment and N for intrusion.",
+  "COLLECTOR|TRANSFER MECHANISM": "a state programme and a recruited employee are both N for legal transfer under contract - neither has a contract to transfer under.",
+  "COLLECTOR|DISCOVERY": "a state programme is N for product-appears: it does not bring products to market. A recruited employee is Y for all. A contract partner is N for departure pattern.",
+  "METHOD|TRANSFER MECHANISM": "recruitment is N for legal transfer. Intrusion is N for physical documents, verbal debrief and legal transfer alike. Acquisition is Y only for legal transfer.",
+  "METHOD|DISCOVERY": "recruitment is N for network forensics. Intrusion is N for product-appears and N for departure pattern. Partnership access and acquisition are both N for departure pattern and network forensics.",
+  "TRANSFER MECHANISM|DISCOVERY": "physical documents are N for network forensics. Encrypted upload is N for departure pattern. Verbal debrief is N for network forensics. Legal transfer is N for departure pattern and network forensics."
+ }
+}

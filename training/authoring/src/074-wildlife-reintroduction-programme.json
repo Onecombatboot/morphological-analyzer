@@ -1,0 +1,148 @@
+{
+ "domain": "wildlife reintroduction programme",
+ "group": "conservation",
+ "parameters": {
+  "SPECIES": [
+   "Large carnivore",
+   "Herbivore grazer",
+   "Captive-bred bird",
+   "Freshwater fish"
+  ],
+  "RELEASE HABITAT": [
+   "Fenced reserve",
+   "Unfenced protected landscape",
+   "Restored river catchment",
+   "Working farmland mosaic"
+  ],
+  "RELEASE METHOD": [
+   "Hard release",
+   "Soft release with acclimatisation",
+   "Translocation of wild individuals",
+   "Head-starting of juveniles"
+  ],
+  "MAIN CONSTRAINT": [
+   "Landowner objection",
+   "Disease risk screening",
+   "No source population available",
+   "Post-release monitoring gap"
+  ]
+ },
+ "characterisations": {
+  "Large carnivore": {
+   "requires": "extensive territory and wild prey",
+   "provides": "conflict with livestock keepers, wide ranging movement, no tolerance of a fenced enclosure"
+  },
+  "Herbivore grazer": {
+   "requires": "open grassland and forage",
+   "provides": "vegetation change across the range, low direct risk to people"
+  },
+  "Captive-bred bird": {
+   "requires": "a breeding facility and release aviaries",
+   "provides": "rapid production of individuals, no learned migration route"
+  },
+  "Freshwater fish": {
+   "requires": "connected river habitat and adequate water quality",
+   "provides": "recolonisation along the watercourse, no terrestrial movement at all"
+  },
+  "Fenced reserve": {
+   "requires": "a boundary fence and management inside it",
+   "provides": "predictable containment, no natural dispersal beyond the fence"
+  },
+  "Unfenced protected landscape": {
+   "requires": "a designated area without barriers",
+   "provides": "free dispersal, exposure to surrounding land uses"
+  },
+  "Restored river catchment": {
+   "requires": "reinstated flow and habitat continuity",
+   "provides": "aquatic connectivity, no terrestrial range whatsoever"
+  },
+  "Working farmland mosaic": {
+   "requires": "agreement of private landowners",
+   "provides": "coexistence with production, a high likelihood of conflict"
+  },
+  "Hard release": {
+   "requires": "animals already fit for independence",
+   "provides": "no acclimatisation period, immediate dispersal"
+  },
+  "Soft release with acclimatisation": {
+   "requires": "on-site pens and months of support",
+   "provides": "gradual adjustment, delayed dispersal"
+  },
+  "Translocation of wild individuals": {
+   "requires": "a healthy source population to take from",
+   "provides": "wild-competent animals, no captive breeding needed"
+  },
+  "Head-starting of juveniles": {
+   "requires": "eggs or young reared to a safer size",
+   "provides": "improved early survival, dependence on a captive rearing facility"
+  },
+  "Landowner objection": {
+   "requires": "private land within the release area",
+   "provides": "refusal of access, legal challenge"
+  },
+  "Disease risk screening": {
+   "requires": "veterinary capacity and quarantine",
+   "provides": "certified animals, months of delay"
+  },
+  "No source population available": {
+   "requires": "a species absent from the wild",
+   "provides": "only captive stock usable, no wild individuals to take"
+  },
+  "Post-release monitoring gap": {
+   "requires": "no funding for tracking",
+   "provides": "no information on survival, no evidence of outcome"
+  }
+ },
+ "exclusions": {
+  "SPECIES|RELEASE HABITAT": [
+   {
+    "row": "Large carnivore",
+    "col": "Fenced reserve",
+    "code": "N3",
+    "requires": "predictable containment",
+    "blocked_by": "no tolerance of a fenced enclosure"
+   },
+   {
+    "row": "Large carnivore",
+    "col": "Restored river catchment",
+    "code": "N3",
+    "requires": "no terrestrial range whatsoever",
+    "blocked_by": "extensive territory and wild prey"
+   },
+   {
+    "row": "Herbivore grazer",
+    "col": "Restored river catchment",
+    "code": "N3",
+    "requires": "no terrestrial range whatsoever",
+    "blocked_by": "open grassland and forage"
+   }
+  ],
+  "SPECIES|RELEASE METHOD": [
+   {
+    "row": "Captive-bred bird",
+    "col": "Translocation of wild individuals",
+    "code": "N1",
+    "requires": "a healthy source population to take from",
+    "blocked_by": "a breeding facility and release aviaries"
+   }
+  ],
+  "RELEASE METHOD|MAIN CONSTRAINT": [
+   {
+    "row": "Translocation of wild individuals",
+    "col": "No source population available",
+    "code": "N3",
+    "requires": "a healthy source population to take from",
+    "blocked_by": "no wild individuals to take"
+   }
+  ],
+  "RELEASE HABITAT|MAIN CONSTRAINT": [
+   {
+    "row": "Working farmland mosaic",
+    "col": "Landowner objection",
+    "code": "N3",
+    "requires": "agreement of private landowners",
+    "blocked_by": "refusal of access"
+   }
+  ]
+ }
+}

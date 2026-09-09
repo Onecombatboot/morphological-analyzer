@@ -1,0 +1,158 @@
+DOMAIN: bank liquidity crisis
+GROUP: finance
+PARAM: TRIGGER
+- Credit loss on the asset book :: borrowers defaulting in size :: solvency question rather than liquidity, losses realised over quarters
+- Interest rate mark-to-market loss :: rates rising against a long bond portfolio :: unrealised loss crystallised only if assets are sold, no credit deterioration at all
+- Deposit flight from social media rumour :: a coordinated loss of confidence :: outflow within hours, no change in asset quality whatsoever
+- Wholesale funding market closure :: counterparties refusing to roll funding :: no retail visibility, refinancing failure at maturity
+PARAM: FUNDING PROFILE
+- Retail insured deposits :: balances within the guarantee limit :: very sticky, protected depositors with no incentive to run
+- Large uninsured corporate deposits :: balances far above any guarantee :: highly mobile, concentrated among few holders
+- Short-term wholesale borrowing :: repo and commercial paper :: repriced or withdrawn at every maturity, no depositor protection concept
+- Long-dated covered bonds :: secured term funding :: no early withdrawal possible, no run risk at all
+PARAM: LIQUIDITY SOURCE
+- High-quality liquid asset buffer :: unencumbered government securities :: immediate monetisation, loss realised if sold below cost
+- Central bank discount window :: eligible collateral and willingness to be seen using it :: large and immediate, stigma risk if disclosed
+- Emergency asset sale :: a buyer for the portfolio :: cash raised, crystallisation of losses and signalling of distress
+- Acquisition by a stronger bank :: a willing acquirer and regulatory approval :: complete resolution, loss of the institution
+PARAM: OUTCOME
+- Stabilised without intervention :: outflow ceasing on its own :: no public cost, reputational damage only
+- Central bank support facility :: liquidity provided against collateral :: institution survives, moral hazard debate
+- Resolution and transfer of deposits :: a resolution authority acting over a weekend :: depositors made whole, shareholders wiped out
+- Disorderly failure :: no buyer and no facility :: depositor loss, contagion to peers
+EXCL: TRIGGER|FUNDING PROFILE
+Deposit flight from social media rumour >< Long-dated covered bonds | N3 | no early withdrawal possible | outflow within hours
+Deposit flight from social media rumour >< Retail insured deposits | N7 | protected depositors with no incentive to run | a coordinated loss of confidence
+Wholesale funding market closure >< Retail insured deposits | N3 | counterparties refusing to roll funding | very sticky
+EXCL: TRIGGER|LIQUIDITY SOURCE
+Interest rate mark-to-market loss >< High-quality liquid asset buffer | N7 | immediate monetisation | unrealised loss crystallised only if assets are sold
+EXCL: FUNDING PROFILE|LIQUIDITY SOURCE
+Long-dated covered bonds >< Emergency asset sale | N7 | a buyer for the portfolio | no run risk at all
+EXCL: FUNDING PROFILE|OUTCOME
+Long-dated covered bonds >< Disorderly failure | N7 | depositor loss, contagion to peers | no run risk at all
+Retail insured deposits >< Disorderly failure | N7 | depositor loss, contagion to peers | protected depositors with no incentive to run
+EXCL: LIQUIDITY SOURCE|OUTCOME
+Acquisition by a stronger bank >< Stabilised without intervention | N3 | outflow ceasing on its own | loss of the institution
+Acquisition by a stronger bank >< Disorderly failure | N3 | no buyer and no facility | a willing acquirer and regulatory approval
+Central bank discount window >< Disorderly failure | N3 | no buyer and no facility | eligible collateral and willingness to be seen using it
+EXCL: TRIGGER|OUTCOME
+Credit loss on the asset book >< Stabilised without intervention | N7 | outflow ceasing on its own | solvency question rather than liquidity
+---
+DOMAIN: crisis disinformation management
+GROUP: information
+PARAM: FALSE CLAIM TYPE
+- Fabricated casualty figures :: an invented number presented as official :: directly checkable against records, quickly refutable with data
+- Manipulated video of an event :: editing or synthesis of footage :: emotionally compelling, forensic analysis needed rather than a simple check
+- True facts in a misleading frame :: accurate material presented out of context :: nothing false to correct, refutation requires explaining the context
+- Impersonation of an official account :: a spoofed identity issuing instructions :: authority borrowed from a real institution, actionable by platforms immediately
+PARAM: SPREAD MECHANISM
+- Organic sharing by the public :: content people choose to pass on :: no coordination to disrupt, motivated by genuine belief
+- Coordinated inauthentic network :: many controlled accounts :: detectable by behavioural signals, removable at the account level
+- Amplification by mainstream media :: journalists repeating the claim :: enormous reach, correction possible through the same channel
+- Closed encrypted messaging :: private groups forwarding content :: no visibility to any platform or researcher, no possibility of removal
+PARAM: COUNTERMEASURE
+- Rapid official rebuttal :: verified facts available quickly :: authoritative correction, risk of amplifying the original claim
+- Platform content removal :: a policy basis and platform cooperation :: reduction of reach, ineffective where the content has already spread elsewhere
+- Prebunking and media literacy :: time before the crisis :: durable resistance, no effect during an event already under way
+- Do not engage :: a judgement that attention would amplify :: no amplification risk, no correction either
+PARAM: EFFECT
+- Claim contained :: refuted before wide belief :: no operational consequence
+- Public confusion about instructions :: contradictory guidance in circulation :: reduced compliance with genuine advice
+- Responder safety compromised :: false claims directing hostility at responders :: attacks on crews, withdrawal of services
+- Lasting loss of institutional trust :: belief persisting after refutation :: reduced compliance in the next event
+EXCL: FALSE CLAIM TYPE|COUNTERMEASURE
+True facts in a misleading frame >< Platform content removal | N3 | a policy basis and platform cooperation | nothing false to correct
+Manipulated video of an event >< Rapid official rebuttal | N7 | verified facts available quickly | forensic analysis needed rather than a simple check
+EXCL: SPREAD MECHANISM|COUNTERMEASURE
+Closed encrypted messaging >< Platform content removal | N3 | reduction of reach | no possibility of removal
+Organic sharing by the public >< Platform content removal | N7 | a policy basis and platform cooperation | no coordination to disrupt
+EXCL: SPREAD MECHANISM|EFFECT
+Closed encrypted messaging >< Claim contained | N7 | refuted before wide belief | no visibility to any platform or researcher
+EXCL: COUNTERMEASURE|EFFECT
+Do not engage >< Claim contained | N7 | refuted before wide belief | no correction either
+Prebunking and media literacy >< Claim contained | N7 | refuted before wide belief | no effect during an event already under way
+EXCL: FALSE CLAIM TYPE|SPREAD MECHANISM
+Impersonation of an official account >< Closed encrypted messaging | N7 | no visibility to any platform or researcher | actionable by platforms immediately
+EXCL: FALSE CLAIM TYPE|EFFECT
+Fabricated casualty figures >< Responder safety compromised | N7 | false claims directing hostility at responders | quickly refutable with data
+EXCL: COUNTERMEASURE|SPREAD MECHANISM
+Platform content removal >< Closed encrypted messaging | N3 | a policy basis and platform cooperation | no possibility of removal
+---
+DOMAIN: mass movement of people at a frontier
+GROUP: migration
+PARAM: MOVEMENT DRIVER
+- Sudden armed conflict :: fighting reaching a populated area :: departure within hours, whole families, no preparation whatsoever
+- Slow-onset environmental collapse :: land ceasing to support livelihoods :: movement over years, mostly working-age individuals
+- Instrumentalised movement by a state :: a state facilitating arrivals to create pressure :: concentrated at one crossing, coordinated timing, a political rather than humanitarian origin
+- Economic pull from a labour market :: demand for workers across the border :: continuous rather than spiked, responsive to enforcement and to wages
+PARAM: FRONTIER TYPE
+- Formal land crossing :: a road and an official post :: registration possible, processing capacity a hard limit
+- Green border in remote terrain :: unfenced country :: no processing point at all, detection the only issue
+- Maritime arrival by small boat :: a sea route and departure beaches :: rescue obligation engaged, arrival location unpredictable
+- Airport transit zone :: arrival by air without entry :: identity documented on departure, a legally distinct space
+PARAM: RECEPTION CAPACITY
+- Registration and accommodation available :: sites and staff in place :: orderly processing, arrivals sheltered
+- Processing backlog of months :: caseload far exceeding decision capacity :: prolonged limbo, informal settlements forming
+- No reception system at all :: no legal framework or facilities :: arrivals unregistered, movement onward uncontrolled
+- Onward transfer under an agreement :: a receiving third country and a legal basis :: transfer of the caseload, legal challenge likely
+PARAM: OUTCOME
+- Orderly registration and integration :: capacity matching arrivals :: no crisis
+- Humanitarian conditions at the frontier :: people held with inadequate shelter :: illness and deaths, international attention
+- Onward irregular movement :: arrivals continuing beyond the frontier :: pressure transferred to other states
+- Frontier closure and pushback :: physical prevention of entry :: legal violation, people stranded on the far side
+EXCL: MOVEMENT DRIVER|FRONTIER TYPE
+Instrumentalised movement by a state >< Green border in remote terrain | N7 | no processing point at all | concentrated at one crossing
+EXCL: MOVEMENT DRIVER|OUTCOME
+Economic pull from a labour market >< Humanitarian conditions at the frontier | N7 | people held with inadequate shelter | continuous rather than spiked
+EXCL: FRONTIER TYPE|RECEPTION CAPACITY
+Green border in remote terrain >< Registration and accommodation available | N3 | orderly processing | no processing point at all
+Airport transit zone >< No reception system at all | N7 | arrivals unregistered | identity documented on departure
+EXCL: FRONTIER TYPE|OUTCOME
+Airport transit zone >< Onward irregular movement | N3 | arrivals continuing beyond the frontier | a legally distinct space
+Maritime arrival by small boat >< Frontier closure and pushback | N7 | physical prevention of entry | rescue obligation engaged
+EXCL: RECEPTION CAPACITY|OUTCOME
+No reception system at all >< Orderly registration and integration | N3 | capacity matching arrivals | no legal framework or facilities
+Registration and accommodation available >< Humanitarian conditions at the frontier | N3 | people held with inadequate shelter | arrivals sheltered
+Onward transfer under an agreement >< Orderly registration and integration | N7 | capacity matching arrivals | transfer of the caseload
+EXCL: MOVEMENT DRIVER|RECEPTION CAPACITY
+Sudden armed conflict >< Onward transfer under an agreement | N7 | a receiving third country and a legal basis | departure within hours
+---
+DOMAIN: armed drone incursion over national infrastructure
+GROUP: security
+PARAM: INCURSION PROFILE
+- Single reconnaissance overflight :: one airframe transiting the site :: imagery collection only, no weapon carried, deniable as a navigation error
+- Loitering munition strike :: an armed airframe with a target :: destruction of a specific asset, unambiguous attack
+- Repeated harassment sorties :: sustained sorties over weeks :: no damage individually, cumulative operational and political effect
+- Decoy incursion masking another axis :: cheap airframes drawing attention :: no effect at the site itself, defensive attention diverted
+PARAM: PROTECTED SITE
+- Nuclear power station :: a licensed nuclear site :: catastrophic consequence potential, extremely restricted airspace already
+- Military airbase :: an operational air force installation :: organic air defence present, armed response available on site
+- Offshore energy platform :: an installation far from any shore :: no ground-based defence within range, helicopter access only
+- Urban government district :: government buildings in a populated area :: no kinetic engagement possible over the population, dense sensor coverage
+PARAM: RESPONSE OPTION
+- Kinetic engagement :: a clear firing solution and an acceptable backdrop :: certain destruction of the airframe, falling debris
+- Electronic countermeasures :: the airframe depending on a link or on satellite navigation :: non-destructive defeat, interference with civil users nearby
+- Track and do not engage :: sensors and a decision to observe :: intelligence gained, the incursion completes unimpeded
+- Diplomatic and legal response :: attribution to a state or operator :: consequences after the event, no effect at the time
+PARAM: OUTCOME
+- Airframe defeated before the objective :: an effective engagement :: no damage, wreckage available for exploitation
+- Objective achieved by the intruder :: no effective defence :: damage or imagery obtained
+- Incursion undetected until afterwards :: no sensor coverage at the time :: awareness only from later evidence
+- Collateral harm from the response :: a defensive action causing damage :: own-goal consequences, public and legal exposure
+EXCL: INCURSION PROFILE|RESPONSE OPTION
+Decoy incursion masking another axis >< Kinetic engagement | N7 | certain destruction of the airframe | no effect at the site itself
+EXCL: INCURSION PROFILE|OUTCOME
+Single reconnaissance overflight >< Collateral harm from the response | N7 | a defensive action causing damage | deniable as a navigation error
+EXCL: PROTECTED SITE|RESPONSE OPTION
+Urban government district >< Kinetic engagement | N3 | an acceptable backdrop | no kinetic engagement possible over the population
+Offshore energy platform >< Kinetic engagement | N3 | a clear firing solution and an acceptable backdrop | no ground-based defence within range
+EXCL: PROTECTED SITE|OUTCOME
+Military airbase >< Incursion undetected until afterwards | N7 | no sensor coverage at the time | organic air defence present
+Urban government district >< Incursion undetected until afterwards | N7 | no sensor coverage at the time | dense sensor coverage
+EXCL: RESPONSE OPTION|OUTCOME
+Track and do not engage >< Airframe defeated before the objective | N3 | an effective engagement | the incursion completes unimpeded
+Track and do not engage >< Collateral harm from the response | N3 | a defensive action causing damage | sensors and a decision to observe
+Diplomatic and legal response >< Airframe defeated before the objective | N3 | an effective engagement | no effect at the time
+Diplomatic and legal response >< Collateral harm from the response | N7 | a defensive action causing damage | consequences after the event
+EXCL: INCURSION PROFILE|PROTECTED SITE
+Loitering munition strike >< Nuclear power station | N7 | destruction of a specific asset | catastrophic consequence potential

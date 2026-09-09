@@ -1,0 +1,185 @@
+{
+ "domain": "desert locust outbreak",
+ "group": "agriculture",
+ "parameters": {
+  "INFESTATION STAGE": [
+   "Solitarious population",
+   "Hopper bands on the ground",
+   "Immature swarm in flight",
+   "Mature swarm laying eggs"
+  ],
+  "SURVEY CAPABILITY": [
+   "Ground survey teams",
+   "Satellite greenness imagery",
+   "Aerial reconnaissance",
+   "No survey access"
+  ],
+  "CONTROL METHOD": [
+   "Ground vehicle spraying",
+   "Aerial ultra-low-volume spraying",
+   "Biopesticide application",
+   "No intervention"
+  ],
+  "OUTCOME": [
+   "Outbreak contained locally",
+   "Regional upsurge",
+   "Crop loss in one season",
+   "Plague across the range"
+  ]
+ },
+ "characterisations": {
+  "Solitarious population": {
+   "requires": "low density in the recession area",
+   "provides": "no crop threat, no gregarious behaviour, detectable only by dedicated survey"
+  },
+  "Hopper bands on the ground": {
+   "requires": "gregarisation after good rains",
+   "provides": "flightless and concentrated, highly treatable, a short window before fledging"
+  },
+  "Immature swarm in flight": {
+   "requires": "fledged adults forming a swarm",
+   "provides": "movement of a hundred kilometres a day, unpredictable settling, no egg laying yet"
+  },
+  "Mature swarm laying eggs": {
+   "requires": "sexual maturation after rainfall",
+   "provides": "the next generation established, laying sites dispersed over a wide area"
+  },
+  "Ground survey teams": {
+   "requires": "vehicles and trained scouts with access",
+   "provides": "accurate stage and density data, limited to accessible ground"
+  },
+  "Satellite greenness imagery": {
+   "requires": "cloud-free imagery and analysis",
+   "provides": "identification of areas that may become breeding habitat, no direct sight of any insect"
+  },
+  "Aerial reconnaissance": {
+   "requires": "light aircraft on task",
+   "provides": "rapid coverage of large areas, detection of swarms rather than hoppers"
+  },
+  "No survey access": {
+   "requires": "conflict or insecurity closing the area",
+   "provides": "no information from that territory at all"
+  },
+  "Ground vehicle spraying": {
+   "requires": "road access to the target band",
+   "provides": "precise treatment of hopper bands, very low output per day"
+  },
+  "Aerial ultra-low-volume spraying": {
+   "requires": "aircraft, an airstrip and a located target",
+   "provides": "treatment of large swarms, dependence on knowing where the target is"
+  },
+  "Biopesticide application": {
+   "requires": "acceptance of a slower kill and warm conditions",
+   "provides": "no harm to non-target species, effect over one to two weeks"
+  },
+  "No intervention": {
+   "requires": "nothing",
+   "provides": "no cost, full development to the next stage"
+  },
+  "Outbreak contained locally": {
+   "requires": "treatment during the hopper stage",
+   "provides": "minimal crop loss, no regional spread"
+  },
+  "Regional upsurge": {
+   "requires": "multiple generations across countries",
+   "provides": "sustained multi-country campaign, major funding requirement"
+  },
+  "Crop loss in one season": {
+   "requires": "swarms reaching cultivated land",
+   "provides": "food security emergency, no permanent change"
+  },
+  "Plague across the range": {
+   "requires": "continuous breeding over years",
+   "provides": "transboundary emergency, years to bring under control"
+  }
+ },
+ "exclusions": {
+  "INFESTATION STAGE|SURVEY CAPABILITY": [
+   {
+    "row": "Solitarious population",
+    "col": "Aerial reconnaissance",
+    "code": "N3",
+    "requires": "detection of swarms rather than hoppers",
+    "blocked_by": "no gregarious behaviour"
+   },
+   {
+    "row": "Hopper bands on the ground",
+    "col": "Aerial reconnaissance",
+    "code": "N3",
+    "requires": "detection of swarms rather than hoppers",
+    "blocked_by": "flightless and concentrated"
+   }
+  ],
+  "INFESTATION STAGE|CONTROL METHOD": [
+   {
+    "row": "Immature swarm in flight",
+    "col": "Ground vehicle spraying",
+    "code": "N3",
+    "requires": "road access to the target band",
+    "blocked_by": "movement of a hundred kilometres a day"
+   },
+   {
+    "row": "Mature swarm laying eggs",
+    "col": "Ground vehicle spraying",
+    "code": "N7",
+    "requires": "precise treatment of hopper bands",
+    "blocked_by": "laying sites dispersed over a wide area"
+   }
+  ],
+  "SURVEY CAPABILITY|CONTROL METHOD": [
+   {
+    "row": "No survey access",
+    "col": "Aerial ultra-low-volume spraying",
+    "code": "N3",
+    "requires": "a located target",
+    "blocked_by": "no information from that territory at all"
+   },
+   {
+    "row": "No survey access",
+    "col": "Ground vehicle spraying",
+    "code": "N3",
+    "requires": "road access to the target band",
+    "blocked_by": "conflict or insecurity closing the area"
+   },
+   {
+    "row": "Satellite greenness imagery",
+    "col": "Ground vehicle spraying",
+    "code": "N7",
+    "requires": "precise treatment of hopper bands",
+    "blocked_by": "no direct sight of any insect"
+   }
+  ],
+  "CONTROL METHOD|OUTCOME": [
+   {
+    "row": "No intervention",
+    "col": "Outbreak contained locally",
+    "code": "N3",
+    "requires": "treatment during the hopper stage",
+    "blocked_by": "full development to the next stage"
+   },
+   {
+    "row": "Biopesticide application",
+    "col": "Outbreak contained locally",
+    "code": "N7",
+    "requires": "treatment during the hopper stage",
+    "blocked_by": "effect over one to two weeks"
+   }
+  ],
+  "INFESTATION STAGE|OUTCOME": [
+   {
+    "row": "Solitarious population",
+    "col": "Crop loss in one season",
+    "code": "N3",
+    "requires": "swarms reaching cultivated land",
+    "blocked_by": "no crop threat"
+   },
+   {
+    "row": "Solitarious population",
+    "col": "Plague across the range",
+    "code": "N7",
+    "requires": "continuous breeding over years",
+    "blocked_by": "low density in the recession area"
+   }
+  ]
+ }
+}

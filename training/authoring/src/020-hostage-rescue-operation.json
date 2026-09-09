@@ -1,0 +1,319 @@
+{
+ "domain": "hostage rescue operation",
+ "group": "security",
+ "parameters": {
+  "CAPTOR": [
+   "Ideological terrorist cell",
+   "Criminal kidnap gang",
+   "Lone disturbed individual",
+   "State security service"
+  ],
+  "LOCATION": [
+   "Occupied building in a city",
+   "Moving vehicle or aircraft",
+   "Remote rural compound",
+   "Undisclosed and unlocated"
+  ],
+  "RESOLUTION METHOD": [
+   "Negotiated release",
+   "Deliberate assault",
+   "Emergency assault under fire",
+   "Ransom payment through intermediary"
+  ],
+  "INTELLIGENCE AVAILABLE": [
+   "Live internal imagery",
+   "Captor communications intercept",
+   "Released hostage debrief",
+   "Nothing beyond location"
+  ],
+  "TIME PRESSURE": [
+   "Immediate threat to life",
+   "Days of standoff",
+   "Months of captivity"
+  ]
+ },
+ "characterisations": {
+  "Ideological terrorist cell": {
+   "requires": "a political demand and willingness to die",
+   "provides": "no interest in money, high lethality, media orientation"
+  },
+  "Criminal kidnap gang": {
+   "requires": "a victim with payers behind them",
+   "provides": "money motive, hostage kept alive as an asset, negotiable"
+  },
+  "Lone disturbed individual": {
+   "requires": "no organisation or planning",
+   "provides": "unpredictable behaviour, no coherent demand, short endurance"
+  },
+  "State security service": {
+   "requires": "sovereign control of territory and detention",
+   "provides": "indefinite lawful-looking detention, no assault option, diplomatic channel only"
+  },
+  "Occupied building in a city": {
+   "requires": "a fixed structure with approaches",
+   "provides": "containment, surveillance access, assault feasibility, bystander risk"
+  },
+  "Moving vehicle or aircraft": {
+   "requires": "the captors controlling transit",
+   "provides": "no static perimeter, assault only at a halt, continuous relocation"
+  },
+  "Remote rural compound": {
+   "requires": "isolation from population",
+   "provides": "no bystanders, long approach, difficult covert observation"
+  },
+  "Undisclosed and unlocated": {
+   "requires": "successful concealment by captors",
+   "provides": "no target to act against at all, no surveillance, no assault"
+  },
+  "Negotiated release": {
+   "requires": "a captor willing to trade and time to talk",
+   "provides": "no casualties, concession to captors"
+  },
+  "Deliberate assault": {
+   "requires": "a known location, rehearsal time and internal knowledge",
+   "provides": "highest chance of surviving hostages, needs preparation"
+  },
+  "Emergency assault under fire": {
+   "requires": "an immediate lethal threat and proximity",
+   "provides": "no preparation, high casualty risk, the only option when killing has begun"
+  },
+  "Ransom payment through intermediary": {
+   "requires": "a captor motivated by money",
+   "provides": "release without force, funds a further operation"
+  },
+  "Live internal imagery": {
+   "requires": "a sensor or source inside the structure",
+   "provides": "hostage and captor positions, assault planning basis"
+  },
+  "Captor communications intercept": {
+   "requires": "captors using interceptable means",
+   "provides": "intent and mood, no positions"
+  },
+  "Released hostage debrief": {
+   "requires": "at least one person already released",
+   "provides": "detailed interior layout, dated by the time of release"
+  },
+  "Nothing beyond location": {
+   "requires": "a located site with no penetration",
+   "provides": "containment only, no basis for planning an entry"
+  },
+  "Immediate threat to life": {
+   "requires": "killing begun or imminent",
+   "provides": "minutes, forecloses anything requiring preparation"
+  },
+  "Days of standoff": {
+   "requires": "a stable contained situation",
+   "provides": "time for negotiation and rehearsal"
+  },
+  "Months of captivity": {
+   "requires": "concealment and captor endurance",
+   "provides": "time for anything, but continuous loss of intelligence currency"
+  }
+ },
+ "exclusions": {
+  "CAPTOR|LOCATION": [
+   {
+    "row": "Lone disturbed individual",
+    "col": "Undisclosed and unlocated",
+    "code": "N7",
+    "requires": "successful concealment by captors",
+    "blocked_by": "no organisation or planning"
+   }
+  ],
+  "CAPTOR|RESOLUTION METHOD": [
+   {
+    "row": "Ideological terrorist cell",
+    "col": "Ransom payment through intermediary",
+    "code": "N3",
+    "requires": "a captor motivated by money",
+    "blocked_by": "no interest in money"
+   },
+   {
+    "row": "Lone disturbed individual",
+    "col": "Ransom payment through intermediary",
+    "code": "N3",
+    "requires": "a captor motivated by money",
+    "blocked_by": "no coherent demand"
+   },
+   {
+    "row": "State security service",
+    "col": "Deliberate assault",
+    "code": "N3",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "no assault option"
+   },
+   {
+    "row": "State security service",
+    "col": "Emergency assault under fire",
+    "code": "N3",
+    "requires": "an immediate lethal threat and proximity",
+    "blocked_by": "no assault option"
+   },
+   {
+    "row": "State security service",
+    "col": "Ransom payment through intermediary",
+    "code": "N3",
+    "requires": "a captor motivated by money",
+    "blocked_by": "diplomatic channel only"
+   }
+  ],
+  "CAPTOR|INTELLIGENCE AVAILABLE": [
+   {
+    "row": "Lone disturbed individual",
+    "col": "Captor communications intercept",
+    "code": "N7",
+    "requires": "captors using interceptable means",
+    "blocked_by": "no organisation or planning"
+   },
+   {
+    "row": "State security service",
+    "col": "Live internal imagery",
+    "code": "N7",
+    "requires": "a sensor or source inside the structure",
+    "blocked_by": "sovereign control of territory and detention"
+   }
+  ],
+  "CAPTOR|TIME PRESSURE": [
+   {
+    "row": "Lone disturbed individual",
+    "col": "Months of captivity",
+    "code": "N3",
+    "requires": "concealment and captor endurance",
+    "blocked_by": "short endurance"
+   },
+   {
+    "row": "State security service",
+    "col": "Immediate threat to life",
+    "code": "N7",
+    "requires": "killing begun or imminent",
+    "blocked_by": "indefinite lawful-looking detention"
+   }
+  ],
+  "LOCATION|RESOLUTION METHOD": [
+   {
+    "row": "Moving vehicle or aircraft",
+    "col": "Deliberate assault",
+    "code": "N3",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "no static perimeter, assault only at a halt"
+   },
+   {
+    "row": "Undisclosed and unlocated",
+    "col": "Deliberate assault",
+    "code": "N3",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "no target to act against at all"
+   },
+   {
+    "row": "Undisclosed and unlocated",
+    "col": "Emergency assault under fire",
+    "code": "N3",
+    "requires": "an immediate lethal threat and proximity",
+    "blocked_by": "no target to act against at all"
+   }
+  ],
+  "LOCATION|INTELLIGENCE AVAILABLE": [
+   {
+    "row": "Moving vehicle or aircraft",
+    "col": "Live internal imagery",
+    "code": "N7",
+    "requires": "a sensor or source inside the structure",
+    "blocked_by": "continuous relocation"
+   },
+   {
+    "row": "Undisclosed and unlocated",
+    "col": "Live internal imagery",
+    "code": "N3",
+    "requires": "a sensor or source inside the structure",
+    "blocked_by": "no surveillance"
+   },
+   {
+    "row": "Undisclosed and unlocated",
+    "col": "Nothing beyond location",
+    "code": "N1",
+    "requires": "a located site with no penetration",
+    "blocked_by": "successful concealment by captors"
+   }
+  ],
+  "LOCATION|TIME PRESSURE": [
+   {
+    "row": "Moving vehicle or aircraft",
+    "col": "Days of standoff",
+    "code": "N3",
+    "requires": "a stable contained situation",
+    "blocked_by": "continuous relocation"
+   },
+   {
+    "row": "Moving vehicle or aircraft",
+    "col": "Months of captivity",
+    "code": "N7",
+    "requires": "concealment and captor endurance",
+    "blocked_by": "continuous relocation"
+   }
+  ],
+  "RESOLUTION METHOD|INTELLIGENCE AVAILABLE": [
+   {
+    "row": "Deliberate assault",
+    "col": "Captor communications intercept",
+    "code": "N3",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "intent and mood, no positions"
+   },
+   {
+    "row": "Deliberate assault",
+    "col": "Nothing beyond location",
+    "code": "N3",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "no basis for planning an entry"
+   }
+  ],
+  "RESOLUTION METHOD|TIME PRESSURE": [
+   {
+    "row": "Negotiated release",
+    "col": "Immediate threat to life",
+    "code": "N4",
+    "requires": "a captor willing to trade and time to talk",
+    "blocked_by": "minutes, forecloses anything requiring preparation"
+   },
+   {
+    "row": "Deliberate assault",
+    "col": "Immediate threat to life",
+    "code": "N4",
+    "requires": "a known location, rehearsal time and internal knowledge",
+    "blocked_by": "minutes, forecloses anything requiring preparation"
+   },
+   {
+    "row": "Emergency assault under fire",
+    "col": "Days of standoff",
+    "code": "N3",
+    "requires": "an immediate lethal threat and proximity",
+    "blocked_by": "a stable contained situation"
+   },
+   {
+    "row": "Emergency assault under fire",
+    "col": "Months of captivity",
+    "code": "N3",
+    "requires": "an immediate lethal threat and proximity",
+    "blocked_by": "concealment and captor endurance"
+   },
+   {
+    "row": "Ransom payment through intermediary",
+    "col": "Immediate threat to life",
+    "code": "N4",
+    "requires": "a captor motivated by money",
+    "blocked_by": "minutes, forecloses anything requiring preparation"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CAPTOR|LOCATION": "a lone disturbed individual is N for a moving vehicle, a remote compound and an undisclosed location - none is achievable without planning or organisation. A state security service is N for a city building or a vehicle: it detains in its own facilities.",
+  "CAPTOR|RESOLUTION METHOD": "ransom is N for an ideological cell (no money motive) and N for a lone individual (no coherent demand to pay). A state service admits negotiation only - assault on a sovereign facility is not an option, nor is ransom.",
+  "CAPTOR|INTELLIGENCE AVAILABLE": "a lone individual x communications intercept is N: no organisation communicating. A state service x live internal imagery is N: penetrating a state detention facility with live sensors is not on the table.",
+  "CAPTOR|TIME PRESSURE": "a lone individual is N at months - no endurance. A state service is N at immediate threat to life: its whole method is indefinite detention.",
+  "LOCATION|RESOLUTION METHOD": "a moving vehicle is N for deliberate assault - there is no static target to rehearse against. An undisclosed location is N for both assault types: nothing to assault.",
+  "LOCATION|INTELLIGENCE AVAILABLE": "a moving vehicle is N for live internal imagery. An undisclosed location is N for imagery and N for 'nothing beyond location', since the location is precisely what is not known.",
+  "LOCATION|TIME PRESSURE": "a moving vehicle is N at days and months - transit does not continue that long.",
+  "RESOLUTION METHOD|INTELLIGENCE AVAILABLE": "deliberate assault is N on communications intercept alone and N on nothing-but-location: neither gives interior positions to plan against. Emergency assault is N on intercept alone.",
+  "RESOLUTION METHOD|TIME PRESSURE": "negotiation, deliberate assault and ransom are all N under immediate threat to life - none fits in minutes. Emergency assault is N at days and months, being definitionally a response to an immediate threat."
+ }
+}

@@ -1,0 +1,223 @@
+{
+ "domain": "border crossing interdiction",
+ "group": "security",
+ "parameters": {
+  "CROSSING MODE": [
+   "Concealed in a commercial vehicle",
+   "On foot across green border",
+   "Through an official checkpoint on false documents",
+   "Small boat by sea"
+  ],
+  "SUBJECT": [
+   "Economic migrant",
+   "Trafficked person",
+   "Sanctioned individual",
+   "Returning foreign fighter"
+  ],
+  "DETECTION CAPABILITY": [
+   "Document and biometric check",
+   "Vehicle scanning and search",
+   "Ground sensors and patrols",
+   "Advance passenger data"
+  ],
+  "DISPOSITION": [
+   "Refusal and return",
+   "Detention pending investigation",
+   "Admission with monitoring",
+   "Referral to protection process"
+  ]
+ },
+ "characterisations": {
+  "Concealed in a commercial vehicle": {
+   "requires": "collusion or ignorance of the haulier",
+   "provides": "passage through an official crossing without presenting, no documents examined"
+  },
+  "On foot across green border": {
+   "requires": "unmonitored terrain and physical capability",
+   "provides": "no contact with any official system, no documents examined, physically demanding"
+  },
+  "Through an official checkpoint on false documents": {
+   "requires": "documents of sufficient quality and a plausible profile",
+   "provides": "an official record of entry, full exposure to biometric and data checks"
+  },
+  "Small boat by sea": {
+   "requires": "a maritime route and a vessel",
+   "provides": "arrival outside any checkpoint, high risk to life, arrival point unpredictable"
+  },
+  "Economic migrant": {
+   "requires": "intent to work or settle",
+   "provides": "no protection claim by definition, cooperative on contact, no security interest"
+  },
+  "Trafficked person": {
+   "requires": "coercion or deception by a third party",
+   "provides": "a victim rather than an offender, controlled by others, entitled to protection"
+  },
+  "Sanctioned individual": {
+   "requires": "designation on a list under a legal instrument",
+   "provides": "identity known to authorities in advance, strong incentive to avoid any record"
+  },
+  "Returning foreign fighter": {
+   "requires": "prior travel to a conflict zone",
+   "provides": "security interest, likely known identity, prosecution exposure"
+  },
+  "Document and biometric check": {
+   "requires": "the subject presenting at a control point",
+   "provides": "identity verification against watchlists, useless if no presentation occurs"
+  },
+  "Vehicle scanning and search": {
+   "requires": "a vehicle passing an inspection facility",
+   "provides": "detection of concealed persons, no identity information"
+  },
+  "Ground sensors and patrols": {
+   "requires": "coverage of unmonitored terrain",
+   "provides": "detection of movement between crossings, no identity information"
+  },
+  "Advance passenger data": {
+   "requires": "a booked and manifested journey",
+   "provides": "identity checked before arrival, useless for unmanifested travel"
+  },
+  "Refusal and return": {
+   "requires": "a receiving state and no protection claim",
+   "provides": "immediate removal, no further process"
+  },
+  "Detention pending investigation": {
+   "requires": "grounds for suspicion and legal authority",
+   "provides": "time to establish identity and intent"
+  },
+  "Admission with monitoring": {
+   "requires": "identity established and risk judged manageable",
+   "provides": "entry with continuing oversight"
+  },
+  "Referral to protection process": {
+   "requires": "a claim engaging protection obligations",
+   "provides": "suspension of removal, formal assessment"
+  }
+ },
+ "exclusions": {
+  "CROSSING MODE|DETECTION CAPABILITY": [
+   {
+    "row": "Concealed in a commercial vehicle",
+    "col": "Document and biometric check",
+    "code": "N3",
+    "requires": "the subject presenting at a control point",
+    "blocked_by": "no documents examined"
+   },
+   {
+    "row": "Concealed in a commercial vehicle",
+    "col": "Ground sensors and patrols",
+    "code": "N3",
+    "requires": "coverage of unmonitored terrain",
+    "blocked_by": "passage through an official crossing without presenting"
+   },
+   {
+    "row": "Concealed in a commercial vehicle",
+    "col": "Advance passenger data",
+    "code": "N3",
+    "requires": "a booked and manifested journey",
+    "blocked_by": "passage through an official crossing without presenting"
+   },
+   {
+    "row": "On foot across green border",
+    "col": "Document and biometric check",
+    "code": "N3",
+    "requires": "the subject presenting at a control point",
+    "blocked_by": "no contact with any official system"
+   },
+   {
+    "row": "On foot across green border",
+    "col": "Vehicle scanning and search",
+    "code": "N3",
+    "requires": "a vehicle passing an inspection facility",
+    "blocked_by": "no contact with any official system"
+   },
+   {
+    "row": "On foot across green border",
+    "col": "Advance passenger data",
+    "code": "N3",
+    "requires": "a booked and manifested journey",
+    "blocked_by": "no contact with any official system"
+   },
+   {
+    "row": "Through an official checkpoint on false documents",
+    "col": "Ground sensors and patrols",
+    "code": "N3",
+    "requires": "coverage of unmonitored terrain",
+    "blocked_by": "an official record of entry"
+   },
+   {
+    "row": "Small boat by sea",
+    "col": "Document and biometric check",
+    "code": "N3",
+    "requires": "the subject presenting at a control point",
+    "blocked_by": "arrival outside any checkpoint"
+   },
+   {
+    "row": "Small boat by sea",
+    "col": "Vehicle scanning and search",
+    "code": "N3",
+    "requires": "a vehicle passing an inspection facility",
+    "blocked_by": "arrival outside any checkpoint"
+   },
+   {
+    "row": "Small boat by sea",
+    "col": "Advance passenger data",
+    "code": "N3",
+    "requires": "a booked and manifested journey",
+    "blocked_by": "arrival outside any checkpoint"
+   }
+  ],
+  "SUBJECT|DETECTION CAPABILITY": [
+   {
+    "row": "Sanctioned individual",
+    "col": "Vehicle scanning and search",
+    "code": "N3",
+    "requires": "identity known to authorities in advance",
+    "blocked_by": "no identity information"
+   },
+   {
+    "row": "Returning foreign fighter",
+    "col": "Vehicle scanning and search",
+    "code": "N3",
+    "requires": "likely known identity",
+    "blocked_by": "no identity information"
+   }
+  ],
+  "SUBJECT|DISPOSITION": [
+   {
+    "row": "Economic migrant",
+    "col": "Referral to protection process",
+    "code": "N1",
+    "requires": "a claim engaging protection obligations",
+    "blocked_by": "no protection claim by definition"
+   },
+   {
+    "row": "Trafficked person",
+    "col": "Refusal and return",
+    "code": "N1",
+    "requires": "a receiving state and no protection claim",
+    "blocked_by": "entitled to protection"
+   },
+   {
+    "row": "Sanctioned individual",
+    "col": "Admission with monitoring",
+    "code": "N7",
+    "requires": "identity established and risk judged manageable",
+    "blocked_by": "designation on a list under a legal instrument"
+   },
+   {
+    "row": "Returning foreign fighter",
+    "col": "Refusal and return",
+    "code": "N7",
+    "requires": "a receiving state and no protection claim",
+    "blocked_by": "prior travel to a conflict zone"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CROSSING MODE|SUBJECT": "a returning foreign fighter concealed in a commercial vehicle is N - the profile is a purposeful traveller with means, not one relying on a haulier. A sanctioned individual on foot across a green border is N: designation implies resources and a route that avoids exertion and exposure. A trafficked person on false documents is N: traffickers move victims by concealment, not by presenting them to biometric checks.",
+  "CROSSING MODE|DETECTION CAPABILITY": "each mode is visible to exactly one or two capabilities. Vehicle concealment is caught by scanning only - no documents are presented, no green-border sensors involved, no manifest. Foot crossing is caught by ground sensors only. False documents at a checkpoint are caught by document checks and advance data. Small boats are caught by patrol coverage only.",
+  "SUBJECT|DETECTION CAPABILITY": "a sanctioned individual and a returning fighter are both N for vehicle scanning: neither travels concealed in freight, as above.",
+  "SUBJECT|DISPOSITION": "an economic migrant is N for protection referral, having no claim by definition. A trafficked person is N for refusal and return - protection obligations attach. A sanctioned individual is N for admission with monitoring and N for protection referral. A returning fighter is N for refusal and return (own nationals cannot be refused) and N for protection referral.",
+  "DETECTION CAPABILITY|DISPOSITION": "no detection capability excludes any disposition."
+ }
+}

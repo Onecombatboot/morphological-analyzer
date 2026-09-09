@@ -1,0 +1,234 @@
+{
+ "domain": "building fire evacuation",
+ "group": "civil",
+ "parameters": {
+  "BUILDING TYPE": [
+   "High-rise office tower",
+   "Underground metro station",
+   "Single-storey warehouse",
+   "Hospital ward"
+  ],
+  "OCCUPANT PROFILE": [
+   "Able-bodied staff familiar with the building",
+   "Members of the public unfamiliar with exits",
+   "Non-ambulatory patients",
+   "Night shift skeleton crew"
+  ],
+  "EVACUATION STRATEGY": [
+   "Simultaneous total evacuation",
+   "Phased floor-by-floor",
+   "Defend in place",
+   "Horizontal transfer to an adjacent compartment"
+  ],
+  "IMPAIRMENT": [
+   "Dense smoke in escape routes",
+   "Loss of lighting",
+   "Blocked primary exit",
+   "Lift systems unavailable"
+  ]
+ },
+ "characterisations": {
+  "High-rise office tower": {
+   "requires": "vertical escape over many floors",
+   "provides": "long travel distances, stair capacity limits, refuge floors, fire-resisting compartments"
+  },
+  "Underground metro station": {
+   "requires": "upward escape against smoke movement",
+   "provides": "single direction of egress, no external windows, rapid smoke logging"
+  },
+  "Single-storey warehouse": {
+   "requires": "horizontal travel to perimeter doors",
+   "provides": "short escape distances, many exits, large undivided volume"
+  },
+  "Hospital ward": {
+   "requires": "movement of people who cannot self-evacuate",
+   "provides": "fire compartments designed for transfer, staff trained to move patients, beds and equipment"
+  },
+  "Able-bodied staff familiar with the building": {
+   "requires": "training and routine presence",
+   "provides": "fast self-evacuation, knowledge of secondary exits, capacity to assist"
+  },
+  "Members of the public unfamiliar with exits": {
+   "requires": "signage and staff direction",
+   "provides": "slow response, tendency to return to the entrance used, no knowledge of alternatives"
+  },
+  "Non-ambulatory patients": {
+   "requires": "physical assistance per person",
+   "provides": "no self-evacuation whatsoever, dependence on staff ratio and equipment"
+  },
+  "Night shift skeleton crew": {
+   "requires": "minimal staffing",
+   "provides": "very fast self-evacuation, almost no capacity to assist anyone else"
+  },
+  "Simultaneous total evacuation": {
+   "requires": "escape capacity sufficient for everyone at once",
+   "provides": "everyone out fastest, overwhelms stairs in tall buildings"
+  },
+  "Phased floor-by-floor": {
+   "requires": "compartments that hold long enough to wait, and a public address system",
+   "provides": "controlled stair loading, requires occupants to accept waiting"
+  },
+  "Defend in place": {
+   "requires": "fire-resisting construction and confidence in it",
+   "provides": "no movement of occupants, total dependence on compartment integrity"
+  },
+  "Horizontal transfer to an adjacent compartment": {
+   "requires": "at least two compartments on the same level",
+   "provides": "movement without stairs, suitable for people who cannot descend"
+  },
+  "Dense smoke in escape routes": {
+   "requires": "fire products entering the means of escape",
+   "provides": "loss of visibility, toxicity, disorientation"
+  },
+  "Loss of lighting": {
+   "requires": "failure of normal and emergency supply",
+   "provides": "disorientation, no effect on physical route capacity"
+  },
+  "Blocked primary exit": {
+   "requires": "an obstruction or fire at one route",
+   "provides": "loss of one path, capacity of the remainder unchanged"
+  },
+  "Lift systems unavailable": {
+   "requires": "lifts recalled or failed",
+   "provides": "no vertical mechanical transport, irrelevant where escape is horizontal"
+  }
+ },
+ "exclusions": {
+  "BUILDING TYPE|OCCUPANT PROFILE": [
+   {
+    "row": "High-rise office tower",
+    "col": "Non-ambulatory patients",
+    "code": "N7",
+    "requires": "no self-evacuation whatsoever",
+    "blocked_by": "vertical escape over many floors"
+   },
+   {
+    "row": "Underground metro station",
+    "col": "Non-ambulatory patients",
+    "code": "N7",
+    "requires": "no self-evacuation whatsoever",
+    "blocked_by": "upward escape against smoke movement"
+   },
+   {
+    "row": "Single-storey warehouse",
+    "col": "Non-ambulatory patients",
+    "code": "N7",
+    "requires": "no self-evacuation whatsoever",
+    "blocked_by": "horizontal travel to perimeter doors"
+   }
+  ],
+  "BUILDING TYPE|EVACUATION STRATEGY": [
+   {
+    "row": "Underground metro station",
+    "col": "Phased floor-by-floor",
+    "code": "N3",
+    "requires": "compartments that hold long enough to wait",
+    "blocked_by": "rapid smoke logging"
+   },
+   {
+    "row": "Underground metro station",
+    "col": "Defend in place",
+    "code": "N3",
+    "requires": "fire-resisting construction and confidence in it",
+    "blocked_by": "rapid smoke logging"
+   },
+   {
+    "row": "Underground metro station",
+    "col": "Horizontal transfer to an adjacent compartment",
+    "code": "N3",
+    "requires": "at least two compartments on the same level",
+    "blocked_by": "single direction of egress"
+   },
+   {
+    "row": "Single-storey warehouse",
+    "col": "Phased floor-by-floor",
+    "code": "N1",
+    "requires": "compartments that hold long enough to wait",
+    "blocked_by": "large undivided volume"
+   },
+   {
+    "row": "Single-storey warehouse",
+    "col": "Defend in place",
+    "code": "N3",
+    "requires": "fire-resisting construction and confidence in it",
+    "blocked_by": "large undivided volume"
+   },
+   {
+    "row": "Single-storey warehouse",
+    "col": "Horizontal transfer to an adjacent compartment",
+    "code": "N3",
+    "requires": "at least two compartments on the same level",
+    "blocked_by": "large undivided volume"
+   },
+   {
+    "row": "Hospital ward",
+    "col": "Simultaneous total evacuation",
+    "code": "N3",
+    "requires": "escape capacity sufficient for everyone at once",
+    "blocked_by": "movement of people who cannot self-evacuate"
+   }
+  ],
+  "BUILDING TYPE|IMPAIRMENT": [
+   {
+    "row": "Single-storey warehouse",
+    "col": "Lift systems unavailable",
+    "code": "N6",
+    "requires": "no vertical mechanical transport",
+    "blocked_by": "horizontal travel to perimeter doors"
+   }
+  ],
+  "OCCUPANT PROFILE|EVACUATION STRATEGY": [
+   {
+    "row": "Members of the public unfamiliar with exits",
+    "col": "Phased floor-by-floor",
+    "code": "N7",
+    "requires": "requires occupants to accept waiting",
+    "blocked_by": "slow response, tendency to return to the entrance used"
+   },
+   {
+    "row": "Members of the public unfamiliar with exits",
+    "col": "Defend in place",
+    "code": "N7",
+    "requires": "no movement of occupants, total dependence on compartment integrity",
+    "blocked_by": "slow response, tendency to return to the entrance used"
+   },
+   {
+    "row": "Non-ambulatory patients",
+    "col": "Simultaneous total evacuation",
+    "code": "N3",
+    "requires": "escape capacity sufficient for everyone at once",
+    "blocked_by": "no self-evacuation whatsoever"
+   },
+   {
+    "row": "Night shift skeleton crew",
+    "col": "Defend in place",
+    "code": "N7",
+    "requires": "no movement of occupants, total dependence on compartment integrity",
+    "blocked_by": "very fast self-evacuation"
+   }
+  ],
+  "EVACUATION STRATEGY|IMPAIRMENT": [
+   {
+    "row": "Phased floor-by-floor",
+    "col": "Dense smoke in escape routes",
+    "code": "N3",
+    "requires": "compartments that hold long enough to wait",
+    "blocked_by": "fire products entering the means of escape"
+   },
+   {
+    "row": "Defend in place",
+    "col": "Dense smoke in escape routes",
+    "code": "N3",
+    "requires": "fire-resisting construction and confidence in it",
+    "blocked_by": "fire products entering the means of escape"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "BUILDING TYPE|OCCUPANT PROFILE": "non-ambulatory patients are N outside a hospital ward - an office tower, a metro station and a warehouse do not hold people who cannot self-evacuate as a population. A night skeleton crew is N in a metro station, which is either open to the public or closed.",
+  "BUILDING TYPE|EVACUATION STRATEGY": "a metro station and a warehouse both have a single-level escape with no second compartment, so phased, defend-in-place and horizontal transfer are all N. A hospital ward is N for simultaneous total evacuation: moving every non-ambulatory patient at once is not achievable.",
+  "BUILDING TYPE|IMPAIRMENT": "lifts unavailable is N in a metro station and a warehouse, where escape is not by lift.",
+  "OCCUPANT PROFILE|EVACUATION STRATEGY": "the unfamiliar public will not accept phased waiting and cannot be relied on to defend in place, so both N. Non-ambulatory patients cannot do simultaneous or phased stair evacuation at all. A skeleton crew is N for defend in place, having no capacity to manage it.",
+  "EVACUATION STRATEGY|IMPAIRMENT": "phased evacuation and defend in place are both N with dense smoke in escape routes - both depend on the escape route or compartment holding, which smoke ingress has already disproved."
+ }
+}

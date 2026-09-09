@@ -1,0 +1,157 @@
+DOMAIN: counter-drone response at a civil airport
+GROUP: security
+PARAM: INTRUDER DRONE
+- Hobby quadcopter with no payload :: a consumer aircraft and a nearby operator :: very small radar cross-section, short endurance, a live control link, no hostile intent necessarily
+- Modified long-range fixed wing :: a preprogrammed airframe with extended range :: hours of endurance, no control link once launched, operator far from the airfield
+- Swarm of coordinated small aircraft :: a controller managing many airframes :: saturation of any single-target defence, simultaneous multiple tracks
+- Tethered surveillance aircraft :: a physical tether to a ground station :: fixed position, continuous power, unmistakable ground origin
+PARAM: DETECTION MEANS
+- Radio frequency link detection :: the aircraft emitting a control or video link :: bearing to both aircraft and operator, useless against an autonomous airframe
+- Primary surveillance radar :: a return large enough to exceed clutter :: position and track regardless of emissions, poor against very small airframes
+- Electro-optical tracking :: daylight or thermal contrast and a cued direction :: visual identification of the airframe type, short range only
+- Pilot or ground staff report :: a person seeing the aircraft :: unstructured and unreliable position, no track
+PARAM: MITIGATION
+- Radio frequency jamming :: the aircraft depending on a receivable link :: forced landing or return to home, no effect on an autonomous airframe
+- Kinetic interception :: authority to engage and a safe backdrop :: physical removal, debris falling on an operational airfield
+- Capture by net-carrying interceptor :: an interceptor aircraft and a stable target track :: controlled recovery of the airframe intact, one target at a time
+- Ground stop of all movements :: an air traffic decision :: certainty of separation, no removal of the intruder, severe delay cost
+PARAM: OPERATIONAL IMPACT
+- No disruption :: detection without any encroachment on the movement area :: no consequence
+- Departures held :: an intruder near the departure path :: delay only, aircraft remain on the ground
+- Full airport closure :: an intruder over the movement area :: diversion of arrivals, cascading network delay
+- Aircraft damaged in flight :: an actual collision with an aircraft :: airworthiness event, potential loss of life
+EXCL: INTRUDER DRONE|DETECTION MEANS
+Modified long-range fixed wing >< Radio frequency link detection | N3 | the aircraft emitting a control or video link | no control link once launched
+Hobby quadcopter with no payload >< Primary surveillance radar | N7 | a return large enough to exceed clutter | very small radar cross-section
+EXCL: INTRUDER DRONE|MITIGATION
+Modified long-range fixed wing >< Radio frequency jamming | N3 | the aircraft depending on a receivable link | no control link once launched
+Swarm of coordinated small aircraft >< Capture by net-carrying interceptor | N3 | one target at a time | saturation of any single-target defence
+Tethered surveillance aircraft >< Radio frequency jamming | N7 | the aircraft depending on a receivable link | a physical tether to a ground station
+Tethered surveillance aircraft >< Capture by net-carrying interceptor | N7 | controlled recovery of the airframe intact | a physical tether to a ground station
+EXCL: INTRUDER DRONE|OPERATIONAL IMPACT
+Tethered surveillance aircraft >< Aircraft damaged in flight | N7 | an actual collision with an aircraft | fixed position, continuous power
+EXCL: DETECTION MEANS|MITIGATION
+Pilot or ground staff report >< Kinetic interception | N3 | a safe backdrop | unstructured and unreliable position, no track
+Pilot or ground staff report >< Capture by net-carrying interceptor | N3 | a stable target track | unstructured and unreliable position, no track
+EXCL: DETECTION MEANS|OPERATIONAL IMPACT
+Pilot or ground staff report >< No disruption | N7 | detection without any encroachment on the movement area | a person seeing the aircraft
+EXCL: MITIGATION|OPERATIONAL IMPACT
+Ground stop of all movements >< No disruption | N3 | detection without any encroachment on the movement area | severe delay cost
+Ground stop of all movements >< Aircraft damaged in flight | N7 | an actual collision with an aircraft | certainty of separation
+---
+DOMAIN: arctic maritime search and rescue
+GROUP: emergency response
+PARAM: CASUALTY EVENT
+- Cruise ship grounding :: a passenger vessel on an uncharted shoal :: hundreds of untrained survivors, the hull initially intact, days of shelter aboard
+- Fishing vessel capsize :: a small hull losing stability :: a handful of crew, immediate immersion, no shelter aboard at all
+- Aircraft ditching offshore :: an aircraft forced onto the water :: survivors dispersed on the surface, minutes of survival time, a known last position
+- Ice-trapped cargo vessel :: a hull beset in moving pack ice :: no immediate life risk, indefinite immobility, crew safe aboard
+PARAM: RESPONSE ASSET
+- Long-range maritime patrol aircraft :: an airfield within range and flyable weather :: rapid arrival and search capability, delivery of supplies only, no recovery of anyone
+- Helicopter from a shore base :: a base within radius of action :: recovery of small numbers, limited by range and by icing
+- Icebreaker on task :: a vessel already in the region :: recovery of large numbers and ice transit, days of steaming to arrive
+- Vessel of opportunity :: another ship close enough to divert :: immediate assistance, untrained crew and no ice capability
+PARAM: ENVIRONMENT
+- Open water in summer :: an ice-free sea and long daylight :: conventional operations, survivable immersion for a short period
+- Marginal ice zone :: broken drifting floes :: hazard to any conventional hull, aircraft operations unaffected
+- Polar night :: continuous darkness :: no visual search whatsoever, extreme cold
+- Blizzard conditions :: high wind and blowing snow :: no flying of any kind, surface search severely degraded
+PARAM: OUTCOME
+- All recovered alive :: assistance reaching survivors within survival time :: no loss of life
+- Partial recovery :: some survivors reached in time :: fatalities among those not reached
+- Search suspended without recovery :: conditions or endurance defeating the search :: presumed loss of all
+- Self-rescue without assistance :: the casualties reaching safety unaided :: no rescue resource consumed
+EXCL: CASUALTY EVENT|RESPONSE ASSET
+Fishing vessel capsize >< Icebreaker on task | N4 | days of steaming to arrive | immediate immersion
+Aircraft ditching offshore >< Icebreaker on task | N4 | days of steaming to arrive | minutes of survival time
+EXCL: CASUALTY EVENT|OUTCOME
+Aircraft ditching offshore >< Self-rescue without assistance | N7 | the casualties reaching safety unaided | minutes of survival time
+Ice-trapped cargo vessel >< Search suspended without recovery | N3 | conditions or endurance defeating the search | no immediate life risk
+EXCL: RESPONSE ASSET|ENVIRONMENT
+Long-range maritime patrol aircraft >< Blizzard conditions | N3 | an airfield within range and flyable weather | no flying of any kind
+Helicopter from a shore base >< Blizzard conditions | N3 | a base within radius of action | no flying of any kind
+Vessel of opportunity >< Marginal ice zone | N3 | another ship close enough to divert | hazard to any conventional hull
+EXCL: RESPONSE ASSET|OUTCOME
+Long-range maritime patrol aircraft >< All recovered alive | N3 | assistance reaching survivors within survival time | no recovery of anyone
+EXCL: ENVIRONMENT|OUTCOME
+Polar night >< Self-rescue without assistance | N7 | the casualties reaching safety unaided | extreme cold
+---
+DOMAIN: highway bridge structural failure
+GROUP: infrastructure
+PARAM: DETERIORATION MECHANISM
+- Chloride-induced reinforcement corrosion :: de-icing salt reaching embedded steel :: slow section loss over decades, visible spalling before collapse
+- Fatigue cracking in steelwork :: repeated heavy axle cycles :: crack growth invisible until near-critical, sudden fracture at the end
+- Scour of a pier foundation :: flowing water removing bed material below a pier :: loss of support with no change to the superstructure, driven by flood events
+- Vehicle impact on a support :: an over-height or errant vehicle striking a member :: instantaneous local damage, no prior indication
+PARAM: STRUCTURAL FORM
+- Simply supported beam spans :: independent spans on separate supports :: loss of one span only, redundancy between spans
+- Continuous multi-span girder :: a deck continuous over several supports :: load redistribution when one support moves, progressive collapse risk
+- Fracture-critical truss :: a member whose failure collapses the structure :: no redundancy whatsoever, single-member dependence
+- Arch on masonry piers :: compression-carrying masonry :: very high durability, dependence on the piers remaining founded
+PARAM: INSPECTION REGIME
+- Routine visual inspection :: an inspector with access to the surfaces :: detection of visible deterioration, nothing below water or inside a member
+- Underwater pier survey :: divers or sonar at the foundations :: condition of the foundation, nothing about the deck
+- Structural health monitoring :: installed sensors and a data link :: continuous response data, detection of change rather than cause
+- No inspection since construction :: an asset absent from any register :: no information of any kind
+PARAM: CONSEQUENCE
+- Detected and repaired :: the defect found before capacity is lost :: cost only, no closure
+- Load restriction imposed :: capacity reduced but usable :: economic and diversion cost, structure retained
+- Partial collapse :: loss of one element with the structure standing :: casualties possible, long closure
+- Total collapse with vehicles :: complete loss under live load :: multiple fatalities, statutory investigation
+EXCL: DETERIORATION MECHANISM|STRUCTURAL FORM
+Scour of a pier foundation >< Fracture-critical truss | N7 | a member whose failure collapses the structure | loss of support with no change to the superstructure
+EXCL: DETERIORATION MECHANISM|INSPECTION REGIME
+Scour of a pier foundation >< Routine visual inspection | N3 | nothing below water or inside a member | flowing water removing bed material below a pier
+Fatigue cracking in steelwork >< Routine visual inspection | N3 | detection of visible deterioration | crack growth invisible until near-critical
+Vehicle impact on a support >< Structural health monitoring | N7 | detection of change rather than cause | no prior indication
+Vehicle impact on a support >< Underwater pier survey | N7 | divers or sonar at the foundations | an over-height or errant vehicle striking a member
+EXCL: DETERIORATION MECHANISM|CONSEQUENCE
+Vehicle impact on a support >< Detected and repaired | N7 | the defect found before capacity is lost | no prior indication
+EXCL: STRUCTURAL FORM|CONSEQUENCE
+Fracture-critical truss >< Partial collapse | N3 | loss of one element with the structure standing | no redundancy whatsoever
+Simply supported beam spans >< Total collapse with vehicles | N7 | complete loss under live load | redundancy between spans
+EXCL: INSPECTION REGIME|CONSEQUENCE
+No inspection since construction >< Detected and repaired | N3 | the defect found before capacity is lost | no information of any kind
+No inspection since construction >< Load restriction imposed | N7 | capacity reduced but usable | no information of any kind
+EXCL: INSPECTION REGIME|STRUCTURAL FORM
+Underwater pier survey >< Fracture-critical truss | N7 | nothing about the deck | a member whose failure collapses the structure
+---
+DOMAIN: hospital cyber incident affecting care
+GROUP: cyber
+PARAM: SYSTEM AFFECTED
+- Electronic patient record :: the central clinical record system :: loss of history, allergies and current orders, every department affected at once
+- Diagnostic imaging archive :: the store and viewer for radiology :: images unavailable for reporting, no effect on acquisition itself
+- Laboratory information system :: the analyser and results pipeline :: no results returned, specimens still collectable
+- Networked infusion devices :: bedside pumps with a management link :: direct patient harm potential, device-level rather than record-level
+PARAM: ATTACK EFFECT
+- Encryption of data at rest :: ransomware reaching the storage :: total unavailability, recovery from backup possible
+- Silent alteration of records :: write access without detection :: data present but untrustworthy, no obvious outage
+- Denial of network access :: saturation or segmentation failure :: systems intact but unreachable, immediate restoration once cleared
+- Exfiltration without disruption :: outbound copying of data :: confidentiality loss only, care unaffected
+PARAM: CLINICAL MITIGATION
+- Paper downtime procedures :: pre-printed forms and trained staff :: continuity of documentation, no access to prior history
+- Divert emergency admissions :: another receiving hospital with capacity :: reduced load, transfer risk to patients
+- Cancel elective activity :: a schedule that can be postponed :: capacity freed for urgent care, no benefit to anyone already mid-treatment
+- Manual device operation :: devices usable without the network :: continued treatment, heavy staffing cost
+PARAM: PATIENT CONSEQUENCE
+- No clinical impact :: containment before any care is affected :: no consequence
+- Delayed diagnosis or treatment :: care postponed rather than wrong :: harm from delay only
+- Incorrect treatment given :: a clinician acting on wrong information :: direct iatrogenic harm
+- Death attributable to the incident :: harm severe enough to be causal :: mortality, regulatory and criminal exposure
+EXCL: SYSTEM AFFECTED|ATTACK EFFECT
+Networked infusion devices >< Exfiltration without disruption | N7 | outbound copying of data | device-level rather than record-level
+EXCL: SYSTEM AFFECTED|CLINICAL MITIGATION
+Laboratory information system >< Manual device operation | N7 | devices usable without the network | specimens still collectable
+Electronic patient record >< Manual device operation | N7 | devices usable without the network | every department affected at once
+EXCL: ATTACK EFFECT|CLINICAL MITIGATION
+Silent alteration of records >< Paper downtime procedures | N7 | continuity of documentation | data present but untrustworthy
+Exfiltration without disruption >< Divert emergency admissions | N3 | reduced load | care unaffected
+Exfiltration without disruption >< Cancel elective activity | N3 | capacity freed for urgent care | care unaffected
+EXCL: ATTACK EFFECT|PATIENT CONSEQUENCE
+Exfiltration without disruption >< Delayed diagnosis or treatment | N3 | care postponed rather than wrong | care unaffected
+Exfiltration without disruption >< Incorrect treatment given | N3 | a clinician acting on wrong information | care unaffected
+Exfiltration without disruption >< Death attributable to the incident | N3 | harm severe enough to be causal | care unaffected
+EXCL: SYSTEM AFFECTED|PATIENT CONSEQUENCE
+Diagnostic imaging archive >< Incorrect treatment given | N7 | a clinician acting on wrong information | no effect on acquisition itself
+EXCL: CLINICAL MITIGATION|PATIENT CONSEQUENCE
+Cancel elective activity >< No clinical impact | N7 | containment before any care is affected | capacity freed for urgent care

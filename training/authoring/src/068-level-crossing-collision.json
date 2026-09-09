@@ -1,0 +1,180 @@
+{
+ "domain": "level crossing collision",
+ "group": "transport safety",
+ "parameters": {
+  "CROSSING TYPE": [
+   "Automatic half barrier",
+   "Full barrier with obstacle detection",
+   "Open crossing with signs only",
+   "User-worked gate on a farm track"
+  ],
+  "ROAD USER ERROR": [
+   "Zigzagging round a half barrier",
+   "Misjudging train speed at an open crossing",
+   "Vehicle stalling on the crossing",
+   "Long low vehicle grounding"
+  ],
+  "PROTECTIVE SYSTEM": [
+   "Obstacle detection radar",
+   "Train protection with automatic braking",
+   "Signaller closed-circuit television",
+   "No protective system"
+  ],
+  "CONSEQUENCE": [
+   "Near miss reported",
+   "Road vehicle struck, no derailment",
+   "Train derailed",
+   "Crossing closed after the event"
+  ]
+ },
+ "characterisations": {
+  "Automatic half barrier": {
+   "requires": "train-actuated barriers over half the carriageway",
+   "provides": "a deliberate gap allowing escape, reliance on road user compliance"
+  },
+  "Full barrier with obstacle detection": {
+   "requires": "barriers across the full width and a detector",
+   "provides": "no gap to drive through, the signaller or system confirming the crossing is clear"
+  },
+  "Open crossing with signs only": {
+   "requires": "sight lines and passive signage",
+   "provides": "no barrier or light of any kind, total reliance on the road user looking"
+  },
+  "User-worked gate on a farm track": {
+   "requires": "gates opened by the user",
+   "provides": "the user judging the approach themselves, telephone to the signaller in some cases"
+  },
+  "Zigzagging round a half barrier": {
+   "requires": "a gap wide enough to pass",
+   "provides": "a deliberate violation, no equipment failure involved"
+  },
+  "Misjudging train speed at an open crossing": {
+   "requires": "an approaching train visible but its speed misread",
+   "provides": "an honest error, sight lines adequate in principle"
+  },
+  "Vehicle stalling on the crossing": {
+   "requires": "a mechanical breakdown at the worst place",
+   "provides": "no violation and no misjudgement, the vehicle immobile"
+  },
+  "Long low vehicle grounding": {
+   "requires": "a vehicle whose profile fouls the crossing deck",
+   "provides": "a predictable geometric incompatibility, no driver error in the moment"
+  },
+  "Obstacle detection radar": {
+   "requires": "an installed detector and an interface to signalling",
+   "provides": "signals held at danger when the crossing is occupied, only where fitted"
+  },
+  "Train protection with automatic braking": {
+   "requires": "trackside and onboard equipment",
+   "provides": "enforced braking at a signal at danger, no ability to stop within sighting distance"
+  },
+  "Signaller closed-circuit television": {
+   "requires": "a camera view and a signaller watching",
+   "provides": "confirmation the crossing is clear before releasing the signal, dependent on attention"
+  },
+  "No protective system": {
+   "requires": "nothing beyond the crossing itself",
+   "provides": "the driver of the train seeing the obstruction as the only defence"
+  },
+  "Near miss reported": {
+   "requires": "the conflict resolved without contact",
+   "provides": "an incident report, no damage"
+  },
+  "Road vehicle struck, no derailment": {
+   "requires": "a light vehicle displaced by the train",
+   "provides": "road user casualties, train damage only"
+  },
+  "Train derailed": {
+   "requires": "a heavy vehicle or grounding derailing the train",
+   "provides": "potential mass casualties among passengers"
+  },
+  "Crossing closed after the event": {
+   "requires": "a decision to remove the risk permanently",
+   "provides": "no further exposure, road diversion cost"
+  }
+ },
+ "exclusions": {
+  "CROSSING TYPE|ROAD USER ERROR": [
+   {
+    "row": "Full barrier with obstacle detection",
+    "col": "Zigzagging round a half barrier",
+    "code": "N3",
+    "requires": "a gap wide enough to pass",
+    "blocked_by": "no gap to drive through"
+   },
+   {
+    "row": "Open crossing with signs only",
+    "col": "Zigzagging round a half barrier",
+    "code": "N3",
+    "requires": "a gap wide enough to pass",
+    "blocked_by": "no barrier or light of any kind"
+   },
+   {
+    "row": "User-worked gate on a farm track",
+    "col": "Zigzagging round a half barrier",
+    "code": "N3",
+    "requires": "a gap wide enough to pass",
+    "blocked_by": "gates opened by the user"
+   }
+  ],
+  "CROSSING TYPE|PROTECTIVE SYSTEM": [
+   {
+    "row": "Open crossing with signs only",
+    "col": "Obstacle detection radar",
+    "code": "N7",
+    "requires": "an installed detector and an interface to signalling",
+    "blocked_by": "no barrier or light of any kind"
+   },
+   {
+    "row": "Open crossing with signs only",
+    "col": "Signaller closed-circuit television",
+    "code": "N7",
+    "requires": "a camera view and a signaller watching",
+    "blocked_by": "no barrier or light of any kind"
+   }
+  ],
+  "ROAD USER ERROR|PROTECTIVE SYSTEM": [
+   {
+    "row": "Vehicle stalling on the crossing",
+    "col": "Train protection with automatic braking",
+    "code": "N7",
+    "requires": "enforced braking at a signal at danger",
+    "blocked_by": "the vehicle immobile"
+   }
+  ],
+  "ROAD USER ERROR|CONSEQUENCE": [
+   {
+    "row": "Long low vehicle grounding",
+    "col": "Road vehicle struck, no derailment",
+    "code": "N7",
+    "requires": "a light vehicle displaced by the train",
+    "blocked_by": "a predictable geometric incompatibility"
+   }
+  ],
+  "PROTECTIVE SYSTEM|CONSEQUENCE": [
+   {
+    "row": "No protective system",
+    "col": "Near miss reported",
+    "code": "N7",
+    "requires": "the conflict resolved without contact",
+    "blocked_by": "the driver of the train seeing the obstruction as the only defence"
+   },
+   {
+    "row": "Obstacle detection radar",
+    "col": "Train derailed",
+    "code": "N7",
+    "requires": "a heavy vehicle or grounding derailing the train",
+    "blocked_by": "signals held at danger when the crossing is occupied"
+   }
+  ],
+  "CROSSING TYPE|CONSEQUENCE": [
+   {
+    "row": "Full barrier with obstacle detection",
+    "col": "Train derailed",
+    "code": "N7",
+    "requires": "a heavy vehicle or grounding derailing the train",
+    "blocked_by": "no gap to drive through"
+   }
+  ]
+ }
+}
