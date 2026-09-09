@@ -1,0 +1,149 @@
+{
+ "domain": "air traffic control sector operations",
+ "group": "aviation",
+ "parameters": {
+  "TRAFFIC SITUATION": [
+   "Routine en route cruise",
+   "Converging traffic conflict",
+   "Aircraft in distress",
+   "Total radar failure"
+  ],
+  "CONTROL TOOL": [
+   "Radar vectoring",
+   "Level allocation",
+   "Procedural separation",
+   "Datalink clearance"
+  ],
+  "COMMUNICATION STATE": [
+   "Normal two-way radio",
+   "Radio failure on the aircraft",
+   "Frequency congestion",
+   "Language difficulty"
+  ],
+  "OUTCOME": [
+   "Separation maintained",
+   "Loss of separation reported",
+   "Airprox with avoiding action",
+   "Conflict undetected by anyone"
+  ]
+ },
+ "characterisations": {
+  "Routine en route cruise": {
+   "requires": "aircraft established on published airways",
+   "provides": "predictable trajectories, ample separation, no immediate action needed"
+  },
+  "Converging traffic conflict": {
+   "requires": "two aircraft on intersecting tracks",
+   "provides": "minutes to resolve, a vectoring or level solution required"
+  },
+  "Aircraft in distress": {
+   "requires": "an emergency declared on frequency",
+   "provides": "priority handling, airspace cleared around it"
+  },
+  "Total radar failure": {
+   "requires": "loss of the surveillance picture",
+   "provides": "no position information, procedural separation only"
+  },
+  "Radar vectoring": {
+   "requires": "a surveillance picture and radio contact",
+   "provides": "precise lateral control, immediate effect"
+  },
+  "Level allocation": {
+   "requires": "vertical separation available",
+   "provides": "separation without changing track, dependence on aircraft performance"
+  },
+  "Procedural separation": {
+   "requires": "published routes and position reports",
+   "provides": "separation without radar, very large spacing required"
+  },
+  "Datalink clearance": {
+   "requires": "an equipped aircraft and a working datalink",
+   "provides": "uplinked instructions, no voice channel needed"
+  },
+  "Normal two-way radio": {
+   "requires": "a serviceable radio on both sides",
+   "provides": "instructions acknowledged, immediate confirmation"
+  },
+  "Radio failure on the aircraft": {
+   "requires": "a transmitter or receiver fault",
+   "provides": "no instruction can reach the aircraft by voice, a lost-communication procedure followed"
+  },
+  "Frequency congestion": {
+   "requires": "many aircraft on one frequency",
+   "provides": "delayed transmissions, no loss of capability"
+  },
+  "Language difficulty": {
+   "requires": "non-standard phraseology in use",
+   "provides": "risk of misunderstanding, slower exchanges"
+  },
+  "Separation maintained": {
+   "requires": "correct and timely action",
+   "provides": "no loss of separation, normal operations continue"
+  },
+  "Loss of separation reported": {
+   "requires": "minimum separation infringed",
+   "provides": "a mandatory occurrence report, an investigation opened"
+  },
+  "Airprox with avoiding action": {
+   "requires": "a close encounter and a collision avoidance manoeuvre",
+   "provides": "a crew-initiated manoeuvre, separation restored by the aircraft"
+  },
+  "Conflict undetected by anyone": {
+   "requires": "no surveillance and no report",
+   "provides": "no report raised, no action taken"
+  }
+ },
+ "exclusions": {
+  "TRAFFIC SITUATION|CONTROL TOOL": [
+   {
+    "row": "Total radar failure",
+    "col": "Radar vectoring",
+    "code": "N3",
+    "requires": "a surveillance picture and radio contact",
+    "blocked_by": "no position information"
+   }
+  ],
+  "TRAFFIC SITUATION|OUTCOME": [
+   {
+    "row": "Routine en route cruise",
+    "col": "Airprox with avoiding action",
+    "code": "N3",
+    "requires": "a close encounter and a collision avoidance manoeuvre",
+    "blocked_by": "ample separation"
+   },
+   {
+    "row": "Routine en route cruise",
+    "col": "Loss of separation reported",
+    "code": "N3",
+    "requires": "minimum separation infringed",
+    "blocked_by": "ample separation"
+   }
+  ],
+  "CONTROL TOOL|COMMUNICATION STATE": [
+   {
+    "row": "Radar vectoring",
+    "col": "Radio failure on the aircraft",
+    "code": "N3",
+    "requires": "a surveillance picture and radio contact",
+    "blocked_by": "no instruction can reach the aircraft by voice"
+   }
+  ],
+  "CONTROL TOOL|OUTCOME": [
+   {
+    "row": "Procedural separation",
+    "col": "Conflict undetected by anyone",
+    "code": "N3",
+    "requires": "published routes and position reports",
+    "blocked_by": "no surveillance and no report"
+   },
+   {
+    "row": "Radar vectoring",
+    "col": "Conflict undetected by anyone",
+    "code": "N3",
+    "requires": "a surveillance picture and radio contact",
+    "blocked_by": "no surveillance and no report"
+   }
+  ],
+  "COMMUNICATION STATE|OUTCOME": []
+ }
+}

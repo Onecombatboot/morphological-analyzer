@@ -1,0 +1,197 @@
+DOMAIN: livestock disease outbreak
+GROUP: agriculture
+PARAM: PATHOGEN
+- Highly contagious viral disease :: airborne or contact spread between herds :: spread over kilometres without any movement of animals, no treatment, statutory notifiable status
+- Vector-borne viral disease :: a competent insect vector and a season :: spread bounded by vector range, no direct animal-to-animal transmission, seasonal cessation
+- Bacterial disease treatable with antimicrobials :: bacterial aetiology :: treatment available, production losses rather than mortality, no need to cull
+- Prion disease with a long incubation :: contaminated feed years earlier :: no live test at all, cases appearing years after exposure, no transmission between living animals
+PARAM: HOLDING TYPE
+- Intensive indoor unit :: housed animals at high density :: complete records, biosecurity feasible, catastrophic loss if breached
+- Extensive upland grazing :: animals dispersed over open hill :: no possibility of housing, contact with wildlife, gathering takes days
+- Smallholder mixed farm :: a few animals alongside crops :: informal records, animals moved to local markets, limited biosecurity knowledge
+- Live animal market :: animals from many holdings mixed briefly :: enormous contact network in one day, no ownership continuity
+PARAM: CONTROL MEASURE
+- Movement standstill :: legal power and enforcement capacity :: immediate halt to spread by transport, severe welfare and trade consequences
+- Ring vaccination around cases :: an effective vaccine and cold chain :: protection of a zone within days, loss of disease-free trading status
+- Cull of infected and contact herds :: valuation, slaughter and disposal capacity :: removal of the reservoir, compensation cost and public opposition
+- Enhanced surveillance only :: a testing programme and laboratory capacity :: detection of spread, no reduction in transmission whatsoever
+PARAM: OUTCOME
+- Contained at the index holding :: rapid detection and effective restriction :: minimal loss, disease-free status recovered quickly
+- Regional epidemic :: spread beyond the initial zone before detection :: mass culling, months of restriction
+- Endemic establishment :: the pathogen persisting in the population :: permanent change to husbandry and trade
+- Export market closure :: trading partners suspending imports :: economic loss far exceeding the animal loss
+EXCL: PATHOGEN|CONTROL MEASURE
+Prion disease with a long incubation >< Movement standstill | N7 | immediate halt to spread by transport | no transmission between living animals
+Prion disease with a long incubation >< Ring vaccination around cases | N3 | an effective vaccine and cold chain | no live test at all
+Bacterial disease treatable with antimicrobials >< Cull of infected and contact herds | N7 | removal of the reservoir | no need to cull
+Vector-borne viral disease >< Movement standstill | N7 | immediate halt to spread by transport | no direct animal-to-animal transmission
+EXCL: PATHOGEN|OUTCOME
+Prion disease with a long incubation >< Contained at the index holding | N7 | rapid detection and effective restriction | cases appearing years after exposure
+EXCL: HOLDING TYPE|CONTROL MEASURE
+Extensive upland grazing >< Cull of infected and contact herds | N7 | valuation, slaughter and disposal capacity | gathering takes days
+Live animal market >< Cull of infected and contact herds | N7 | valuation, slaughter and disposal capacity | no ownership continuity
+EXCL: HOLDING TYPE|OUTCOME
+Live animal market >< Contained at the index holding | N7 | rapid detection and effective restriction | enormous contact network in one day
+EXCL: CONTROL MEASURE|OUTCOME
+Enhanced surveillance only >< Contained at the index holding | N3 | rapid detection and effective restriction | no reduction in transmission whatsoever
+Ring vaccination around cases >< Export market closure | N7 | trading partners suspending imports | protection of a zone within days
+EXCL: PATHOGEN|HOLDING TYPE
+Prion disease with a long incubation >< Live animal market | N7 | animals from many holdings mixed briefly | no transmission between living animals
+---
+DOMAIN: antimicrobial resistance outbreak in a hospital
+GROUP: healthcare
+PARAM: ORGANISM
+- Carbapenem-resistant enterobacteria :: gut colonisation and selection pressure :: silent carriage for months, spread by hands and by sinks, very few treatment options
+- Meticillin-resistant staphylococcus :: skin and nasal colonisation :: decolonisation possible, spread by direct contact, established screening exists
+- Clostridioides difficile :: disruption of gut flora by antibiotics :: spore survival on surfaces for months, defeated only by sporicidal cleaning
+- Multi-resistant fungal species :: environmental persistence on surfaces and skin :: survival of routine disinfection, no decolonisation regimen at all
+PARAM: TRANSMISSION ROUTE
+- Hands of staff :: direct contact between patient and staff :: interruptible by hand hygiene alone, the commonest route by far
+- Contaminated environment and equipment :: organism surviving on surfaces :: independent of any individual staff behaviour, reservoir persisting between patients
+- Wastewater plumbing :: sink traps and drains harbouring biofilm :: continuous reintroduction, no cleaning regimen reaching it, engineering works required
+- Patient transfer between units :: movement of a colonised patient :: seeding of a new ward, detectable by admission screening
+PARAM: CONTROL MEASURE
+- Hand hygiene campaign :: staff engagement and product availability :: reduction of contact spread, no effect on an environmental reservoir
+- Contact precautions and isolation :: single rooms and enough of them :: separation of colonised patients, limited by room availability
+- Sporicidal terminal cleaning :: an agent active against spores and time to apply it :: removal of surface reservoir, no effect on carriage in a patient
+- Antimicrobial stewardship :: prescriber cooperation and pharmacy data :: reduction of selection pressure over months, no effect on transmission already under way
+PARAM: OUTCOME
+- Single case, no transmission :: colonisation identified and contained :: no outbreak
+- Ward outbreak controlled :: transmission stopped within one unit :: ward closure and deep clean, no wider spread
+- Hospital-wide endemic spread :: the organism established across units :: permanent screening burden, elective activity constrained
+- Unit closure to admissions :: transmission uncontrolled despite measures :: loss of capacity, transfer of pressure to other hospitals
+EXCL: ORGANISM|CONTROL MEASURE
+Clostridioides difficile >< Hand hygiene campaign | N7 | reduction of contact spread | defeated only by sporicidal cleaning
+Multi-resistant fungal species >< Sporicidal terminal cleaning | N7 | removal of surface reservoir | survival of routine disinfection
+EXCL: ORGANISM|TRANSMISSION ROUTE
+Multi-resistant fungal species >< Wastewater plumbing | N7 | sink traps and drains harbouring biofilm | environmental persistence on surfaces and skin
+EXCL: TRANSMISSION ROUTE|CONTROL MEASURE
+Wastewater plumbing >< Hand hygiene campaign | N3 | reduction of contact spread | no cleaning regimen reaching it
+Wastewater plumbing >< Sporicidal terminal cleaning | N3 | removal of surface reservoir | no cleaning regimen reaching it
+Contaminated environment and equipment >< Hand hygiene campaign | N3 | reduction of contact spread | independent of any individual staff behaviour
+EXCL: TRANSMISSION ROUTE|OUTCOME
+Wastewater plumbing >< Single case, no transmission | N7 | colonisation identified and contained | continuous reintroduction
+EXCL: CONTROL MEASURE|OUTCOME
+Antimicrobial stewardship >< Ward outbreak controlled | N7 | transmission stopped within one unit | no effect on transmission already under way
+Hand hygiene campaign >< Ward outbreak controlled | N7 | transmission stopped within one unit | no effect on an environmental reservoir
+EXCL: ORGANISM|OUTCOME
+Carbapenem-resistant enterobacteria >< Single case, no transmission | N7 | colonisation identified and contained | silent carriage for months
+---
+DOMAIN: space weather impact on infrastructure
+GROUP: natural hazard
+PARAM: SOLAR EVENT
+- X-ray flare :: a solar flare on the visible disc :: effect at the speed of light with no warning at all, minutes of high-frequency radio blackout
+- Solar energetic particle event :: particles accelerated toward the earth :: arrival within tens of minutes, radiation hazard at altitude, no ground currents
+- Coronal mass ejection :: an ejection directed at the earth :: one to three days of transit warning, geomagnetically induced currents at ground level
+- Solar radio burst :: broadband radio emission from the sun :: interference on the sunlit hemisphere only, no particle or magnetic effect
+PARAM: AFFECTED SYSTEM
+- High-voltage transformer :: a long conductor grounded at both ends :: saturation and heating from induced currents, months to replace a failed unit
+- Satellite in orbit :: a spacecraft outside the atmosphere :: charging and single-event upsets, no shielding by the atmosphere
+- Polar aviation route :: flights at high latitude and altitude :: crew radiation dose and loss of high-frequency communication, reroutable at a fuel cost
+- Precision positioning service :: users depending on ionospheric corrections :: degraded accuracy from ionospheric disturbance, no hardware damage
+PARAM: WARNING AND MITIGATION
+- Forecast from a solar observatory :: a spacecraft at the sun-earth line :: fifteen to sixty minutes of warning of arrival, no warning for light-speed effects
+- Grid operator load reconfiguration :: hours of notice and switching capability :: reduced induced current path, loss of transfer capability
+- Satellite safe mode :: onboard autonomy and a command link :: protection of the payload, loss of service during the event
+- Reroute aircraft to lower latitudes :: fuel and airspace availability :: dose reduction, longer flights and schedule disruption
+PARAM: CONSEQUENCE
+- No operational effect :: the event below the threshold for any system :: no consequence
+- Temporary service degradation :: effects lasting hours :: reduced accuracy or availability, full recovery
+- Permanent equipment damage :: hardware stressed beyond tolerance :: replacement required, long outage
+- Cascading grid disturbance :: protection operating on distorted waveforms :: wide-area loss of supply
+EXCL: SOLAR EVENT|AFFECTED SYSTEM
+Solar radio burst >< High-voltage transformer | N3 | saturation and heating from induced currents | no particle or magnetic effect
+Solar energetic particle event >< High-voltage transformer | N3 | saturation and heating from induced currents | no ground currents
+EXCL: SOLAR EVENT|WARNING AND MITIGATION
+X-ray flare >< Forecast from a solar observatory | N3 | fifteen to sixty minutes of warning of arrival | effect at the speed of light with no warning at all
+X-ray flare >< Grid operator load reconfiguration | N4 | hours of notice and switching capability | effect at the speed of light with no warning at all
+EXCL: SOLAR EVENT|CONSEQUENCE
+Solar radio burst >< Cascading grid disturbance | N3 | protection operating on distorted waveforms | no particle or magnetic effect
+Solar radio burst >< Permanent equipment damage | N7 | hardware stressed beyond tolerance | interference on the sunlit hemisphere only
+EXCL: AFFECTED SYSTEM|WARNING AND MITIGATION
+Precision positioning service >< Satellite safe mode | N7 | protection of the payload | no hardware damage
+High-voltage transformer >< Reroute aircraft to lower latitudes | N3 | fuel and airspace availability | a long conductor grounded at both ends
+Polar aviation route >< Grid operator load reconfiguration | N3 | reduced induced current path | flights at high latitude and altitude
+EXCL: AFFECTED SYSTEM|CONSEQUENCE
+Precision positioning service >< Permanent equipment damage | N3 | hardware stressed beyond tolerance | no hardware damage
+Precision positioning service >< Cascading grid disturbance | N3 | protection operating on distorted waveforms | degraded accuracy from ionospheric disturbance
+---
+DOMAIN: landslide in a hillside settlement
+GROUP: natural hazard
+PARAM: FAILURE MECHANISM
+- Rainfall-triggered shallow slide :: prolonged or intense rainfall on a soil mantle :: failure within hours of the rain, thin fast-moving debris, seasonal timing
+- Deep-seated rotational slump :: a weak layer at depth :: movement of centimetres per year with occasional acceleration, whole hillsides involved
+- Undercutting by a river :: a watercourse eroding the toe :: progressive loss of support, failure at the toe first, predictable location
+- Slope loaded by construction fill :: material placed on an unstable slope :: an entirely human-made cause, failure soon after placement
+PARAM: SETTLEMENT PATTERN
+- Informal housing on the slope :: unregulated construction on steep ground :: no engineering of any kind, cut-and-fill terracing by residents, very high exposure
+- Engineered terraces with drainage :: designed slope works :: managed groundwater, documented design life
+- Housing at the toe of the slope :: development on the runout apron :: exposure to debris rather than to ground movement, no influence on the slope itself
+- Housing above the crest :: development on the plateau :: exposure to retrogressive failure, ground cracking as an early sign
+PARAM: WARNING INDICATOR
+- Rainfall threshold exceedance :: a rain gauge network and a local threshold :: hours of lead time, applicable only to rainfall-triggered failure
+- Ground movement instrumentation :: inclinometers or survey markers installed :: detection of slow movement, useless for a failure that begins suddenly
+- Visible tension cracking :: cracks large enough to be noticed :: unambiguous but very late, minutes to days
+- No indicator at all :: no monitoring and no visible sign :: no warning whatsoever
+PARAM: RISK REDUCTION
+- Slope drainage works :: engineering access and a groundwater problem :: reduction of pore pressure, no effect on undercutting by water at the toe
+- Toe protection and revetment :: river access and construction capacity :: prevention of undercutting, no effect on rainfall infiltration
+- Managed relocation of residents :: land elsewhere and consent :: complete removal of exposure, social and political cost
+- Early warning and evacuation :: a warning indicator and a rehearsed route :: lives saved, no protection of any property
+EXCL: FAILURE MECHANISM|WARNING INDICATOR
+Deep-seated rotational slump >< Rainfall threshold exceedance | N3 | applicable only to rainfall-triggered failure | movement of centimetres per year with occasional acceleration
+Undercutting by a river >< Rainfall threshold exceedance | N3 | applicable only to rainfall-triggered failure | progressive loss of support
+Rainfall-triggered shallow slide >< Ground movement instrumentation | N3 | detection of slow movement | failure within hours of the rain
+EXCL: FAILURE MECHANISM|RISK REDUCTION
+Undercutting by a river >< Slope drainage works | N3 | reduction of pore pressure | no effect on undercutting by water at the toe
+Rainfall-triggered shallow slide >< Toe protection and revetment | N3 | prevention of undercutting | no effect on rainfall infiltration
+Slope loaded by construction fill >< Toe protection and revetment | N7 | prevention of undercutting | an entirely human-made cause
+EXCL: SETTLEMENT PATTERN|RISK REDUCTION
+Informal housing on the slope >< Slope drainage works | N7 | engineering access and a groundwater problem | no engineering of any kind
+Housing at the toe of the slope >< Slope drainage works | N3 | engineering access and a groundwater problem | no influence on the slope itself
+EXCL: SETTLEMENT PATTERN|WARNING INDICATOR
+Informal housing on the slope >< Ground movement instrumentation | N7 | inclinometers or survey markers installed | no engineering of any kind
+EXCL: WARNING INDICATOR|RISK REDUCTION
+No indicator at all >< Early warning and evacuation | N3 | a warning indicator and a rehearsed route | no warning whatsoever
+EXCL: FAILURE MECHANISM|SETTLEMENT PATTERN
+Undercutting by a river >< Housing above the crest | N7 | exposure to retrogressive failure | failure at the toe first
+---
+DOMAIN: urban air pollution episode
+GROUP: environment
+PARAM: POLLUTANT
+- Traffic nitrogen dioxide :: vehicle exhaust in a street canyon :: concentrations highest beside the kerb, falling away within tens of metres, weekday peaks
+- Secondary particulate :: precursors reacting downwind over hours :: uniform concentrations across a whole city, no local source to control
+- Wood smoke from domestic heating :: solid fuel burning in dwellings :: evening and overnight peaks, worst in cold still weather, residential rather than roadside
+- Industrial plume grounding :: a stack plume brought to the surface :: a narrow downwind sector, episodic and short, a single identifiable operator
+PARAM: METEOROLOGY
+- Temperature inversion :: a stable layer trapping air near the ground :: no vertical dispersion, accumulation over days
+- Strong wind :: rapid horizontal transport :: dilution of everything local, possible import from elsewhere
+- Stagnant high pressure :: light winds over a wide area :: regional accumulation, no direction to the transport
+- Heavy rain :: precipitation scavenging :: removal of particulate, little effect on gaseous nitrogen dioxide
+PARAM: INTERVENTION
+- Traffic restriction by number plate :: a legal scheme and enforcement :: reduction of vehicle emissions within a day, no effect on any other source
+- Solid fuel burning ban :: enforceable local rules :: reduction of domestic smoke, compliance difficult to verify indoors
+- Industrial abatement order :: a permit condition and a named operator :: reduction at one stack, no effect on diffuse sources
+- Public health advisory only :: a communication channel :: behaviour change by vulnerable people, no reduction in concentration at all
+PARAM: OUTCOME
+- Limits not exceeded :: concentrations remaining within standards :: no exceedance to report
+- Short exceedance :: standards breached for a day or two :: reporting obligation, no lasting health signal
+- Prolonged episode with excess mortality :: high concentrations sustained for a week :: measurable excess deaths, political consequence
+- Attribution dispute :: sources contested between parties :: regulatory paralysis, no action taken
+EXCL: POLLUTANT|INTERVENTION
+Secondary particulate >< Traffic restriction by number plate | N7 | reduction of vehicle emissions within a day | no local source to control
+Secondary particulate >< Industrial abatement order | N3 | reduction at one stack | no local source to control
+Wood smoke from domestic heating >< Traffic restriction by number plate | N3 | reduction of vehicle emissions within a day | residential rather than roadside
+Traffic nitrogen dioxide >< Solid fuel burning ban | N3 | reduction of domestic smoke | vehicle exhaust in a street canyon
+Industrial plume grounding >< Solid fuel burning ban | N3 | reduction of domestic smoke | a single identifiable operator
+EXCL: POLLUTANT|OUTCOME
+Industrial plume grounding >< Attribution dispute | N7 | sources contested between parties | a single identifiable operator
+Industrial plume grounding >< Prolonged episode with excess mortality | N7 | high concentrations sustained for a week | episodic and short
+EXCL: METEOROLOGY|OUTCOME
+Strong wind >< Prolonged episode with excess mortality | N3 | high concentrations sustained for a week | dilution of everything local
+EXCL: METEOROLOGY|INTERVENTION
+Heavy rain >< Industrial abatement order | N7 | reduction at one stack | removal of particulate
+EXCL: INTERVENTION|OUTCOME
+Public health advisory only >< Limits not exceeded | N3 | concentrations remaining within standards | no reduction in concentration at all
+EXCL: POLLUTANT|METEOROLOGY
+Wood smoke from domestic heating >< Strong wind | N7 | dilution of everything local | worst in cold still weather

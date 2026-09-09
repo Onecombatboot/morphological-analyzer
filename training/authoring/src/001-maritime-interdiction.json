@@ -1,0 +1,237 @@
+{
+ "domain": "maritime interdiction",
+ "group": "security",
+ "parameters": {
+  "INTERDICTING PARTY": [
+   "National coast guard",
+   "Naval task force",
+   "Private security contractor",
+   "Multinational coalition"
+  ],
+  "LEGAL BASIS": [
+   "Territorial waters enforcement",
+   "UN Security Council mandate",
+   "Flag-state consent",
+   "No legal basis claimed"
+  ],
+  "TARGET VESSEL": [
+   "Registered cargo freighter",
+   "Unflagged small craft",
+   "Foreign naval auxiliary",
+   "Fishing fleet"
+  ],
+  "OUTCOME SOUGHT": [
+   "Seizure and prosecution",
+   "Turn-back and deterrence",
+   "Intelligence collection",
+   "Destruction of cargo"
+  ]
+ },
+ "characterisations": {
+  "National coast guard": {
+   "requires": "jurisdiction within own maritime zone",
+   "provides": "police powers, arrest authority, domestic legal standing"
+  },
+  "Naval task force": {
+   "requires": "state authorisation, force projection capability",
+   "provides": "sustained presence, armed enforcement, blue-water reach"
+  },
+  "Private security contractor": {
+   "requires": "commercial contract, host permissions",
+   "provides": "armed deterrence only, no arrest power, no sovereign authority"
+  },
+  "Multinational coalition": {
+   "requires": "agreement among several states",
+   "provides": "combined assets, shared legal cover, broad geographic reach"
+  },
+  "Territorial waters enforcement": {
+   "requires": "acting within a coastal state's own 12nm zone",
+   "provides": "unambiguous domestic authority"
+  },
+  "UN Security Council mandate": {
+   "requires": "an adopted resolution, a state or coalition actor",
+   "provides": "international legal cover beyond national waters"
+  },
+  "Flag-state consent": {
+   "requires": "permission from the vessel's registry state",
+   "provides": "lawful boarding on the high seas"
+  },
+  "No legal basis claimed": {
+   "requires": "nothing",
+   "provides": "no legal protection; the act is piracy or an act of war"
+  },
+  "Registered cargo freighter": {
+   "requires": "a flag state and commercial registry",
+   "provides": "identifiable owner, a registry to seek consent from, legal recourse"
+  },
+  "Unflagged small craft": {
+   "requires": "nothing; operates outside registry",
+   "provides": "no flag state, no registry, no legal recourse"
+  },
+  "Foreign naval auxiliary": {
+   "requires": "sovereign immunity as a state vessel",
+   "provides": "immunity from boarding, escalation risk to state conflict"
+  },
+  "Fishing fleet": {
+   "requires": "multiple small hulls, a licensing regime",
+   "provides": "dispersed targets, civilian crews, high political sensitivity"
+  },
+  "Seizure and prosecution": {
+   "requires": "arrest authority and a court with jurisdiction",
+   "provides": "an evidentiary case, a detained vessel and crew"
+  },
+  "Turn-back and deterrence": {
+   "requires": "credible presence only",
+   "provides": "no detention, no evidence, immediate effect"
+  },
+  "Intelligence collection": {
+   "requires": "the target remaining unaware or unimpeded",
+   "provides": "information, no visible enforcement"
+  },
+  "Destruction of cargo": {
+   "requires": "authority to use force against property",
+   "provides": "irreversible effect, no evidentiary chain"
+  }
+ },
+ "exclusions": {
+  "INTERDICTING PARTY|LEGAL BASIS": [
+   {
+    "row": "National coast guard",
+    "col": "UN Security Council mandate",
+    "code": "N7",
+    "requires": "international legal cover beyond national waters",
+    "blocked_by": "jurisdiction within own maritime zone"
+   },
+   {
+    "row": "Private security contractor",
+    "col": "Territorial waters enforcement",
+    "code": "N5",
+    "requires": "unambiguous domestic authority",
+    "blocked_by": "no sovereign authority"
+   },
+   {
+    "row": "Private security contractor",
+    "col": "UN Security Council mandate",
+    "code": "N5",
+    "requires": "a state or coalition actor",
+    "blocked_by": "no sovereign authority"
+   },
+   {
+    "row": "Multinational coalition",
+    "col": "Territorial waters enforcement",
+    "code": "N7",
+    "requires": "acting within a coastal state's own 12nm zone",
+    "blocked_by": "agreement among several states"
+   }
+  ],
+  "INTERDICTING PARTY|TARGET VESSEL": [
+   {
+    "row": "National coast guard",
+    "col": "Foreign naval auxiliary",
+    "code": "N7",
+    "requires": "immunity from boarding",
+    "blocked_by": "jurisdiction within own maritime zone"
+   },
+   {
+    "row": "Private security contractor",
+    "col": "Foreign naval auxiliary",
+    "code": "N5",
+    "requires": "no sovereign authority",
+    "blocked_by": "immunity from boarding"
+   }
+  ],
+  "INTERDICTING PARTY|OUTCOME SOUGHT": [
+   {
+    "row": "National coast guard",
+    "col": "Destruction of cargo",
+    "code": "N7",
+    "requires": "authority to use force against property",
+    "blocked_by": "police powers, arrest authority"
+   },
+   {
+    "row": "Private security contractor",
+    "col": "Seizure and prosecution",
+    "code": "N3",
+    "requires": "arrest authority and a court with jurisdiction",
+    "blocked_by": "no arrest power"
+   },
+   {
+    "row": "Private security contractor",
+    "col": "Destruction of cargo",
+    "code": "N5",
+    "requires": "authority to use force against property",
+    "blocked_by": "no sovereign authority"
+   }
+  ],
+  "LEGAL BASIS|TARGET VESSEL": [
+   {
+    "row": "Territorial waters enforcement",
+    "col": "Foreign naval auxiliary",
+    "code": "N5",
+    "requires": "unambiguous domestic authority",
+    "blocked_by": "immunity from boarding"
+   },
+   {
+    "row": "Flag-state consent",
+    "col": "Unflagged small craft",
+    "code": "N1",
+    "requires": "permission from the vessel's registry state",
+    "blocked_by": "no flag state, no registry"
+   },
+   {
+    "row": "Flag-state consent",
+    "col": "Foreign naval auxiliary",
+    "code": "N7",
+    "requires": "permission from the vessel's registry state",
+    "blocked_by": "immunity from boarding"
+   }
+  ],
+  "LEGAL BASIS|OUTCOME SOUGHT": [
+   {
+    "row": "Territorial waters enforcement",
+    "col": "Destruction of cargo",
+    "code": "N7",
+    "requires": "authority to use force against property",
+    "blocked_by": "unambiguous domestic authority"
+   },
+   {
+    "row": "No legal basis claimed",
+    "col": "Seizure and prosecution",
+    "code": "N5",
+    "requires": "arrest authority and a court with jurisdiction",
+    "blocked_by": "no legal protection"
+   }
+  ],
+  "TARGET VESSEL|OUTCOME SOUGHT": [
+   {
+    "row": "Foreign naval auxiliary",
+    "col": "Seizure and prosecution",
+    "code": "N5",
+    "requires": "arrest authority and a court with jurisdiction",
+    "blocked_by": "immunity from boarding"
+   },
+   {
+    "row": "Foreign naval auxiliary",
+    "col": "Destruction of cargo",
+    "code": "N7",
+    "requires": "irreversible effect, no evidentiary chain",
+    "blocked_by": "escalation risk to state conflict"
+   },
+   {
+    "row": "Fishing fleet",
+    "col": "Destruction of cargo",
+    "code": "N7",
+    "requires": "irreversible effect, no evidentiary chain",
+    "blocked_by": "high political sensitivity"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INTERDICTING PARTY|LEGAL BASIS": "coast guard x UNSC mandate is N: a mandate authorises action beyond national waters, which a coast guard neither reaches nor is empowered to sustain. Contractor x territorial enforcement and x mandate are both N: each confers state authority a contractor cannot hold. Contractor x no basis is Y - the documented mercenary case. Coalition x territorial enforcement is N: a coalition inside one state's own 12nm zone is that state's own business.",
+  "INTERDICTING PARTY|TARGET VESSEL": "anyone x foreign naval auxiliary is N except a naval task force, because sovereign immunity means only a peer state vessel can lawfully challenge it and survive the escalation. Contractor x fishing fleet is N: civilian crews plus armed contractors is politically incoherent.",
+  "INTERDICTING PARTY|OUTCOME SOUGHT": "coast guard x destruction of cargo is N: police powers do not extend to destroying property at sea. Contractor x seizure and prosecution is N: no arrest power. Contractor x destruction is N: no authority to use force against property.",
+  "LEGAL BASIS|TARGET VESSEL": "territorial enforcement x foreign naval auxiliary is N: sovereign immunity survives inside territorial waters. Flag-state consent x unflagged craft is N: there is no flag state to consent. Flag-state consent x naval auxiliary is N for the same immunity reason. No basis x registered freighter is N: an owner with legal recourse makes an unlawful boarding untenable; no basis x fishing fleet is N on political sensitivity.",
+  "LEGAL BASIS|OUTCOME SOUGHT": "territorial and flag-state consent x destruction of cargo are N: lawful bases support seizure, not destruction. No basis x seizure and prosecution is N: no court will take a case built on an unlawful boarding.",
+  "TARGET VESSEL|OUTCOME SOUGHT": "naval auxiliary x seizure is N and x destruction is N: both mean war with the flag state. Fishing fleet x destruction is N: civilian crews."
+ }
+}

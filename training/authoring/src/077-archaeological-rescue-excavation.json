@@ -1,0 +1,169 @@
+{
+ "domain": "archaeological rescue excavation",
+ "group": "heritage",
+ "parameters": {
+  "SITE CONDITION": [
+   "Waterlogged anaerobic deposit",
+   "Dry stratified urban sequence",
+   "Ploughsoil scatter",
+   "Site already destroyed by groundworks"
+  ],
+  "RECORDING METHOD": [
+   "Open area hand excavation",
+   "Watching brief during construction",
+   "Geophysical survey",
+   "Standing building survey"
+  ],
+  "PROGRAMME PRESSURE": [
+   "Full pre-construction season",
+   "Fixed handover date",
+   "Emergency response to discovery",
+   "No archaeological condition imposed"
+  ],
+  "ARCHIVE OUTCOME": [
+   "Full publication and deposited archive",
+   "Grey literature report only",
+   "Archive unable to be deposited",
+   "No record produced"
+  ]
+ },
+ "characterisations": {
+  "Waterlogged anaerobic deposit": {
+   "requires": "a permanently saturated burial environment",
+   "provides": "survival of timber and leather, rapid decay once exposed to air"
+  },
+  "Dry stratified urban sequence": {
+   "requires": "deep accumulated occupation layers",
+   "provides": "clear phasing and datable sequence, no organic survival"
+  },
+  "Ploughsoil scatter": {
+   "requires": "material repeatedly disturbed by cultivation",
+   "provides": "artefacts without context, no intact stratigraphy at all"
+  },
+  "Site already destroyed by groundworks": {
+   "requires": "excavation after the machines",
+   "provides": "no deposits remaining, a record only from spoil"
+  },
+  "Open area hand excavation": {
+   "requires": "a trained field team and unrestricted access",
+   "provides": "full plan relationships recorded, slow progress"
+  },
+  "Watching brief during construction": {
+   "requires": "contractor plant working to programme",
+   "provides": "observation only, no control over what is removed"
+  },
+  "Geophysical survey": {
+   "requires": "an undisturbed accessible ground surface",
+   "provides": "buried features mapped without digging, no dating evidence"
+  },
+  "Standing building survey": {
+   "requires": "an upstanding structure to record",
+   "provides": "fabric phasing recorded, nothing below ground addressed"
+  },
+  "Full pre-construction season": {
+   "requires": "a developer timetable with slack",
+   "provides": "complete excavation to natural, adequate post-excavation"
+  },
+  "Fixed handover date": {
+   "requires": "a contractual completion that cannot move",
+   "provides": "work truncated to the deadline, selective recording"
+  },
+  "Emergency response to discovery": {
+   "requires": "an unexpected find during works",
+   "provides": "days rather than months, no design of the fieldwork"
+  },
+  "No archaeological condition imposed": {
+   "requires": "a consent granted without a heritage requirement",
+   "provides": "no fieldwork required at all, destruction without record"
+  },
+  "Full publication and deposited archive": {
+   "requires": "funding through to publication",
+   "provides": "results in the public record, an accessible archive"
+  },
+  "Grey literature report only": {
+   "requires": "a client report satisfying the condition",
+   "provides": "a record that exists but is little read, no synthesis"
+  },
+  "Archive unable to be deposited": {
+   "requires": "no museum willing to accept it",
+   "provides": "material retained indefinitely, no long term curation"
+  },
+  "No record produced": {
+   "requires": "nothing recovered or written",
+   "provides": "total loss of the evidence, nothing to consult later"
+  }
+ },
+ "exclusions": {
+  "SITE CONDITION|RECORDING METHOD": [
+   {
+    "row": "Site already destroyed by groundworks",
+    "col": "Open area hand excavation",
+    "code": "N3",
+    "requires": "full plan relationships recorded",
+    "blocked_by": "no deposits remaining"
+   },
+   {
+    "row": "Site already destroyed by groundworks",
+    "col": "Geophysical survey",
+    "code": "N3",
+    "requires": "an undisturbed accessible ground surface",
+    "blocked_by": "no deposits remaining"
+   },
+   {
+    "row": "Ploughsoil scatter",
+    "col": "Open area hand excavation",
+    "code": "N3",
+    "requires": "full plan relationships recorded",
+    "blocked_by": "no intact stratigraphy at all"
+   }
+  ],
+  "SITE CONDITION|ARCHIVE OUTCOME": [],
+  "RECORDING METHOD|PROGRAMME PRESSURE": [
+   {
+    "row": "Open area hand excavation",
+    "col": "No archaeological condition imposed",
+    "code": "N3",
+    "requires": "a trained field team and unrestricted access",
+    "blocked_by": "no fieldwork required at all"
+   },
+   {
+    "row": "Watching brief during construction",
+    "col": "No archaeological condition imposed",
+    "code": "N3",
+    "requires": "contractor plant working to programme",
+    "blocked_by": "no fieldwork required at all"
+   },
+   {
+    "row": "Open area hand excavation",
+    "col": "Emergency response to discovery",
+    "code": "N4",
+    "requires": "slow progress",
+    "blocked_by": "days rather than months"
+   }
+  ],
+  "RECORDING METHOD|ARCHIVE OUTCOME": [],
+  "PROGRAMME PRESSURE|ARCHIVE OUTCOME": [
+   {
+    "row": "No archaeological condition imposed",
+    "col": "Full publication and deposited archive",
+    "code": "N3",
+    "requires": "funding through to publication",
+    "blocked_by": "no fieldwork required at all"
+   },
+   {
+    "row": "No archaeological condition imposed",
+    "col": "Grey literature report only",
+    "code": "N3",
+    "requires": "a client report satisfying the condition",
+    "blocked_by": "no fieldwork required at all"
+   },
+   {
+    "row": "Full pre-construction season",
+    "col": "No record produced",
+    "code": "N3",
+    "requires": "complete excavation to natural",
+    "blocked_by": "nothing recovered or written"
+   }
+  ]
+ }
+}

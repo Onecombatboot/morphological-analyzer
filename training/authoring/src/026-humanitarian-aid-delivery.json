@@ -1,0 +1,249 @@
+{
+ "domain": "humanitarian aid delivery",
+ "group": "civil",
+ "parameters": {
+  "CONTEXT": [
+   "Active conflict zone",
+   "Post-earthquake urban",
+   "Protracted refugee settlement",
+   "Famine in remote rural area"
+  ],
+  "AID MODALITY": [
+   "In-kind food distribution",
+   "Cash transfer to households",
+   "Medical field hospital",
+   "Water and sanitation infrastructure"
+  ],
+  "DELIVERY CHANNEL": [
+   "International agency direct",
+   "Local partner organisation",
+   "Host government ministry",
+   "Military logistics support"
+  ],
+  "PRIMARY CONSTRAINT": [
+   "Access denied by armed actors",
+   "Destroyed transport infrastructure",
+   "Absent functioning markets",
+   "Donor funding shortfall"
+  ],
+  "DURATION": [
+   "Weeks",
+   "Months",
+   "Years"
+  ]
+ },
+ "characterisations": {
+  "Active conflict zone": {
+   "requires": "negotiated access across front lines",
+   "provides": "insecurity for staff, contested control, no government reach in some areas"
+  },
+  "Post-earthquake urban": {
+   "requires": "response to a sudden onset event",
+   "provides": "intact population with destroyed structures, functioning national institutions, dense access"
+  },
+  "Protracted refugee settlement": {
+   "requires": "displaced population in a stable host country",
+   "provides": "years of stability, established camp administration, functioning host state"
+  },
+  "Famine in remote rural area": {
+   "requires": "food insecurity plus distance from markets",
+   "provides": "dispersed population, long supply lines, collapsed local food supply"
+  },
+  "In-kind food distribution": {
+   "requires": "supply chain capable of moving bulk commodities",
+   "provides": "direct consumption, no dependence on markets, expensive logistics"
+  },
+  "Cash transfer to households": {
+   "requires": "functioning local markets and a payment mechanism",
+   "provides": "recipient choice, support to local economy, useless where nothing is for sale"
+  },
+  "Medical field hospital": {
+   "requires": "clinical staff, sterile supply, a secure site",
+   "provides": "surgical and trauma capacity, months of establishment, no food or shelter effect"
+  },
+  "Water and sanitation infrastructure": {
+   "requires": "engineering works and a fixed population",
+   "provides": "disease prevention, permanence, no benefit to a dispersed or moving population"
+  },
+  "International agency direct": {
+   "requires": "own staff and access rights",
+   "provides": "control of standards, high cost, visibility as a foreign actor"
+  },
+  "Local partner organisation": {
+   "requires": "an existing local body with capacity",
+   "provides": "access where foreigners cannot go, acceptance, variable capacity"
+  },
+  "Host government ministry": {
+   "requires": "a functioning state willing to act",
+   "provides": "scale and legitimacy, unavailable where the state is a party to the conflict"
+  },
+  "Military logistics support": {
+   "requires": "armed forces tasked to assist",
+   "provides": "heavy lift and engineering, compromises humanitarian neutrality"
+  },
+  "Access denied by armed actors": {
+   "requires": "control of routes by parties to a conflict",
+   "provides": "no delivery regardless of resources, negotiation the only remedy"
+  },
+  "Destroyed transport infrastructure": {
+   "requires": "physical damage to roads, ports or airfields",
+   "provides": "delivery possible only by air or engineering repair"
+  },
+  "Absent functioning markets": {
+   "requires": "collapse of local trade",
+   "provides": "nothing purchasable locally, cash useless, in-kind necessary"
+  },
+  "Donor funding shortfall": {
+   "requires": "an appeal not met",
+   "provides": "reduced scale of everything, no physical obstacle"
+  },
+  "Weeks": {
+   "requires": "an acute phase response",
+   "provides": "time for distribution and emergency medical care only"
+  },
+  "Months": {
+   "requires": "sustained operations",
+   "provides": "time to establish services and infrastructure"
+  },
+  "Years": {
+   "requires": "a protracted situation and durable funding",
+   "provides": "time for permanent works and system building"
+  }
+ },
+ "exclusions": {
+  "CONTEXT|AID MODALITY": [
+   {
+    "row": "Famine in remote rural area",
+    "col": "Cash transfer to households",
+    "code": "N3",
+    "requires": "functioning local markets and a payment mechanism",
+    "blocked_by": "collapsed local food supply"
+   },
+   {
+    "row": "Famine in remote rural area",
+    "col": "Water and sanitation infrastructure",
+    "code": "N3",
+    "requires": "engineering works and a fixed population",
+    "blocked_by": "dispersed population"
+   }
+  ],
+  "CONTEXT|DELIVERY CHANNEL": [
+   {
+    "row": "Active conflict zone",
+    "col": "Host government ministry",
+    "code": "N7",
+    "requires": "a functioning state willing to act",
+    "blocked_by": "no government reach in some areas"
+   },
+   {
+    "row": "Protracted refugee settlement",
+    "col": "Military logistics support",
+    "code": "N7",
+    "requires": "armed forces tasked to assist",
+    "blocked_by": "years of stability, established camp administration"
+   }
+  ],
+  "CONTEXT|PRIMARY CONSTRAINT": [
+   {
+    "row": "Post-earthquake urban",
+    "col": "Access denied by armed actors",
+    "code": "N3",
+    "requires": "control of routes by parties to a conflict",
+    "blocked_by": "functioning national institutions"
+   },
+   {
+    "row": "Protracted refugee settlement",
+    "col": "Access denied by armed actors",
+    "code": "N3",
+    "requires": "control of routes by parties to a conflict",
+    "blocked_by": "displaced population in a stable host country"
+   },
+   {
+    "row": "Protracted refugee settlement",
+    "col": "Destroyed transport infrastructure",
+    "code": "N7",
+    "requires": "physical damage to roads, ports or airfields",
+    "blocked_by": "years of stability, established camp administration"
+   },
+   {
+    "row": "Protracted refugee settlement",
+    "col": "Absent functioning markets",
+    "code": "N7",
+    "requires": "collapse of local trade",
+    "blocked_by": "functioning host state"
+   }
+  ],
+  "CONTEXT|DURATION": [
+   {
+    "row": "Protracted refugee settlement",
+    "col": "Weeks",
+    "code": "N1",
+    "requires": "an acute phase response",
+    "blocked_by": "years of stability"
+   }
+  ],
+  "AID MODALITY|DELIVERY CHANNEL": [
+   {
+    "row": "Cash transfer to households",
+    "col": "Military logistics support",
+    "code": "N7",
+    "requires": "functioning local markets and a payment mechanism",
+    "blocked_by": "heavy lift and engineering"
+   }
+  ],
+  "AID MODALITY|PRIMARY CONSTRAINT": [
+   {
+    "row": "Cash transfer to households",
+    "col": "Absent functioning markets",
+    "code": "N3",
+    "requires": "functioning local markets and a payment mechanism",
+    "blocked_by": "cash useless"
+   }
+  ],
+  "AID MODALITY|DURATION": [
+   {
+    "row": "Medical field hospital",
+    "col": "Weeks",
+    "code": "N4",
+    "requires": "an acute phase response",
+    "blocked_by": "months of establishment"
+   },
+   {
+    "row": "Water and sanitation infrastructure",
+    "col": "Weeks",
+    "code": "N4",
+    "requires": "an acute phase response",
+    "blocked_by": "engineering works and a fixed population"
+   }
+  ],
+  "DELIVERY CHANNEL|PRIMARY CONSTRAINT": [
+   {
+    "row": "Host government ministry",
+    "col": "Access denied by armed actors",
+    "code": "N7",
+    "requires": "a functioning state willing to act",
+    "blocked_by": "control of routes by parties to a conflict"
+   }
+  ],
+  "DELIVERY CHANNEL|DURATION": [
+   {
+    "row": "Military logistics support",
+    "col": "Years",
+    "code": "N7",
+    "requires": "a protracted situation and durable funding",
+    "blocked_by": "compromises humanitarian neutrality"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CONTEXT|AID MODALITY": "water and sanitation infrastructure is N in an active conflict zone (works cannot be built and held) and N in a dispersed famine area (no fixed population to serve). Cash transfer is N in a famine remote area, where absent markets make cash worthless.",
+  "CONTEXT|DELIVERY CHANNEL": "host government ministry is N in an active conflict zone, where the state is a party. Military logistics is N in a protracted refugee settlement and N in a famine area - neither warrants the neutrality cost.",
+  "CONTEXT|PRIMARY CONSTRAINT": "post-earthquake urban is N for access denial by armed actors and N for absent markets. A protracted settlement is N for all three physical constraints, being stable and served - only funding shortfall applies.",
+  "CONTEXT|DURATION": "post-earthquake is N at years as posed. A protracted settlement is N at weeks by definition.",
+  "AID MODALITY|DELIVERY CHANNEL": "cash transfer and water infrastructure are both N via military logistics - neither is a military task.",
+  "AID MODALITY|PRIMARY CONSTRAINT": "cash transfer is N under absent functioning markets, which is exactly what makes cash useless.",
+  "AID MODALITY|DURATION": "medical field hospital and water infrastructure are both N at weeks - neither is established in that time.",
+  "DELIVERY CHANNEL|PRIMARY CONSTRAINT": "host government ministry is N under access denied by armed actors, since that denial is precisely of state reach.",
+  "DELIVERY CHANNEL|DURATION": "military logistics is N at years - it is a surge capability, not a standing arrangement."
+ }
+}

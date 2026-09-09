@@ -1,0 +1,155 @@
+DOMAIN: winter heating and power shortfall
+GROUP: resource management
+PARAM: SHORTFALL CAUSE
+- Gas import interruption :: a pipeline or terminal ceasing to deliver :: fuel shortage rather than network failure, weeks of storage buffer
+- Generation plant unavailability :: units out on fault or maintenance :: capacity shortfall at peak only, no fuel problem
+- Extreme cold demand peak :: temperatures far below the design assumption :: simultaneous heating and electrical demand, forecastable days ahead
+- Network damage from storm :: physical damage to distribution lines :: localised loss regardless of generation, repair crews the limiting factor
+PARAM: BUFFER AVAILABLE
+- Full seasonal gas storage :: injection completed before winter :: weeks of substitution for imports, no help against network damage
+- Interconnector imports :: a neighbouring system with surplus :: rapid substitution, dependence on the neighbour not being short simultaneously
+- Contracted demand response :: industrial users paid to reduce :: hundreds of megawatts within minutes, a limited number of activations
+- No buffer of any kind :: an isolated system running without reserve :: immediate shortfall on any loss
+PARAM: ALLOCATION MEASURE
+- Voluntary conservation appeal :: a public communication channel :: modest saving, no compulsion, no equity concern
+- Industrial curtailment :: contractual or statutory power to instruct :: large blocks of demand removed, employment and output cost
+- Rota disconnection of households :: network switching by feeder :: enforced reduction, no discrimination between vulnerable and other users
+- Price rationing in the market :: a functioning wholesale market :: demand reduced by cost, severe distributional consequences
+PARAM: OUTCOME
+- Shortfall covered :: buffers and measures sufficient :: no interruption to any user
+- Industrial output lost :: curtailment sustained over days :: economic loss concentrated on industry
+- Household disconnections :: demand reduction reaching domestic users :: cold homes, excess winter mortality risk
+- System collapse and black start :: frequency control lost :: total loss followed by staged restoration over days
+EXCL: SHORTFALL CAUSE|BUFFER AVAILABLE
+Network damage from storm >< Full seasonal gas storage | N3 | no help against network damage | physical damage to distribution lines
+Network damage from storm >< Contracted demand response | N7 | hundreds of megawatts within minutes | localised loss regardless of generation
+EXCL: SHORTFALL CAUSE|ALLOCATION MEASURE
+Network damage from storm >< Price rationing in the market | N7 | demand reduced by cost | localised loss regardless of generation
+Generation plant unavailability >< Voluntary conservation appeal | N7 | modest saving | capacity shortfall at peak only
+EXCL: BUFFER AVAILABLE|ALLOCATION MEASURE
+Interconnector imports >< Price rationing in the market | N7 | a functioning wholesale market | dependence on the neighbour not being short simultaneously
+EXCL: BUFFER AVAILABLE|OUTCOME
+No buffer of any kind >< Shortfall covered | N3 | buffers and measures sufficient | immediate shortfall on any loss
+EXCL: ALLOCATION MEASURE|OUTCOME
+Voluntary conservation appeal >< Industrial output lost | N3 | curtailment sustained over days | no compulsion
+Voluntary conservation appeal >< Household disconnections | N3 | demand reduction reaching domestic users | no compulsion
+Industrial curtailment >< Household disconnections | N3 | demand reduction reaching domestic users | large blocks of demand removed
+EXCL: SHORTFALL CAUSE|OUTCOME
+Network damage from storm >< System collapse and black start | N7 | frequency control lost | localised loss regardless of generation
+---
+DOMAIN: national fuel supply disruption
+GROUP: resource management
+PARAM: DISRUPTION POINT
+- Refinery outage :: a processing unit failing :: loss of production capacity, imports substitutable over weeks
+- Import terminal blockade :: physical obstruction of a port :: no receipt of product, stocks inland unaffected
+- Road haulage stoppage :: tanker drivers withdrawing :: product available but immobile, forecourts emptying within days
+- Retail panic buying :: consumer behaviour ahead of any real shortage :: demand spike with supply intact, self-reinforcing while it lasts
+PARAM: STOCK POSITION
+- Full compulsory stocks :: a statutory reserve held and accessible :: ninety days of cover, release requires a government decision
+- Commercial stocks only :: normal industry working inventory :: days of cover, held at terminals rather than forecourts
+- Forecourt tanks only :: no upstream buffer at all :: hours to days of cover, exhausted by any surge
+- Strategic reserve inaccessible :: stocks held but unable to move :: nominal cover that cannot be delivered
+PARAM: PRIORITY MECHANISM
+- Designated filling stations :: a scheme identifying priority sites :: continuity for emergency services, ordinary users excluded from those sites
+- Purchase volume limits :: forecourt enforcement :: slowing of the surge, no increase in total supply
+- Military tanker driving :: trained service personnel and vehicles :: restoration of movement, weeks to reach full throughput
+- No intervention :: reliance on the market :: no administrative cost, supply to whoever queues first
+PARAM: OUTCOME
+- Normal service maintained :: disruption absorbed by stocks :: no public impact
+- Localised dry forecourts :: distribution unable to keep pace :: regional shortage, queueing
+- Emergency services affected :: priority users unable to refuel :: risk to response capability
+- Sustained national shortage :: supply below demand for weeks :: economic contraction, rationing by decree
+EXCL: DISRUPTION POINT|STOCK POSITION
+Retail panic buying >< Forecourt tanks only | N7 | hours to days of cover | demand spike with supply intact
+EXCL: DISRUPTION POINT|PRIORITY MECHANISM
+Road haulage stoppage >< Military tanker driving | N7 | trained service personnel and vehicles | product available but immobile
+Retail panic buying >< Military tanker driving | N7 | restoration of movement | demand spike with supply intact
+EXCL: STOCK POSITION|PRIORITY MECHANISM
+Strategic reserve inaccessible >< Military tanker driving | N7 | restoration of movement | nominal cover that cannot be delivered
+EXCL: STOCK POSITION|OUTCOME
+Full compulsory stocks >< Sustained national shortage | N7 | supply below demand for weeks | ninety days of cover
+Forecourt tanks only >< Normal service maintained | N3 | disruption absorbed by stocks | no upstream buffer at all
+Strategic reserve inaccessible >< Normal service maintained | N3 | disruption absorbed by stocks | nominal cover that cannot be delivered
+EXCL: PRIORITY MECHANISM|OUTCOME
+Designated filling stations >< Emergency services affected | N7 | priority users unable to refuel | continuity for emergency services
+No intervention >< Emergency services affected | N7 | supply to whoever queues first | reliance on the market
+EXCL: DISRUPTION POINT|OUTCOME
+Retail panic buying >< Sustained national shortage | N7 | supply below demand for weeks | self-reinforcing while it lasts
+---
+DOMAIN: port labour disruption
+GROUP: logistics
+PARAM: DISPUTE FORM
+- Full withdrawal of labour :: a lawful ballot and notice :: complete cessation of cargo handling, a known end date in most cases
+- Work to rule :: strict adherence to procedure :: throughput reduced by a third, no legal exposure for the workforce
+- Refusal to handle specific cargo :: a political or safety objection :: selective disruption, other trade continuing normally
+- Automation dispute over new equipment :: installation of automated handling :: disruption concentrated at one terminal, a structural rather than a pay issue
+PARAM: PORT CHARACTERISTIC
+- Single dominant national port :: most national trade through one estuary :: no domestic alternative, immediate national effect
+- Several competing terminals :: rival operators in the same range :: diversion possible between terminals, competitive pressure on the operator
+- Landlord port with many operators :: an authority leasing to independent stevedores :: dispute confined to one employer, others unaffected
+- Fully automated terminal :: remote-operated cranes and vehicles :: very few workers to withdraw, a small technical workforce with high leverage
+PARAM: MITIGATION
+- Divert to another port :: spare capacity within reach :: continuity at higher cost, inland transport rebalanced
+- Use of contractor labour :: workers willing to cross and legal permission :: partial throughput, severe escalation of the dispute
+- Arbitration and settlement :: both parties willing to submit :: resolution rather than substitution, days to weeks
+- Emergency legal powers :: legislation permitting compulsion :: forced resumption, political and legal challenge
+PARAM: SUPPLY CHAIN EFFECT
+- Absorbed by inventory :: importers holding buffer stock :: no visible effect downstream
+- Delay and demurrage cost :: vessels waiting at anchor :: financial cost, goods eventually delivered
+- Shortage of specific goods :: time-critical or single-sourced cargo :: empty shelves in some categories only
+- Manufacturing stoppage :: just-in-time inputs failing to arrive :: production halted, cost far exceeding the freight value
+EXCL: DISPUTE FORM|PORT CHARACTERISTIC
+Automation dispute over new equipment >< Landlord port with many operators | N7 | an authority leasing to independent stevedores | installation of automated handling
+Full withdrawal of labour >< Fully automated terminal | N7 | complete cessation of cargo handling | very few workers to withdraw
+EXCL: DISPUTE FORM|MITIGATION
+Refusal to handle specific cargo >< Emergency legal powers | N7 | legislation permitting compulsion | a political or safety objection
+Work to rule >< Use of contractor labour | N7 | workers willing to cross and legal permission | strict adherence to procedure
+EXCL: PORT CHARACTERISTIC|MITIGATION
+Single dominant national port >< Divert to another port | N3 | spare capacity within reach | no domestic alternative
+EXCL: PORT CHARACTERISTIC|SUPPLY CHAIN EFFECT
+Landlord port with many operators >< Manufacturing stoppage | N7 | just-in-time inputs failing to arrive | dispute confined to one employer
+Several competing terminals >< Manufacturing stoppage | N7 | just-in-time inputs failing to arrive | diversion possible between terminals
+EXCL: DISPUTE FORM|SUPPLY CHAIN EFFECT
+Refusal to handle specific cargo >< Manufacturing stoppage | N7 | just-in-time inputs failing to arrive | other trade continuing normally
+EXCL: MITIGATION|SUPPLY CHAIN EFFECT
+Divert to another port >< Manufacturing stoppage | N7 | just-in-time inputs failing to arrive | continuity at higher cost
+Arbitration and settlement >< Absorbed by inventory | N7 | importers holding buffer stock | resolution rather than substitution
+---
+DOMAIN: semiconductor supply shock
+GROUP: logistics
+PARAM: SHOCK ORIGIN
+- Fabrication plant fire :: a fire in a wafer fab :: months of lost output from one site, no alternative qualified source
+- Export control imposed :: a government restricting a technology :: legal rather than physical unavailability, alternatives outside the controlling jurisdiction
+- Substrate material shortage :: an upstream input constrained :: every fab affected simultaneously, no site-specific remedy
+- Demand surge from a new product :: an unexpected order book :: no supply failure at all, allocation between customers the only issue
+PARAM: PART CHARACTER
+- Leading-edge logic :: a process node available at very few fabs :: no second source in practice, years to qualify anywhere else
+- Mature analogue component :: a legacy process with many suppliers :: multiple qualified sources, very low unit value
+- Custom application-specific device :: a design owned by one customer :: mask sets tied to one foundry, redesign required to move
+- Memory commodity :: a fungible standard product :: interchangeable between suppliers, price volatility rather than availability
+PARAM: BUYER RESPONSE
+- Qualify a second source :: an alternative supplier and engineering time :: durable resilience, six to eighteen months to achieve
+- Buy on the spot market :: brokers holding inventory :: immediate supply, extreme price and counterfeit risk
+- Redesign around available parts :: engineering capacity and certification headroom :: permanent removal of the dependency, months and recertification cost
+- Allocate output to priority customers :: a supplier decision on rationing :: continuity for some, complete cut-off for others
+PARAM: DOWNSTREAM EFFECT
+- No production impact :: buffers and substitution sufficient :: no consequence
+- Reduced build rate :: partial supply :: lower output, order backlog growing
+- Product line suspended :: a part with no substitute at all :: revenue loss, workforce idled
+- Feature removal to ship :: a redesign shipping without a function :: product shipped in degraded form
+EXCL: SHOCK ORIGIN|PART CHARACTER
+Demand surge from a new product >< Mature analogue component | N7 | multiple qualified sources | no supply failure at all
+EXCL: SHOCK ORIGIN|BUYER RESPONSE
+Substrate material shortage >< Qualify a second source | N3 | an alternative supplier and engineering time | every fab affected simultaneously
+Export control imposed >< Buy on the spot market | N7 | brokers holding inventory | legal rather than physical unavailability
+EXCL: PART CHARACTER|BUYER RESPONSE
+Leading-edge logic >< Qualify a second source | N3 | an alternative supplier and engineering time | no second source in practice
+Custom application-specific device >< Qualify a second source | N3 | an alternative supplier and engineering time | mask sets tied to one foundry
+Custom application-specific device >< Buy on the spot market | N3 | brokers holding inventory | a design owned by one customer
+EXCL: PART CHARACTER|DOWNSTREAM EFFECT
+Memory commodity >< Product line suspended | N7 | a part with no substitute at all | interchangeable between suppliers
+Mature analogue component >< Product line suspended | N7 | a part with no substitute at all | multiple qualified sources
+EXCL: BUYER RESPONSE|DOWNSTREAM EFFECT
+Redesign around available parts >< No production impact | N7 | buffers and substitution sufficient | months and recertification cost
+EXCL: SHOCK ORIGIN|DOWNSTREAM EFFECT
+Demand surge from a new product >< Feature removal to ship | N7 | a redesign shipping without a function | no supply failure at all

@@ -1,0 +1,386 @@
+{
+ "domain": "urban water supply contamination",
+ "group": "civil",
+ "parameters": {
+  "CONTAMINANT": [
+   "Microbial pathogen",
+   "Heavy metal leaching",
+   "Industrial solvent ingress",
+   "Disinfection byproduct"
+  ],
+  "ENTRY POINT": [
+   "Source reservoir",
+   "Treatment plant failure",
+   "Distribution main breach",
+   "Household plumbing"
+  ],
+  "DETECTION": [
+   "Routine compliance sampling",
+   "Continuous chlorine residual monitor",
+   "Consumer taste and odour complaint",
+   "Clinical case cluster"
+  ],
+  "RESPONSE": [
+   "Boil water notice",
+   "Flush and rechlorinate mains",
+   "Switch to alternative source",
+   "Point-of-use filtration"
+  ],
+  "POPULATION AFFECTED": [
+   "Single building",
+   "One distribution zone",
+   "Entire city",
+   "Nobody exposed"
+  ]
+ },
+ "characterisations": {
+  "Microbial pathogen": {
+   "requires": "faecal or environmental ingress and survivable conditions",
+   "provides": "acute illness within days, killed by chlorine, detectable by culture"
+  },
+  "Heavy metal leaching": {
+   "requires": "corrosive water in contact with metal pipe or solder",
+   "provides": "chronic exposure, no taste at low levels, unaffected by disinfection"
+  },
+  "Industrial solvent ingress": {
+   "requires": "a spill reaching the source or a permeable main",
+   "provides": "distinctive odour at low concentration, chronic toxicity, not removed by chlorination"
+  },
+  "Disinfection byproduct": {
+   "requires": "chlorine reacting with natural organic matter",
+   "provides": "formed by the treatment itself, chronic risk only, rises with treatment intensity"
+  },
+  "Source reservoir": {
+   "requires": "contamination of the raw water body",
+   "provides": "whole-supply exposure, treatment has a chance to remove it"
+  },
+  "Treatment plant failure": {
+   "requires": "a process step not performing",
+   "provides": "everything downstream affected, detectable at plant outlet"
+  },
+  "Distribution main breach": {
+   "requires": "a pressure loss or physical break",
+   "provides": "localised ingress to one zone, no plant indication"
+  },
+  "Household plumbing": {
+   "requires": "materials or conditions inside one property",
+   "provides": "single-property exposure, invisible to any utility monitoring"
+  },
+  "Routine compliance sampling": {
+   "requires": "a scheduled sampling programme",
+   "provides": "detection days later, statutory parameters only"
+  },
+  "Continuous chlorine residual monitor": {
+   "requires": "instrumentation in the network",
+   "provides": "immediate indication of disinfection loss, blind to anything not consuming chlorine"
+  },
+  "Consumer taste and odour complaint": {
+   "requires": "a perceptible change and a consumer reporting it",
+   "provides": "rapid unstructured signal, only for perceptible contaminants"
+  },
+  "Clinical case cluster": {
+   "requires": "people falling ill and being linked",
+   "provides": "detection only after harm, days to weeks of delay"
+  },
+  "Boil water notice": {
+   "requires": "a contaminant destroyed by boiling",
+   "provides": "immediate protection from microbes, useless against chemicals"
+  },
+  "Flush and rechlorinate mains": {
+   "requires": "network access and a chlorine-susceptible contaminant",
+   "provides": "removal from the distribution system, days of work"
+  },
+  "Switch to alternative source": {
+   "requires": "a second source to exist",
+   "provides": "elimination of a source-side problem, no effect on distribution or household issues"
+  },
+  "Point-of-use filtration": {
+   "requires": "installation at each tap",
+   "provides": "protection of one property, unscalable to a city"
+  },
+  "Single building": {
+   "requires": "an issue confined to one property",
+   "provides": "small affected population, property-level remedies feasible"
+  },
+  "One distribution zone": {
+   "requires": "a contaminant confined by network geometry",
+   "provides": "thousands affected, zone-level isolation possible"
+  },
+  "Entire city": {
+   "requires": "contamination upstream of all distribution",
+   "provides": "whole population affected, no unaffected zone to switch to"
+  },
+  "Nobody exposed": {
+   "requires": "detection before water reaches consumers",
+   "provides": "no health consequence"
+  }
+ },
+ "exclusions": {
+  "CONTAMINANT|ENTRY POINT": [
+   {
+    "row": "Heavy metal leaching",
+    "col": "Source reservoir",
+    "code": "N3",
+    "requires": "corrosive water in contact with metal pipe or solder",
+    "blocked_by": "contamination of the raw water body"
+   },
+   {
+    "row": "Heavy metal leaching",
+    "col": "Distribution main breach",
+    "code": "N3",
+    "requires": "a pressure loss or physical break",
+    "blocked_by": "corrosive water in contact with metal pipe or solder"
+   },
+   {
+    "row": "Industrial solvent ingress",
+    "col": "Household plumbing",
+    "code": "N7",
+    "requires": "materials or conditions inside one property",
+    "blocked_by": "a spill reaching the source or a permeable main"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Source reservoir",
+    "code": "N3",
+    "requires": "contamination of the raw water body",
+    "blocked_by": "formed by the treatment itself"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Distribution main breach",
+    "code": "N3",
+    "requires": "a pressure loss or physical break",
+    "blocked_by": "formed by the treatment itself"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Household plumbing",
+    "code": "N3",
+    "requires": "materials or conditions inside one property",
+    "blocked_by": "formed by the treatment itself"
+   }
+  ],
+  "CONTAMINANT|DETECTION": [
+   {
+    "row": "Microbial pathogen",
+    "col": "Consumer taste and odour complaint",
+    "code": "N7",
+    "requires": "only for perceptible contaminants",
+    "blocked_by": "detectable by culture"
+   },
+   {
+    "row": "Heavy metal leaching",
+    "col": "Continuous chlorine residual monitor",
+    "code": "N3",
+    "requires": "blind to anything not consuming chlorine",
+    "blocked_by": "unaffected by disinfection"
+   },
+   {
+    "row": "Heavy metal leaching",
+    "col": "Consumer taste and odour complaint",
+    "code": "N3",
+    "requires": "only for perceptible contaminants",
+    "blocked_by": "no taste at low levels"
+   },
+   {
+    "row": "Heavy metal leaching",
+    "col": "Clinical case cluster",
+    "code": "N7",
+    "requires": "people falling ill and being linked",
+    "blocked_by": "chronic exposure"
+   },
+   {
+    "row": "Industrial solvent ingress",
+    "col": "Continuous chlorine residual monitor",
+    "code": "N3",
+    "requires": "blind to anything not consuming chlorine",
+    "blocked_by": "not removed by chlorination"
+   },
+   {
+    "row": "Industrial solvent ingress",
+    "col": "Clinical case cluster",
+    "code": "N7",
+    "requires": "people falling ill and being linked",
+    "blocked_by": "chronic toxicity"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Continuous chlorine residual monitor",
+    "code": "N3",
+    "requires": "blind to anything not consuming chlorine",
+    "blocked_by": "formed by the treatment itself"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Consumer taste and odour complaint",
+    "code": "N3",
+    "requires": "only for perceptible contaminants",
+    "blocked_by": "chronic risk only"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Clinical case cluster",
+    "code": "N7",
+    "requires": "people falling ill and being linked",
+    "blocked_by": "chronic risk only"
+   }
+  ],
+  "CONTAMINANT|RESPONSE": [
+   {
+    "row": "Heavy metal leaching",
+    "col": "Boil water notice",
+    "code": "N3",
+    "requires": "a contaminant destroyed by boiling",
+    "blocked_by": "unaffected by disinfection"
+   },
+   {
+    "row": "Heavy metal leaching",
+    "col": "Flush and rechlorinate mains",
+    "code": "N3",
+    "requires": "network access and a chlorine-susceptible contaminant",
+    "blocked_by": "unaffected by disinfection"
+   },
+   {
+    "row": "Industrial solvent ingress",
+    "col": "Boil water notice",
+    "code": "N3",
+    "requires": "a contaminant destroyed by boiling",
+    "blocked_by": "not removed by chlorination"
+   },
+   {
+    "row": "Disinfection byproduct",
+    "col": "Boil water notice",
+    "code": "N3",
+    "requires": "a contaminant destroyed by boiling",
+    "blocked_by": "chronic risk only"
+   }
+  ],
+  "CONTAMINANT|POPULATION AFFECTED": [
+   {
+    "row": "Heavy metal leaching",
+    "col": "Entire city",
+    "code": "N3",
+    "requires": "contamination upstream of all distribution",
+    "blocked_by": "corrosive water in contact with metal pipe or solder"
+   }
+  ],
+  "ENTRY POINT|DETECTION": [
+   {
+    "row": "Household plumbing",
+    "col": "Continuous chlorine residual monitor",
+    "code": "N3",
+    "requires": "instrumentation in the network",
+    "blocked_by": "invisible to any utility monitoring"
+   }
+  ],
+  "ENTRY POINT|RESPONSE": [
+   {
+    "row": "Distribution main breach",
+    "col": "Switch to alternative source",
+    "code": "N3",
+    "requires": "elimination of a source-side problem",
+    "blocked_by": "localised ingress to one zone"
+   },
+   {
+    "row": "Household plumbing",
+    "col": "Flush and rechlorinate mains",
+    "code": "N3",
+    "requires": "network access and a chlorine-susceptible contaminant",
+    "blocked_by": "invisible to any utility monitoring"
+   },
+   {
+    "row": "Household plumbing",
+    "col": "Switch to alternative source",
+    "code": "N3",
+    "requires": "elimination of a source-side problem",
+    "blocked_by": "materials or conditions inside one property"
+   }
+  ],
+  "ENTRY POINT|POPULATION AFFECTED": [
+   {
+    "row": "Source reservoir",
+    "col": "Single building",
+    "code": "N3",
+    "requires": "an issue confined to one property",
+    "blocked_by": "whole-supply exposure"
+   },
+   {
+    "row": "Source reservoir",
+    "col": "One distribution zone",
+    "code": "N7",
+    "requires": "a contaminant confined by network geometry",
+    "blocked_by": "whole-supply exposure"
+   },
+   {
+    "row": "Treatment plant failure",
+    "col": "Single building",
+    "code": "N3",
+    "requires": "an issue confined to one property",
+    "blocked_by": "everything downstream affected"
+   },
+   {
+    "row": "Distribution main breach",
+    "col": "Single building",
+    "code": "N7",
+    "requires": "an issue confined to one property",
+    "blocked_by": "localised ingress to one zone"
+   },
+   {
+    "row": "Distribution main breach",
+    "col": "Entire city",
+    "code": "N3",
+    "requires": "contamination upstream of all distribution",
+    "blocked_by": "localised ingress to one zone"
+   },
+   {
+    "row": "Household plumbing",
+    "col": "One distribution zone",
+    "code": "N3",
+    "requires": "a contaminant confined by network geometry",
+    "blocked_by": "single-property exposure"
+   },
+   {
+    "row": "Household plumbing",
+    "col": "Entire city",
+    "code": "N3",
+    "requires": "contamination upstream of all distribution",
+    "blocked_by": "single-property exposure"
+   }
+  ],
+  "DETECTION|POPULATION AFFECTED": [
+   {
+    "row": "Consumer taste and odour complaint",
+    "col": "Nobody exposed",
+    "code": "N1",
+    "requires": "detection before water reaches consumers",
+    "blocked_by": "a perceptible change and a consumer reporting it"
+   },
+   {
+    "row": "Clinical case cluster",
+    "col": "Nobody exposed",
+    "code": "N1",
+    "requires": "detection before water reaches consumers",
+    "blocked_by": "people falling ill and being linked"
+   }
+  ],
+  "RESPONSE|POPULATION AFFECTED": [
+   {
+    "row": "Point-of-use filtration",
+    "col": "Entire city",
+    "code": "N3",
+    "requires": "contamination upstream of all distribution",
+    "blocked_by": "unscalable to a city"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "CONTAMINANT|ENTRY POINT": "heavy metal leaching is Y only at household plumbing - it is a pipe-material phenomenon. Disinfection byproducts are formed by treatment, so Y only at the treatment plant. Microbial and solvent ingress are N at household plumbing.",
+  "CONTAMINANT|DETECTION": "chlorine residual monitors detect only chlorine-consuming contamination, so N for metals, solvents and byproducts. Taste and odour is N for microbes and metals at low levels, Y for solvents. Clinical clusters are N for chronic contaminants - metals, solvents and byproducts do not produce an acute cluster.",
+  "CONTAMINANT|RESPONSE": "boiling is useless against every chemical contaminant, so Y only for microbes. Rechlorination is N for metals. Alternative source is N for household plumbing issues but that is the entry-point pairing; here metals are Y since a less corrosive source helps.",
+  "CONTAMINANT|POPULATION AFFECTED": "heavy metal leaching is N for one zone and N for an entire city - it is property-specific.",
+  "ENTRY POINT|DETECTION": "household plumbing is N for continuous chlorine monitoring, which is not installed inside properties.",
+  "ENTRY POINT|RESPONSE": "distribution main breach is N for switching source. Household plumbing is N for boiling, flushing and source switching alike - only point-of-use filtration reaches it.",
+  "ENTRY POINT|POPULATION AFFECTED": "source reservoir and treatment failure are both N for a single building. Source is N for one zone. Distribution breach is N for a single building and N for an entire city. Household plumbing is N for a zone and a city.",
+  "DETECTION|POPULATION AFFECTED": "chlorine monitors, taste complaints and clinical clusters are all N for nobody-exposed - each requires water to have reached people."
+ }
+}

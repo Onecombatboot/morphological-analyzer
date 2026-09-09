@@ -1,0 +1,65 @@
+DOMAIN: refugee status determination
+GROUP: migration
+PARAM: CLAIM BASIS
+- Individual persecution :: evidence of targeting of the person :: a Convention ground engaged, dependence on personal credibility
+- Generalised violence :: an armed conflict in the country of origin :: a complementary protection route, no need to show individual targeting
+- Economic hardship alone :: poverty without any persecution :: no Convention ground at all, refusal on the merits
+- Statelessness :: no nationality of any state :: a distinct legal status, no country obliged to receive a return
+PARAM: EVIDENCE POSITION
+- Documentary proof of identity :: papers surviving the journey :: identity established, a verifiable history
+- Testimony only :: an account given in interview :: dependence on consistency and plausibility, no corroboration available
+- Medico-legal report :: access to a qualified examiner :: physical findings consistent with the account, expert weight
+- Country information contradicting the claim :: reliable reporting to the contrary :: a strong basis to refuse, great difficulty for the claimant
+PARAM: PROCEDURE
+- Full substantive interview :: an interpreter and a caseworker :: a detailed account tested, months of processing
+- Accelerated border procedure :: a claim judged manifestly unfounded :: a decision within days, little opportunity to gather evidence
+- Safe third country transfer :: an agreement with another state :: no examination of the merits at all, removal to that state
+- Appeal before a tribunal :: a refusal and a right of appeal :: judicial reconsideration, legal representation needed
+PARAM: DECISION OUTCOME
+- Refugee status granted :: the Convention criteria met :: leave to remain, family reunion rights
+- Humanitarian protection granted :: serious harm but no Convention ground :: leave to remain, fewer ancillary rights
+- Claim refused and removal ordered :: no protection need established :: return to the country of origin, appeal rights exhausted
+- Claim withdrawn or abandoned :: a claimant disappearing from the process :: no decision made at all, the file closed
+EXCL: CLAIM BASIS|DECISION OUTCOME
+Economic hardship alone >< Refugee status granted | N3 | the Convention criteria met | no Convention ground at all
+Statelessness >< Claim refused and removal ordered | N3 | return to the country of origin | no country obliged to receive a return
+EXCL: EVIDENCE POSITION|PROCEDURE
+Medico-legal report >< Accelerated border procedure | N7 | access to a qualified examiner | little opportunity to gather evidence
+EXCL: PROCEDURE|DECISION OUTCOME
+Safe third country transfer >< Refugee status granted | N3 | the Convention criteria met | no examination of the merits at all
+Safe third country transfer >< Humanitarian protection granted | N3 | serious harm but no Convention ground | no examination of the merits at all
+Appeal before a tribunal >< Claim withdrawn or abandoned | N3 | judicial reconsideration | no decision made at all
+---
+DOMAIN: microfinance lending programme
+GROUP: finance
+PARAM: LENDING MODEL
+- Group liability circle :: several borrowers guaranteeing each other :: repayment enforced by peers, exclusion of anyone the group rejects
+- Individual secured loan :: an asset that can be pledged :: larger sums possible, loss of the asset on default
+- Digital nano-credit :: a smartphone and a data trail :: instant disbursement at scale, no human assessment at all
+- Savings-led group fund :: members saving before borrowing :: no external capital needed, very small loan sizes
+PARAM: BORROWER PROFILE
+- Established market trader :: a running business with turnover :: predictable cash flow, capacity for a larger loan
+- First-time borrower with no record :: no credit history of any kind :: no basis for scoring, reliance on character assessment
+- Smallholder farmer :: land access and a single harvest cycle :: income only once a year, exposure to weather
+- Salaried worker with payslips :: formal employment :: verifiable regular income, low assessed risk
+PARAM: EXTERNAL SHOCK
+- Drought destroying the harvest :: rain-fed cultivation :: no farm income that season, widespread simultaneous default
+- Currency collapse :: a loan denominated in hard currency :: repayment burden multiplying, no fault of the borrower
+- Political ban on collection :: a moratorium declared :: no lawful recovery of any kind, portfolio frozen
+- Stable conditions throughout :: no external disturbance :: repayment determined by the business alone, normal arrears only
+PARAM: PORTFOLIO OUTCOME
+- Full repayment achieved :: borrowers able and willing to pay :: capital recycled, the programme sustainable
+- Localised arrears absorbed :: a minority failing to repay :: provisions cover the loss, the programme continuing
+- Correlated mass default :: a shock hitting all borrowers at once :: the loan book impaired, refinancing required
+- Programme closed to new lending :: capital exhausted or withdrawn :: no further loans issued, existing loans run off
+EXCL: LENDING MODEL|BORROWER PROFILE
+Individual secured loan >< First-time borrower with no record | N7 | an asset that can be pledged | no credit history of any kind
+Digital nano-credit >< First-time borrower with no record | N3 | a smartphone and a data trail | no basis for scoring
+EXCL: BORROWER PROFILE|EXTERNAL SHOCK
+Salaried worker with payslips >< Drought destroying the harvest | N3 | rain-fed cultivation | formal employment
+Established market trader >< Drought destroying the harvest | N3 | rain-fed cultivation | a running business with turnover
+EXCL: EXTERNAL SHOCK|PORTFOLIO OUTCOME
+Stable conditions throughout >< Correlated mass default | N3 | a shock hitting all borrowers at once | no external disturbance
+Political ban on collection >< Full repayment achieved | N3 | borrowers able and willing to pay | no lawful recovery of any kind
+EXCL: LENDING MODEL|PORTFOLIO OUTCOME
+Savings-led group fund >< Programme closed to new lending | N7 | capital exhausted or withdrawn | no external capital needed

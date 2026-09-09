@@ -1,0 +1,185 @@
+{
+ "domain": "municipal solid waste disposal crisis",
+ "group": "public services",
+ "parameters": {
+  "DISPOSAL ROUTE LOST": [
+   "Landfill void exhausted",
+   "Incinerator outage",
+   "Export market closed",
+   "Recycling contamination rejection"
+  ],
+  "WASTE STREAM": [
+   "Residual household waste",
+   "Separated dry recyclables",
+   "Food and garden waste",
+   "Hazardous and clinical waste"
+  ],
+  "CONTINGENCY": [
+   "Divert to another authority",
+   "Temporary storage on a licensed site",
+   "Suspend collections",
+   "Emergency permit for an alternative route"
+  ],
+  "PUBLIC CONSEQUENCE": [
+   "No visible impact",
+   "Collections delayed",
+   "Waste accumulating in the street",
+   "Environmental harm from disposal"
+  ]
+ },
+ "characterisations": {
+  "Landfill void exhausted": {
+   "requires": "the permitted void filled",
+   "provides": "a permanent loss requiring a new permitted site, years to replace"
+  },
+  "Incinerator outage": {
+   "requires": "a thermal treatment plant off line",
+   "provides": "a temporary loss of tonnage capacity, weeks to months"
+  },
+  "Export market closed": {
+   "requires": "a receiving country refusing refuse-derived fuel",
+   "provides": "loss of an outlet with no domestic substitute, immediate and indefinite"
+  },
+  "Recycling contamination rejection": {
+   "requires": "material quality below the specification",
+   "provides": "rejection of collected material only, correctable by better sorting"
+  },
+  "Residual household waste": {
+   "requires": "material after any separation",
+   "provides": "continuous daily arisings that cannot be paused, public health consequence if uncollected"
+  },
+  "Separated dry recyclables": {
+   "requires": "a clean sorted stream",
+   "provides": "a market value when clean, storable for weeks without nuisance"
+  },
+  "Food and garden waste": {
+   "requires": "putrescible organic material",
+   "provides": "odour and vermin within days, no storage option at all"
+  },
+  "Hazardous and clinical waste": {
+   "requires": "regulated material requiring specific treatment",
+   "provides": "no substitution of route permitted, small tonnage and very high unit cost"
+  },
+  "Divert to another authority": {
+   "requires": "a neighbouring facility with spare capacity",
+   "provides": "continuity at higher haulage cost, dependence on a neighbour not also constrained"
+  },
+  "Temporary storage on a licensed site": {
+   "requires": "a permit variation and a hardstanding",
+   "provides": "days to weeks of buffer, odour and fire risk"
+  },
+  "Suspend collections": {
+   "requires": "an operational decision",
+   "provides": "immediate relief to the disposal system, waste accumulating at the kerbside"
+  },
+  "Emergency permit for an alternative route": {
+   "requires": "a regulator willing to vary conditions",
+   "provides": "a lawful outlet quickly, environmental safeguards reduced"
+  },
+  "No visible impact": {
+   "requires": "contingency absorbing the loss",
+   "provides": "no consequence to residents"
+  },
+  "Collections delayed": {
+   "requires": "rounds missed and rescheduled",
+   "provides": "complaints, no health risk"
+  },
+  "Waste accumulating in the street": {
+   "requires": "collections suspended for weeks",
+   "provides": "vermin, odour and public health risk"
+  },
+  "Environmental harm from disposal": {
+   "requires": "material handled outside normal safeguards",
+   "provides": "pollution incident, regulatory enforcement"
+  }
+ },
+ "exclusions": {
+  "DISPOSAL ROUTE LOST|WASTE STREAM": [
+   {
+    "row": "Recycling contamination rejection",
+    "col": "Hazardous and clinical waste",
+    "code": "N3",
+    "requires": "no substitution of route permitted",
+    "blocked_by": "rejection of collected material only"
+   },
+   {
+    "row": "Recycling contamination rejection",
+    "col": "Residual household waste",
+    "code": "N3",
+    "requires": "material after any separation",
+    "blocked_by": "rejection of collected material only"
+   }
+  ],
+  "DISPOSAL ROUTE LOST|CONTINGENCY": [
+   {
+    "row": "Landfill void exhausted",
+    "col": "Temporary storage on a licensed site",
+    "code": "N7",
+    "requires": "days to weeks of buffer",
+    "blocked_by": "years to replace"
+   },
+   {
+    "row": "Export market closed",
+    "col": "Divert to another authority",
+    "code": "N7",
+    "requires": "a neighbouring facility with spare capacity",
+    "blocked_by": "no domestic substitute"
+   }
+  ],
+  "WASTE STREAM|CONTINGENCY": [
+   {
+    "row": "Food and garden waste",
+    "col": "Temporary storage on a licensed site",
+    "code": "N3",
+    "requires": "days to weeks of buffer",
+    "blocked_by": "no storage option at all"
+   },
+   {
+    "row": "Hazardous and clinical waste",
+    "col": "Emergency permit for an alternative route",
+    "code": "N3",
+    "requires": "environmental safeguards reduced",
+    "blocked_by": "no substitution of route permitted"
+   },
+   {
+    "row": "Residual household waste",
+    "col": "Suspend collections",
+    "code": "N7",
+    "requires": "immediate relief to the disposal system",
+    "blocked_by": "continuous daily arisings that cannot be paused"
+   }
+  ],
+  "WASTE STREAM|PUBLIC CONSEQUENCE": [
+   {
+    "row": "Separated dry recyclables",
+    "col": "Waste accumulating in the street",
+    "code": "N7",
+    "requires": "collections suspended for weeks",
+    "blocked_by": "storable for weeks without nuisance"
+   },
+   {
+    "row": "Hazardous and clinical waste",
+    "col": "Waste accumulating in the street",
+    "code": "N3",
+    "requires": "collections suspended for weeks",
+    "blocked_by": "no substitution of route permitted"
+   }
+  ],
+  "CONTINGENCY|PUBLIC CONSEQUENCE": [
+   {
+    "row": "Suspend collections",
+    "col": "No visible impact",
+    "code": "N3",
+    "requires": "contingency absorbing the loss",
+    "blocked_by": "waste accumulating at the kerbside"
+   },
+   {
+    "row": "Emergency permit for an alternative route",
+    "col": "No visible impact",
+    "code": "N7",
+    "requires": "contingency absorbing the loss",
+    "blocked_by": "environmental safeguards reduced"
+   }
+  ]
+ }
+}

@@ -1,0 +1,219 @@
+{
+ "domain": "insider threat in a research organisation",
+ "group": "security",
+ "parameters": {
+  "INSIDER ROLE": [
+   "Senior researcher",
+   "Contract IT administrator",
+   "Junior technician",
+   "Visiting academic"
+  ],
+  "MOTIVATION": [
+   "Financial gain",
+   "Ideological conviction",
+   "Coercion by a foreign service",
+   "Grievance against the employer"
+  ],
+  "MATERIAL TAKEN": [
+   "Bulk research data",
+   "A single classified document",
+   "Credentials and access tokens",
+   "Physical prototype hardware"
+  ],
+  "EXFILTRATION ROUTE": [
+   "Personal cloud upload",
+   "Removable media",
+   "Photographed screen",
+   "Carried out physically"
+  ]
+ },
+ "characterisations": {
+  "Senior researcher": {
+   "requires": "long tenure, subject expertise",
+   "provides": "broad data access, credibility, no systems administration rights"
+  },
+  "Contract IT administrator": {
+   "requires": "systems privileges, short tenure",
+   "provides": "credential access, log manipulation, no subject knowledge"
+  },
+  "Junior technician": {
+   "requires": "supervised access to laboratory areas",
+   "provides": "physical proximity to equipment, narrow data access"
+  },
+  "Visiting academic": {
+   "requires": "a temporary pass, a host institution",
+   "provides": "limited escorted access, external affiliation, short window"
+  },
+  "Financial gain": {
+   "requires": "a buyer and a price",
+   "provides": "sustained deliberate activity, willingness to take repeat risk"
+  },
+  "Ideological conviction": {
+   "requires": "a belief predating employment",
+   "provides": "no payment trail, high persistence, selective targeting"
+  },
+  "Coercion by a foreign service": {
+   "requires": "leverage over the individual, a handler",
+   "provides": "external tasking, tradecraft support, reluctant compliance"
+  },
+  "Grievance against the employer": {
+   "requires": "a triggering event",
+   "provides": "impulsive short-lived action, indifference to concealment"
+  },
+  "Bulk research data": {
+   "requires": "broad read access to repositories",
+   "provides": "large volume, detectable transfer signature"
+  },
+  "A single classified document": {
+   "requires": "specific clearance for that item",
+   "provides": "small footprint, hard to detect, narrow value"
+  },
+  "Credentials and access tokens": {
+   "requires": "administrative or systems privileges",
+   "provides": "onward access for others, no research value in itself"
+  },
+  "Physical prototype hardware": {
+   "requires": "physical presence in a laboratory",
+   "provides": "unmistakable loss, immediate detection when missed"
+  },
+  "Personal cloud upload": {
+   "requires": "network egress and an unmonitored account",
+   "provides": "high volume, logged network signature"
+  },
+  "Removable media": {
+   "requires": "an unlocked USB port or drive bay",
+   "provides": "moderate volume, endpoint log entry"
+  },
+  "Photographed screen": {
+   "requires": "a device and visual access only",
+   "provides": "very low volume, almost no digital trace"
+  },
+  "Carried out physically": {
+   "requires": "the item to be a physical object",
+   "provides": "no digital trace, defeated by physical search"
+  }
+ },
+ "exclusions": {
+  "INSIDER ROLE|MOTIVATION": [
+   {
+    "row": "Visiting academic",
+    "col": "Grievance against the employer",
+    "code": "N6",
+    "requires": "a triggering event",
+    "blocked_by": "external affiliation"
+   }
+  ],
+  "INSIDER ROLE|MATERIAL TAKEN": [
+   {
+    "row": "Senior researcher",
+    "col": "Credentials and access tokens",
+    "code": "N3",
+    "requires": "administrative or systems privileges",
+    "blocked_by": "no systems administration rights"
+   },
+   {
+    "row": "Contract IT administrator",
+    "col": "A single classified document",
+    "code": "N7",
+    "requires": "specific clearance for that item",
+    "blocked_by": "no subject knowledge"
+   },
+   {
+    "row": "Contract IT administrator",
+    "col": "Physical prototype hardware",
+    "code": "N7",
+    "requires": "physical presence in a laboratory",
+    "blocked_by": "systems privileges, short tenure"
+   },
+   {
+    "row": "Junior technician",
+    "col": "Bulk research data",
+    "code": "N3",
+    "requires": "broad read access to repositories",
+    "blocked_by": "narrow data access"
+   },
+   {
+    "row": "Junior technician",
+    "col": "A single classified document",
+    "code": "N7",
+    "requires": "specific clearance for that item",
+    "blocked_by": "narrow data access"
+   },
+   {
+    "row": "Junior technician",
+    "col": "Credentials and access tokens",
+    "code": "N3",
+    "requires": "administrative or systems privileges",
+    "blocked_by": "narrow data access"
+   },
+   {
+    "row": "Visiting academic",
+    "col": "Credentials and access tokens",
+    "code": "N3",
+    "requires": "administrative or systems privileges",
+    "blocked_by": "limited escorted access"
+   },
+   {
+    "row": "Visiting academic",
+    "col": "Physical prototype hardware",
+    "code": "N7",
+    "requires": "physical presence in a laboratory",
+    "blocked_by": "limited escorted access"
+   }
+  ],
+  "MOTIVATION|EXFILTRATION ROUTE": [
+   {
+    "row": "Coercion by a foreign service",
+    "col": "Personal cloud upload",
+    "code": "N7",
+    "requires": "network egress and an unmonitored account",
+    "blocked_by": "tradecraft support"
+   }
+  ],
+  "MATERIAL TAKEN|EXFILTRATION ROUTE": [
+   {
+    "row": "Bulk research data",
+    "col": "Photographed screen",
+    "code": "N3",
+    "requires": "large volume",
+    "blocked_by": "very low volume"
+   },
+   {
+    "row": "Bulk research data",
+    "col": "Carried out physically",
+    "code": "N7",
+    "requires": "the item to be a physical object",
+    "blocked_by": "large volume, detectable transfer signature"
+   },
+   {
+    "row": "Physical prototype hardware",
+    "col": "Personal cloud upload",
+    "code": "N1",
+    "requires": "network egress and an unmonitored account",
+    "blocked_by": "physical presence in a laboratory"
+   },
+   {
+    "row": "Physical prototype hardware",
+    "col": "Removable media",
+    "code": "N1",
+    "requires": "an unlocked USB port or drive bay",
+    "blocked_by": "physical presence in a laboratory"
+   },
+   {
+    "row": "Physical prototype hardware",
+    "col": "Photographed screen",
+    "code": "N1",
+    "requires": "a device and visual access only",
+    "blocked_by": "physical presence in a laboratory"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INSIDER ROLE|MOTIVATION": "junior technician x coercion is N: a foreign service invests leverage in someone with meaningful access, which a narrow supervised role does not provide. Visiting academic x grievance is N: a grievance requires an employment relationship that a visitor does not have.",
+  "INSIDER ROLE|MATERIAL TAKEN": "researcher and visitor x credentials are N: neither holds administrative privileges. Researcher/administrator/visitor x prototype hardware are N: only the technician has laboratory floor presence. Administrator x bulk data and x classified document are N: systems privileges are not subject clearance.",
+  "INSIDER ROLE|EXFILTRATION ROUTE": "researcher, administrator and visitor x carried out physically are N: none has an object to carry. Visitor x cloud upload and x removable media are N: escorted access does not reach an unmonitored account or an open port.",
+  "MOTIVATION|MATERIAL TAKEN": "ideological x credentials is N: conviction targets content, not onward access for others. Coercion x prototype hardware is N: a handler tasks for information, not for a theft certain to be noticed immediately. Grievance x classified document and x credentials are N: impulsive action does not select narrowly.",
+  "MOTIVATION|EXFILTRATION ROUTE": "coercion x cloud upload is N: tradecraft support exists precisely to avoid the loudest possible signature.",
+  "MATERIAL TAKEN|EXFILTRATION ROUTE": "bulk data x photographed screen and x carried physically are N on volume. Classified document x carried physically is N: a controlled item is inventoried. Credentials x photographed screen is N in practice - credentials are copied, not photographed - and x carried physically is N. Prototype hardware x every digital route is N: it is an object."
+ }
+}

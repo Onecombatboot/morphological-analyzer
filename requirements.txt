@@ -1,0 +1,23 @@
+# Training and evaluation. NOT needed to run the deployed system -- that is a
+# Java application with the model embedded as ONNX and needs only a JRE 21.
+#
+#   pip install -r requirements.txt
+#
+# PyTorch is deliberately not pinned here: install the build that matches your
+# hardware first, then this file.
+#
+#   GPU (training):   pip install torch --index-url https://download.pytorch.org/whl/cu121
+#   CPU  (inference): pip install torch --index-url https://download.pytorch.org/whl/cpu
+
+transformers>=5.0,<6      # 5.0+ required: the scoring path uses logits_to_keep
+peft>=0.15                # loads the rank-32 LoRA adapter
+bitsandbytes>=0.45        # 4-bit NF4 base quantisation, training only
+accelerate>=1.0
+safetensors>=0.4
+numpy>=1.26
+
+# ONNX export, quantisation and parity checking
+onnx>=1.17
+onnxruntime>=1.20         # CPU build; no CUDA provider is used anywhere
+optimum[onnxruntime]>=1.20
+onnx_ir                   # required by MatMulNBitsQuantizer for INT4

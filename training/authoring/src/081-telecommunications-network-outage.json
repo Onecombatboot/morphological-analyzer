@@ -1,0 +1,148 @@
+{
+ "domain": "telecommunications network outage",
+ "group": "infrastructure",
+ "parameters": {
+  "FAILURE CAUSE": [
+   "Fibre cut by excavation",
+   "Core router software fault",
+   "Power failure at an exchange",
+   "Submarine cable break"
+  ],
+  "RESILIENCE PROVISION": [
+   "Diverse physical routing",
+   "Single path with no diversity",
+   "On-site generation",
+   "Satellite backup link"
+  ],
+  "AFFECTED SERVICE": [
+   "Emergency call handling",
+   "Consumer mobile data",
+   "Financial trading connectivity",
+   "Internal enterprise traffic only"
+  ],
+  "RESTORATION OUTCOME": [
+   "Automatic failover unnoticed",
+   "Manual reroute within hours",
+   "Extended outage of days",
+   "Route permanently abandoned"
+  ]
+ },
+ "characterisations": {
+  "Fibre cut by excavation": {
+   "requires": "a physical break in the buried cable",
+   "provides": "complete loss on that path, hours of splicing to restore"
+  },
+  "Core router software fault": {
+   "requires": "a defect triggered in the control plane",
+   "provides": "wide area loss, restoration by rollback in minutes"
+  },
+  "Power failure at an exchange": {
+   "requires": "loss of mains with batteries draining",
+   "provides": "progressive loss as batteries drain, restoration on power return"
+  },
+  "Submarine cable break": {
+   "requires": "a fault in the deep sea segment",
+   "provides": "international capacity lost, weeks of waiting for a repair ship"
+  },
+  "Diverse physical routing": {
+   "requires": "two paths sharing no duct",
+   "provides": "automatic survival of a single cut, a higher recurring cost"
+  },
+  "Single path with no diversity": {
+   "requires": "one route and nothing else",
+   "provides": "total dependence on that path, no protection of any kind"
+  },
+  "On-site generation": {
+   "requires": "a generator and fuel held on site",
+   "provides": "indefinite operation without mains, refuelling logistics"
+  },
+  "Satellite backup link": {
+   "requires": "a terminal and a standing service contract",
+   "provides": "a path independent of terrestrial cable, very limited capacity"
+  },
+  "Emergency call handling": {
+   "requires": "a working route to the emergency service",
+   "provides": "a life safety consequence, a regulatory obligation"
+  },
+  "Consumer mobile data": {
+   "requires": "radio access and working backhaul",
+   "provides": "economic and social disruption, no immediate safety impact"
+  },
+  "Financial trading connectivity": {
+   "requires": "microsecond-sensitive links",
+   "provides": "direct financial loss per second, no tolerance of rerouting delay"
+  },
+  "Internal enterprise traffic only": {
+   "requires": "a private corporate network",
+   "provides": "disruption contained to one organisation, no public impact"
+  },
+  "Automatic failover unnoticed": {
+   "requires": "working protection switching",
+   "provides": "no customer impact, an event visible only in logs"
+  },
+  "Manual reroute within hours": {
+   "requires": "spare capacity and an engineer available",
+   "provides": "degraded service restored, a noticeable outage"
+  },
+  "Extended outage of days": {
+   "requires": "no alternative path available",
+   "provides": "sustained loss, a regulatory and reputational consequence"
+  },
+  "Route permanently abandoned": {
+   "requires": "no economic case to rebuild",
+   "provides": "the path given up, traffic permanently rehomed"
+  }
+ },
+ "exclusions": {
+  "FAILURE CAUSE|RESILIENCE PROVISION": [
+   {
+    "row": "Power failure at an exchange",
+    "col": "On-site generation",
+    "code": "N3",
+    "requires": "indefinite operation without mains",
+    "blocked_by": "progressive loss as batteries drain"
+   }
+  ],
+  "RESILIENCE PROVISION|AFFECTED SERVICE": [
+   {
+    "row": "Satellite backup link",
+    "col": "Financial trading connectivity",
+    "code": "N3",
+    "requires": "no tolerance of rerouting delay",
+    "blocked_by": "very limited capacity"
+   }
+  ],
+  "RESILIENCE PROVISION|RESTORATION OUTCOME": [
+   {
+    "row": "Single path with no diversity",
+    "col": "Automatic failover unnoticed",
+    "code": "N3",
+    "requires": "working protection switching",
+    "blocked_by": "no protection of any kind"
+   },
+   {
+    "row": "Diverse physical routing",
+    "col": "Extended outage of days",
+    "code": "N7",
+    "requires": "no alternative path available",
+    "blocked_by": "automatic survival of a single cut"
+   }
+  ],
+  "AFFECTED SERVICE|RESTORATION OUTCOME": [
+   {
+    "row": "Financial trading connectivity",
+    "col": "Manual reroute within hours",
+    "code": "N3",
+    "requires": "degraded service restored",
+    "blocked_by": "no tolerance of rerouting delay"
+   },
+   {
+    "row": "Internal enterprise traffic only",
+    "col": "Extended outage of days",
+    "code": "N3",
+    "requires": "a regulatory and reputational consequence",
+    "blocked_by": "no public impact"
+   }
+  ]
+ }
+}

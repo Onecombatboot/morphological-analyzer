@@ -1,0 +1,225 @@
+{
+ "domain": "volcanic eruption response",
+ "group": "natural hazard",
+ "parameters": {
+  "ERUPTION STYLE": [
+   "Effusive lava flow",
+   "Explosive ash column",
+   "Pyroclastic density current",
+   "Lahar in a river valley"
+  ],
+  "MONITORING SIGNAL": [
+   "Seismic swarm",
+   "Ground deformation",
+   "Gas emission change",
+   "No instrumentation present"
+  ],
+  "EXPOSED ELEMENT": [
+   "Town on the flank",
+   "Aviation routes overhead",
+   "Downstream river settlements",
+   "Uninhabited wilderness"
+  ],
+  "PROTECTIVE ACTION": [
+   "Phased evacuation",
+   "Airspace closure",
+   "Engineered flow diversion",
+   "Shelter in place"
+  ]
+ },
+ "characterisations": {
+  "Effusive lava flow": {
+   "requires": "low-viscosity magma reaching the surface",
+   "provides": "slow predictable advance, days of warning, no ash column, destruction of anything in the path"
+  },
+  "Explosive ash column": {
+   "requires": "gas-rich magma fragmenting at the vent",
+   "provides": "regional ash fall, aviation hazard, no lava flow"
+  },
+  "Pyroclastic density current": {
+   "requires": "column collapse or dome failure",
+   "provides": "lethal within minutes, no survivable shelter in the path, very short warning"
+  },
+  "Lahar in a river valley": {
+   "requires": "loose ash plus water on a slope",
+   "provides": "flow confined to valleys, travel far beyond the volcano, hours of transit time"
+  },
+  "Seismic swarm": {
+   "requires": "instruments on the edifice",
+   "provides": "indication of magma movement, days to weeks of lead, no eruption style information"
+  },
+  "Ground deformation": {
+   "requires": "geodetic instruments in place",
+   "provides": "evidence of inflation, weeks to months of lead, no timing precision"
+  },
+  "Gas emission change": {
+   "requires": "sampling or remote spectroscopy",
+   "provides": "indication of magma degassing, no location detail"
+  },
+  "No instrumentation present": {
+   "requires": "an unmonitored volcano",
+   "provides": "no warning of any kind"
+  },
+  "Town on the flank": {
+   "requires": "settlement within the hazard zone",
+   "provides": "life safety governing, evacuation feasible with warning"
+  },
+  "Aviation routes overhead": {
+   "requires": "flight paths crossing the plume",
+   "provides": "aircraft at risk from ash, no ground exposure"
+  },
+  "Downstream river settlements": {
+   "requires": "communities along the drainage",
+   "provides": "exposure only to flows following valleys, distance from the vent"
+  },
+  "Uninhabited wilderness": {
+   "requires": "no population or infrastructure",
+   "provides": "no consequence beyond the landscape"
+  },
+  "Phased evacuation": {
+   "requires": "warning time and usable routes",
+   "provides": "population removed before arrival, economic and social cost"
+  },
+  "Airspace closure": {
+   "requires": "an aviation authority and plume forecasts",
+   "provides": "aircraft kept clear, no effect on the ground"
+  },
+  "Engineered flow diversion": {
+   "requires": "channels or barriers built in advance",
+   "provides": "redirection of a surface flow, useless against an airborne hazard"
+  },
+  "Shelter in place": {
+   "requires": "buildings able to exclude the hazard",
+   "provides": "protection from ash fall, no protection from any flow"
+  }
+ },
+ "exclusions": {
+  "ERUPTION STYLE|EXPOSED ELEMENT": [
+   {
+    "row": "Effusive lava flow",
+    "col": "Aviation routes overhead",
+    "code": "N3",
+    "requires": "aircraft at risk from ash",
+    "blocked_by": "no ash column"
+   },
+   {
+    "row": "Lahar in a river valley",
+    "col": "Aviation routes overhead",
+    "code": "N3",
+    "requires": "aircraft at risk from ash",
+    "blocked_by": "flow confined to valleys"
+   }
+  ],
+  "ERUPTION STYLE|PROTECTIVE ACTION": [
+   {
+    "row": "Effusive lava flow",
+    "col": "Airspace closure",
+    "code": "N3",
+    "requires": "aircraft kept clear",
+    "blocked_by": "no ash column"
+   },
+   {
+    "row": "Effusive lava flow",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "no protection from any flow",
+    "blocked_by": "destruction of anything in the path"
+   },
+   {
+    "row": "Explosive ash column",
+    "col": "Engineered flow diversion",
+    "code": "N3",
+    "requires": "redirection of a surface flow",
+    "blocked_by": "regional ash fall"
+   },
+   {
+    "row": "Pyroclastic density current",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "no protection from any flow",
+    "blocked_by": "no survivable shelter in the path"
+   },
+   {
+    "row": "Pyroclastic density current",
+    "col": "Phased evacuation",
+    "code": "N4",
+    "requires": "warning time and usable routes",
+    "blocked_by": "very short warning"
+   },
+   {
+    "row": "Lahar in a river valley",
+    "col": "Airspace closure",
+    "code": "N3",
+    "requires": "aircraft kept clear",
+    "blocked_by": "flow confined to valleys"
+   },
+   {
+    "row": "Lahar in a river valley",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "no protection from any flow",
+    "blocked_by": "flow confined to valleys"
+   }
+  ],
+  "MONITORING SIGNAL|PROTECTIVE ACTION": [
+   {
+    "row": "No instrumentation present",
+    "col": "Phased evacuation",
+    "code": "N7",
+    "requires": "warning time and usable routes",
+    "blocked_by": "no warning of any kind"
+   },
+   {
+    "row": "No instrumentation present",
+    "col": "Airspace closure",
+    "code": "N7",
+    "requires": "an aviation authority and plume forecasts",
+    "blocked_by": "no warning of any kind"
+   }
+  ],
+  "EXPOSED ELEMENT|PROTECTIVE ACTION": [
+   {
+    "row": "Aviation routes overhead",
+    "col": "Phased evacuation",
+    "code": "N3",
+    "requires": "population removed before arrival",
+    "blocked_by": "no ground exposure"
+   },
+   {
+    "row": "Aviation routes overhead",
+    "col": "Engineered flow diversion",
+    "code": "N3",
+    "requires": "redirection of a surface flow",
+    "blocked_by": "no ground exposure"
+   },
+   {
+    "row": "Aviation routes overhead",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "protection from ash fall",
+    "blocked_by": "no ground exposure"
+   },
+   {
+    "row": "Uninhabited wilderness",
+    "col": "Phased evacuation",
+    "code": "N3",
+    "requires": "population removed before arrival",
+    "blocked_by": "no population or infrastructure"
+   },
+   {
+    "row": "Uninhabited wilderness",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "buildings able to exclude the hazard",
+    "blocked_by": "no population or infrastructure"
+   },
+   {
+    "row": "Uninhabited wilderness",
+    "col": "Engineered flow diversion",
+    "code": "N7",
+    "requires": "channels or barriers built in advance",
+    "blocked_by": "no population or infrastructure"
+   }
+  ]
+ }
+}

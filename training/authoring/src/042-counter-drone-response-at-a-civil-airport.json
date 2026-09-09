@@ -1,0 +1,194 @@
+{
+ "domain": "counter-drone response at a civil airport",
+ "group": "security",
+ "parameters": {
+  "INTRUDER DRONE": [
+   "Hobby quadcopter with no payload",
+   "Modified long-range fixed wing",
+   "Swarm of coordinated small aircraft",
+   "Tethered surveillance aircraft"
+  ],
+  "DETECTION MEANS": [
+   "Radio frequency link detection",
+   "Primary surveillance radar",
+   "Electro-optical tracking",
+   "Pilot or ground staff report"
+  ],
+  "MITIGATION": [
+   "Radio frequency jamming",
+   "Kinetic interception",
+   "Capture by net-carrying interceptor",
+   "Ground stop of all movements"
+  ],
+  "OPERATIONAL IMPACT": [
+   "No disruption",
+   "Departures held",
+   "Full airport closure",
+   "Aircraft damaged in flight"
+  ]
+ },
+ "characterisations": {
+  "Hobby quadcopter with no payload": {
+   "requires": "a consumer aircraft and a nearby operator",
+   "provides": "very small radar cross-section, short endurance, a live control link, no hostile intent necessarily"
+  },
+  "Modified long-range fixed wing": {
+   "requires": "a preprogrammed airframe with extended range",
+   "provides": "hours of endurance, no control link once launched, operator far from the airfield"
+  },
+  "Swarm of coordinated small aircraft": {
+   "requires": "a controller managing many airframes",
+   "provides": "saturation of any single-target defence, simultaneous multiple tracks"
+  },
+  "Tethered surveillance aircraft": {
+   "requires": "a physical tether to a ground station",
+   "provides": "fixed position, continuous power, unmistakable ground origin"
+  },
+  "Radio frequency link detection": {
+   "requires": "the aircraft emitting a control or video link",
+   "provides": "bearing to both aircraft and operator, useless against an autonomous airframe"
+  },
+  "Primary surveillance radar": {
+   "requires": "a return large enough to exceed clutter",
+   "provides": "position and track regardless of emissions, poor against very small airframes"
+  },
+  "Electro-optical tracking": {
+   "requires": "daylight or thermal contrast and a cued direction",
+   "provides": "visual identification of the airframe type, short range only"
+  },
+  "Pilot or ground staff report": {
+   "requires": "a person seeing the aircraft",
+   "provides": "unstructured and unreliable position, no track"
+  },
+  "Radio frequency jamming": {
+   "requires": "the aircraft depending on a receivable link",
+   "provides": "forced landing or return to home, no effect on an autonomous airframe"
+  },
+  "Kinetic interception": {
+   "requires": "authority to engage and a safe backdrop",
+   "provides": "physical removal, debris falling on an operational airfield"
+  },
+  "Capture by net-carrying interceptor": {
+   "requires": "an interceptor aircraft and a stable target track",
+   "provides": "controlled recovery of the airframe intact, one target at a time"
+  },
+  "Ground stop of all movements": {
+   "requires": "an air traffic decision",
+   "provides": "certainty of separation, no removal of the intruder, severe delay cost"
+  },
+  "No disruption": {
+   "requires": "detection without any encroachment on the movement area",
+   "provides": "no consequence"
+  },
+  "Departures held": {
+   "requires": "an intruder near the departure path",
+   "provides": "delay only, aircraft remain on the ground"
+  },
+  "Full airport closure": {
+   "requires": "an intruder over the movement area",
+   "provides": "diversion of arrivals, cascading network delay"
+  },
+  "Aircraft damaged in flight": {
+   "requires": "an actual collision with an aircraft",
+   "provides": "airworthiness event, potential loss of life"
+  }
+ },
+ "exclusions": {
+  "INTRUDER DRONE|DETECTION MEANS": [
+   {
+    "row": "Modified long-range fixed wing",
+    "col": "Radio frequency link detection",
+    "code": "N3",
+    "requires": "the aircraft emitting a control or video link",
+    "blocked_by": "no control link once launched"
+   },
+   {
+    "row": "Hobby quadcopter with no payload",
+    "col": "Primary surveillance radar",
+    "code": "N7",
+    "requires": "a return large enough to exceed clutter",
+    "blocked_by": "very small radar cross-section"
+   }
+  ],
+  "INTRUDER DRONE|MITIGATION": [
+   {
+    "row": "Modified long-range fixed wing",
+    "col": "Radio frequency jamming",
+    "code": "N3",
+    "requires": "the aircraft depending on a receivable link",
+    "blocked_by": "no control link once launched"
+   },
+   {
+    "row": "Swarm of coordinated small aircraft",
+    "col": "Capture by net-carrying interceptor",
+    "code": "N3",
+    "requires": "one target at a time",
+    "blocked_by": "saturation of any single-target defence"
+   },
+   {
+    "row": "Tethered surveillance aircraft",
+    "col": "Radio frequency jamming",
+    "code": "N7",
+    "requires": "the aircraft depending on a receivable link",
+    "blocked_by": "a physical tether to a ground station"
+   },
+   {
+    "row": "Tethered surveillance aircraft",
+    "col": "Capture by net-carrying interceptor",
+    "code": "N7",
+    "requires": "controlled recovery of the airframe intact",
+    "blocked_by": "a physical tether to a ground station"
+   }
+  ],
+  "INTRUDER DRONE|OPERATIONAL IMPACT": [
+   {
+    "row": "Tethered surveillance aircraft",
+    "col": "Aircraft damaged in flight",
+    "code": "N7",
+    "requires": "an actual collision with an aircraft",
+    "blocked_by": "fixed position, continuous power"
+   }
+  ],
+  "DETECTION MEANS|MITIGATION": [
+   {
+    "row": "Pilot or ground staff report",
+    "col": "Kinetic interception",
+    "code": "N3",
+    "requires": "a safe backdrop",
+    "blocked_by": "unstructured and unreliable position, no track"
+   },
+   {
+    "row": "Pilot or ground staff report",
+    "col": "Capture by net-carrying interceptor",
+    "code": "N3",
+    "requires": "a stable target track",
+    "blocked_by": "unstructured and unreliable position, no track"
+   }
+  ],
+  "DETECTION MEANS|OPERATIONAL IMPACT": [
+   {
+    "row": "Pilot or ground staff report",
+    "col": "No disruption",
+    "code": "N7",
+    "requires": "detection without any encroachment on the movement area",
+    "blocked_by": "a person seeing the aircraft"
+   }
+  ],
+  "MITIGATION|OPERATIONAL IMPACT": [
+   {
+    "row": "Ground stop of all movements",
+    "col": "No disruption",
+    "code": "N3",
+    "requires": "detection without any encroachment on the movement area",
+    "blocked_by": "severe delay cost"
+   },
+   {
+    "row": "Ground stop of all movements",
+    "col": "Aircraft damaged in flight",
+    "code": "N7",
+    "requires": "an actual collision with an aircraft",
+    "blocked_by": "certainty of separation"
+   }
+  ]
+ }
+}

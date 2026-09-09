@@ -1,0 +1,187 @@
+{
+ "domain": "drought and water rationing",
+ "group": "resource management",
+ "parameters": {
+  "SUPPLY SOURCE": [
+   "Surface reservoir storage",
+   "Confined groundwater aquifer",
+   "River abstraction",
+   "Desalination plant"
+  ],
+  "DEMAND SECTOR": [
+   "Household consumption",
+   "Irrigated agriculture",
+   "Industrial process water",
+   "Power station cooling"
+  ],
+  "RATIONING MEASURE": [
+   "Tariff increase",
+   "Rota supply by zone",
+   "Ban on non-essential use",
+   "Emergency inter-basin transfer"
+  ],
+  "OUTCOME": [
+   "Shortage averted",
+   "Supply interruption by zone",
+   "Agricultural production lost",
+   "Total supply failure"
+  ]
+ },
+ "characterisations": {
+  "Surface reservoir storage": {
+   "requires": "rainfall captured behind a dam",
+   "provides": "visible declining storage, months of warning, vulnerable to evaporation"
+  },
+  "Confined groundwater aquifer": {
+   "requires": "boreholes into a deep formation",
+   "provides": "buffered against a single dry season, recharge over decades, no visible indicator to the public"
+  },
+  "River abstraction": {
+   "requires": "a licence to take flow directly",
+   "provides": "immediate response to rainfall, competition with ecological flow, no storage buffer at all"
+  },
+  "Desalination plant": {
+   "requires": "coastal intake and very large electrical supply",
+   "provides": "independence from rainfall entirely, high unit cost, months to commission"
+  },
+  "Household consumption": {
+   "requires": "connected domestic properties",
+   "provides": "politically sensitive, modest total volume, responsive to tariffs and messaging"
+  },
+  "Irrigated agriculture": {
+   "requires": "farms holding abstraction rights",
+   "provides": "the largest volume by far, seasonal timing, livelihood consequences"
+  },
+  "Industrial process water": {
+   "requires": "plants with process dependence",
+   "provides": "continuous demand, employment consequences, some recycling possible"
+  },
+  "Power station cooling": {
+   "requires": "thermal generation needing cooling water",
+   "provides": "non-substitutable within the plant, loss of generation if curtailed"
+  },
+  "Tariff increase": {
+   "requires": "a metered supply and a billing relationship",
+   "provides": "demand reduction through price, regressive impact, no effect on unmetered users"
+  },
+  "Rota supply by zone": {
+   "requires": "network valves and a schedule",
+   "provides": "enforced volume reduction, contamination risk on repressurisation"
+  },
+  "Ban on non-essential use": {
+   "requires": "an enforceable legal restriction",
+   "provides": "rapid modest saving, dependence on compliance"
+  },
+  "Emergency inter-basin transfer": {
+   "requires": "an existing pipeline or canal to another basin",
+   "provides": "import of volume, transfer of the shortage elsewhere"
+  },
+  "Shortage averted": {
+   "requires": "demand reduced within available supply",
+   "provides": "no service failure"
+  },
+  "Supply interruption by zone": {
+   "requires": "demand still exceeding supply",
+   "provides": "intermittent service, public health risk from contamination"
+  },
+  "Agricultural production lost": {
+   "requires": "irrigation curtailed for a season",
+   "provides": "economic loss concentrated on farmers"
+  },
+  "Total supply failure": {
+   "requires": "source exhausted with no alternative",
+   "provides": "emergency tankering, mass relocation"
+  }
+ },
+ "exclusions": {
+  "SUPPLY SOURCE|RATIONING MEASURE": [
+   {
+    "row": "Desalination plant",
+    "col": "Emergency inter-basin transfer",
+    "code": "N7",
+    "requires": "an existing pipeline or canal to another basin",
+    "blocked_by": "independence from rainfall entirely"
+   }
+  ],
+  "SUPPLY SOURCE|OUTCOME": [
+   {
+    "row": "Desalination plant",
+    "col": "Total supply failure",
+    "code": "N7",
+    "requires": "source exhausted with no alternative",
+    "blocked_by": "independence from rainfall entirely"
+   },
+   {
+    "row": "Confined groundwater aquifer",
+    "col": "Total supply failure",
+    "code": "N7",
+    "requires": "source exhausted with no alternative",
+    "blocked_by": "buffered against a single dry season"
+   }
+  ],
+  "DEMAND SECTOR|RATIONING MEASURE": [
+   {
+    "row": "Irrigated agriculture",
+    "col": "Tariff increase",
+    "code": "N7",
+    "requires": "a metered supply and a billing relationship",
+    "blocked_by": "farms holding abstraction rights"
+   },
+   {
+    "row": "Power station cooling",
+    "col": "Ban on non-essential use",
+    "code": "N3",
+    "requires": "an enforceable legal restriction",
+    "blocked_by": "non-substitutable within the plant"
+   },
+   {
+    "row": "Power station cooling",
+    "col": "Rota supply by zone",
+    "code": "N3",
+    "requires": "enforced volume reduction",
+    "blocked_by": "non-substitutable within the plant"
+   }
+  ],
+  "DEMAND SECTOR|OUTCOME": [
+   {
+    "row": "Household consumption",
+    "col": "Agricultural production lost",
+    "code": "N3",
+    "requires": "irrigation curtailed for a season",
+    "blocked_by": "connected domestic properties"
+   },
+   {
+    "row": "Industrial process water",
+    "col": "Agricultural production lost",
+    "code": "N3",
+    "requires": "irrigation curtailed for a season",
+    "blocked_by": "plants with process dependence"
+   },
+   {
+    "row": "Power station cooling",
+    "col": "Agricultural production lost",
+    "code": "N3",
+    "requires": "irrigation curtailed for a season",
+    "blocked_by": "thermal generation needing cooling water"
+   }
+  ],
+  "RATIONING MEASURE|OUTCOME": [
+   {
+    "row": "Tariff increase",
+    "col": "Total supply failure",
+    "code": "N7",
+    "requires": "source exhausted with no alternative",
+    "blocked_by": "demand reduction through price"
+   }
+  ],
+  "SUPPLY SOURCE|DEMAND SECTOR": [
+   {
+    "row": "Desalination plant",
+    "col": "Irrigated agriculture",
+    "code": "N7",
+    "requires": "the largest volume by far",
+    "blocked_by": "high unit cost"
+   }
+  ]
+ }
+}

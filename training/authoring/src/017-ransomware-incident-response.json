@@ -1,0 +1,222 @@
+{
+ "domain": "ransomware incident response",
+ "group": "cyber",
+ "parameters": {
+  "INITIAL ACCESS": [
+   "Phishing attachment",
+   "Exposed remote desktop",
+   "Supply-chain software update",
+   "Stolen VPN credentials"
+  ],
+  "IMPACT STAGE": [
+   "Reconnaissance only",
+   "Data exfiltrated not encrypted",
+   "Encryption of file servers",
+   "Encryption of backups and hypervisors"
+  ],
+  "RESPONSE ACTION": [
+   "Isolate affected segment",
+   "Restore from offline backup",
+   "Pay the ransom",
+   "Rebuild the domain from scratch"
+  ],
+  "RECOVERY OBJECTIVE": [
+   "Hours",
+   "Days",
+   "Weeks"
+  ]
+ },
+ "characterisations": {
+  "Phishing attachment": {
+   "requires": "a user to open an attachment",
+   "provides": "a single user-level foothold, email evidence, no privileged access initially"
+  },
+  "Exposed remote desktop": {
+   "requires": "a service reachable from the internet with weak authentication",
+   "provides": "direct interactive access to one host, brute-forceable, heavily logged"
+  },
+  "Supply-chain software update": {
+   "requires": "compromise of a trusted vendor",
+   "provides": "simultaneous access across every installation, signed and trusted code, very hard to detect"
+  },
+  "Stolen VPN credentials": {
+   "requires": "valid credentials without second factor",
+   "provides": "authenticated network-level access indistinguishable from a legitimate user"
+  },
+  "Reconnaissance only": {
+   "requires": "presence without action",
+   "provides": "no data loss, no service impact, evidence only in logs"
+  },
+  "Data exfiltrated not encrypted": {
+   "requires": "outbound transfer of volume",
+   "provides": "confidentiality loss, systems still working, extortion leverage without disruption"
+  },
+  "Encryption of file servers": {
+   "requires": "administrative rights over file shares",
+   "provides": "loss of working data, backups intact, service outage"
+  },
+  "Encryption of backups and hypervisors": {
+   "requires": "domain-wide administrative control",
+   "provides": "loss of the recovery path itself, total service loss"
+  },
+  "Isolate affected segment": {
+   "requires": "the compromise being confined to identifiable hosts",
+   "provides": "containment within minutes, no data recovery"
+  },
+  "Restore from offline backup": {
+   "requires": "a backup the attacker could not reach",
+   "provides": "full data recovery, hours to days of restore time"
+  },
+  "Pay the ransom": {
+   "requires": "an attacker holding something not otherwise recoverable",
+   "provides": "a decryption key of uncertain quality, no remediation, legal exposure"
+  },
+  "Rebuild the domain from scratch": {
+   "requires": "accepting total loss of existing identity infrastructure",
+   "provides": "certainty of eviction, weeks of work"
+  },
+  "Hours": {
+   "requires": "systems substantially intact",
+   "provides": "time for containment and simple restore only"
+  },
+  "Days": {
+   "requires": "a working recovery path",
+   "provides": "time for full restore from backup"
+  },
+  "Weeks": {
+   "requires": "acceptance of prolonged outage",
+   "provides": "time for complete rebuild"
+  }
+ },
+ "exclusions": {
+  "INITIAL ACCESS|RESPONSE ACTION": [
+   {
+    "row": "Supply-chain software update",
+    "col": "Isolate affected segment",
+    "code": "N3",
+    "requires": "the compromise being confined to identifiable hosts",
+    "blocked_by": "simultaneous access across every installation"
+   }
+  ],
+  "INITIAL ACCESS|RECOVERY OBJECTIVE": [
+   {
+    "row": "Supply-chain software update",
+    "col": "Hours",
+    "code": "N7",
+    "requires": "systems substantially intact",
+    "blocked_by": "simultaneous access across every installation"
+   }
+  ],
+  "IMPACT STAGE|RESPONSE ACTION": [
+   {
+    "row": "Reconnaissance only",
+    "col": "Restore from offline backup",
+    "code": "N3",
+    "requires": "a backup the attacker could not reach",
+    "blocked_by": "no data loss, no service impact"
+   },
+   {
+    "row": "Reconnaissance only",
+    "col": "Pay the ransom",
+    "code": "N3",
+    "requires": "an attacker holding something not otherwise recoverable",
+    "blocked_by": "no data loss, no service impact"
+   },
+   {
+    "row": "Data exfiltrated not encrypted",
+    "col": "Restore from offline backup",
+    "code": "N7",
+    "requires": "a backup the attacker could not reach",
+    "blocked_by": "systems still working"
+   },
+   {
+    "row": "Encryption of backups and hypervisors",
+    "col": "Isolate affected segment",
+    "code": "N3",
+    "requires": "the compromise being confined to identifiable hosts",
+    "blocked_by": "domain-wide administrative control"
+   },
+   {
+    "row": "Encryption of backups and hypervisors",
+    "col": "Restore from offline backup",
+    "code": "N3",
+    "requires": "a backup the attacker could not reach",
+    "blocked_by": "loss of the recovery path itself"
+   }
+  ],
+  "IMPACT STAGE|RECOVERY OBJECTIVE": [
+   {
+    "row": "Reconnaissance only",
+    "col": "Days",
+    "code": "N7",
+    "requires": "a working recovery path",
+    "blocked_by": "no data loss, no service impact"
+   },
+   {
+    "row": "Reconnaissance only",
+    "col": "Weeks",
+    "code": "N7",
+    "requires": "acceptance of prolonged outage",
+    "blocked_by": "no data loss, no service impact"
+   },
+   {
+    "row": "Data exfiltrated not encrypted",
+    "col": "Weeks",
+    "code": "N7",
+    "requires": "acceptance of prolonged outage",
+    "blocked_by": "systems still working"
+   },
+   {
+    "row": "Encryption of file servers",
+    "col": "Hours",
+    "code": "N7",
+    "requires": "systems substantially intact",
+    "blocked_by": "loss of working data"
+   },
+   {
+    "row": "Encryption of backups and hypervisors",
+    "col": "Hours",
+    "code": "N3",
+    "requires": "systems substantially intact",
+    "blocked_by": "total service loss"
+   },
+   {
+    "row": "Encryption of backups and hypervisors",
+    "col": "Days",
+    "code": "N7",
+    "requires": "a working recovery path",
+    "blocked_by": "loss of the recovery path itself"
+   }
+  ],
+  "RESPONSE ACTION|RECOVERY OBJECTIVE": [
+   {
+    "row": "Isolate affected segment",
+    "col": "Weeks",
+    "code": "N7",
+    "requires": "acceptance of prolonged outage",
+    "blocked_by": "containment within minutes"
+   },
+   {
+    "row": "Rebuild the domain from scratch",
+    "col": "Hours",
+    "code": "N4",
+    "requires": "systems substantially intact",
+    "blocked_by": "weeks of work"
+   },
+   {
+    "row": "Rebuild the domain from scratch",
+    "col": "Days",
+    "code": "N4",
+    "requires": "time for full restore from backup",
+    "blocked_by": "weeks of work"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INITIAL ACCESS|RESPONSE ACTION": "supply-chain compromise x isolate affected segment is N: the trusted code is everywhere simultaneously, so there is no segment to isolate.",
+  "INITIAL ACCESS|RECOVERY OBJECTIVE": "supply-chain compromise x hours is N: establishing which installations are affected takes longer than that on its own.",
+  "IMPACT STAGE|RESPONSE ACTION": "reconnaissance only warrants isolation, not restore, ransom or rebuild - nothing has been damaged. Exfiltration without encryption is N for restore (the data is still there) and N for rebuild (systems are working); paying is Y because suppression of stolen data is the only thing on offer. Encryption of backups and hypervisors is N for isolation (too late) and N for restore (the backups are gone).",
+  "IMPACT STAGE|RECOVERY OBJECTIVE": "reconnaissance is N at days and weeks - there is nothing to recover from. File-server encryption is N in hours. Backup and hypervisor loss is N at hours and days: rebuilding identity infrastructure does not compress.",
+  "RESPONSE ACTION|RECOVERY OBJECTIVE": "isolation and ransom payment are both N at weeks - neither is a multi-week activity. Restore from backup is N in hours for any real estate. Rebuild is N at hours and days."
+ }
+}

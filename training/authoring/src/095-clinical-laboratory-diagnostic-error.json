@@ -1,0 +1,148 @@
+{
+ "domain": "clinical laboratory diagnostic error",
+ "group": "healthcare",
+ "parameters": {
+  "ERROR ORIGIN": [
+   "Sample mislabelled at collection",
+   "Analyser calibration drift",
+   "Reagent lot contamination",
+   "Transcription error in reporting"
+  ],
+  "DETECTION CONTROL": [
+   "Internal quality control samples",
+   "Delta check against prior results",
+   "Two-person identity verification",
+   "No systematic check at all"
+  ],
+  "CLINICAL CONTEXT": [
+   "Result contradicts the picture",
+   "Result plausible but wrong",
+   "Screening of a well population",
+   "Urgent result acted on at once"
+  ],
+  "PATIENT OUTCOME": [
+   "Error caught before any action",
+   "Unnecessary treatment given",
+   "Necessary treatment withheld",
+   "No consequence despite the error"
+  ]
+ },
+ "characterisations": {
+  "Sample mislabelled at collection": {
+   "requires": "two patients bled in sequence",
+   "provides": "a result attributed to the wrong person, nothing detectable in the laboratory"
+  },
+  "Analyser calibration drift": {
+   "requires": "an instrument out of specification",
+   "provides": "results systematically shifted, every sample on that run affected"
+  },
+  "Reagent lot contamination": {
+   "requires": "a defective batch in use",
+   "provides": "false results for one analyte, a defined window of affected samples"
+  },
+  "Transcription error in reporting": {
+   "requires": "a manual step between result and record",
+   "provides": "a single wrong value released, the analysis itself correct"
+  },
+  "Internal quality control samples": {
+   "requires": "known material run alongside",
+   "provides": "drift and reagent faults caught, no protection against identity errors"
+  },
+  "Delta check against prior results": {
+   "requires": "a previous result for the same patient",
+   "provides": "implausible changes flagged, useless for a first presentation"
+  },
+  "Two-person identity verification": {
+   "requires": "staff and time at the bedside",
+   "provides": "identity errors prevented at source, no effect on analysis"
+  },
+  "No systematic check at all": {
+   "requires": "an absent quality system",
+   "provides": "nothing caught by design, discovery only by chance"
+  },
+  "Result contradicts the picture": {
+   "requires": "a clinician who knows the patient",
+   "provides": "the error questioned before acting, a repeat requested"
+  },
+  "Result plausible but wrong": {
+   "requires": "a value inside the expected range",
+   "provides": "no suspicion raised, action taken on the wrong number"
+  },
+  "Screening of a well population": {
+   "requires": "people with no symptoms",
+   "provides": "no clinical picture to contradict, reliance entirely on the assay"
+  },
+  "Urgent result acted on at once": {
+   "requires": "a time-critical decision",
+   "provides": "no opportunity to verify, immediate consequence"
+  },
+  "Error caught before any action": {
+   "requires": "a check operating in time",
+   "provides": "no harm to the patient, an incident logged"
+  },
+  "Unnecessary treatment given": {
+   "requires": "action on a false positive",
+   "provides": "avoidable harm from the treatment itself, a complaint likely"
+  },
+  "Necessary treatment withheld": {
+   "requires": "action on a false negative",
+   "provides": "harm from the untreated condition, delayed diagnosis"
+  },
+  "No consequence despite the error": {
+   "requires": "a wrong result that changed nothing",
+   "provides": "no harm arising, the error often never noticed"
+  }
+ },
+ "exclusions": {
+  "ERROR ORIGIN|DETECTION CONTROL": [
+   {
+    "row": "Sample mislabelled at collection",
+    "col": "Internal quality control samples",
+    "code": "N3",
+    "requires": "known material run alongside",
+    "blocked_by": "nothing detectable in the laboratory"
+   },
+   {
+    "row": "Transcription error in reporting",
+    "col": "Internal quality control samples",
+    "code": "N3",
+    "requires": "known material run alongside",
+    "blocked_by": "the analysis itself correct"
+   }
+  ],
+  "DETECTION CONTROL|CLINICAL CONTEXT": [
+   {
+    "row": "Delta check against prior results",
+    "col": "Screening of a well population",
+    "code": "N3",
+    "requires": "a previous result for the same patient",
+    "blocked_by": "people with no symptoms"
+   }
+  ],
+  "CLINICAL CONTEXT|PATIENT OUTCOME": [
+   {
+    "row": "Result contradicts the picture",
+    "col": "Unnecessary treatment given",
+    "code": "N3",
+    "requires": "action on a false positive",
+    "blocked_by": "the error questioned before acting"
+   },
+   {
+    "row": "Urgent result acted on at once",
+    "col": "Error caught before any action",
+    "code": "N3",
+    "requires": "a check operating in time",
+    "blocked_by": "no opportunity to verify"
+   }
+  ],
+  "DETECTION CONTROL|PATIENT OUTCOME": [
+   {
+    "row": "No systematic check at all",
+    "col": "Error caught before any action",
+    "code": "N3",
+    "requires": "a check operating in time",
+    "blocked_by": "nothing caught by design"
+   }
+  ]
+ }
+}

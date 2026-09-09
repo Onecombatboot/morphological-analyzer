@@ -1,0 +1,244 @@
+{
+ "domain": "clinical trial design",
+ "group": "institutional",
+ "parameters": {
+  "TRIAL PHASE": [
+   "Phase I first-in-human",
+   "Phase II efficacy signal",
+   "Phase III confirmatory",
+   "Post-marketing surveillance"
+  ],
+  "CONTROL ARM": [
+   "Placebo",
+   "Active comparator",
+   "Standard of care",
+   "No control single arm"
+  ],
+  "POPULATION": [
+   "Healthy volunteers",
+   "Treatment-naive patients",
+   "Refractory patients",
+   "Paediatric patients"
+  ],
+  "PRIMARY ENDPOINT": [
+   "Safety and tolerability",
+   "Biomarker response",
+   "Overall survival",
+   "Patient-reported outcome"
+  ]
+ },
+ "characterisations": {
+  "Phase I first-in-human": {
+   "requires": "no prior human exposure, dose escalation design",
+   "provides": "tens of participants, safety focus only, no efficacy power"
+  },
+  "Phase II efficacy signal": {
+   "requires": "an established safe dose range",
+   "provides": "hundreds of participants, signal detection, not confirmatory"
+  },
+  "Phase III confirmatory": {
+   "requires": "a defined dose and a demonstrated signal",
+   "provides": "thousands of participants, regulatory-grade evidence, years of follow-up"
+  },
+  "Post-marketing surveillance": {
+   "requires": "an approved licensed product already in use",
+   "provides": "very large populations, real-world conditions, no randomisation"
+  },
+  "Placebo": {
+   "requires": "withholding active treatment to be ethically acceptable",
+   "provides": "clean comparison, unacceptable where effective therapy exists"
+  },
+  "Active comparator": {
+   "requires": "an existing approved therapy to compare against",
+   "provides": "relative efficacy evidence, larger sample sizes needed"
+  },
+  "Standard of care": {
+   "requires": "an established treatment pathway",
+   "provides": "ethically acceptable control, heterogeneous comparison"
+  },
+  "No control single arm": {
+   "requires": "an outcome so poor that historical comparison suffices",
+   "provides": "fast small studies, no causal attribution"
+  },
+  "Healthy volunteers": {
+   "requires": "no disease and no prospect of benefit",
+   "provides": "clean pharmacokinetics, no efficacy measurement possible, tolerance only for low-risk agents"
+  },
+  "Treatment-naive patients": {
+   "requires": "diagnosed but untreated disease",
+   "provides": "uncontaminated response measurement, ethical obligation to offer standard care"
+  },
+  "Refractory patients": {
+   "requires": "failure of all available therapy",
+   "provides": "no effective alternative exists, ethically permits single-arm designs, poor prognosis"
+  },
+  "Paediatric patients": {
+   "requires": "prior adult safety data and specific regulatory authorisation",
+   "provides": "age-appropriate formulation and endpoints, heightened ethical scrutiny"
+  },
+  "Safety and tolerability": {
+   "requires": "adverse event capture only",
+   "provides": "measurable in any population, no efficacy claim"
+  },
+  "Biomarker response": {
+   "requires": "a validated measurable marker",
+   "provides": "fast readout, surrogate not outcome, insufficient for approval alone"
+  },
+  "Overall survival": {
+   "requires": "years of follow-up and a fatal condition",
+   "provides": "definitive regulatory endpoint, slow and expensive"
+  },
+  "Patient-reported outcome": {
+   "requires": "patients able to report symptoms",
+   "provides": "quality of life evidence, unmeasurable in healthy volunteers"
+  }
+ },
+ "exclusions": {
+  "TRIAL PHASE|CONTROL ARM": [
+   {
+    "row": "Phase I first-in-human",
+    "col": "Active comparator",
+    "code": "N7",
+    "requires": "an existing approved therapy to compare against",
+    "blocked_by": "no efficacy power"
+   },
+   {
+    "row": "Phase I first-in-human",
+    "col": "Standard of care",
+    "code": "N7",
+    "requires": "an established treatment pathway",
+    "blocked_by": "no efficacy power"
+   },
+   {
+    "row": "Phase III confirmatory",
+    "col": "No control single arm",
+    "code": "N3",
+    "requires": "an outcome so poor that historical comparison suffices",
+    "blocked_by": "regulatory-grade evidence"
+   },
+   {
+    "row": "Post-marketing surveillance",
+    "col": "Placebo",
+    "code": "N3",
+    "requires": "withholding active treatment to be ethically acceptable",
+    "blocked_by": "no randomisation"
+   }
+  ],
+  "TRIAL PHASE|POPULATION": [
+   {
+    "row": "Phase I first-in-human",
+    "col": "Paediatric patients",
+    "code": "N1",
+    "requires": "prior adult safety data and specific regulatory authorisation",
+    "blocked_by": "no prior human exposure"
+   },
+   {
+    "row": "Phase III confirmatory",
+    "col": "Healthy volunteers",
+    "code": "N3",
+    "requires": "thousands of participants, regulatory-grade evidence",
+    "blocked_by": "no efficacy measurement possible"
+   },
+   {
+    "row": "Post-marketing surveillance",
+    "col": "Healthy volunteers",
+    "code": "N3",
+    "requires": "an approved licensed product already in use",
+    "blocked_by": "no disease and no prospect of benefit"
+   }
+  ],
+  "TRIAL PHASE|PRIMARY ENDPOINT": [
+   {
+    "row": "Phase I first-in-human",
+    "col": "Overall survival",
+    "code": "N3",
+    "requires": "years of follow-up and a fatal condition",
+    "blocked_by": "safety focus only, no efficacy power"
+   },
+   {
+    "row": "Phase II efficacy signal",
+    "col": "Overall survival",
+    "code": "N7",
+    "requires": "years of follow-up and a fatal condition",
+    "blocked_by": "signal detection, not confirmatory"
+   },
+   {
+    "row": "Phase III confirmatory",
+    "col": "Biomarker response",
+    "code": "N3",
+    "requires": "regulatory-grade evidence",
+    "blocked_by": "insufficient for approval alone"
+   }
+  ],
+  "CONTROL ARM|POPULATION": [
+   {
+    "row": "Placebo",
+    "col": "Treatment-naive patients",
+    "code": "N7",
+    "requires": "withholding active treatment to be ethically acceptable",
+    "blocked_by": "ethical obligation to offer standard care"
+   },
+   {
+    "row": "Active comparator",
+    "col": "Healthy volunteers",
+    "code": "N3",
+    "requires": "relative efficacy evidence",
+    "blocked_by": "no efficacy measurement possible"
+   },
+   {
+    "row": "Standard of care",
+    "col": "Healthy volunteers",
+    "code": "N3",
+    "requires": "an established treatment pathway",
+    "blocked_by": "no disease and no prospect of benefit"
+   },
+   {
+    "row": "No control single arm",
+    "col": "Healthy volunteers",
+    "code": "N3",
+    "requires": "an outcome so poor that historical comparison suffices",
+    "blocked_by": "no disease and no prospect of benefit"
+   },
+   {
+    "row": "No control single arm",
+    "col": "Treatment-naive patients",
+    "code": "N7",
+    "requires": "an outcome so poor that historical comparison suffices",
+    "blocked_by": "ethical obligation to offer standard care"
+   }
+  ],
+  "CONTROL ARM|PRIMARY ENDPOINT": [
+   {
+    "row": "No control single arm",
+    "col": "Overall survival",
+    "code": "N7",
+    "requires": "years of follow-up and a fatal condition",
+    "blocked_by": "fast small studies"
+   }
+  ],
+  "POPULATION|PRIMARY ENDPOINT": [
+   {
+    "row": "Healthy volunteers",
+    "col": "Overall survival",
+    "code": "N1",
+    "requires": "years of follow-up and a fatal condition",
+    "blocked_by": "no disease and no prospect of benefit"
+   },
+   {
+    "row": "Healthy volunteers",
+    "col": "Patient-reported outcome",
+    "code": "N3",
+    "requires": "patients able to report symptoms",
+    "blocked_by": "unmeasurable in healthy volunteers"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "TRIAL PHASE|CONTROL ARM": "Phase I is dose escalation in tens of people; placebo, active comparator and standard of care are all N because there is no efficacy comparison being made. Phase III single-arm is N: confirmatory evidence requires a control. Post-marketing has no randomisation, so placebo and active comparator are N; standard of care as an observational comparison is Y.",
+  "TRIAL PHASE|POPULATION": "healthy volunteers are N beyond Phase I - later phases measure efficacy, which requires disease. Refractory and paediatric are N in Phase I: neither population is exposed to a first-in-human agent. Treatment-naive is Y throughout.",
+  "TRIAL PHASE|PRIMARY ENDPOINT": "Phase I supports safety only. Biomarker response is N in Phase III and post-marketing, where surrogates do not suffice. Overall survival is N in Phase II, which lacks the follow-up and power.",
+  "CONTROL ARM|POPULATION": "placebo is N in treatment-naive, refractory and paediatric patients - withholding treatment where therapy exists or where the patient is a child is not acceptable; it is Y only in healthy volunteers. Active comparator and standard of care are both N in healthy volunteers, who have nothing to treat. Single arm is Y only in refractory patients, where no alternative exists.",
+  "CONTROL ARM|PRIMARY ENDPOINT": "single arm x overall survival is N: attributing a survival difference requires a control.",
+  "POPULATION|PRIMARY ENDPOINT": "healthy volunteers cannot yield overall survival or a patient-reported outcome - there is no disease to survive or to report on."
+ }
+}

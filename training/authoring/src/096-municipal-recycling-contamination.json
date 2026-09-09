@@ -1,0 +1,155 @@
+{
+ "domain": "municipal recycling contamination",
+ "group": "public services",
+ "parameters": {
+  "COLLECTION SCHEME": [
+   "Fully commingled single bin",
+   "Kerbside sort by the crew",
+   "Two-stream paper and containers",
+   "Deposit return for containers"
+  ],
+  "CONTAMINANT": [
+   "Food residue in packaging",
+   "Non-recyclable plastic film",
+   "Broken glass in mixed material",
+   "No significant contamination"
+  ],
+  "PROCESSING CAPABILITY": [
+   "Optical sorting plant",
+   "Manual picking line",
+   "Simple baling only",
+   "Export without processing"
+  ],
+  "MATERIAL OUTCOME": [
+   "Sold at full market grade",
+   "Downgraded to low value",
+   "Rejected load sent to landfill",
+   "Stockpiled awaiting a buyer"
+  ]
+ },
+ "characterisations": {
+  "Fully commingled single bin": {
+   "requires": "one container for all recyclables",
+   "provides": "very high participation, heavy sorting burden downstream"
+  },
+  "Kerbside sort by the crew": {
+   "requires": "staff sorting at the vehicle",
+   "provides": "clean separated streams, slow rounds and high labour cost"
+  },
+  "Two-stream paper and containers": {
+   "requires": "two containers per household",
+   "provides": "a workable compromise, some cross-contamination"
+  },
+  "Deposit return for containers": {
+   "requires": "reverse vending machines and a deposit",
+   "provides": "very clean material returned, only the containers covered"
+  },
+  "Food residue in packaging": {
+   "requires": "containers not rinsed",
+   "provides": "paper fibre spoiled, whole bales downgraded"
+  },
+  "Non-recyclable plastic film": {
+   "requires": "bags and wrapping in the bin",
+   "provides": "machinery wrapped and stopped, manual removal needed"
+  },
+  "Broken glass in mixed material": {
+   "requires": "glass shattering in collection",
+   "provides": "fragments through every stream, a safety hazard to sorters"
+  },
+  "No significant contamination": {
+   "requires": "material presented correctly",
+   "provides": "streams within specification, full market value"
+  },
+  "Optical sorting plant": {
+   "requires": "capital investment and throughput",
+   "provides": "automatic separation by polymer, tolerance of mixed input"
+  },
+  "Manual picking line": {
+   "requires": "staff on a conveyor",
+   "provides": "judgement on difficult items, limited throughput and high cost"
+  },
+  "Simple baling only": {
+   "requires": "a baler and nothing else",
+   "provides": "material compressed as received, no ability to remove anything"
+  },
+  "Export without processing": {
+   "requires": "an overseas buyer accepting the grade",
+   "provides": "no domestic capacity needed, exposure to import bans"
+  },
+  "Sold at full market grade": {
+   "requires": "material meeting specification",
+   "provides": "revenue to the authority, genuine recycling"
+  },
+  "Downgraded to low value": {
+   "requires": "contamination above the threshold",
+   "provides": "minimal revenue, some material still used"
+  },
+  "Rejected load sent to landfill": {
+   "requires": "contamination beyond recovery",
+   "provides": "disposal cost paid twice, no recycling at all"
+  },
+  "Stockpiled awaiting a buyer": {
+   "requires": "no market at the current grade",
+   "provides": "storage cost accruing, an uncertain destination"
+  }
+ },
+ "exclusions": {
+  "COLLECTION SCHEME|CONTAMINANT": [
+   {
+    "row": "Kerbside sort by the crew",
+    "col": "Non-recyclable plastic film",
+    "code": "N3",
+    "requires": "clean separated streams",
+    "blocked_by": "bags and wrapping in the bin"
+   },
+   {
+    "row": "Deposit return for containers",
+    "col": "Food residue in packaging",
+    "code": "N3",
+    "requires": "very clean material returned",
+    "blocked_by": "containers not rinsed"
+   }
+  ],
+  "CONTAMINANT|PROCESSING CAPABILITY": [
+   {
+    "row": "Non-recyclable plastic film",
+    "col": "Simple baling only",
+    "code": "N3",
+    "requires": "manual removal needed",
+    "blocked_by": "no ability to remove anything"
+   },
+   {
+    "row": "Broken glass in mixed material",
+    "col": "Simple baling only",
+    "code": "N3",
+    "requires": "fragments through every stream",
+    "blocked_by": "no ability to remove anything"
+   }
+  ],
+  "CONTAMINANT|MATERIAL OUTCOME": [
+   {
+    "row": "No significant contamination",
+    "col": "Rejected load sent to landfill",
+    "code": "N3",
+    "requires": "contamination beyond recovery",
+    "blocked_by": "streams within specification"
+   },
+   {
+    "row": "No significant contamination",
+    "col": "Downgraded to low value",
+    "code": "N3",
+    "requires": "contamination above the threshold",
+    "blocked_by": "streams within specification"
+   }
+  ],
+  "PROCESSING CAPABILITY|MATERIAL OUTCOME": [
+   {
+    "row": "Simple baling only",
+    "col": "Sold at full market grade",
+    "code": "N7",
+    "requires": "material meeting specification",
+    "blocked_by": "no ability to remove anything"
+   }
+  ]
+ }
+}

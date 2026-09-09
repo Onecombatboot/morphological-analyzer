@@ -1,0 +1,107 @@
+# Whitelist, not blacklist.
+#
+# This repository sits inside a working tree that also holds ~15 GB of model
+# weights, third-party runtimes and build output. A blacklist would eventually
+# miss something and push a 5 GB base model. So: ignore everything, then
+# un-ignore exactly what belongs in the repository.
+#
+# Weights are NOT here. They live on the Hugging Face Hub -- see README.
+# Base models are not mirrored either: Qwen2.5-3B, Qwen2.5-7B-Instruct and
+# all-MiniLM-L6-v2 are published upstream and are referenced, not copied.
+
+*
+!*/
+
+# ---- top-level documentation -------------------------------------------
+!/README.md
+!/ARCHITECTURE.md
+!/PROJECT_REPORT.md
+!/SETUP.md
+!/LICENSE
+!/requirements.txt
+!/.gitignore
+!/.gitattributes
+
+# ---- the corpus: the durable asset of the project ----------------------
+!training/matrices_v2/**
+!training/authoring/**
+!training/adjudicate/**
+
+# ---- the pipeline that produced the reported figures -------------------
+!training/build_matrices.py
+!training/build_dataset.py
+!training/finetune.py
+!training/calibrate.py
+!training/evaluate.py
+!training/prompt_ensemble.py
+!training/by_code.py
+!training/bootstrap_compare.py
+!training/cca.py
+!training/rule_detector.py
+!training/verify_citations.py
+!training/validate_matrices.py
+!training/final_report.py
+!training/serve_cca.py
+
+# ---- ONNX export, quantisation and parity verification -----------------
+!training/onnx_export.py
+!training/quant_int4.py
+!training/onnx_fix_fp16.py
+!training/onnx_trim_head.py
+!training/onnx_ref_scores.py
+!training/onnx_score.py
+!training/onnx_metrics.py
+
+# ---- results, as measured ----------------------------------------------
+!training/FINAL_RESULTS.md
+!training/HEADLINE_RESULTS.md
+!training/RESULTS.md
+!training/CRITERION.md
+!training/DEPLOYED.md
+!training/schema.md
+
+# ---- the Java application ----------------------------------------------
+!morphological-analyzer/src/**
+!morphological-analyzer/pom.xml
+!morphological-analyzer/mvnw
+!morphological-analyzer/mvnw.cmd
+!morphological-analyzer/.mvn/**
+!morphological-analyzer/data/overrides.json
+
+# ---- the Angular interface ---------------------------------------------
+!morphological-frontend/src/**
+!morphological-frontend/package.json
+!morphological-frontend/package-lock.json
+!morphological-frontend/angular.json
+!morphological-frontend/tsconfig*.json
+
+# ---- launcher and offline unpacker -------------------------------------
+!Restore.java
+!start_offline.bat
+
+# ---- re-exclude things the patterns above would otherwise sweep up -----
+morphological-analyzer/src/main/resources/static/**
+# auto-generated PEFT adapter cards from abandoned training runs
+training/results/**
+training/adapter*/**
+**/.vscode/**
+morphological-frontend/.gitignore
+morphological-analyzer/.gitignore
+morphological-analyzer/.gitattributes
+morphological-frontend/src/**/*.bak
+training/matrices_v2/**/*.npz
+**/__pycache__/**
+**/*.pyc
+**/node_modules/**
+**/target/**
+**/dist/**
+**/.angular/**
+**/*.log
+**/*.onnx
+**/*.onnx_data
+**/*.onnx.data
+**/*.safetensors
+**/*.gguf
+**/*.bin
+**/*.pt
+**/*.zip

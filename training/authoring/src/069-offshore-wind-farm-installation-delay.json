@@ -1,0 +1,180 @@
+{
+ "domain": "offshore wind farm installation delay",
+ "group": "construction",
+ "parameters": {
+  "DELAY CAUSE": [
+   "Installation vessel unavailability",
+   "Weather window shortfall",
+   "Seabed condition worse than surveyed",
+   "Grid connection not ready"
+  ],
+  "FOUNDATION TYPE": [
+   "Monopile",
+   "Jacket structure",
+   "Gravity base",
+   "Floating platform"
+  ],
+  "CONTRACT STRUCTURE": [
+   "Single turnkey contractor",
+   "Multi-contract package split",
+   "Alliance with shared risk",
+   "Owner-managed construction"
+  ],
+  "PROJECT EFFECT": [
+   "Recovered within the programme",
+   "Commissioning slipped one season",
+   "Cost overrun without schedule impact",
+   "Contractual dispute"
+  ]
+ },
+ "characterisations": {
+  "Installation vessel unavailability": {
+   "requires": "a specialist jack-up vessel on charter",
+   "provides": "a global fleet of very few suitable vessels, day rates continuing during any wait"
+  },
+  "Weather window shortfall": {
+   "requires": "sea state limits for lifting operations",
+   "provides": "seasonal, forecastable in aggregate but not in detail, no party at fault"
+  },
+  "Seabed condition worse than surveyed": {
+   "requires": "ground truth differing from the geotechnical model",
+   "provides": "foundation redesign, applies only to the affected positions"
+  },
+  "Grid connection not ready": {
+   "requires": "onshore substation or cable works behind schedule",
+   "provides": "turbines installed but unable to export, no offshore work affected at all"
+  },
+  "Monopile": {
+   "requires": "a single driven tube in suitable ground",
+   "provides": "fastest installation, unsuitable in hard rock or very deep water"
+  },
+  "Jacket structure": {
+   "requires": "a fabricated lattice with piles",
+   "provides": "tolerance of difficult seabed and depth, long fabrication lead time"
+  },
+  "Gravity base": {
+   "requires": "a heavy structure placed on a prepared bed",
+   "provides": "no piling noise at all, very large dredging and ballast operation"
+  },
+  "Floating platform": {
+   "requires": "a moored hull in deep water",
+   "provides": "independence from seabed conditions entirely, quayside assembly and towing"
+  },
+  "Single turnkey contractor": {
+   "requires": "one party taking whole-scope responsibility",
+   "provides": "a single point of accountability, the highest price"
+  },
+  "Multi-contract package split": {
+   "requires": "several packages let separately",
+   "provides": "lower price, interface risk carried by the developer"
+  },
+  "Alliance with shared risk": {
+   "requires": "an agreement to share overruns",
+   "provides": "aligned incentives, complex governance"
+  },
+  "Owner-managed construction": {
+   "requires": "an in-house project organisation",
+   "provides": "full control and full risk, dependence on scarce internal expertise"
+  },
+  "Recovered within the programme": {
+   "requires": "float absorbing the delay",
+   "provides": "no change to the commissioning date"
+  },
+  "Commissioning slipped one season": {
+   "requires": "a weather window missed",
+   "provides": "a year of lost revenue, financing cost"
+  },
+  "Cost overrun without schedule impact": {
+   "requires": "additional resources bought to hold the date",
+   "provides": "budget exceeded, programme intact"
+  },
+  "Contractual dispute": {
+   "requires": "responsibility for the delay contested",
+   "provides": "arbitration cost, relationship damage"
+  }
+ },
+ "exclusions": {
+  "DELAY CAUSE|FOUNDATION TYPE": [
+   {
+    "row": "Seabed condition worse than surveyed",
+    "col": "Floating platform",
+    "code": "N3",
+    "requires": "independence from seabed conditions entirely",
+    "blocked_by": "foundation redesign"
+   },
+   {
+    "row": "Installation vessel unavailability",
+    "col": "Floating platform",
+    "code": "N7",
+    "requires": "a global fleet of very few suitable vessels",
+    "blocked_by": "quayside assembly and towing"
+   }
+  ],
+  "DELAY CAUSE|CONTRACT STRUCTURE": [
+   {
+    "row": "Grid connection not ready",
+    "col": "Single turnkey contractor",
+    "code": "N7",
+    "requires": "a single point of accountability",
+    "blocked_by": "onshore substation or cable works behind schedule"
+   }
+  ],
+  "DELAY CAUSE|PROJECT EFFECT": [
+   {
+    "row": "Weather window shortfall",
+    "col": "Contractual dispute",
+    "code": "N7",
+    "requires": "responsibility for the delay contested",
+    "blocked_by": "no party at fault"
+   },
+   {
+    "row": "Grid connection not ready",
+    "col": "Cost overrun without schedule impact",
+    "code": "N7",
+    "requires": "additional resources bought to hold the date",
+    "blocked_by": "turbines installed but unable to export"
+   }
+  ],
+  "FOUNDATION TYPE|CONTRACT STRUCTURE": [
+   {
+    "row": "Gravity base",
+    "col": "Owner-managed construction",
+    "code": "N7",
+    "requires": "dependence on scarce internal expertise",
+    "blocked_by": "very large dredging and ballast operation"
+   }
+  ],
+  "FOUNDATION TYPE|PROJECT EFFECT": [
+   {
+    "row": "Jacket structure",
+    "col": "Recovered within the programme",
+    "code": "N7",
+    "requires": "float absorbing the delay",
+    "blocked_by": "long fabrication lead time"
+   }
+  ],
+  "CONTRACT STRUCTURE|PROJECT EFFECT": [
+   {
+    "row": "Single turnkey contractor",
+    "col": "Contractual dispute",
+    "code": "N7",
+    "requires": "responsibility for the delay contested",
+    "blocked_by": "a single point of accountability"
+   },
+   {
+    "row": "Alliance with shared risk",
+    "col": "Contractual dispute",
+    "code": "N7",
+    "requires": "responsibility for the delay contested",
+    "blocked_by": "aligned incentives"
+   },
+   {
+    "row": "Multi-contract package split",
+    "col": "Recovered within the programme",
+    "code": "N7",
+    "requires": "float absorbing the delay",
+    "blocked_by": "interface risk carried by the developer"
+   }
+  ]
+ }
+}

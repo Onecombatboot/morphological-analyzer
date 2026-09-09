@@ -1,0 +1,227 @@
+{
+ "domain": "chemical plant release",
+ "group": "industrial",
+ "parameters": {
+  "RELEASED SUBSTANCE": [
+   "Dense toxic gas",
+   "Flammable vapour cloud",
+   "Corrosive liquid",
+   "Fine particulate solid"
+  ],
+  "RELEASE CAUSE": [
+   "Pipework corrosion failure",
+   "Operator valve error",
+   "Runaway exothermic reaction",
+   "External impact"
+  ],
+  "DISPERSION CONDITION": [
+   "Still air inversion",
+   "Steady wind",
+   "Heavy rain",
+   "Confined indoor space"
+  ],
+  "PROTECTIVE ACTION": [
+   "Shelter in place",
+   "Evacuate downwind sector",
+   "Water curtain suppression",
+   "Plant-wide shutdown"
+  ],
+  "EXPOSED GROUP": [
+   "Plant operators",
+   "Adjacent residential area",
+   "Emergency responders",
+   "Nobody within range"
+  ]
+ },
+ "characterisations": {
+  "Dense toxic gas": {
+   "requires": "a substance heavier than air",
+   "provides": "ground-hugging travel, accumulation in low ground, lethal by inhalation, no fire risk"
+  },
+  "Flammable vapour cloud": {
+   "requires": "a substance above its flash point with an ignition source available",
+   "provides": "explosion and fire risk, dispersal removes the hazard, no toxicity necessarily"
+  },
+  "Corrosive liquid": {
+   "requires": "loss of liquid containment",
+   "provides": "ground-level pooling, contact injury only, no airborne travel"
+  },
+  "Fine particulate solid": {
+   "requires": "a powder handling system",
+   "provides": "airborne dust, inhalation and dust explosion risk, settles when wetted"
+  },
+  "Pipework corrosion failure": {
+   "requires": "time and an aggressive process fluid",
+   "provides": "gradual leak developing to rupture, inspectable in advance"
+  },
+  "Operator valve error": {
+   "requires": "a human action on the plant",
+   "provides": "sudden release of whatever that line carries, immediately identifiable"
+  },
+  "Runaway exothermic reaction": {
+   "requires": "a reacting vessel losing temperature control",
+   "provides": "pressure rise and vessel rupture, minutes of escalation, heat and reaction products"
+  },
+  "External impact": {
+   "requires": "a vehicle, dropped load or blast striking the plant",
+   "provides": "instantaneous breach of whatever was struck, no process warning"
+  },
+  "Still air inversion": {
+   "requires": "stable atmosphere with no vertical mixing",
+   "provides": "no dilution, hazard persisting and travelling at ground level"
+  },
+  "Steady wind": {
+   "requires": "consistent air movement",
+   "provides": "predictable downwind plume, rapid dilution"
+  },
+  "Heavy rain": {
+   "requires": "precipitation",
+   "provides": "washout of soluble gases and dust, no effect on a liquid pool"
+  },
+  "Confined indoor space": {
+   "requires": "release inside a building",
+   "provides": "no dispersion whatsoever, accumulation to lethal concentration, no downwind sector"
+  },
+  "Shelter in place": {
+   "requires": "buildings that can be sealed and a passing hazard",
+   "provides": "protection from a transient cloud, useless against a persistent release"
+  },
+  "Evacuate downwind sector": {
+   "requires": "a known wind direction and time to move people",
+   "provides": "removal from the plume path, exposure during movement"
+  },
+  "Water curtain suppression": {
+   "requires": "a fixed system and a water-soluble or dust hazard",
+   "provides": "knockdown of soluble gas and dust, no effect on insoluble vapour"
+  },
+  "Plant-wide shutdown": {
+   "requires": "time to bring processes to a safe state",
+   "provides": "removal of the source, no effect on material already released"
+  },
+  "Plant operators": {
+   "requires": "personnel on site",
+   "provides": "trained response, respiratory protection available, closest exposure"
+  },
+  "Adjacent residential area": {
+   "requires": "housing within the hazard range",
+   "provides": "untrained population, no protective equipment, requires warning"
+  },
+  "Emergency responders": {
+   "requires": "external services entering the site",
+   "provides": "protective equipment and training, deliberate entry into the hazard"
+  },
+  "Nobody within range": {
+   "requires": "isolation or successful prior evacuation",
+   "provides": "no casualty consequence"
+  }
+ },
+ "exclusions": {
+  "RELEASED SUBSTANCE|RELEASE CAUSE": [
+   {
+    "row": "Fine particulate solid",
+    "col": "Pipework corrosion failure",
+    "code": "N7",
+    "requires": "time and an aggressive process fluid",
+    "blocked_by": "a powder handling system"
+   }
+  ],
+  "RELEASED SUBSTANCE|DISPERSION CONDITION": [
+   {
+    "row": "Corrosive liquid",
+    "col": "Still air inversion",
+    "code": "N6",
+    "requires": "stable atmosphere with no vertical mixing",
+    "blocked_by": "no airborne travel"
+   },
+   {
+    "row": "Corrosive liquid",
+    "col": "Steady wind",
+    "code": "N6",
+    "requires": "predictable downwind plume, rapid dilution",
+    "blocked_by": "no airborne travel"
+   }
+  ],
+  "RELEASED SUBSTANCE|PROTECTIVE ACTION": [
+   {
+    "row": "Flammable vapour cloud",
+    "col": "Water curtain suppression",
+    "code": "N3",
+    "requires": "a fixed system and a water-soluble or dust hazard",
+    "blocked_by": "no effect on insoluble vapour"
+   },
+   {
+    "row": "Corrosive liquid",
+    "col": "Shelter in place",
+    "code": "N7",
+    "requires": "buildings that can be sealed and a passing hazard",
+    "blocked_by": "ground-level pooling"
+   },
+   {
+    "row": "Corrosive liquid",
+    "col": "Evacuate downwind sector",
+    "code": "N3",
+    "requires": "a known wind direction and time to move people",
+    "blocked_by": "no airborne travel"
+   },
+   {
+    "row": "Corrosive liquid",
+    "col": "Water curtain suppression",
+    "code": "N3",
+    "requires": "a fixed system and a water-soluble or dust hazard",
+    "blocked_by": "no airborne travel"
+   }
+  ],
+  "RELEASED SUBSTANCE|EXPOSED GROUP": [
+   {
+    "row": "Corrosive liquid",
+    "col": "Adjacent residential area",
+    "code": "N7",
+    "requires": "housing within the hazard range",
+    "blocked_by": "ground-level pooling, contact injury only"
+   }
+  ],
+  "RELEASE CAUSE|PROTECTIVE ACTION": [
+   {
+    "row": "External impact",
+    "col": "Plant-wide shutdown",
+    "code": "N4",
+    "requires": "time to bring processes to a safe state",
+    "blocked_by": "instantaneous breach of whatever was struck"
+   }
+  ],
+  "DISPERSION CONDITION|PROTECTIVE ACTION": [
+   {
+    "row": "Still air inversion",
+    "col": "Shelter in place",
+    "code": "N3",
+    "requires": "useless against a persistent release",
+    "blocked_by": "hazard persisting and travelling at ground level"
+   },
+   {
+    "row": "Confined indoor space",
+    "col": "Evacuate downwind sector",
+    "code": "N3",
+    "requires": "a known wind direction and time to move people",
+    "blocked_by": "no downwind sector"
+   }
+  ],
+  "DISPERSION CONDITION|EXPOSED GROUP": [
+   {
+    "row": "Confined indoor space",
+    "col": "Adjacent residential area",
+    "code": "N3",
+    "requires": "housing within the hazard range",
+    "blocked_by": "no dispersion whatsoever"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "RELEASED SUBSTANCE|RELEASE CAUSE": "corrosive liquid x runaway reaction is N: a runaway produces pressure and vapour, not a liquid pool. Particulate solid x pipework corrosion is N - powder systems do not fail by corrosion of process pipework in this sense.",
+  "RELEASED SUBSTANCE|DISPERSION CONDITION": "corrosive liquid is N for still air, steady wind and rain alike - a pool does not disperse in air at all; only the confined indoor case is meaningful. Flammable vapour x heavy rain is N as a governing condition.",
+  "RELEASED SUBSTANCE|PROTECTIVE ACTION": "corrosive liquid is N for shelter, evacuation and water curtain - it is a contained ground hazard addressed by shutdown. Flammable vapour x water curtain is N: it is not water-soluble.",
+  "RELEASED SUBSTANCE|EXPOSED GROUP": "corrosive liquid x adjacent residential area is N - a pool does not travel off site.",
+  "RELEASE CAUSE|PROTECTIVE ACTION": "external impact x plant-wide shutdown is N as a protective action: the breach is instantaneous and already complete.",
+  "DISPERSION CONDITION|PROTECTIVE ACTION": "still air inversion x shelter in place is N - shelter works against a passing cloud, and an inversion means it does not pass. Confined indoor space x evacuate downwind sector is N: there is no downwind sector indoors.",
+  "DISPERSION CONDITION|EXPOSED GROUP": "confined indoor space x adjacent residential area is N - an indoor release does not reach housing off site."
+ }
+}

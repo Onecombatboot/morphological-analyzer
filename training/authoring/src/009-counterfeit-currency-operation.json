@@ -1,0 +1,284 @@
+{
+ "domain": "counterfeit currency operation",
+ "group": "institutional",
+ "parameters": {
+  "PRODUCER": [
+   "State-sponsored facility",
+   "Organised criminal group",
+   "Small independent workshop",
+   "Opportunistic individual"
+  ],
+  "PRODUCTION METHOD": [
+   "Intaglio press with genuine substrate",
+   "Offset lithography",
+   "Consumer inkjet printing",
+   "Bleached and reprinted genuine note"
+  ],
+  "DISTRIBUTION": [
+   "Bulk wholesale to distributors",
+   "Passing at retail point of sale",
+   "Exchange at currency bureau",
+   "Online marketplace sale"
+  ],
+  "DETECTION POINT": [
+   "Central bank sorting",
+   "Commercial bank teller",
+   "Retail cashier",
+   "Automated vending machine"
+  ]
+ },
+ "characterisations": {
+  "State-sponsored facility": {
+   "requires": "national printing infrastructure and impunity",
+   "provides": "genuine-grade equipment, controlled substrate, unlimited volume, no need for retail exposure"
+  },
+  "Organised criminal group": {
+   "requires": "capital, distribution network, sustained operation",
+   "provides": "industrial equipment, bulk volume, layered distribution, no state protection"
+  },
+  "Small independent workshop": {
+   "requires": "modest premises and commercial printing equipment",
+   "provides": "moderate quality, limited volume, direct local distribution"
+  },
+  "Opportunistic individual": {
+   "requires": "nothing beyond consumer equipment",
+   "provides": "very low quality, tiny volume, personal passing only"
+  },
+  "Intaglio press with genuine substrate": {
+   "requires": "industrial press and access to security paper",
+   "provides": "correct tactile relief and paper feel, defeats human and most machine checks"
+  },
+  "Offset lithography": {
+   "requires": "commercial printing plant",
+   "provides": "good visual fidelity, flat surface with no relief, moderate volume"
+  },
+  "Consumer inkjet printing": {
+   "requires": "a desktop printer and ordinary paper",
+   "provides": "poor fidelity, wrong feel, fails any deliberate inspection"
+  },
+  "Bleached and reprinted genuine note": {
+   "requires": "genuine low-denomination notes to strip",
+   "provides": "authentic substrate and security thread of the wrong denomination, one note per note"
+  },
+  "Bulk wholesale to distributors": {
+   "requires": "large volume and a trusted network",
+   "provides": "producer never exposed to end detection, price at a fraction of face value"
+  },
+  "Passing at retail point of sale": {
+   "requires": "physical presence and small denominations",
+   "provides": "immediate value, direct personal exposure, one note at a time"
+  },
+  "Exchange at currency bureau": {
+   "requires": "volume worth exchanging and identity documents",
+   "provides": "conversion to another currency, exposure to trained staff and machines"
+  },
+  "Online marketplace sale": {
+   "requires": "anonymous listing and shipping",
+   "provides": "sale to strangers as counterfeit, no need to deceive the buyer, postal interception risk"
+  },
+  "Central bank sorting": {
+   "requires": "notes returning through the banking system",
+   "provides": "authoritative machine authentication of every note, weeks after circulation"
+  },
+  "Commercial bank teller": {
+   "requires": "a deposit or exchange transaction",
+   "provides": "trained staff and a desktop verifier, identity of the depositor"
+  },
+  "Retail cashier": {
+   "requires": "a point-of-sale transaction",
+   "provides": "untrained inspection under time pressure, pen and light at best"
+  },
+  "Automated vending machine": {
+   "requires": "the note to be inserted into a validator",
+   "provides": "sensor-based checks on substrate and thread, no human judgement"
+  }
+ },
+ "exclusions": {
+  "PRODUCER|PRODUCTION METHOD": [
+   {
+    "row": "State-sponsored facility",
+    "col": "Offset lithography",
+    "code": "N7",
+    "requires": "commercial printing plant",
+    "blocked_by": "genuine-grade equipment, controlled substrate"
+   },
+   {
+    "row": "State-sponsored facility",
+    "col": "Consumer inkjet printing",
+    "code": "N7",
+    "requires": "a desktop printer and ordinary paper",
+    "blocked_by": "genuine-grade equipment, controlled substrate"
+   },
+   {
+    "row": "State-sponsored facility",
+    "col": "Bleached and reprinted genuine note",
+    "code": "N7",
+    "requires": "genuine low-denomination notes to strip",
+    "blocked_by": "controlled substrate"
+   },
+   {
+    "row": "Organised criminal group",
+    "col": "Consumer inkjet printing",
+    "code": "N7",
+    "requires": "a desktop printer and ordinary paper",
+    "blocked_by": "industrial equipment, bulk volume"
+   },
+   {
+    "row": "Small independent workshop",
+    "col": "Intaglio press with genuine substrate",
+    "code": "N3",
+    "requires": "industrial press and access to security paper",
+    "blocked_by": "modest premises and commercial printing equipment"
+   },
+   {
+    "row": "Opportunistic individual",
+    "col": "Intaglio press with genuine substrate",
+    "code": "N3",
+    "requires": "industrial press and access to security paper",
+    "blocked_by": "nothing beyond consumer equipment"
+   },
+   {
+    "row": "Opportunistic individual",
+    "col": "Offset lithography",
+    "code": "N3",
+    "requires": "commercial printing plant",
+    "blocked_by": "nothing beyond consumer equipment"
+   }
+  ],
+  "PRODUCER|DISTRIBUTION": [
+   {
+    "row": "State-sponsored facility",
+    "col": "Passing at retail point of sale",
+    "code": "N7",
+    "requires": "physical presence and small denominations",
+    "blocked_by": "no need for retail exposure"
+   },
+   {
+    "row": "State-sponsored facility",
+    "col": "Exchange at currency bureau",
+    "code": "N7",
+    "requires": "volume worth exchanging and identity documents",
+    "blocked_by": "no need for retail exposure"
+   },
+   {
+    "row": "State-sponsored facility",
+    "col": "Online marketplace sale",
+    "code": "N7",
+    "requires": "anonymous listing and shipping",
+    "blocked_by": "no need for retail exposure"
+   },
+   {
+    "row": "Small independent workshop",
+    "col": "Bulk wholesale to distributors",
+    "code": "N3",
+    "requires": "large volume and a trusted network",
+    "blocked_by": "limited volume, direct local distribution"
+   },
+   {
+    "row": "Opportunistic individual",
+    "col": "Bulk wholesale to distributors",
+    "code": "N3",
+    "requires": "large volume and a trusted network",
+    "blocked_by": "tiny volume, personal passing only"
+   },
+   {
+    "row": "Opportunistic individual",
+    "col": "Exchange at currency bureau",
+    "code": "N3",
+    "requires": "volume worth exchanging and identity documents",
+    "blocked_by": "tiny volume, personal passing only"
+   }
+  ],
+  "PRODUCTION METHOD|DISTRIBUTION": [
+   {
+    "row": "Intaglio press with genuine substrate",
+    "col": "Online marketplace sale",
+    "code": "N7",
+    "requires": "anonymous listing and shipping",
+    "blocked_by": "defeats human and most machine checks"
+   },
+   {
+    "row": "Consumer inkjet printing",
+    "col": "Bulk wholesale to distributors",
+    "code": "N3",
+    "requires": "large volume and a trusted network",
+    "blocked_by": "poor fidelity, wrong feel"
+   },
+   {
+    "row": "Consumer inkjet printing",
+    "col": "Exchange at currency bureau",
+    "code": "N7",
+    "requires": "exposure to trained staff and machines",
+    "blocked_by": "fails any deliberate inspection"
+   }
+  ],
+  "PRODUCTION METHOD|DETECTION POINT": [
+   {
+    "row": "Intaglio press with genuine substrate",
+    "col": "Commercial bank teller",
+    "code": "N7",
+    "requires": "trained staff and a desktop verifier",
+    "blocked_by": "defeats human and most machine checks"
+   },
+   {
+    "row": "Intaglio press with genuine substrate",
+    "col": "Retail cashier",
+    "code": "N7",
+    "requires": "untrained inspection under time pressure",
+    "blocked_by": "defeats human and most machine checks"
+   },
+   {
+    "row": "Intaglio press with genuine substrate",
+    "col": "Automated vending machine",
+    "code": "N7",
+    "requires": "sensor-based checks on substrate and thread",
+    "blocked_by": "defeats human and most machine checks"
+   },
+   {
+    "row": "Bleached and reprinted genuine note",
+    "col": "Retail cashier",
+    "code": "N7",
+    "requires": "untrained inspection under time pressure",
+    "blocked_by": "authentic substrate and security thread of the wrong denomination"
+   }
+  ],
+  "DISTRIBUTION|DETECTION POINT": [
+   {
+    "row": "Bulk wholesale to distributors",
+    "col": "Retail cashier",
+    "code": "N6",
+    "requires": "a point-of-sale transaction",
+    "blocked_by": "producer never exposed to end detection"
+   },
+   {
+    "row": "Bulk wholesale to distributors",
+    "col": "Automated vending machine",
+    "code": "N6",
+    "requires": "the note to be inserted into a validator",
+    "blocked_by": "producer never exposed to end detection"
+   },
+   {
+    "row": "Exchange at currency bureau",
+    "col": "Retail cashier",
+    "code": "N6",
+    "requires": "a point-of-sale transaction",
+    "blocked_by": "conversion to another currency"
+   },
+   {
+    "row": "Exchange at currency bureau",
+    "col": "Automated vending machine",
+    "code": "N6",
+    "requires": "the note to be inserted into a validator",
+    "blocked_by": "conversion to another currency"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "PRODUCER|PRODUCTION METHOD": "intaglio with genuine substrate requires national printing infrastructure, so it is Y for a state facility and for an organised group with industrial capital, N for a workshop and an individual. Offset needs a commercial plant, so N for an individual. Inkjet is beneath a state facility and an organised group - implausible, not impossible. Bleaching requires patient manual work at scale, so N for a state facility (which has no need) and N for an individual (no access to volume).",
+  "PRODUCER|DISTRIBUTION": "a state facility never exposes itself at retail, at a bureau or online - its whole advantage is not needing to. A workshop cannot supply bulk wholesale. An individual can only pass notes personally: bureau exchange requires identity documents and volume, online sale requires an operation.",
+  "PRODUCER|DETECTION POINT": "a state facility's product using genuine substrate and intaglio defeats tellers, cashiers and validators; only central bank sorting catches it. A workshop and an individual never reach central bank sorting in volume worth the term - their notes are caught downstream first.",
+  "PRODUCTION METHOD|DISTRIBUTION": "intaglio work is too valuable to pass one note at a time at retail, and selling it openly online as counterfeit wastes its quality. Inkjet cannot survive bulk wholesale (distributors would reject it) or a currency bureau. Bleached notes are too labour-intensive per note for online bulk sale.",
+  "PRODUCTION METHOD|DETECTION POINT": "intaglio with genuine substrate passes teller, cashier and validator - only central bank sorting sees it. Offset has no relief so a teller catches it, but a validator checking substrate and thread may not; a cashier will not. Inkjet fails everywhere. Bleached notes have genuine substrate and thread so they defeat teller, cashier and validator alike.",
+  "DISTRIBUTION|DETECTION POINT": "bulk wholesale never touches a retail cashier or a vending machine directly. Bureau exchange reaches central bank and teller only. Online sale reaches everything except a teller, since the buyer knows what they bought and will not deposit it."
+ }
+}

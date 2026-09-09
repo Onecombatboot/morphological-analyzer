@@ -1,0 +1,146 @@
+{
+ "domain": "refugee status determination",
+ "group": "migration",
+ "parameters": {
+  "CLAIM BASIS": [
+   "Individual persecution",
+   "Generalised violence",
+   "Economic hardship alone",
+   "Statelessness"
+  ],
+  "EVIDENCE POSITION": [
+   "Documentary proof of identity",
+   "Testimony only",
+   "Medico-legal report",
+   "Country information contradicting the claim"
+  ],
+  "PROCEDURE": [
+   "Full substantive interview",
+   "Accelerated border procedure",
+   "Safe third country transfer",
+   "Appeal before a tribunal"
+  ],
+  "DECISION OUTCOME": [
+   "Refugee status granted",
+   "Humanitarian protection granted",
+   "Claim refused and removal ordered",
+   "Claim withdrawn or abandoned"
+  ]
+ },
+ "characterisations": {
+  "Individual persecution": {
+   "requires": "evidence of targeting of the person",
+   "provides": "a Convention ground engaged, dependence on personal credibility"
+  },
+  "Generalised violence": {
+   "requires": "an armed conflict in the country of origin",
+   "provides": "a complementary protection route, no need to show individual targeting"
+  },
+  "Economic hardship alone": {
+   "requires": "poverty without any persecution",
+   "provides": "no Convention ground at all, refusal on the merits"
+  },
+  "Statelessness": {
+   "requires": "no nationality of any state",
+   "provides": "a distinct legal status, no country obliged to receive a return"
+  },
+  "Documentary proof of identity": {
+   "requires": "papers surviving the journey",
+   "provides": "identity established, a verifiable history"
+  },
+  "Testimony only": {
+   "requires": "an account given in interview",
+   "provides": "dependence on consistency and plausibility, no corroboration available"
+  },
+  "Medico-legal report": {
+   "requires": "access to a qualified examiner",
+   "provides": "physical findings consistent with the account, expert weight"
+  },
+  "Country information contradicting the claim": {
+   "requires": "reliable reporting to the contrary",
+   "provides": "a strong basis to refuse, great difficulty for the claimant"
+  },
+  "Full substantive interview": {
+   "requires": "an interpreter and a caseworker",
+   "provides": "a detailed account tested, months of processing"
+  },
+  "Accelerated border procedure": {
+   "requires": "a claim judged manifestly unfounded",
+   "provides": "a decision within days, little opportunity to gather evidence"
+  },
+  "Safe third country transfer": {
+   "requires": "an agreement with another state",
+   "provides": "no examination of the merits at all, removal to that state"
+  },
+  "Appeal before a tribunal": {
+   "requires": "a refusal and a right of appeal",
+   "provides": "judicial reconsideration, legal representation needed"
+  },
+  "Refugee status granted": {
+   "requires": "the Convention criteria met",
+   "provides": "leave to remain, family reunion rights"
+  },
+  "Humanitarian protection granted": {
+   "requires": "serious harm but no Convention ground",
+   "provides": "leave to remain, fewer ancillary rights"
+  },
+  "Claim refused and removal ordered": {
+   "requires": "no protection need established",
+   "provides": "return to the country of origin, appeal rights exhausted"
+  },
+  "Claim withdrawn or abandoned": {
+   "requires": "a claimant disappearing from the process",
+   "provides": "no decision made at all, the file closed"
+  }
+ },
+ "exclusions": {
+  "CLAIM BASIS|DECISION OUTCOME": [
+   {
+    "row": "Economic hardship alone",
+    "col": "Refugee status granted",
+    "code": "N3",
+    "requires": "the Convention criteria met",
+    "blocked_by": "no Convention ground at all"
+   },
+   {
+    "row": "Statelessness",
+    "col": "Claim refused and removal ordered",
+    "code": "N3",
+    "requires": "return to the country of origin",
+    "blocked_by": "no country obliged to receive a return"
+   }
+  ],
+  "EVIDENCE POSITION|PROCEDURE": [
+   {
+    "row": "Medico-legal report",
+    "col": "Accelerated border procedure",
+    "code": "N7",
+    "requires": "access to a qualified examiner",
+    "blocked_by": "little opportunity to gather evidence"
+   }
+  ],
+  "PROCEDURE|DECISION OUTCOME": [
+   {
+    "row": "Safe third country transfer",
+    "col": "Refugee status granted",
+    "code": "N3",
+    "requires": "the Convention criteria met",
+    "blocked_by": "no examination of the merits at all"
+   },
+   {
+    "row": "Safe third country transfer",
+    "col": "Humanitarian protection granted",
+    "code": "N3",
+    "requires": "serious harm but no Convention ground",
+    "blocked_by": "no examination of the merits at all"
+   },
+   {
+    "row": "Appeal before a tribunal",
+    "col": "Claim withdrawn or abandoned",
+    "code": "N3",
+    "requires": "judicial reconsideration",
+    "blocked_by": "no decision made at all"
+   }
+  ]
+ }
+}

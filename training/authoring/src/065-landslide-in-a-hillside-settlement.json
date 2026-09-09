@@ -1,0 +1,187 @@
+{
+ "domain": "landslide in a hillside settlement",
+ "group": "natural hazard",
+ "parameters": {
+  "FAILURE MECHANISM": [
+   "Rainfall-triggered shallow slide",
+   "Deep-seated rotational slump",
+   "Undercutting by a river",
+   "Slope loaded by construction fill"
+  ],
+  "SETTLEMENT PATTERN": [
+   "Informal housing on the slope",
+   "Engineered terraces with drainage",
+   "Housing at the toe of the slope",
+   "Housing above the crest"
+  ],
+  "WARNING INDICATOR": [
+   "Rainfall threshold exceedance",
+   "Ground movement instrumentation",
+   "Visible tension cracking",
+   "No indicator at all"
+  ],
+  "RISK REDUCTION": [
+   "Slope drainage works",
+   "Toe protection and revetment",
+   "Managed relocation of residents",
+   "Early warning and evacuation"
+  ]
+ },
+ "characterisations": {
+  "Rainfall-triggered shallow slide": {
+   "requires": "prolonged or intense rainfall on a soil mantle",
+   "provides": "failure within hours of the rain, thin fast-moving debris, seasonal timing"
+  },
+  "Deep-seated rotational slump": {
+   "requires": "a weak layer at depth",
+   "provides": "movement of centimetres per year with occasional acceleration, whole hillsides involved"
+  },
+  "Undercutting by a river": {
+   "requires": "a watercourse eroding the toe",
+   "provides": "progressive loss of support, failure at the toe first, predictable location"
+  },
+  "Slope loaded by construction fill": {
+   "requires": "material placed on an unstable slope",
+   "provides": "an entirely human-made cause, failure soon after placement"
+  },
+  "Informal housing on the slope": {
+   "requires": "unregulated construction on steep ground",
+   "provides": "no engineering of any kind, cut-and-fill terracing by residents, very high exposure"
+  },
+  "Engineered terraces with drainage": {
+   "requires": "designed slope works",
+   "provides": "managed groundwater, documented design life"
+  },
+  "Housing at the toe of the slope": {
+   "requires": "development on the runout apron",
+   "provides": "exposure to debris rather than to ground movement, no influence on the slope itself"
+  },
+  "Housing above the crest": {
+   "requires": "development on the plateau",
+   "provides": "exposure to retrogressive failure, ground cracking as an early sign"
+  },
+  "Rainfall threshold exceedance": {
+   "requires": "a rain gauge network and a local threshold",
+   "provides": "hours of lead time, applicable only to rainfall-triggered failure"
+  },
+  "Ground movement instrumentation": {
+   "requires": "inclinometers or survey markers installed",
+   "provides": "detection of slow movement, useless for a failure that begins suddenly"
+  },
+  "Visible tension cracking": {
+   "requires": "cracks large enough to be noticed",
+   "provides": "unambiguous but very late, minutes to days"
+  },
+  "No indicator at all": {
+   "requires": "no monitoring and no visible sign",
+   "provides": "no warning whatsoever"
+  },
+  "Slope drainage works": {
+   "requires": "engineering access and a groundwater problem",
+   "provides": "reduction of pore pressure, no effect on undercutting by water at the toe"
+  },
+  "Toe protection and revetment": {
+   "requires": "river access and construction capacity",
+   "provides": "prevention of undercutting, no effect on rainfall infiltration"
+  },
+  "Managed relocation of residents": {
+   "requires": "land elsewhere and consent",
+   "provides": "complete removal of exposure, social and political cost"
+  },
+  "Early warning and evacuation": {
+   "requires": "a warning indicator and a rehearsed route",
+   "provides": "lives saved, no protection of any property"
+  }
+ },
+ "exclusions": {
+  "FAILURE MECHANISM|WARNING INDICATOR": [
+   {
+    "row": "Deep-seated rotational slump",
+    "col": "Rainfall threshold exceedance",
+    "code": "N3",
+    "requires": "applicable only to rainfall-triggered failure",
+    "blocked_by": "movement of centimetres per year with occasional acceleration"
+   },
+   {
+    "row": "Undercutting by a river",
+    "col": "Rainfall threshold exceedance",
+    "code": "N3",
+    "requires": "applicable only to rainfall-triggered failure",
+    "blocked_by": "progressive loss of support"
+   },
+   {
+    "row": "Rainfall-triggered shallow slide",
+    "col": "Ground movement instrumentation",
+    "code": "N3",
+    "requires": "detection of slow movement",
+    "blocked_by": "failure within hours of the rain"
+   }
+  ],
+  "FAILURE MECHANISM|RISK REDUCTION": [
+   {
+    "row": "Undercutting by a river",
+    "col": "Slope drainage works",
+    "code": "N3",
+    "requires": "reduction of pore pressure",
+    "blocked_by": "no effect on undercutting by water at the toe"
+   },
+   {
+    "row": "Rainfall-triggered shallow slide",
+    "col": "Toe protection and revetment",
+    "code": "N3",
+    "requires": "prevention of undercutting",
+    "blocked_by": "no effect on rainfall infiltration"
+   },
+   {
+    "row": "Slope loaded by construction fill",
+    "col": "Toe protection and revetment",
+    "code": "N7",
+    "requires": "prevention of undercutting",
+    "blocked_by": "an entirely human-made cause"
+   }
+  ],
+  "SETTLEMENT PATTERN|RISK REDUCTION": [
+   {
+    "row": "Informal housing on the slope",
+    "col": "Slope drainage works",
+    "code": "N7",
+    "requires": "engineering access and a groundwater problem",
+    "blocked_by": "no engineering of any kind"
+   },
+   {
+    "row": "Housing at the toe of the slope",
+    "col": "Slope drainage works",
+    "code": "N3",
+    "requires": "engineering access and a groundwater problem",
+    "blocked_by": "no influence on the slope itself"
+   }
+  ],
+  "SETTLEMENT PATTERN|WARNING INDICATOR": [
+   {
+    "row": "Informal housing on the slope",
+    "col": "Ground movement instrumentation",
+    "code": "N7",
+    "requires": "inclinometers or survey markers installed",
+    "blocked_by": "no engineering of any kind"
+   }
+  ],
+  "WARNING INDICATOR|RISK REDUCTION": [
+   {
+    "row": "No indicator at all",
+    "col": "Early warning and evacuation",
+    "code": "N3",
+    "requires": "a warning indicator and a rehearsed route",
+    "blocked_by": "no warning whatsoever"
+   }
+  ],
+  "FAILURE MECHANISM|SETTLEMENT PATTERN": [
+   {
+    "row": "Undercutting by a river",
+    "col": "Housing above the crest",
+    "code": "N7",
+    "requires": "exposure to retrogressive failure",
+    "blocked_by": "failure at the toe first"
+   }
+  ]
+ }
+}

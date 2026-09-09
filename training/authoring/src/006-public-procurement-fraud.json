@@ -1,0 +1,328 @@
+{
+ "domain": "public procurement fraud",
+ "group": "institutional",
+ "parameters": {
+  "PERPETRATOR": [
+   "Contracting officer",
+   "Bidding supplier",
+   "Senior official outside procurement",
+   "External intermediary"
+  ],
+  "MECHANISM": [
+   "Specification written to one supplier",
+   "Bid rigging among suppliers",
+   "Invoice inflation after award",
+   "Split purchases below threshold",
+   "Kickback on payment release"
+  ],
+  "DETECTION ROUTE": [
+   "Internal audit sampling",
+   "Losing bidder complaint",
+   "Whistleblower disclosure",
+   "Bank transaction monitoring"
+  ],
+  "CONTRACT VALUE": [
+   "Below competitive threshold",
+   "Routine mid-value tender",
+   "Major capital programme"
+  ]
+ },
+ "characterisations": {
+  "Contracting officer": {
+   "requires": "authority over specification and award",
+   "provides": "control of tender documents, no control of supplier conduct, no payment authority"
+  },
+  "Bidding supplier": {
+   "requires": "participation in the tender",
+   "provides": "control of own bid and of collusion with peers, no access to internal documents"
+  },
+  "Senior official outside procurement": {
+   "requires": "informal influence, no formal procurement role",
+   "provides": "pressure on staff, payment release authority, no direct document control"
+  },
+  "External intermediary": {
+   "requires": "a relationship with both buyer and supplier",
+   "provides": "cash movement and concealment, no authority of any kind"
+  },
+  "Specification written to one supplier": {
+   "requires": "control of the tender document before publication",
+   "provides": "a lawful-looking award, evidence visible in the specification itself"
+  },
+  "Bid rigging among suppliers": {
+   "requires": "several suppliers willing to coordinate",
+   "provides": "inflated price, no buyer-side document trail"
+  },
+  "Invoice inflation after award": {
+   "requires": "control of or influence over payment approval",
+   "provides": "loss after contract signature, visible in payment records"
+  },
+  "Split purchases below threshold": {
+   "requires": "authority to raise multiple small orders",
+   "provides": "avoidance of competition, a pattern visible only in aggregate"
+  },
+  "Kickback on payment release": {
+   "requires": "authority to release payment and a channel for cash",
+   "provides": "a money trail outside the procurement system"
+  },
+  "Internal audit sampling": {
+   "requires": "records within the organisation",
+   "provides": "detection of document and payment anomalies, blind to supplier-side collusion"
+  },
+  "Losing bidder complaint": {
+   "requires": "a competitive tender with losing participants",
+   "provides": "detection of unfair specification or award, nothing after award"
+  },
+  "Whistleblower disclosure": {
+   "requires": "an insider who observes the conduct",
+   "provides": "detection of anything observed, unpredictable timing"
+  },
+  "Bank transaction monitoring": {
+   "requires": "cash actually moving through monitored accounts",
+   "provides": "detection of kickbacks and intermediaries, blind to document manipulation"
+  },
+  "Below competitive threshold": {
+   "requires": "value small enough to avoid tender",
+   "provides": "no competitive process, no losing bidders, low scrutiny"
+  },
+  "Routine mid-value tender": {
+   "requires": "an open competitive process",
+   "provides": "losing bidders, standard audit coverage"
+  },
+  "Major capital programme": {
+   "requires": "multi-year funding and senior sponsorship",
+   "provides": "intense scrutiny, many participants, senior involvement"
+  }
+ },
+ "exclusions": {
+  "PERPETRATOR|MECHANISM": [
+   {
+    "row": "Contracting officer",
+    "col": "Bid rigging among suppliers",
+    "code": "N3",
+    "requires": "several suppliers willing to coordinate",
+    "blocked_by": "no control of supplier conduct"
+   },
+   {
+    "row": "Contracting officer",
+    "col": "Invoice inflation after award",
+    "code": "N3",
+    "requires": "control of or influence over payment approval",
+    "blocked_by": "no payment authority"
+   },
+   {
+    "row": "Contracting officer",
+    "col": "Kickback on payment release",
+    "code": "N3",
+    "requires": "authority to release payment",
+    "blocked_by": "no payment authority"
+   },
+   {
+    "row": "Bidding supplier",
+    "col": "Specification written to one supplier",
+    "code": "N3",
+    "requires": "control of the tender document before publication",
+    "blocked_by": "no access to internal documents"
+   },
+   {
+    "row": "Bidding supplier",
+    "col": "Invoice inflation after award",
+    "code": "N3",
+    "requires": "control of or influence over payment approval",
+    "blocked_by": "no access to internal documents"
+   },
+   {
+    "row": "Bidding supplier",
+    "col": "Split purchases below threshold",
+    "code": "N3",
+    "requires": "authority to raise multiple small orders",
+    "blocked_by": "no access to internal documents"
+   },
+   {
+    "row": "Bidding supplier",
+    "col": "Kickback on payment release",
+    "code": "N3",
+    "requires": "authority to release payment",
+    "blocked_by": "no access to internal documents"
+   },
+   {
+    "row": "Senior official outside procurement",
+    "col": "Specification written to one supplier",
+    "code": "N3",
+    "requires": "control of the tender document before publication",
+    "blocked_by": "no direct document control"
+   },
+   {
+    "row": "Senior official outside procurement",
+    "col": "Bid rigging among suppliers",
+    "code": "N3",
+    "requires": "several suppliers willing to coordinate",
+    "blocked_by": "no formal procurement role"
+   },
+   {
+    "row": "Senior official outside procurement",
+    "col": "Split purchases below threshold",
+    "code": "N3",
+    "requires": "authority to raise multiple small orders",
+    "blocked_by": "no formal procurement role"
+   },
+   {
+    "row": "External intermediary",
+    "col": "Specification written to one supplier",
+    "code": "N3",
+    "requires": "control of the tender document before publication",
+    "blocked_by": "no authority of any kind"
+   },
+   {
+    "row": "External intermediary",
+    "col": "Invoice inflation after award",
+    "code": "N3",
+    "requires": "control of or influence over payment approval",
+    "blocked_by": "no authority of any kind"
+   },
+   {
+    "row": "External intermediary",
+    "col": "Split purchases below threshold",
+    "code": "N3",
+    "requires": "authority to raise multiple small orders",
+    "blocked_by": "no authority of any kind"
+   }
+  ],
+  "PERPETRATOR|DETECTION ROUTE": [
+   {
+    "row": "Bidding supplier",
+    "col": "Internal audit sampling",
+    "code": "N3",
+    "requires": "records within the organisation",
+    "blocked_by": "control of own bid and of collusion with peers"
+   },
+   {
+    "row": "External intermediary",
+    "col": "Internal audit sampling",
+    "code": "N3",
+    "requires": "records within the organisation",
+    "blocked_by": "no authority of any kind"
+   },
+   {
+    "row": "External intermediary",
+    "col": "Losing bidder complaint",
+    "code": "N7",
+    "requires": "detection of unfair specification or award",
+    "blocked_by": "cash movement and concealment"
+   }
+  ],
+  "PERPETRATOR|CONTRACT VALUE": [
+   {
+    "row": "Bidding supplier",
+    "col": "Below competitive threshold",
+    "code": "N3",
+    "requires": "participation in the tender",
+    "blocked_by": "no competitive process, no losing bidders"
+   }
+  ],
+  "MECHANISM|DETECTION ROUTE": [
+   {
+    "row": "Specification written to one supplier",
+    "col": "Bank transaction monitoring",
+    "code": "N3",
+    "requires": "cash actually moving through monitored accounts",
+    "blocked_by": "blind to document manipulation"
+   },
+   {
+    "row": "Bid rigging among suppliers",
+    "col": "Internal audit sampling",
+    "code": "N3",
+    "requires": "records within the organisation",
+    "blocked_by": "no buyer-side document trail"
+   },
+   {
+    "row": "Bid rigging among suppliers",
+    "col": "Bank transaction monitoring",
+    "code": "N7",
+    "requires": "cash actually moving through monitored accounts",
+    "blocked_by": "no buyer-side document trail"
+   },
+   {
+    "row": "Invoice inflation after award",
+    "col": "Losing bidder complaint",
+    "code": "N6",
+    "requires": "nothing after award",
+    "blocked_by": "loss after contract signature"
+   },
+   {
+    "row": "Split purchases below threshold",
+    "col": "Losing bidder complaint",
+    "code": "N3",
+    "requires": "a competitive tender with losing participants",
+    "blocked_by": "avoidance of competition"
+   },
+   {
+    "row": "Split purchases below threshold",
+    "col": "Bank transaction monitoring",
+    "code": "N7",
+    "requires": "cash actually moving through monitored accounts",
+    "blocked_by": "a pattern visible only in aggregate"
+   },
+   {
+    "row": "Kickback on payment release",
+    "col": "Internal audit sampling",
+    "code": "N3",
+    "requires": "records within the organisation",
+    "blocked_by": "a money trail outside the procurement system"
+   },
+   {
+    "row": "Kickback on payment release",
+    "col": "Losing bidder complaint",
+    "code": "N6",
+    "requires": "nothing after award",
+    "blocked_by": "a money trail outside the procurement system"
+   }
+  ],
+  "MECHANISM|CONTRACT VALUE": [
+   {
+    "row": "Specification written to one supplier",
+    "col": "Below competitive threshold",
+    "code": "N3",
+    "requires": "control of the tender document before publication",
+    "blocked_by": "no competitive process, no losing bidders"
+   },
+   {
+    "row": "Bid rigging among suppliers",
+    "col": "Below competitive threshold",
+    "code": "N3",
+    "requires": "several suppliers willing to coordinate",
+    "blocked_by": "no competitive process, no losing bidders"
+   },
+   {
+    "row": "Split purchases below threshold",
+    "col": "Routine mid-value tender",
+    "code": "N1",
+    "requires": "authority to raise multiple small orders",
+    "blocked_by": "an open competitive process"
+   },
+   {
+    "row": "Split purchases below threshold",
+    "col": "Major capital programme",
+    "code": "N1",
+    "requires": "authority to raise multiple small orders",
+    "blocked_by": "multi-year funding and senior sponsorship"
+   }
+  ],
+  "DETECTION ROUTE|CONTRACT VALUE": [
+   {
+    "row": "Losing bidder complaint",
+    "col": "Below competitive threshold",
+    "code": "N3",
+    "requires": "a competitive tender with losing participants",
+    "blocked_by": "no competitive process, no losing bidders"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "PERPETRATOR|MECHANISM": "each mechanism requires a specific authority. Only the contracting officer controls the specification and can split purchases. Only suppliers can rig bids among themselves. Only someone with payment authority can inflate invoices or take a kickback on release, which is the senior official; the intermediary participates in kickbacks and can broker bid rigging but holds no authority alone.",
+  "PERPETRATOR|DETECTION ROUTE": "bank monitoring catches only those handling cash - the senior official and the intermediary. A losing bidder complaint catches conduct visible in the tender, so it misses the senior official and the intermediary who act after award or outside the process. Internal audit is blind to supplier-side collusion and to an external intermediary.",
+  "PERPETRATOR|CONTRACT VALUE": "below threshold there is no tender, so no bidding supplier, no senior sponsorship and no intermediary role - only the contracting officer raising small orders.",
+  "MECHANISM|DETECTION ROUTE": "bid rigging leaves no buyer-side trail so internal audit is N. Invoice inflation and split purchases produce no losing bidder to complain. Kickbacks leave nothing in procurement records and no losing bidder. Bank monitoring sees only the kickback.",
+  "MECHANISM|CONTRACT VALUE": "specification manipulation and bid rigging both require a competitive tender, so both are N below threshold. Split purchases are the definition of threshold avoidance and are N at mid and major value where the aggregate is visible.",
+  "DETECTION ROUTE|CONTRACT VALUE": "a losing bidder complaint is N below threshold because there are no losing bidders."
+ }
+}

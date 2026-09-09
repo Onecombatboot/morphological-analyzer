@@ -1,0 +1,173 @@
+{
+ "domain": "crisis disinformation management",
+ "group": "information",
+ "parameters": {
+  "FALSE CLAIM TYPE": [
+   "Fabricated casualty figures",
+   "Manipulated video of an event",
+   "True facts in a misleading frame",
+   "Impersonation of an official account"
+  ],
+  "SPREAD MECHANISM": [
+   "Organic sharing by the public",
+   "Coordinated inauthentic network",
+   "Amplification by mainstream media",
+   "Closed encrypted messaging"
+  ],
+  "COUNTERMEASURE": [
+   "Rapid official rebuttal",
+   "Platform content removal",
+   "Prebunking and media literacy",
+   "Do not engage"
+  ],
+  "EFFECT": [
+   "Claim contained",
+   "Public confusion about instructions",
+   "Responder safety compromised",
+   "Lasting loss of institutional trust"
+  ]
+ },
+ "characterisations": {
+  "Fabricated casualty figures": {
+   "requires": "an invented number presented as official",
+   "provides": "directly checkable against records, quickly refutable with data"
+  },
+  "Manipulated video of an event": {
+   "requires": "editing or synthesis of footage",
+   "provides": "emotionally compelling, forensic analysis needed rather than a simple check"
+  },
+  "True facts in a misleading frame": {
+   "requires": "accurate material presented out of context",
+   "provides": "nothing false to correct, refutation requires explaining the context"
+  },
+  "Impersonation of an official account": {
+   "requires": "a spoofed identity issuing instructions",
+   "provides": "authority borrowed from a real institution, actionable by platforms immediately"
+  },
+  "Organic sharing by the public": {
+   "requires": "content people choose to pass on",
+   "provides": "no coordination to disrupt, motivated by genuine belief"
+  },
+  "Coordinated inauthentic network": {
+   "requires": "many controlled accounts",
+   "provides": "detectable by behavioural signals, removable at the account level"
+  },
+  "Amplification by mainstream media": {
+   "requires": "journalists repeating the claim",
+   "provides": "enormous reach, correction possible through the same channel"
+  },
+  "Closed encrypted messaging": {
+   "requires": "private groups forwarding content",
+   "provides": "no visibility to any platform or researcher, no possibility of removal"
+  },
+  "Rapid official rebuttal": {
+   "requires": "verified facts available quickly",
+   "provides": "authoritative correction, risk of amplifying the original claim"
+  },
+  "Platform content removal": {
+   "requires": "a policy basis and platform cooperation",
+   "provides": "reduction of reach, ineffective where the content has already spread elsewhere"
+  },
+  "Prebunking and media literacy": {
+   "requires": "time before the crisis",
+   "provides": "durable resistance, no effect during an event already under way"
+  },
+  "Do not engage": {
+   "requires": "a judgement that attention would amplify",
+   "provides": "no amplification risk, no correction either"
+  },
+  "Claim contained": {
+   "requires": "refuted before wide belief",
+   "provides": "no operational consequence"
+  },
+  "Public confusion about instructions": {
+   "requires": "contradictory guidance in circulation",
+   "provides": "reduced compliance with genuine advice"
+  },
+  "Responder safety compromised": {
+   "requires": "false claims directing hostility at responders",
+   "provides": "attacks on crews, withdrawal of services"
+  },
+  "Lasting loss of institutional trust": {
+   "requires": "belief persisting after refutation",
+   "provides": "reduced compliance in the next event"
+  }
+ },
+ "exclusions": {
+  "FALSE CLAIM TYPE|COUNTERMEASURE": [
+   {
+    "row": "True facts in a misleading frame",
+    "col": "Platform content removal",
+    "code": "N3",
+    "requires": "a policy basis and platform cooperation",
+    "blocked_by": "nothing false to correct"
+   },
+   {
+    "row": "Manipulated video of an event",
+    "col": "Rapid official rebuttal",
+    "code": "N7",
+    "requires": "verified facts available quickly",
+    "blocked_by": "forensic analysis needed rather than a simple check"
+   }
+  ],
+  "SPREAD MECHANISM|COUNTERMEASURE": [
+   {
+    "row": "Closed encrypted messaging",
+    "col": "Platform content removal",
+    "code": "N3",
+    "requires": "reduction of reach",
+    "blocked_by": "no possibility of removal"
+   },
+   {
+    "row": "Organic sharing by the public",
+    "col": "Platform content removal",
+    "code": "N7",
+    "requires": "a policy basis and platform cooperation",
+    "blocked_by": "no coordination to disrupt"
+   }
+  ],
+  "SPREAD MECHANISM|EFFECT": [
+   {
+    "row": "Closed encrypted messaging",
+    "col": "Claim contained",
+    "code": "N7",
+    "requires": "refuted before wide belief",
+    "blocked_by": "no visibility to any platform or researcher"
+   }
+  ],
+  "COUNTERMEASURE|EFFECT": [
+   {
+    "row": "Do not engage",
+    "col": "Claim contained",
+    "code": "N7",
+    "requires": "refuted before wide belief",
+    "blocked_by": "no correction either"
+   },
+   {
+    "row": "Prebunking and media literacy",
+    "col": "Claim contained",
+    "code": "N7",
+    "requires": "refuted before wide belief",
+    "blocked_by": "no effect during an event already under way"
+   }
+  ],
+  "FALSE CLAIM TYPE|SPREAD MECHANISM": [
+   {
+    "row": "Impersonation of an official account",
+    "col": "Closed encrypted messaging",
+    "code": "N7",
+    "requires": "no visibility to any platform or researcher",
+    "blocked_by": "actionable by platforms immediately"
+   }
+  ],
+  "FALSE CLAIM TYPE|EFFECT": [
+   {
+    "row": "Fabricated casualty figures",
+    "col": "Responder safety compromised",
+    "code": "N7",
+    "requires": "false claims directing hostility at responders",
+    "blocked_by": "quickly refutable with data"
+   }
+  ]
+ }
+}

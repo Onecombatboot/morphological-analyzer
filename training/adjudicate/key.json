@@ -1,0 +1,431 @@
+{
+ "threshold": 0.485,
+ "strata_population": {
+  "A": 135,
+  "B": 119,
+  "C": 91,
+  "D": 846
+ },
+ "items": {
+  "1": {
+   "stratum": "A",
+   "domain": "bank liquidity crisis",
+   "pair": "Long-dated covered bonds x Disorderly failure",
+   "corpus_label": "N",
+   "model_p": 0.6641221940517426
+  },
+  "2": {
+   "stratum": "B",
+   "domain": "narcotics trafficking route",
+   "pair": "Postal parcel x Financial flow",
+   "corpus_label": "Y",
+   "model_p": 0.5475613176822662
+  },
+  "3": {
+   "stratum": "D",
+   "domain": "dam safety failure",
+   "pair": "Concrete arch x Another dam in cascade",
+   "corpus_label": "Y",
+   "model_p": 0.10727619007229805
+  },
+  "4": {
+   "stratum": "A",
+   "domain": "urban water supply contamination",
+   "pair": "Household plumbing x Flush and rechlorinate mains",
+   "corpus_label": "N",
+   "model_p": 0.9301117360591888
+  },
+  "5": {
+   "stratum": "A",
+   "domain": "counterfeit currency operation",
+   "pair": "State-sponsored facility x Passing at retail point of sale",
+   "corpus_label": "N",
+   "model_p": 0.957912266254425
+  },
+  "6": {
+   "stratum": "D",
+   "domain": "bank liquidity crisis",
+   "pair": "Wholesale funding market closure x Disorderly failure",
+   "corpus_label": "Y",
+   "model_p": 0.10092166624963284
+  },
+  "7": {
+   "stratum": "B",
+   "domain": "urban water supply contamination",
+   "pair": "Industrial solvent ingress x Flush and rechlorinate mains",
+   "corpus_label": "Y",
+   "model_p": 0.9522544741630554
+  },
+  "8": {
+   "stratum": "B",
+   "domain": "narcotics trafficking route",
+   "pair": "Body-carried by courier x Transit border",
+   "corpus_label": "Y",
+   "model_p": 0.675976425409317
+  },
+  "9": {
+   "stratum": "D",
+   "domain": "crisis disinformation management",
+   "pair": "Manipulated video of an event x Public confusion about instructions",
+   "corpus_label": "Y",
+   "model_p": 0.4621325209736824
+  },
+  "10": {
+   "stratum": "A",
+   "domain": "dam safety failure",
+   "pair": "Farmland only x Downstream evacuation",
+   "corpus_label": "N",
+   "model_p": 0.9459618031978607
+  },
+  "11": {
+   "stratum": "C",
+   "domain": "ransomware incident response",
+   "pair": "Data exfiltrated not encrypted x Weeks",
+   "corpus_label": "N",
+   "model_p": 0.14139339700341225
+  },
+  "12": {
+   "stratum": "D",
+   "domain": "urban water supply contamination",
+   "pair": "Household plumbing x Single building",
+   "corpus_label": "Y",
+   "model_p": 0.012807434424757957
+  },
+  "13": {
+   "stratum": "D",
+   "domain": "dam safety failure",
+   "pair": "Seepage turbidity increase x Populated town",
+   "corpus_label": "Y",
+   "model_p": 0.03520643152296543
+  },
+  "14": {
+   "stratum": "C",
+   "domain": "mine safety incident",
+   "pair": "Open cut surface x Advance probe drilling",
+   "corpus_label": "N",
+   "model_p": 0.050907766446471214
+  },
+  "15": {
+   "stratum": "C",
+   "domain": "crisis disinformation management",
+   "pair": "Organic sharing by the public x Platform content removal",
+   "corpus_label": "N",
+   "model_p": 0.11225662007927895
+  },
+  "16": {
+   "stratum": "B",
+   "domain": "dam safety failure",
+   "pair": "Liquefaction under seismic load x Buttressing works",
+   "corpus_label": "Y",
+   "model_p": 0.9633083641529083
+  },
+  "17": {
+   "stratum": "C",
+   "domain": "aviation security screening",
+   "pair": "Behavioural observation x Carried on the body",
+   "corpus_label": "N",
+   "model_p": 0.03402254171669483
+  },
+  "18": {
+   "stratum": "B",
+   "domain": "electrical grid cascading failure",
+   "pair": "Frequency collapse x Islanding into sub-grids",
+   "corpus_label": "Y",
+   "model_p": 0.6028925180435181
+  },
+  "19": {
+   "stratum": "B",
+   "domain": "urban water supply contamination",
+   "pair": "Industrial solvent ingress x Point-of-use filtration",
+   "corpus_label": "Y",
+   "model_p": 0.5000000223517418
+  },
+  "20": {
+   "stratum": "D",
+   "domain": "mine safety incident",
+   "pair": "Hard rock metal underground x Roof bolting and mesh",
+   "corpus_label": "Y",
+   "model_p": 0.016382002271711826
+  },
+  "21": {
+   "stratum": "D",
+   "domain": "counterfeit currency operation",
+   "pair": "Opportunistic individual x Automated vending machine",
+   "corpus_label": "Y",
+   "model_p": 0.18214396759867668
+  },
+  "22": {
+   "stratum": "D",
+   "domain": "aviation security screening",
+   "pair": "Cabin baggage X-ray x Inside electronics",
+   "corpus_label": "Y",
+   "model_p": 0.03569997847080231
+  },
+  "23": {
+   "stratum": "B",
+   "domain": "ransomware incident response",
+   "pair": "Phishing attachment x Encryption of file servers",
+   "corpus_label": "Y",
+   "model_p": 0.9512932002544403
+  },
+  "24": {
+   "stratum": "B",
+   "domain": "electrical grid cascading failure",
+   "pair": "Substation cyber intrusion x Days",
+   "corpus_label": "Y",
+   "model_p": 0.9647983908653259
+  },
+  "25": {
+   "stratum": "C",
+   "domain": "ransomware incident response",
+   "pair": "Supply-chain software update x Hours",
+   "corpus_label": "N",
+   "model_p": 0.36135007441043854
+  },
+  "26": {
+   "stratum": "C",
+   "domain": "counterfeit currency operation",
+   "pair": "Bleached and reprinted genuine note x Retail cashier",
+   "corpus_label": "N",
+   "model_p": 0.15628182142972946
+  },
+  "27": {
+   "stratum": "B",
+   "domain": "narcotics trafficking route",
+   "pair": "Body-carried by courier x Financial flow",
+   "corpus_label": "Y",
+   "model_p": 0.5691972151398659
+  },
+  "28": {
+   "stratum": "B",
+   "domain": "urban water supply contamination",
+   "pair": "Disinfection byproduct x Switch to alternative source",
+   "corpus_label": "Y",
+   "model_p": 0.5490605980157852
+  },
+  "29": {
+   "stratum": "A",
+   "domain": "aviation security screening",
+   "pair": "Firearm in cabin baggage x Hold baggage explosive detection",
+   "corpus_label": "N",
+   "model_p": 0.9796676635742188
+  },
+  "30": {
+   "stratum": "C",
+   "domain": "urban water supply contamination",
+   "pair": "Consumer taste and odour complaint x Nobody exposed",
+   "corpus_label": "N",
+   "model_p": 0.14455805718898773
+  },
+  "31": {
+   "stratum": "A",
+   "domain": "mine safety incident",
+   "pair": "Diesel exhaust build-up x Open cut surface",
+   "corpus_label": "N",
+   "model_p": 0.970687747001648
+  },
+  "32": {
+   "stratum": "D",
+   "domain": "urban water supply contamination",
+   "pair": "Routine compliance sampling x Single building",
+   "corpus_label": "Y",
+   "model_p": 0.03520162217319012
+  },
+  "33": {
+   "stratum": "D",
+   "domain": "electrical grid cascading failure",
+   "pair": "Automatic load shedding x Days",
+   "corpus_label": "Y",
+   "model_p": 0.13362505659461021
+  },
+  "34": {
+   "stratum": "B",
+   "domain": "counterfeit currency operation",
+   "pair": "Online marketplace sale x Automated vending machine",
+   "corpus_label": "Y",
+   "model_p": 0.6431825459003448
+  },
+  "35": {
+   "stratum": "C",
+   "domain": "bank liquidity crisis",
+   "pair": "Interest rate mark-to-market loss x High-quality liquid asset buffer",
+   "corpus_label": "N",
+   "model_p": 0.2025628313422203
+  },
+  "36": {
+   "stratum": "B",
+   "domain": "electrical grid cascading failure",
+   "pair": "Generator trip x Manual dispatch reconfiguration",
+   "corpus_label": "Y",
+   "model_p": 0.824112206697464
+  },
+  "37": {
+   "stratum": "B",
+   "domain": "narcotics trafficking route",
+   "pair": "Small aircraft x Sealed in machinery",
+   "corpus_label": "Y",
+   "model_p": 0.8844372630119324
+  },
+  "38": {
+   "stratum": "C",
+   "domain": "urban water supply contamination",
+   "pair": "Heavy metal leaching x Source reservoir",
+   "corpus_label": "N",
+   "model_p": 0.33530193567276
+  },
+  "39": {
+   "stratum": "A",
+   "domain": "counterfeit currency operation",
+   "pair": "Small independent workshop x Bulk wholesale to distributors",
+   "corpus_label": "N",
+   "model_p": 0.7696316540241241
+  },
+  "40": {
+   "stratum": "A",
+   "domain": "counterfeit currency operation",
+   "pair": "Intaglio press with genuine substrate x Commercial bank teller",
+   "corpus_label": "N",
+   "model_p": 0.5283596962690353
+  },
+  "41": {
+   "stratum": "C",
+   "domain": "aviation security screening",
+   "pair": "Passenger walk-through detector x Disassembled into components",
+   "corpus_label": "N",
+   "model_p": 0.18965700268745422
+  },
+  "42": {
+   "stratum": "B",
+   "domain": "electrical grid cascading failure",
+   "pair": "Overload on remaining lines x Black start from reserve",
+   "corpus_label": "Y",
+   "model_p": 0.6002990007400513
+  },
+  "43": {
+   "stratum": "B",
+   "domain": "electrical grid cascading failure",
+   "pair": "Generator trip x Days",
+   "corpus_label": "Y",
+   "model_p": 0.6679131984710693
+  },
+  "44": {
+   "stratum": "B",
+   "domain": "counterfeit currency operation",
+   "pair": "Intaglio press with genuine substrate x Exchange at currency bureau",
+   "corpus_label": "Y",
+   "model_p": 0.5486632362008095
+  },
+  "45": {
+   "stratum": "C",
+   "domain": "narcotics trafficking route",
+   "pair": "Dissolved in a legitimate liquid x Independent small operator",
+   "corpus_label": "N",
+   "model_p": 0.22936570644378662
+  },
+  "46": {
+   "stratum": "C",
+   "domain": "ransomware incident response",
+   "pair": "Encryption of file servers x Hours",
+   "corpus_label": "N",
+   "model_p": 0.11982741951942444
+  },
+  "47": {
+   "stratum": "D",
+   "domain": "bank liquidity crisis",
+   "pair": "Credit loss on the asset book x Large uninsured corporate deposits",
+   "corpus_label": "Y",
+   "model_p": 0.1299329549074173
+  },
+  "48": {
+   "stratum": "C",
+   "domain": "aviation security screening",
+   "pair": "Behavioural observation x Disassembled into components",
+   "corpus_label": "N",
+   "model_p": 0.19656610488891602
+  },
+  "49": {
+   "stratum": "A",
+   "domain": "ransomware incident response",
+   "pair": "Supply-chain software update x Isolate affected segment",
+   "corpus_label": "N",
+   "model_p": 0.7122594118118286
+  },
+  "50": {
+   "stratum": "D",
+   "domain": "urban water supply contamination",
+   "pair": "Disinfection byproduct x One distribution zone",
+   "corpus_label": "Y",
+   "model_p": 0.05258520320057869
+  },
+  "51": {
+   "stratum": "D",
+   "domain": "electrical grid cascading failure",
+   "pair": "Islanding into sub-grids x Days",
+   "corpus_label": "Y",
+   "model_p": 0.17095153406262398
+  },
+  "52": {
+   "stratum": "C",
+   "domain": "mine safety incident",
+   "pair": "Open cut surface x Real-time gas monitoring",
+   "corpus_label": "N",
+   "model_p": 0.15818365290760994
+  },
+  "53": {
+   "stratum": "B",
+   "domain": "counterfeit currency operation",
+   "pair": "Organised criminal group x Passing at retail point of sale",
+   "corpus_label": "Y",
+   "model_p": 0.7723321616649628
+  },
+  "54": {
+   "stratum": "D",
+   "domain": "urban water supply contamination",
+   "pair": "Boil water notice x Nobody exposed",
+   "corpus_label": "Y",
+   "model_p": 0.06381667032837868
+  },
+  "55": {
+   "stratum": "B",
+   "domain": "ransomware incident response",
+   "pair": "Phishing attachment x Pay the ransom",
+   "corpus_label": "Y",
+   "model_p": 0.606512114405632
+  },
+  "56": {
+   "stratum": "B",
+   "domain": "bank liquidity crisis",
+   "pair": "Interest rate mark-to-market loss x Disorderly failure",
+   "corpus_label": "Y",
+   "model_p": 0.6440652310848236
+  },
+  "57": {
+   "stratum": "B",
+   "domain": "urban water supply contamination",
+   "pair": "Switch to alternative source x Entire city",
+   "corpus_label": "Y",
+   "model_p": 0.9790681004524231
+  },
+  "58": {
+   "stratum": "D",
+   "domain": "narcotics trafficking route",
+   "pair": "Internally concealed x Independent small operator",
+   "corpus_label": "Y",
+   "model_p": 0.03669161535799503
+  },
+  "59": {
+   "stratum": "C",
+   "domain": "narcotics trafficking route",
+   "pair": "Openly declared as something else x Independent small operator",
+   "corpus_label": "N",
+   "model_p": 0.32363778352737427
+  },
+  "60": {
+   "stratum": "B",
+   "domain": "dam safety failure",
+   "pair": "Visible crest settlement x Farmland only",
+   "corpus_label": "Y",
+   "model_p": 0.5090568102896214
+  }
+ }
+}

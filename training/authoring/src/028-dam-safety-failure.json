@@ -1,0 +1,323 @@
+{
+ "domain": "dam safety failure",
+ "group": "industrial",
+ "parameters": {
+  "DAM TYPE": [
+   "Concrete gravity",
+   "Earthfill embankment",
+   "Tailings storage facility",
+   "Concrete arch"
+  ],
+  "FAILURE MECHANISM": [
+   "Overtopping in flood",
+   "Internal erosion",
+   "Foundation sliding",
+   "Liquefaction under seismic load"
+  ],
+  "WARNING INDICATOR": [
+   "Piezometer pressure rise",
+   "Visible crest settlement",
+   "Seepage turbidity increase",
+   "No indicator observed"
+  ],
+  "DOWNSTREAM EXPOSURE": [
+   "Populated town",
+   "Farmland only",
+   "Another dam in cascade",
+   "Uninhabited valley"
+  ],
+  "INTERVENTION": [
+   "Controlled drawdown",
+   "Emergency spillway operation",
+   "Downstream evacuation",
+   "Buttressing works"
+  ]
+ },
+ "characterisations": {
+  "Concrete gravity": {
+   "requires": "mass resisting by weight on a sound foundation",
+   "provides": "tolerance of overtopping, no erodible body, dependence on foundation shear"
+  },
+  "Earthfill embankment": {
+   "requires": "compacted fill with a low-permeability core",
+   "provides": "no tolerance of overtopping, susceptibility to internal erosion, wide footprint"
+  },
+  "Tailings storage facility": {
+   "requires": "continuous raising as production continues",
+   "provides": "saturated fine waste, liquefiable, never decommissioned during operation"
+  },
+  "Concrete arch": {
+   "requires": "a narrow gorge with competent abutments",
+   "provides": "thin efficient structure, total dependence on abutment rock, tolerance of overtopping"
+  },
+  "Overtopping in flood": {
+   "requires": "inflow exceeding spillway capacity",
+   "provides": "erosion of any erodible crest, hours of warning from catchment"
+  },
+  "Internal erosion": {
+   "requires": "seepage through an erodible body",
+   "provides": "progressive concealed development, days to weeks, detectable by instruments"
+  },
+  "Foundation sliding": {
+   "requires": "shear failure beneath the structure",
+   "provides": "sudden movement of an intact structure, no erosion"
+  },
+  "Liquefaction under seismic load": {
+   "requires": "saturated loose material and ground shaking",
+   "provides": "instantaneous loss of strength, no warning, total release"
+  },
+  "Piezometer pressure rise": {
+   "requires": "installed instrumentation and monitoring",
+   "provides": "early warning of seepage and pore pressure, no visual confirmation"
+  },
+  "Visible crest settlement": {
+   "requires": "deformation large enough to see",
+   "provides": "late-stage warning, unambiguous"
+  },
+  "Seepage turbidity increase": {
+   "requires": "seepage emerging and being observed",
+   "provides": "direct evidence of material being carried, specific to erosion"
+  },
+  "No indicator observed": {
+   "requires": "either no instrumentation or a mechanism giving none",
+   "provides": "no warning at all"
+  },
+  "Populated town": {
+   "requires": "settlement within the inundation footprint",
+   "provides": "life safety as the governing concern, evacuation feasible with warning"
+  },
+  "Farmland only": {
+   "requires": "agricultural land downstream",
+   "provides": "economic loss, no immediate life safety concern"
+  },
+  "Another dam in cascade": {
+   "requires": "a second structure downstream",
+   "provides": "risk of progressive failure, engineering response possible"
+  },
+  "Uninhabited valley": {
+   "requires": "no downstream development",
+   "provides": "no consequence beyond the asset itself"
+  },
+  "Controlled drawdown": {
+   "requires": "outlet capacity and days of time",
+   "provides": "reduction of load, loss of stored water"
+  },
+  "Emergency spillway operation": {
+   "requires": "an existing spillway and rising water",
+   "provides": "immediate relief of overtopping risk only"
+  },
+  "Downstream evacuation": {
+   "requires": "population at risk and warning time",
+   "provides": "life safety, no effect on the structure"
+  },
+  "Buttressing works": {
+   "requires": "weeks of construction and stable conditions",
+   "provides": "structural strengthening, useless in an emergency"
+  }
+ },
+ "exclusions": {
+  "DAM TYPE|FAILURE MECHANISM": [
+   {
+    "row": "Concrete gravity",
+    "col": "Overtopping in flood",
+    "code": "N3",
+    "requires": "erosion of any erodible crest",
+    "blocked_by": "tolerance of overtopping"
+   },
+   {
+    "row": "Concrete gravity",
+    "col": "Internal erosion",
+    "code": "N3",
+    "requires": "seepage through an erodible body",
+    "blocked_by": "no erodible body"
+   },
+   {
+    "row": "Concrete gravity",
+    "col": "Liquefaction under seismic load",
+    "code": "N3",
+    "requires": "saturated loose material and ground shaking",
+    "blocked_by": "mass resisting by weight on a sound foundation"
+   },
+   {
+    "row": "Concrete arch",
+    "col": "Overtopping in flood",
+    "code": "N3",
+    "requires": "erosion of any erodible crest",
+    "blocked_by": "tolerance of overtopping"
+   },
+   {
+    "row": "Concrete arch",
+    "col": "Internal erosion",
+    "code": "N3",
+    "requires": "seepage through an erodible body",
+    "blocked_by": "thin efficient structure"
+   },
+   {
+    "row": "Concrete arch",
+    "col": "Liquefaction under seismic load",
+    "code": "N3",
+    "requires": "saturated loose material and ground shaking",
+    "blocked_by": "a narrow gorge with competent abutments"
+   }
+  ],
+  "DAM TYPE|INTERVENTION": [
+   {
+    "row": "Tailings storage facility",
+    "col": "Controlled drawdown",
+    "code": "N3",
+    "requires": "outlet capacity and days of time",
+    "blocked_by": "saturated fine waste, liquefiable"
+   },
+   {
+    "row": "Tailings storage facility",
+    "col": "Emergency spillway operation",
+    "code": "N3",
+    "requires": "an existing spillway and rising water",
+    "blocked_by": "continuous raising as production continues"
+   }
+  ],
+  "FAILURE MECHANISM|WARNING INDICATOR": [
+   {
+    "row": "Overtopping in flood",
+    "col": "Piezometer pressure rise",
+    "code": "N7",
+    "requires": "early warning of seepage and pore pressure",
+    "blocked_by": "inflow exceeding spillway capacity"
+   },
+   {
+    "row": "Overtopping in flood",
+    "col": "Seepage turbidity increase",
+    "code": "N3",
+    "requires": "direct evidence of material being carried, specific to erosion",
+    "blocked_by": "inflow exceeding spillway capacity"
+   },
+   {
+    "row": "Foundation sliding",
+    "col": "Seepage turbidity increase",
+    "code": "N3",
+    "requires": "direct evidence of material being carried, specific to erosion",
+    "blocked_by": "no erosion"
+   },
+   {
+    "row": "Liquefaction under seismic load",
+    "col": "Piezometer pressure rise",
+    "code": "N3",
+    "requires": "early warning of seepage and pore pressure",
+    "blocked_by": "instantaneous loss of strength, no warning"
+   },
+   {
+    "row": "Liquefaction under seismic load",
+    "col": "Visible crest settlement",
+    "code": "N3",
+    "requires": "deformation large enough to see",
+    "blocked_by": "instantaneous loss of strength, no warning"
+   },
+   {
+    "row": "Liquefaction under seismic load",
+    "col": "Seepage turbidity increase",
+    "code": "N3",
+    "requires": "seepage emerging and being observed",
+    "blocked_by": "instantaneous loss of strength, no warning"
+   }
+  ],
+  "FAILURE MECHANISM|INTERVENTION": [
+   {
+    "row": "Overtopping in flood",
+    "col": "Buttressing works",
+    "code": "N4",
+    "requires": "weeks of construction and stable conditions",
+    "blocked_by": "hours of warning from catchment"
+   },
+   {
+    "row": "Internal erosion",
+    "col": "Emergency spillway operation",
+    "code": "N3",
+    "requires": "immediate relief of overtopping risk only",
+    "blocked_by": "seepage through an erodible body"
+   },
+   {
+    "row": "Foundation sliding",
+    "col": "Emergency spillway operation",
+    "code": "N3",
+    "requires": "immediate relief of overtopping risk only",
+    "blocked_by": "shear failure beneath the structure"
+   },
+   {
+    "row": "Liquefaction under seismic load",
+    "col": "Controlled drawdown",
+    "code": "N4",
+    "requires": "outlet capacity and days of time",
+    "blocked_by": "instantaneous loss of strength, no warning"
+   },
+   {
+    "row": "Liquefaction under seismic load",
+    "col": "Emergency spillway operation",
+    "code": "N3",
+    "requires": "immediate relief of overtopping risk only",
+    "blocked_by": "instantaneous loss of strength, no warning"
+   }
+  ],
+  "WARNING INDICATOR|INTERVENTION": [
+   {
+    "row": "No indicator observed",
+    "col": "Controlled drawdown",
+    "code": "N7",
+    "requires": "outlet capacity and days of time",
+    "blocked_by": "no warning at all"
+   },
+   {
+    "row": "No indicator observed",
+    "col": "Emergency spillway operation",
+    "code": "N7",
+    "requires": "an existing spillway and rising water",
+    "blocked_by": "no warning at all"
+   },
+   {
+    "row": "No indicator observed",
+    "col": "Downstream evacuation",
+    "code": "N3",
+    "requires": "population at risk and warning time",
+    "blocked_by": "no warning at all"
+   },
+   {
+    "row": "No indicator observed",
+    "col": "Buttressing works",
+    "code": "N7",
+    "requires": "weeks of construction and stable conditions",
+    "blocked_by": "no warning at all"
+   }
+  ],
+  "DOWNSTREAM EXPOSURE|INTERVENTION": [
+   {
+    "row": "Farmland only",
+    "col": "Downstream evacuation",
+    "code": "N3",
+    "requires": "population at risk and warning time",
+    "blocked_by": "no immediate life safety concern"
+   },
+   {
+    "row": "Another dam in cascade",
+    "col": "Downstream evacuation",
+    "code": "N7",
+    "requires": "population at risk and warning time",
+    "blocked_by": "risk of progressive failure, engineering response possible"
+   },
+   {
+    "row": "Uninhabited valley",
+    "col": "Downstream evacuation",
+    "code": "N3",
+    "requires": "population at risk and warning time",
+    "blocked_by": "no downstream development"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "DAM TYPE|FAILURE MECHANISM": "concrete gravity and arch dams are N for overtopping (both tolerate it) and N for internal erosion (no erodible body) and N for liquefaction (no saturated loose material). Only foundation sliding applies to both. An earthfill embankment is N for liquefaction unless saturated and loose, which is the tailings case; here N. A tailings facility is vulnerable to all four.",
+  "DAM TYPE|WARNING INDICATOR": "concrete gravity and arch are N for piezometer pressure rise as a governing indicator - pore pressure in an embankment body is the relevant measurement, not in mass concrete.",
+  "DAM TYPE|INTERVENTION": "a tailings facility is N for controlled drawdown (the stored material is solid waste, not water) and N for spillway operation.",
+  "FAILURE MECHANISM|WARNING INDICATOR": "overtopping is N for piezometers and N for turbidity - it is a water level event, warned by catchment forecast; here crest settlement and no-indicator are the listed possibilities. Internal erosion is N for no-indicator, being precisely the mechanism instruments detect. Foundation sliding is N for piezometers and turbidity. Liquefaction gives no indicator at all, so the first three are N.",
+  "FAILURE MECHANISM|INTERVENTION": "overtopping is N for buttressing (too slow). Internal erosion and foundation sliding are both N for spillway operation, which addresses water level only. Liquefaction is N for drawdown, spillway and buttressing alike - it is instantaneous, leaving only evacuation.",
+  "WARNING INDICATOR|INTERVENTION": "no-indicator-observed is N for every intervention, since none can be triggered by an absent warning.",
+  "DOWNSTREAM EXPOSURE|INTERVENTION": "farmland, cascade and uninhabited valley are all N for downstream evacuation - there is no population to evacuate."
+ }
+}

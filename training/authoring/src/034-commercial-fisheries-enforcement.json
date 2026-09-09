@@ -1,0 +1,370 @@
+{
+ "domain": "commercial fisheries enforcement",
+ "group": "institutional",
+ "parameters": {
+  "VIOLATION": [
+   "Fishing in a closed area",
+   "Exceeding quota",
+   "Prohibited gear type",
+   "Misreporting catch composition"
+  ],
+  "VESSEL": [
+   "Industrial distant-water trawler",
+   "Domestic coastal vessel",
+   "Artisanal small boat",
+   "Reefer transhipment vessel"
+  ],
+  "SURVEILLANCE": [
+   "Satellite vessel monitoring",
+   "Onboard observer",
+   "Port state inspection",
+   "Aerial patrol"
+  ],
+  "EVIDENCE QUALITY": [
+   "Position track only",
+   "Physical catch inspection",
+   "Observer testimony",
+   "No usable evidence"
+  ],
+  "SANCTION": [
+   "Warning",
+   "Financial penalty",
+   "Licence suspension",
+   "Vessel forfeiture"
+  ]
+ },
+ "characterisations": {
+  "Fishing in a closed area": {
+   "requires": "the vessel being where it should not be",
+   "provides": "a position-based offence, provable from track data alone"
+  },
+  "Exceeding quota": {
+   "requires": "landing more than allocated over a season",
+   "provides": "an accounting offence, provable only from landing records"
+  },
+  "Prohibited gear type": {
+   "requires": "the gear physically aboard or in use",
+   "provides": "a physical offence, provable only by seeing the gear"
+  },
+  "Misreporting catch composition": {
+   "requires": "a declaration differing from the actual catch",
+   "provides": "a documentary offence, provable only by comparing catch to declaration"
+  },
+  "Industrial distant-water trawler": {
+   "requires": "high capital, international operation",
+   "provides": "mandatory monitoring equipment, observer capacity, high catch volume"
+  },
+  "Domestic coastal vessel": {
+   "requires": "a national licence and home port",
+   "provides": "regular port calls, moderate monitoring obligations"
+  },
+  "Artisanal small boat": {
+   "requires": "minimal capital, day trips",
+   "provides": "no monitoring equipment, no observer space, landings outside formal ports"
+  },
+  "Reefer transhipment vessel": {
+   "requires": "receiving catch at sea from other vessels",
+   "provides": "never fishes itself, mixes catch from many sources, obscures origin"
+  },
+  "Satellite vessel monitoring": {
+   "requires": "a transponder fitted and functioning",
+   "provides": "continuous position, nothing about catch or gear"
+  },
+  "Onboard observer": {
+   "requires": "space aboard and a trained observer",
+   "provides": "direct witness of gear and catch, unavailable on small vessels"
+  },
+  "Port state inspection": {
+   "requires": "the vessel calling at a controlled port",
+   "provides": "physical inspection of hold and gear, nothing about where it fished"
+  },
+  "Aerial patrol": {
+   "requires": "aircraft on task over the fishing ground",
+   "provides": "visual confirmation of position and visible gear, brief coverage"
+  },
+  "Position track only": {
+   "requires": "monitoring data without physical inspection",
+   "provides": "proof of location, no proof of catch or gear"
+  },
+  "Physical catch inspection": {
+   "requires": "access to the hold",
+   "provides": "proof of composition and volume, no proof of origin"
+  },
+  "Observer testimony": {
+   "requires": "an observer having been present",
+   "provides": "proof of gear and practice, contestable"
+  },
+  "No usable evidence": {
+   "requires": "suspicion without proof",
+   "provides": "no basis for sanction"
+  },
+  "Warning": {
+   "requires": "a minor or first offence",
+   "provides": "record without cost"
+  },
+  "Financial penalty": {
+   "requires": "proven offence and an entity able to pay",
+   "provides": "proportionate cost, no operational interruption"
+  },
+  "Licence suspension": {
+   "requires": "a licence issued by the sanctioning authority",
+   "provides": "operational interruption, no reach over foreign-flagged vessels"
+  },
+  "Vessel forfeiture": {
+   "requires": "grave or repeated offence and jurisdiction over the hull",
+   "provides": "termination of the operation, rarely available"
+  }
+ },
+ "exclusions": {
+  "VIOLATION|VESSEL": [
+   {
+    "row": "Fishing in a closed area",
+    "col": "Reefer transhipment vessel",
+    "code": "N3",
+    "requires": "the vessel being where it should not be",
+    "blocked_by": "never fishes itself"
+   },
+   {
+    "row": "Exceeding quota",
+    "col": "Reefer transhipment vessel",
+    "code": "N3",
+    "requires": "landing more than allocated over a season",
+    "blocked_by": "never fishes itself"
+   },
+   {
+    "row": "Prohibited gear type",
+    "col": "Reefer transhipment vessel",
+    "code": "N3",
+    "requires": "the gear physically aboard or in use",
+    "blocked_by": "never fishes itself"
+   },
+   {
+    "row": "Misreporting catch composition",
+    "col": "Artisanal small boat",
+    "code": "N7",
+    "requires": "a declaration differing from the actual catch",
+    "blocked_by": "landings outside formal ports"
+   }
+  ],
+  "VIOLATION|SURVEILLANCE": [
+   {
+    "row": "Fishing in a closed area",
+    "col": "Port state inspection",
+    "code": "N3",
+    "requires": "provable from track data alone",
+    "blocked_by": "nothing about where it fished"
+   },
+   {
+    "row": "Exceeding quota",
+    "col": "Satellite vessel monitoring",
+    "code": "N3",
+    "requires": "landing more than allocated over a season",
+    "blocked_by": "nothing about catch or gear"
+   },
+   {
+    "row": "Exceeding quota",
+    "col": "Aerial patrol",
+    "code": "N3",
+    "requires": "landing more than allocated over a season",
+    "blocked_by": "visual confirmation of position and visible gear"
+   },
+   {
+    "row": "Prohibited gear type",
+    "col": "Satellite vessel monitoring",
+    "code": "N3",
+    "requires": "the gear physically aboard or in use",
+    "blocked_by": "nothing about catch or gear"
+   },
+   {
+    "row": "Misreporting catch composition",
+    "col": "Satellite vessel monitoring",
+    "code": "N3",
+    "requires": "a declaration differing from the actual catch",
+    "blocked_by": "nothing about catch or gear"
+   },
+   {
+    "row": "Misreporting catch composition",
+    "col": "Aerial patrol",
+    "code": "N3",
+    "requires": "a declaration differing from the actual catch",
+    "blocked_by": "visual confirmation of position and visible gear"
+   }
+  ],
+  "VIOLATION|EVIDENCE QUALITY": [
+   {
+    "row": "Fishing in a closed area",
+    "col": "Physical catch inspection",
+    "code": "N3",
+    "requires": "provable from track data alone",
+    "blocked_by": "no proof of origin"
+   },
+   {
+    "row": "Exceeding quota",
+    "col": "Position track only",
+    "code": "N3",
+    "requires": "provable only from landing records",
+    "blocked_by": "no proof of catch or gear"
+   },
+   {
+    "row": "Exceeding quota",
+    "col": "Observer testimony",
+    "code": "N7",
+    "requires": "provable only from landing records",
+    "blocked_by": "proof of gear and practice"
+   },
+   {
+    "row": "Prohibited gear type",
+    "col": "Position track only",
+    "code": "N3",
+    "requires": "provable only by seeing the gear",
+    "blocked_by": "no proof of catch or gear"
+   },
+   {
+    "row": "Misreporting catch composition",
+    "col": "Position track only",
+    "code": "N3",
+    "requires": "provable only by comparing catch to declaration",
+    "blocked_by": "no proof of catch or gear"
+   }
+  ],
+  "VESSEL|SURVEILLANCE": [
+   {
+    "row": "Artisanal small boat",
+    "col": "Satellite vessel monitoring",
+    "code": "N3",
+    "requires": "a transponder fitted and functioning",
+    "blocked_by": "no monitoring equipment"
+   },
+   {
+    "row": "Artisanal small boat",
+    "col": "Onboard observer",
+    "code": "N3",
+    "requires": "space aboard and a trained observer",
+    "blocked_by": "no observer space"
+   },
+   {
+    "row": "Artisanal small boat",
+    "col": "Port state inspection",
+    "code": "N3",
+    "requires": "the vessel calling at a controlled port",
+    "blocked_by": "landings outside formal ports"
+   }
+  ],
+  "VESSEL|EVIDENCE QUALITY": [
+   {
+    "row": "Artisanal small boat",
+    "col": "Position track only",
+    "code": "N3",
+    "requires": "monitoring data without physical inspection",
+    "blocked_by": "no monitoring equipment"
+   },
+   {
+    "row": "Artisanal small boat",
+    "col": "Observer testimony",
+    "code": "N3",
+    "requires": "an observer having been present",
+    "blocked_by": "no observer space"
+   }
+  ],
+  "VESSEL|SANCTION": [
+   {
+    "row": "Industrial distant-water trawler",
+    "col": "Licence suspension",
+    "code": "N7",
+    "requires": "a licence issued by the sanctioning authority",
+    "blocked_by": "international operation"
+   },
+   {
+    "row": "Reefer transhipment vessel",
+    "col": "Licence suspension",
+    "code": "N7",
+    "requires": "a licence issued by the sanctioning authority",
+    "blocked_by": "receiving catch at sea from other vessels"
+   }
+  ],
+  "SURVEILLANCE|EVIDENCE QUALITY": [
+   {
+    "row": "Satellite vessel monitoring",
+    "col": "Physical catch inspection",
+    "code": "N3",
+    "requires": "access to the hold",
+    "blocked_by": "continuous position, nothing about catch or gear"
+   },
+   {
+    "row": "Satellite vessel monitoring",
+    "col": "Observer testimony",
+    "code": "N3",
+    "requires": "an observer having been present",
+    "blocked_by": "continuous position, nothing about catch or gear"
+   },
+   {
+    "row": "Onboard observer",
+    "col": "Position track only",
+    "code": "N7",
+    "requires": "monitoring data without physical inspection",
+    "blocked_by": "direct witness of gear and catch"
+   },
+   {
+    "row": "Port state inspection",
+    "col": "Position track only",
+    "code": "N7",
+    "requires": "monitoring data without physical inspection",
+    "blocked_by": "physical inspection of hold and gear"
+   },
+   {
+    "row": "Port state inspection",
+    "col": "Observer testimony",
+    "code": "N3",
+    "requires": "an observer having been present",
+    "blocked_by": "physical inspection of hold and gear"
+   },
+   {
+    "row": "Aerial patrol",
+    "col": "Physical catch inspection",
+    "code": "N3",
+    "requires": "access to the hold",
+    "blocked_by": "brief coverage"
+   },
+   {
+    "row": "Aerial patrol",
+    "col": "Observer testimony",
+    "code": "N3",
+    "requires": "an observer having been present",
+    "blocked_by": "brief coverage"
+   }
+  ],
+  "EVIDENCE QUALITY|SANCTION": [
+   {
+    "row": "No usable evidence",
+    "col": "Financial penalty",
+    "code": "N3",
+    "requires": "proven offence and an entity able to pay",
+    "blocked_by": "no basis for sanction"
+   },
+   {
+    "row": "No usable evidence",
+    "col": "Licence suspension",
+    "code": "N3",
+    "requires": "a licence issued by the sanctioning authority",
+    "blocked_by": "no basis for sanction"
+   },
+   {
+    "row": "No usable evidence",
+    "col": "Vessel forfeiture",
+    "code": "N3",
+    "requires": "grave or repeated offence and jurisdiction over the hull",
+    "blocked_by": "no basis for sanction"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "VIOLATION|VESSEL": "a reefer never fishes, so closed-area fishing, quota and gear offences are all N for it; misreporting composition is precisely its offence. Misreporting is N for an artisanal boat with no formal declaration to falsify.",
+  "VIOLATION|SURVEILLANCE": "quota, gear and composition offences are all N for satellite monitoring, which sees position only. Closed-area fishing is N for port inspection, which says nothing about where it fished. Gear offences are Y for aerial patrol only where gear is visible; quota and composition are N for aerial patrol.",
+  "VIOLATION|EVIDENCE QUALITY": "closed-area is provable by track alone but N by catch inspection and N by observer as the decisive evidence. Quota is N for track and N for observer. Gear is N for track. Composition is N for track.",
+  "VESSEL|SURVEILLANCE": "an artisanal boat carries no transponder, has no observer space, and lands outside controlled ports, so only aerial patrol reaches it. A coastal vessel is N for onboard observers. A reefer is N for aerial patrol as a meaningful measure.",
+  "VESSEL|EVIDENCE QUALITY": "a coastal vessel is N for observer testimony. An artisanal boat is N for position track and N for observer testimony.",
+  "VESSEL|SANCTION": "licence suspension is N for a distant-water trawler and a reefer where the licence is issued by another state.",
+  "SURVEILLANCE|EVIDENCE QUALITY": "satellite monitoring yields position only, so catch inspection and observer testimony are N. Observers yield testimony and catch observation but not position track. Port inspection yields catch but not track or testimony. Aerial patrol yields position but not catch or testimony.",
+  "EVIDENCE QUALITY|SANCTION": "no usable evidence supports a warning at most; penalty, suspension and forfeiture are all N."
+ }
+}

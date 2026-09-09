@@ -1,0 +1,359 @@
+{
+ "domain": "satellite communications denial",
+ "group": "cyber",
+ "parameters": {
+  "ORBIT": [
+   "Geostationary",
+   "Low Earth orbit constellation",
+   "Medium Earth navigation",
+   "Highly elliptical polar"
+  ],
+  "DENIAL METHOD": [
+   "Uplink jamming",
+   "Downlink jamming",
+   "Spoofed navigation signal",
+   "Ground segment cyber intrusion",
+   "Kinetic anti-satellite strike"
+  ],
+  "ATTACKER": [
+   "Peer state military",
+   "Regional state",
+   "Non-state armed group",
+   "Criminal jamming for hire"
+  ],
+  "EFFECT SOUGHT": [
+   "Temporary local outage",
+   "Wide-area persistent denial",
+   "Undetected signal manipulation",
+   "Permanent physical destruction"
+  ]
+ },
+ "characterisations": {
+  "Geostationary": {
+   "requires": "a fixed slot at 36000 km above the equator",
+   "provides": "continuous coverage of one hemisphere face, long signal path, predictable known position"
+  },
+  "Low Earth orbit constellation": {
+   "requires": "hundreds of satellites and rapid handover",
+   "provides": "brief passes per satellite, massive redundancy, no single point of failure"
+  },
+  "Medium Earth navigation": {
+   "requires": "a precisely timed constellation at 20000 km",
+   "provides": "timing and position service, weak received signal power at the ground"
+  },
+  "Highly elliptical polar": {
+   "requires": "an inclined eccentric orbit",
+   "provides": "long dwell over polar latitudes, coverage unavailable from geostationary"
+  },
+  "Uplink jamming": {
+   "requires": "transmitting toward the satellite with substantial power",
+   "provides": "denial across the satellite's whole footprint, easily geolocated"
+  },
+  "Downlink jamming": {
+   "requires": "transmitting near the receiving terminals",
+   "provides": "local denial only, low power, hard to find in clutter"
+  },
+  "Spoofed navigation signal": {
+   "requires": "the target to depend on received timing or position",
+   "provides": "false position accepted as true, no visible outage"
+  },
+  "Ground segment cyber intrusion": {
+   "requires": "network access to control or teleport facilities",
+   "provides": "control of the satellite itself, no radio emission, deniable"
+  },
+  "Kinetic anti-satellite strike": {
+   "requires": "an interceptor able to reach the orbit",
+   "provides": "permanent destruction, long-lived debris, unambiguous act of war"
+  },
+  "Peer state military": {
+   "requires": "national space and cyber programmes",
+   "provides": "orbital reach, cyber capability, high-power emitters, willingness to escalate"
+  },
+  "Regional state": {
+   "requires": "military procurement budget",
+   "provides": "purchased jammers, limited cyber capability, no orbital reach"
+  },
+  "Non-state armed group": {
+   "requires": "smuggled or improvised equipment",
+   "provides": "low-power local jamming only, no cyber or orbital capability"
+  },
+  "Criminal jamming for hire": {
+   "requires": "commercial jammers and a paying client",
+   "provides": "brief local disruption, profit motive, avoids attribution"
+  },
+  "Temporary local outage": {
+   "requires": "disruption bounded in time and place",
+   "provides": "deniability, minimal escalation"
+  },
+  "Wide-area persistent denial": {
+   "requires": "sustained high power or control of the space segment",
+   "provides": "strategic effect, certain attribution"
+  },
+  "Undetected signal manipulation": {
+   "requires": "the victim continuing to trust the signal",
+   "provides": "deception, defeated the moment an outage is noticed"
+  },
+  "Permanent physical destruction": {
+   "requires": "kinetic or directed energy reach to orbit",
+   "provides": "irreversible loss, debris field, act of war"
+  }
+ },
+ "exclusions": {
+  "ORBIT|DENIAL METHOD": [
+   {
+    "row": "Geostationary",
+    "col": "Spoofed navigation signal",
+    "code": "N7",
+    "requires": "the target to depend on received timing or position",
+    "blocked_by": "continuous coverage of one hemisphere face"
+   },
+   {
+    "row": "Low Earth orbit constellation",
+    "col": "Spoofed navigation signal",
+    "code": "N7",
+    "requires": "the target to depend on received timing or position",
+    "blocked_by": "brief passes per satellite"
+   },
+   {
+    "row": "Medium Earth navigation",
+    "col": "Kinetic anti-satellite strike",
+    "code": "N7",
+    "requires": "an interceptor able to reach the orbit",
+    "blocked_by": "a precisely timed constellation at 20000 km"
+   },
+   {
+    "row": "Highly elliptical polar",
+    "col": "Spoofed navigation signal",
+    "code": "N7",
+    "requires": "the target to depend on received timing or position",
+    "blocked_by": "long dwell over polar latitudes"
+   },
+   {
+    "row": "Highly elliptical polar",
+    "col": "Kinetic anti-satellite strike",
+    "code": "N7",
+    "requires": "an interceptor able to reach the orbit",
+    "blocked_by": "an inclined eccentric orbit"
+   }
+  ],
+  "ORBIT|EFFECT SOUGHT": [
+   {
+    "row": "Low Earth orbit constellation",
+    "col": "Wide-area persistent denial",
+    "code": "N3",
+    "requires": "sustained high power or control of the space segment",
+    "blocked_by": "massive redundancy, no single point of failure"
+   },
+   {
+    "row": "Low Earth orbit constellation",
+    "col": "Permanent physical destruction",
+    "code": "N3",
+    "requires": "irreversible loss",
+    "blocked_by": "massive redundancy, no single point of failure"
+   },
+   {
+    "row": "Highly elliptical polar",
+    "col": "Permanent physical destruction",
+    "code": "N7",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "an inclined eccentric orbit"
+   }
+  ],
+  "DENIAL METHOD|ATTACKER": [
+   {
+    "row": "Uplink jamming",
+    "col": "Non-state armed group",
+    "code": "N3",
+    "requires": "transmitting toward the satellite with substantial power",
+    "blocked_by": "low-power local jamming only"
+   },
+   {
+    "row": "Uplink jamming",
+    "col": "Criminal jamming for hire",
+    "code": "N3",
+    "requires": "transmitting toward the satellite with substantial power",
+    "blocked_by": "brief local disruption"
+   },
+   {
+    "row": "Spoofed navigation signal",
+    "col": "Non-state armed group",
+    "code": "N7",
+    "requires": "the target to depend on received timing or position",
+    "blocked_by": "no cyber or orbital capability"
+   },
+   {
+    "row": "Spoofed navigation signal",
+    "col": "Criminal jamming for hire",
+    "code": "N7",
+    "requires": "the target to depend on received timing or position",
+    "blocked_by": "brief local disruption"
+   },
+   {
+    "row": "Ground segment cyber intrusion",
+    "col": "Non-state armed group",
+    "code": "N3",
+    "requires": "network access to control or teleport facilities",
+    "blocked_by": "no cyber or orbital capability"
+   },
+   {
+    "row": "Ground segment cyber intrusion",
+    "col": "Criminal jamming for hire",
+    "code": "N7",
+    "requires": "network access to control or teleport facilities",
+    "blocked_by": "commercial jammers and a paying client"
+   },
+   {
+    "row": "Kinetic anti-satellite strike",
+    "col": "Regional state",
+    "code": "N3",
+    "requires": "an interceptor able to reach the orbit",
+    "blocked_by": "no orbital reach"
+   },
+   {
+    "row": "Kinetic anti-satellite strike",
+    "col": "Non-state armed group",
+    "code": "N3",
+    "requires": "an interceptor able to reach the orbit",
+    "blocked_by": "no cyber or orbital capability"
+   },
+   {
+    "row": "Kinetic anti-satellite strike",
+    "col": "Criminal jamming for hire",
+    "code": "N3",
+    "requires": "an interceptor able to reach the orbit",
+    "blocked_by": "commercial jammers and a paying client"
+   }
+  ],
+  "DENIAL METHOD|EFFECT SOUGHT": [
+   {
+    "row": "Uplink jamming",
+    "col": "Undetected signal manipulation",
+    "code": "N1",
+    "requires": "the victim continuing to trust the signal",
+    "blocked_by": "denial across the satellite's whole footprint"
+   },
+   {
+    "row": "Uplink jamming",
+    "col": "Permanent physical destruction",
+    "code": "N1",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "transmitting toward the satellite with substantial power"
+   },
+   {
+    "row": "Downlink jamming",
+    "col": "Wide-area persistent denial",
+    "code": "N3",
+    "requires": "sustained high power or control of the space segment",
+    "blocked_by": "local denial only, low power"
+   },
+   {
+    "row": "Downlink jamming",
+    "col": "Undetected signal manipulation",
+    "code": "N1",
+    "requires": "the victim continuing to trust the signal",
+    "blocked_by": "local denial only, low power"
+   },
+   {
+    "row": "Downlink jamming",
+    "col": "Permanent physical destruction",
+    "code": "N1",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "local denial only, low power"
+   },
+   {
+    "row": "Spoofed navigation signal",
+    "col": "Temporary local outage",
+    "code": "N1",
+    "requires": "disruption bounded in time and place",
+    "blocked_by": "no visible outage"
+   },
+   {
+    "row": "Spoofed navigation signal",
+    "col": "Wide-area persistent denial",
+    "code": "N1",
+    "requires": "sustained high power or control of the space segment",
+    "blocked_by": "no visible outage"
+   },
+   {
+    "row": "Spoofed navigation signal",
+    "col": "Permanent physical destruction",
+    "code": "N1",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "no visible outage"
+   },
+   {
+    "row": "Kinetic anti-satellite strike",
+    "col": "Temporary local outage",
+    "code": "N1",
+    "requires": "disruption bounded in time and place",
+    "blocked_by": "permanent destruction, long-lived debris"
+   },
+   {
+    "row": "Kinetic anti-satellite strike",
+    "col": "Undetected signal manipulation",
+    "code": "N1",
+    "requires": "the victim continuing to trust the signal",
+    "blocked_by": "unambiguous act of war"
+   }
+  ],
+  "ATTACKER|EFFECT SOUGHT": [
+   {
+    "row": "Regional state",
+    "col": "Permanent physical destruction",
+    "code": "N3",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "no orbital reach"
+   },
+   {
+    "row": "Non-state armed group",
+    "col": "Wide-area persistent denial",
+    "code": "N3",
+    "requires": "sustained high power or control of the space segment",
+    "blocked_by": "low-power local jamming only"
+   },
+   {
+    "row": "Non-state armed group",
+    "col": "Undetected signal manipulation",
+    "code": "N7",
+    "requires": "the victim continuing to trust the signal",
+    "blocked_by": "low-power local jamming only"
+   },
+   {
+    "row": "Non-state armed group",
+    "col": "Permanent physical destruction",
+    "code": "N3",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "no cyber or orbital capability"
+   },
+   {
+    "row": "Criminal jamming for hire",
+    "col": "Wide-area persistent denial",
+    "code": "N3",
+    "requires": "sustained high power or control of the space segment",
+    "blocked_by": "brief local disruption"
+   },
+   {
+    "row": "Criminal jamming for hire",
+    "col": "Undetected signal manipulation",
+    "code": "N7",
+    "requires": "the victim continuing to trust the signal",
+    "blocked_by": "brief local disruption"
+   },
+   {
+    "row": "Criminal jamming for hire",
+    "col": "Permanent physical destruction",
+    "code": "N3",
+    "requires": "kinetic or directed energy reach to orbit",
+    "blocked_by": "commercial jammers and a paying client"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "ORBIT|DENIAL METHOD": "spoofing is N for everything except the navigation constellation - only a timing and position service can be spoofed into being trusted. A kinetic strike against a LEO constellation is N: hundreds of satellites with redundancy defeat the point, and against MEO and highly elliptical it is N on reach and on debris consequences at those altitudes.",
+  "ORBIT|ATTACKER": "LEO constellations and highly elliptical orbits are N for regional states, non-state groups and criminals: brief passes and rapid handover give nothing worth attacking with local jammers, and none has orbital reach.",
+  "ORBIT|EFFECT SOUGHT": "LEO and highly elliptical are N for wide-area persistent denial (redundancy defeats it) and N for permanent destruction (no proportionate reach).",
+  "DENIAL METHOD|ATTACKER": "uplink jamming is N for non-state groups and criminals - it requires substantial power aimed at orbit. Spoofing is N for both for the same reason. Cyber intrusion and kinetic strike are N for everyone except a peer state.",
+  "DENIAL METHOD|EFFECT SOUGHT": "uplink and downlink jamming are N for undetected manipulation, since an outage is visible by definition, and N for permanent destruction. Downlink is N for wide-area, being local only. Spoofing is N for outage effects, its whole purpose being that nothing appears wrong. Kinetic is N for anything except destruction.",
+  "ATTACKER|EFFECT SOUGHT": "non-state groups and criminals can achieve only temporary local outages. Regional states can reach wide-area denial but not undetected manipulation or destruction."
+ }
+}

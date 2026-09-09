@@ -1,0 +1,185 @@
+{
+ "domain": "harmful algal bloom in a water reservoir",
+ "group": "environment",
+ "parameters": {
+  "BLOOM DRIVER": [
+   "Agricultural nutrient runoff",
+   "Sewage treatment discharge",
+   "Internal phosphorus release from sediment",
+   "Prolonged warm still weather"
+  ],
+  "BLOOM CHARACTER": [
+   "Surface cyanobacterial scum",
+   "Dispersed subsurface growth",
+   "Toxin-producing strain",
+   "Non-toxic nuisance species"
+  ],
+  "MONITORING": [
+   "Routine laboratory sampling",
+   "In-situ fluorescence probe",
+   "Satellite surface imagery",
+   "Public complaint"
+  ],
+  "RESPONSE": [
+   "Change abstraction depth",
+   "Activated carbon dosing at treatment",
+   "Algicide application to the reservoir",
+   "Catchment nutrient controls"
+  ]
+ },
+ "characterisations": {
+  "Agricultural nutrient runoff": {
+   "requires": "fertiliser reaching the catchment watercourses",
+   "provides": "diffuse origin with no single responsible party, loading concentrated after rainfall"
+  },
+  "Sewage treatment discharge": {
+   "requires": "a consented outfall to the reservoir catchment",
+   "provides": "a single identifiable operator, continuous rather than event-driven loading"
+  },
+  "Internal phosphorus release from sediment": {
+   "requires": "anoxic conditions at the reservoir bed",
+   "provides": "loading with no external input at all, unresponsive to any catchment measure"
+  },
+  "Prolonged warm still weather": {
+   "requires": "an extended heatwave over the water body",
+   "provides": "stratification and surface accumulation, no change in nutrient supply whatsoever"
+  },
+  "Surface cyanobacterial scum": {
+   "requires": "buoyant colonies accumulating at the surface",
+   "provides": "visible discoloration, wind-driven accumulation on one shore, toxin production possible"
+  },
+  "Dispersed subsurface growth": {
+   "requires": "cells distributed through the water column",
+   "provides": "no visible surface sign at all, detectable only by sampling"
+  },
+  "Toxin-producing strain": {
+   "requires": "a strain carrying the toxin genes",
+   "provides": "hepatotoxin or neurotoxin in the raw water, a public health rather than aesthetic problem"
+  },
+  "Non-toxic nuisance species": {
+   "requires": "a bloom-forming species without toxin genes",
+   "provides": "taste and odour complaints, no health risk of any kind"
+  },
+  "Routine laboratory sampling": {
+   "requires": "a scheduled sampling round and a laboratory",
+   "provides": "species identification and toxin assay, results days later"
+  },
+  "In-situ fluorescence probe": {
+   "requires": "an instrument moored in the reservoir",
+   "provides": "continuous pigment concentration, no species or toxin information"
+  },
+  "Satellite surface imagery": {
+   "requires": "cloud-free conditions and a large water body",
+   "provides": "mapping of surface accumulation extent, blind below the surface"
+  },
+  "Public complaint": {
+   "requires": "someone noticing and reporting",
+   "provides": "rapid unstructured signal, only for visible or smellable blooms"
+  },
+  "Change abstraction depth": {
+   "requires": "multi-level offtake structures",
+   "provides": "withdrawal below a surface accumulation, no help against a dispersed bloom"
+  },
+  "Activated carbon dosing at treatment": {
+   "requires": "dosing capacity and contact time",
+   "provides": "removal of toxins and taste compounds, cost and sludge burden"
+  },
+  "Algicide application to the reservoir": {
+   "requires": "regulatory permission and a treatment vessel",
+   "provides": "rapid cell kill, release of intracellular toxin as the cells lyse"
+  },
+  "Catchment nutrient controls": {
+   "requires": "landowner agreement and years of time",
+   "provides": "durable reduction of loading, no effect on the bloom under way"
+  }
+ },
+ "exclusions": {
+  "BLOOM DRIVER|MONITORING": [
+   {
+    "row": "Internal phosphorus release from sediment",
+    "col": "Satellite surface imagery",
+    "code": "N7",
+    "requires": "mapping of surface accumulation extent",
+    "blocked_by": "loading with no external input at all"
+   }
+  ],
+  "BLOOM DRIVER|RESPONSE": [
+   {
+    "row": "Internal phosphorus release from sediment",
+    "col": "Catchment nutrient controls",
+    "code": "N3",
+    "requires": "durable reduction of loading",
+    "blocked_by": "unresponsive to any catchment measure"
+   },
+   {
+    "row": "Prolonged warm still weather",
+    "col": "Catchment nutrient controls",
+    "code": "N3",
+    "requires": "durable reduction of loading",
+    "blocked_by": "no change in nutrient supply whatsoever"
+   }
+  ],
+  "BLOOM CHARACTER|MONITORING": [
+   {
+    "row": "Dispersed subsurface growth",
+    "col": "Satellite surface imagery",
+    "code": "N3",
+    "requires": "mapping of surface accumulation extent",
+    "blocked_by": "no visible surface sign at all"
+   },
+   {
+    "row": "Dispersed subsurface growth",
+    "col": "Public complaint",
+    "code": "N3",
+    "requires": "only for visible or smellable blooms",
+    "blocked_by": "no visible surface sign at all"
+   },
+   {
+    "row": "Toxin-producing strain",
+    "col": "In-situ fluorescence probe",
+    "code": "N3",
+    "requires": "no species or toxin information",
+    "blocked_by": "a strain carrying the toxin genes"
+   }
+  ],
+  "BLOOM CHARACTER|RESPONSE": [
+   {
+    "row": "Dispersed subsurface growth",
+    "col": "Change abstraction depth",
+    "code": "N3",
+    "requires": "withdrawal below a surface accumulation",
+    "blocked_by": "no visible surface sign at all"
+   },
+   {
+    "row": "Non-toxic nuisance species",
+    "col": "Activated carbon dosing at treatment",
+    "code": "N7",
+    "requires": "removal of toxins and taste compounds",
+    "blocked_by": "no health risk of any kind"
+   },
+   {
+    "row": "Toxin-producing strain",
+    "col": "Algicide application to the reservoir",
+    "code": "N7",
+    "requires": "rapid cell kill",
+    "blocked_by": "hepatotoxin or neurotoxin in the raw water"
+   }
+  ],
+  "MONITORING|RESPONSE": [
+   {
+    "row": "Public complaint",
+    "col": "Change abstraction depth",
+    "code": "N7",
+    "requires": "multi-level offtake structures",
+    "blocked_by": "rapid unstructured signal"
+   },
+   {
+    "row": "In-situ fluorescence probe",
+    "col": "Activated carbon dosing at treatment",
+    "code": "N7",
+    "requires": "removal of toxins and taste compounds",
+    "blocked_by": "no species or toxin information"
+   }
+  ]
+ }
+}

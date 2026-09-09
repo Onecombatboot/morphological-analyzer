@@ -1,0 +1,173 @@
+{
+ "domain": "tsunami warning and evacuation",
+ "group": "natural hazard",
+ "parameters": {
+  "SOURCE EVENT": [
+   "Distant subduction earthquake",
+   "Local offshore earthquake",
+   "Submarine landslide",
+   "Volcanic flank collapse"
+  ],
+  "WARNING CHANNEL": [
+   "Basin-wide warning centre",
+   "Coastal siren network",
+   "Cell broadcast to handsets",
+   "Natural warning only"
+  ],
+  "EXPOSED COMMUNITY": [
+   "Dense coastal city",
+   "Low-lying fishing village",
+   "Resort with transient visitors",
+   "Port and industrial zone"
+  ],
+  "EVACUATION RESPONSE": [
+   "Horizontal movement inland",
+   "Vertical evacuation in place",
+   "Shelter without evacuation",
+   "Spontaneous flight"
+  ]
+ },
+ "characterisations": {
+  "Distant subduction earthquake": {
+   "requires": "a great earthquake across an ocean basin",
+   "provides": "hours of travel time, confident modelling, no local ground shaking"
+  },
+  "Local offshore earthquake": {
+   "requires": "a rupture close to the coast",
+   "provides": "minutes of travel time, felt ground shaking as the only warning"
+  },
+  "Submarine landslide": {
+   "requires": "slope failure with or without an earthquake",
+   "provides": "no seismic signature proportionate to the wave, very localised run-up"
+  },
+  "Volcanic flank collapse": {
+   "requires": "a coastal edifice failing into the sea",
+   "provides": "extreme local run-up, no useful precursor"
+  },
+  "Basin-wide warning centre": {
+   "requires": "seismic and sea-level networks across the basin",
+   "provides": "authoritative bulletins within minutes, only for seismically generated waves"
+  },
+  "Coastal siren network": {
+   "requires": "installed sirens and a trigger authority",
+   "provides": "immediate alerting of a defined coastal strip, nothing to anyone indoors or inland"
+  },
+  "Cell broadcast to handsets": {
+   "requires": "a functioning mobile network",
+   "provides": "reach of everyone carrying a handset, failure if the network is down"
+  },
+  "Natural warning only": {
+   "requires": "people recognising shaking or sea withdrawal",
+   "provides": "no institutional latency at all, dependence on public knowledge"
+  },
+  "Dense coastal city": {
+   "requires": "high-rise construction on a low coastal plain",
+   "provides": "vertical evacuation feasible, very large exposed population"
+  },
+  "Low-lying fishing village": {
+   "requires": "single-storey buildings at sea level",
+   "provides": "no vertical refuge whatsoever, short distance to high ground"
+  },
+  "Resort with transient visitors": {
+   "requires": "a population unfamiliar with the coast",
+   "provides": "no local knowledge, no idea where high ground lies"
+  },
+  "Port and industrial zone": {
+   "requires": "infrastructure with few residents",
+   "provides": "economic exposure, few lives at risk"
+  },
+  "Horizontal movement inland": {
+   "requires": "usable routes and sufficient time",
+   "provides": "removal from the inundation zone entirely"
+  },
+  "Vertical evacuation in place": {
+   "requires": "engineered buildings of sufficient height",
+   "provides": "survival above the wave, no movement needed"
+  },
+  "Shelter without evacuation": {
+   "requires": "a belief that the site is safe",
+   "provides": "no movement, total dependence on that belief being correct"
+  },
+  "Spontaneous flight": {
+   "requires": "no plan and no direction",
+   "provides": "movement without coordination, congestion on any route"
+  }
+ },
+ "exclusions": {
+  "SOURCE EVENT|WARNING CHANNEL": [
+   {
+    "row": "Submarine landslide",
+    "col": "Basin-wide warning centre",
+    "code": "N3",
+    "requires": "only for seismically generated waves",
+    "blocked_by": "no seismic signature proportionate to the wave"
+   },
+   {
+    "row": "Volcanic flank collapse",
+    "col": "Basin-wide warning centre",
+    "code": "N3",
+    "requires": "only for seismically generated waves",
+    "blocked_by": "no useful precursor"
+   },
+   {
+    "row": "Local offshore earthquake",
+    "col": "Basin-wide warning centre",
+    "code": "N7",
+    "requires": "authoritative bulletins within minutes",
+    "blocked_by": "minutes of travel time"
+   }
+  ],
+  "SOURCE EVENT|EVACUATION RESPONSE": [
+   {
+    "row": "Volcanic flank collapse",
+    "col": "Horizontal movement inland",
+    "code": "N4",
+    "requires": "usable routes and sufficient time",
+    "blocked_by": "no useful precursor"
+   }
+  ],
+  "WARNING CHANNEL|EVACUATION RESPONSE": [
+   {
+    "row": "Natural warning only",
+    "col": "Vertical evacuation in place",
+    "code": "N7",
+    "requires": "engineered buildings of sufficient height",
+    "blocked_by": "dependence on public knowledge"
+   }
+  ],
+  "EXPOSED COMMUNITY|EVACUATION RESPONSE": [
+   {
+    "row": "Low-lying fishing village",
+    "col": "Vertical evacuation in place",
+    "code": "N3",
+    "requires": "engineered buildings of sufficient height",
+    "blocked_by": "no vertical refuge whatsoever"
+   },
+   {
+    "row": "Resort with transient visitors",
+    "col": "Horizontal movement inland",
+    "code": "N7",
+    "requires": "usable routes and sufficient time",
+    "blocked_by": "no idea where high ground lies"
+   }
+  ],
+  "WARNING CHANNEL|EXPOSED COMMUNITY": [
+   {
+    "row": "Natural warning only",
+    "col": "Resort with transient visitors",
+    "code": "N3",
+    "requires": "dependence on public knowledge",
+    "blocked_by": "no local knowledge"
+   }
+  ],
+  "SOURCE EVENT|EXPOSED COMMUNITY": [
+   {
+    "row": "Volcanic flank collapse",
+    "col": "Dense coastal city",
+    "code": "N7",
+    "requires": "high-rise construction on a low coastal plain",
+    "blocked_by": "extreme local run-up"
+   }
+  ]
+ }
+}

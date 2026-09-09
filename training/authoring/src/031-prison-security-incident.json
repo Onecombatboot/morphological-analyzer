@@ -1,0 +1,387 @@
+{
+ "domain": "prison security incident",
+ "group": "institutional",
+ "parameters": {
+  "INCIDENT TYPE": [
+   "Escape attempt",
+   "Contraband introduction",
+   "Concerted indiscipline",
+   "Hostage taking of staff"
+  ],
+  "ORIGIN": [
+   "Individual prisoner acting alone",
+   "Organised prisoner group",
+   "Corrupt staff member",
+   "External accomplice outside"
+  ],
+  "PHYSICAL ROUTE": [
+   "Perimeter breach",
+   "Vehicle gate",
+   "Visits hall",
+   "Drone delivery over the wall"
+  ],
+  "DETECTION MEANS": [
+   "Fixed camera surveillance",
+   "Cell and area search",
+   "Intelligence from prisoners",
+   "Perimeter sensor alarm"
+  ],
+  "RESPONSE": [
+   "Lockdown of the establishment",
+   "Segregation of individuals",
+   "Negotiation",
+   "External police intervention"
+  ]
+ },
+ "characterisations": {
+  "Escape attempt": {
+   "requires": "a route out and a means to reach it",
+   "provides": "movement toward the perimeter, urgency, individual or small-group scale"
+  },
+  "Contraband introduction": {
+   "requires": "an item crossing the boundary",
+   "provides": "no movement of people out, sustained repeat activity, economic motive"
+  },
+  "Concerted indiscipline": {
+   "requires": "numbers of prisoners acting together",
+   "provides": "loss of control of an area, no boundary crossing, negotiable"
+  },
+  "Hostage taking of staff": {
+   "requires": "isolation of a staff member and a demand",
+   "provides": "life at immediate risk, containment within the establishment, negotiable"
+  },
+  "Individual prisoner acting alone": {
+   "requires": "no coordination",
+   "provides": "limited means, opportunistic, no external logistics"
+  },
+  "Organised prisoner group": {
+   "requires": "planning and internal hierarchy",
+   "provides": "coordinated action, internal enforcement, no direct access beyond the wall"
+  },
+  "Corrupt staff member": {
+   "requires": "employment and access rights",
+   "provides": "movement of items through controlled points, keys and information, no prisoner status"
+  },
+  "External accomplice outside": {
+   "requires": "a person beyond the perimeter",
+   "provides": "delivery to the outside face of the boundary, no internal access"
+  },
+  "Perimeter breach": {
+   "requires": "defeating the physical boundary",
+   "provides": "a route out, triggers boundary detection, no use for delivering items covertly"
+  },
+  "Vehicle gate": {
+   "requires": "a vehicle authorised to enter",
+   "provides": "concealment volume, controlled point with searching, both directions"
+  },
+  "Visits hall": {
+   "requires": "an authorised social visit",
+   "provides": "person-to-person transfer, supervised, no route out"
+  },
+  "Drone delivery over the wall": {
+   "requires": "an operator outside and a drop point inside",
+   "provides": "delivery of small items only, no route out, defeats ground perimeter controls"
+  },
+  "Fixed camera surveillance": {
+   "requires": "coverage of the location",
+   "provides": "observation of movement in covered areas, no detection of concealed items"
+  },
+  "Cell and area search": {
+   "requires": "staff time and a target",
+   "provides": "discovery of concealed items, nothing about intent"
+  },
+  "Intelligence from prisoners": {
+   "requires": "a source willing to inform",
+   "provides": "advance warning of intent, unreliable and unpredictable"
+  },
+  "Perimeter sensor alarm": {
+   "requires": "an intrusion or breach at the boundary",
+   "provides": "immediate boundary alert, blind to anything internal"
+  },
+  "Lockdown of the establishment": {
+   "requires": "authority to confine all prisoners",
+   "provides": "immediate loss of movement, no resolution of an ongoing situation"
+  },
+  "Segregation of individuals": {
+   "requires": "identification of specific prisoners",
+   "provides": "removal of instigators, useless where the actors are unknown"
+  },
+  "Negotiation": {
+   "requires": "someone with a demand willing to talk",
+   "provides": "resolution without force"
+  },
+  "External police intervention": {
+   "requires": "the situation exceeding internal capability",
+   "provides": "armed capability, loss of internal control of the incident"
+  }
+ },
+ "exclusions": {
+  "INCIDENT TYPE|ORIGIN": [
+   {
+    "row": "Concerted indiscipline",
+    "col": "Corrupt staff member",
+    "code": "N3",
+    "requires": "numbers of prisoners acting together",
+    "blocked_by": "no prisoner status"
+   },
+   {
+    "row": "Concerted indiscipline",
+    "col": "External accomplice outside",
+    "code": "N3",
+    "requires": "numbers of prisoners acting together",
+    "blocked_by": "no internal access"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Corrupt staff member",
+    "code": "N3",
+    "requires": "isolation of a staff member and a demand",
+    "blocked_by": "no prisoner status"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "External accomplice outside",
+    "code": "N3",
+    "requires": "isolation of a staff member and a demand",
+    "blocked_by": "no internal access"
+   }
+  ],
+  "INCIDENT TYPE|PHYSICAL ROUTE": [
+   {
+    "row": "Escape attempt",
+    "col": "Visits hall",
+    "code": "N3",
+    "requires": "a route out and a means to reach it",
+    "blocked_by": "no route out"
+   },
+   {
+    "row": "Escape attempt",
+    "col": "Drone delivery over the wall",
+    "code": "N3",
+    "requires": "a route out and a means to reach it",
+    "blocked_by": "no route out"
+   },
+   {
+    "row": "Concerted indiscipline",
+    "col": "Perimeter breach",
+    "code": "N3",
+    "requires": "defeating the physical boundary",
+    "blocked_by": "no boundary crossing"
+   },
+   {
+    "row": "Concerted indiscipline",
+    "col": "Vehicle gate",
+    "code": "N7",
+    "requires": "a vehicle authorised to enter",
+    "blocked_by": "no boundary crossing"
+   },
+   {
+    "row": "Concerted indiscipline",
+    "col": "Drone delivery over the wall",
+    "code": "N3",
+    "requires": "an operator outside and a drop point inside",
+    "blocked_by": "no boundary crossing"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Perimeter breach",
+    "code": "N3",
+    "requires": "defeating the physical boundary",
+    "blocked_by": "containment within the establishment"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Vehicle gate",
+    "code": "N7",
+    "requires": "a vehicle authorised to enter",
+    "blocked_by": "containment within the establishment"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Drone delivery over the wall",
+    "code": "N3",
+    "requires": "an operator outside and a drop point inside",
+    "blocked_by": "containment within the establishment"
+   }
+  ],
+  "INCIDENT TYPE|DETECTION MEANS": [
+   {
+    "row": "Concerted indiscipline",
+    "col": "Cell and area search",
+    "code": "N7",
+    "requires": "discovery of concealed items",
+    "blocked_by": "loss of control of an area"
+   },
+   {
+    "row": "Concerted indiscipline",
+    "col": "Perimeter sensor alarm",
+    "code": "N3",
+    "requires": "an intrusion or breach at the boundary",
+    "blocked_by": "no boundary crossing"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Cell and area search",
+    "code": "N7",
+    "requires": "discovery of concealed items",
+    "blocked_by": "life at immediate risk"
+   },
+   {
+    "row": "Hostage taking of staff",
+    "col": "Perimeter sensor alarm",
+    "code": "N3",
+    "requires": "an intrusion or breach at the boundary",
+    "blocked_by": "containment within the establishment"
+   }
+  ],
+  "INCIDENT TYPE|RESPONSE": [
+   {
+    "row": "Escape attempt",
+    "col": "Negotiation",
+    "code": "N3",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "a route out and a means to reach it"
+   },
+   {
+    "row": "Contraband introduction",
+    "col": "Negotiation",
+    "code": "N3",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "economic motive"
+   }
+  ],
+  "ORIGIN|PHYSICAL ROUTE": [
+   {
+    "row": "Individual prisoner acting alone",
+    "col": "Drone delivery over the wall",
+    "code": "N3",
+    "requires": "an operator outside and a drop point inside",
+    "blocked_by": "no external logistics"
+   },
+   {
+    "row": "Corrupt staff member",
+    "col": "Drone delivery over the wall",
+    "code": "N7",
+    "requires": "an operator outside and a drop point inside",
+    "blocked_by": "movement of items through controlled points"
+   }
+  ],
+  "ORIGIN|DETECTION MEANS": [
+   {
+    "row": "Corrupt staff member",
+    "col": "Perimeter sensor alarm",
+    "code": "N7",
+    "requires": "an intrusion or breach at the boundary",
+    "blocked_by": "movement of items through controlled points"
+   },
+   {
+    "row": "External accomplice outside",
+    "col": "Cell and area search",
+    "code": "N7",
+    "requires": "staff time and a target",
+    "blocked_by": "no internal access"
+   }
+  ],
+  "ORIGIN|RESPONSE": [
+   {
+    "row": "Corrupt staff member",
+    "col": "Segregation of individuals",
+    "code": "N3",
+    "requires": "identification of specific prisoners",
+    "blocked_by": "no prisoner status"
+   },
+   {
+    "row": "Corrupt staff member",
+    "col": "Negotiation",
+    "code": "N3",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "no prisoner status"
+   },
+   {
+    "row": "External accomplice outside",
+    "col": "Lockdown of the establishment",
+    "code": "N7",
+    "requires": "authority to confine all prisoners",
+    "blocked_by": "no internal access"
+   },
+   {
+    "row": "External accomplice outside",
+    "col": "Segregation of individuals",
+    "code": "N3",
+    "requires": "identification of specific prisoners",
+    "blocked_by": "no internal access"
+   },
+   {
+    "row": "External accomplice outside",
+    "col": "Negotiation",
+    "code": "N7",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "delivery to the outside face of the boundary"
+   }
+  ],
+  "PHYSICAL ROUTE|DETECTION MEANS": [
+   {
+    "row": "Perimeter breach",
+    "col": "Cell and area search",
+    "code": "N7",
+    "requires": "discovery of concealed items",
+    "blocked_by": "defeating the physical boundary"
+   },
+   {
+    "row": "Vehicle gate",
+    "col": "Perimeter sensor alarm",
+    "code": "N7",
+    "requires": "an intrusion or breach at the boundary",
+    "blocked_by": "a vehicle authorised to enter"
+   },
+   {
+    "row": "Visits hall",
+    "col": "Perimeter sensor alarm",
+    "code": "N7",
+    "requires": "an intrusion or breach at the boundary",
+    "blocked_by": "an authorised social visit"
+   }
+  ],
+  "PHYSICAL ROUTE|RESPONSE": [
+   {
+    "row": "Perimeter breach",
+    "col": "Negotiation",
+    "code": "N7",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "defeating the physical boundary"
+   },
+   {
+    "row": "Vehicle gate",
+    "col": "Negotiation",
+    "code": "N7",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "a vehicle authorised to enter"
+   },
+   {
+    "row": "Visits hall",
+    "col": "Negotiation",
+    "code": "N7",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "an authorised social visit"
+   },
+   {
+    "row": "Drone delivery over the wall",
+    "col": "Negotiation",
+    "code": "N7",
+    "requires": "someone with a demand willing to talk",
+    "blocked_by": "delivery of small items only"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "INCIDENT TYPE|ORIGIN": "concerted indiscipline and hostage taking are both N for a corrupt staff member and an external accomplice - neither originates a disturbance among prisoners.",
+  "INCIDENT TYPE|PHYSICAL ROUTE": "concerted indiscipline and hostage taking involve no boundary crossing at all, so every physical route is N. An escape attempt is N via the visits hall and via drone - neither provides a route out.",
+  "INCIDENT TYPE|DETECTION MEANS": "contraband is N for perimeter sensors. Concerted indiscipline and hostage taking are both N for cell search and N for perimeter alarm - neither is an item or a boundary event.",
+  "INCIDENT TYPE|RESPONSE": "an escape attempt is N for negotiation. Contraband is N for negotiation and N for external police intervention.",
+  "ORIGIN|PHYSICAL ROUTE": "an individual acting alone is N at the vehicle gate and N by drone - both need an accomplice outside. An external accomplice is N for perimeter breach, vehicle gate and visits hall as the origin, having no internal access; drone is precisely their method. A corrupt staff member is N for drone delivery.",
+  "ORIGIN|DETECTION MEANS": "a corrupt staff member is N for perimeter sensors. An external accomplice is N for cell and area search.",
+  "ORIGIN|RESPONSE": "a corrupt staff member is N for segregation and N for negotiation - neither applies to staff. An external accomplice is N for lockdown, segregation and negotiation alike; only police intervention reaches them.",
+  "PHYSICAL ROUTE|DETECTION MEANS": "perimeter breach is N for cell search and N for prisoner intelligence as the detecting means at the moment of breach. Vehicle gate and visits hall are both N for perimeter sensors. Drone is N for cell search.",
+  "PHYSICAL ROUTE|RESPONSE": "every physical route is N for negotiation - there is nobody with a demand in a boundary-crossing event."
+ }
+}

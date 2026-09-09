@@ -1,0 +1,216 @@
+{
+ "domain": "railway signalling failure",
+ "group": "industrial",
+ "parameters": {
+  "FAILURE TYPE": [
+   "Signal shows wrong aspect",
+   "Points fail to lock",
+   "Train protection system disabled",
+   "Communication loss to control"
+  ],
+  "TRAIN OPERATION": [
+   "High-speed passenger",
+   "Freight heavy haul",
+   "Suburban high-frequency",
+   "Engineering possession"
+  ],
+  "TRACK CONFIGURATION": [
+   "Plain double track",
+   "Junction with converging routes",
+   "Single line with passing loops",
+   "Terminal station approach"
+  ],
+  "SAFEGUARD": [
+   "Automatic train protection",
+   "Driver visual observation",
+   "Signaller manual authorisation",
+   "Track circuit occupancy detection"
+  ],
+  "CONSEQUENCE": [
+   "No effect, failure contained",
+   "Service delay only",
+   "Derailment",
+   "Collision"
+  ]
+ },
+ "characterisations": {
+  "Signal shows wrong aspect": {
+   "requires": "a signalling logic or lamp fault",
+   "provides": "false permission or false restriction, driver acts on wrong information"
+  },
+  "Points fail to lock": {
+   "requires": "a mechanical or detection fault at a switch",
+   "provides": "a route set but unsecured, hazard only where a train traverses the switch"
+  },
+  "Train protection system disabled": {
+   "requires": "the protection equipment isolated or failed",
+   "provides": "no automatic intervention, no hazard by itself, removal of a safety layer only"
+  },
+  "Communication loss to control": {
+   "requires": "failure of the link between signaller and train or equipment",
+   "provides": "loss of coordination, no direct effect on any interlocking"
+  },
+  "High-speed passenger": {
+   "requires": "high line speed and continuous protection",
+   "provides": "long braking distance, many passengers, total dependence on automatic protection"
+  },
+  "Freight heavy haul": {
+   "requires": "high axle load and long consist",
+   "provides": "very long braking distance, few crew, high derailment energy"
+  },
+  "Suburban high-frequency": {
+   "requires": "short headways between trains",
+   "provides": "many trains close together, moderate speed, high collision exposure"
+  },
+  "Engineering possession": {
+   "requires": "a section handed over for work with normal signalling suspended",
+   "provides": "low speed, staff on track, protection by procedure rather than signalling"
+  },
+  "Plain double track": {
+   "requires": "two lines with directional running",
+   "provides": "no converging movements, no conflicting routes"
+  },
+  "Junction with converging routes": {
+   "requires": "points and conflicting movements",
+   "provides": "collision geometry, dependence on interlocking"
+  },
+  "Single line with passing loops": {
+   "requires": "bidirectional running on one track",
+   "provides": "head-on collision geometry, total dependence on token or authorisation"
+  },
+  "Terminal station approach": {
+   "requires": "trains terminating at buffers",
+   "provides": "low speed, overrun geometry, no through movements"
+  },
+  "Automatic train protection": {
+   "requires": "trackside and onboard equipment functioning",
+   "provides": "enforced braking independent of the driver"
+  },
+  "Driver visual observation": {
+   "requires": "sighting distance and driver attention",
+   "provides": "last line of defence, defeated by speed and sighting limits"
+  },
+  "Signaller manual authorisation": {
+   "requires": "a signaller with a correct picture of occupancy",
+   "provides": "procedural control, defeated by loss of information"
+  },
+  "Track circuit occupancy detection": {
+   "requires": "electrical continuity through the rails",
+   "provides": "automatic detection of a train present, independent of the crew"
+  },
+  "No effect, failure contained": {
+   "requires": "a safeguard functioning as designed",
+   "provides": "no operational impact"
+  },
+  "Service delay only": {
+   "requires": "the failure detected before any movement is compromised",
+   "provides": "economic impact only"
+  },
+  "Derailment": {
+   "requires": "a train traversing an unsecured or incorrect path",
+   "provides": "single-train consequence, high energy"
+  },
+  "Collision": {
+   "requires": "two trains permitted into the same space",
+   "provides": "multi-train consequence, highest energy"
+  }
+ },
+ "exclusions": {
+  "FAILURE TYPE|TRAIN OPERATION": [
+   {
+    "row": "Signal shows wrong aspect",
+    "col": "Engineering possession",
+    "code": "N3",
+    "requires": "a signalling logic or lamp fault",
+    "blocked_by": "normal signalling suspended"
+   },
+   {
+    "row": "Train protection system disabled",
+    "col": "Engineering possession",
+    "code": "N7",
+    "requires": "the protection equipment isolated or failed",
+    "blocked_by": "protection by procedure rather than signalling"
+   }
+  ],
+  "FAILURE TYPE|TRACK CONFIGURATION": [
+   {
+    "row": "Points fail to lock",
+    "col": "Plain double track",
+    "code": "N3",
+    "requires": "a mechanical or detection fault at a switch",
+    "blocked_by": "no converging movements, no conflicting routes"
+   }
+  ],
+  "FAILURE TYPE|SAFEGUARD": [
+   {
+    "row": "Points fail to lock",
+    "col": "Automatic train protection",
+    "code": "N7",
+    "requires": "enforced braking independent of the driver",
+    "blocked_by": "a route set but unsecured"
+   },
+   {
+    "row": "Points fail to lock",
+    "col": "Driver visual observation",
+    "code": "N7",
+    "requires": "sighting distance and driver attention",
+    "blocked_by": "a route set but unsecured"
+   }
+  ],
+  "FAILURE TYPE|CONSEQUENCE": [
+   {
+    "row": "Points fail to lock",
+    "col": "Collision",
+    "code": "N7",
+    "requires": "two trains permitted into the same space",
+    "blocked_by": "hazard only where a train traverses the switch"
+   },
+   {
+    "row": "Train protection system disabled",
+    "col": "Derailment",
+    "code": "N7",
+    "requires": "a train traversing an unsecured or incorrect path",
+    "blocked_by": "no hazard by itself"
+   },
+   {
+    "row": "Train protection system disabled",
+    "col": "Collision",
+    "code": "N7",
+    "requires": "two trains permitted into the same space",
+    "blocked_by": "no hazard by itself"
+   },
+   {
+    "row": "Communication loss to control",
+    "col": "Derailment",
+    "code": "N7",
+    "requires": "a train traversing an unsecured or incorrect path",
+    "blocked_by": "no direct effect on any interlocking"
+   },
+   {
+    "row": "Communication loss to control",
+    "col": "Collision",
+    "code": "N7",
+    "requires": "two trains permitted into the same space",
+    "blocked_by": "no direct effect on any interlocking"
+   }
+  ],
+  "TRAIN OPERATION|SAFEGUARD": [
+   {
+    "row": "Engineering possession",
+    "col": "Automatic train protection",
+    "code": "N3",
+    "requires": "trackside and onboard equipment functioning",
+    "blocked_by": "protection by procedure rather than signalling"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "FAILURE TYPE|TRAIN OPERATION": "signal aspect and protection-system failures are both N during an engineering possession, where normal signalling is suspended and protection is procedural.",
+  "FAILURE TYPE|TRACK CONFIGURATION": "points failing to lock is N on plain double track (no switches to traverse) and N on a terminal approach as posed.",
+  "FAILURE TYPE|SAFEGUARD": "points failure is N for automatic train protection and N for driver observation - neither detects an unlocked switch; only the signaller and track circuits bear on it. Communication loss is N for protection and driver observation for the same reason.",
+  "FAILURE TYPE|CONSEQUENCE": "a wrong signal aspect is N for derailment as a direct consequence - it produces collision, not derailment. Points failing to lock is N for collision and Y for derailment, the reverse. Protection disabled and communication loss are both N for derailment and collision as direct consequences: each removes a layer without itself putting a train anywhere.",
+  "TRAIN OPERATION|TRACK CONFIGURATION": "freight heavy haul x terminal station approach is N - heavy haul does not terminate at a passenger buffer stop.",
+  "TRAIN OPERATION|SAFEGUARD": "engineering possession x automatic train protection is N: protection is suspended in a possession by definition.",
+  "TRACK CONFIGURATION|CONSEQUENCE": "plain double track x derailment is N as posed - with no switches and no converging routes, the listed failure modes produce collision or delay, not derailment."
+ }
+}

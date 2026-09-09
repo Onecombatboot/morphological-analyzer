@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.7</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.drdo.issa</groupId>
+	<artifactId>morphological-analyzer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name/>
+	<description/>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-h2console</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- DJL Core API -->
+		<dependency>
+			<groupId>ai.djl</groupId>
+			<artifactId>api</artifactId>
+			<version>0.36.0</version>
+		</dependency>
+
+		<!-- ONNX Runtime Engine (DJL Wrapper) -->
+		<dependency>
+			<groupId>ai.djl.onnxruntime</groupId>
+			<artifactId>onnxruntime-engine</artifactId>
+			<version>0.36.0</version>
+			<scope>runtime</scope>
+			<exclusions>
+				<!-- Strip out the buggy 1.21 core -->
+				<exclusion>
+					<groupId>com.microsoft.onnxruntime</groupId>
+					<artifactId>onnxruntime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- ONNX Runtime core.
+		     1.16.3 was pinned here because DJL's own 1.21 build was unstable.
+		     1.22.0 is needed now: the cross-consistency model is 4-bit
+		     quantised and uses com.microsoft.MatMulNBits. 1.16.3 loads that op
+		     only without the accuracy_level attribute, and 1.22 is measurably
+		     faster on it (5.24 s down to 4.23 s per forward pass on the same
+		     graph and input), with bit identical scores. -->
+		<dependency>
+			<groupId>com.microsoft.onnxruntime</groupId>
+			<artifactId>onnxruntime</artifactId>
+			<version>1.22.0</version>
+			<!-- Compile scope, not runtime. It was runtime-only while DJL was the
+			     only consumer and reached it reflectively; OnnxCcaService now
+			     calls OrtSession and OnnxTensor directly. -->
+		</dependency>
+
+		<!-- Hugging Face Tokenizer Support -->
+		<dependency>
+			<groupId>ai.djl.huggingface</groupId>
+			<artifactId>tokenizers</artifactId>
+			<version>0.36.0</version>
+		</dependency>
+
+		<!-- llama.cpp JNI: runs the GGUF instruction model that performs cross-consistency
+		     assessment. Version 4.2.0 specifically; 3.3.0 segfaulted the JVM inside complete(). -->
+		<dependency>
+			<groupId>de.kherud</groupId>
+			<artifactId>llama</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<resources>
+			<!-- The model folders live beside the jar and are read from disk at runtime,
+			     so bundling them inside the jar as well would only double the size. -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>models/**</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<requiresUnpack>
+						<!-- jllama.dll cannot be loaded from inside a nested jar; Boot has to
+						     unpack this one to a temp dir before the JNI loader can find it. -->
+						<dependency>
+							<groupId>de.kherud</groupId>
+							<artifactId>llama</artifactId>
+						</dependency>
+					</requiresUnpack>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

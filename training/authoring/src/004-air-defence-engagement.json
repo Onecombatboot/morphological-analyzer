@@ -1,0 +1,382 @@
+{
+ "domain": "air defence engagement",
+ "group": "security",
+ "parameters": {
+  "TARGET": [
+   "Ballistic missile in midcourse",
+   "Low-observable strike aircraft",
+   "Small quadcopter drone",
+   "Cruise missile at low altitude",
+   "High-altitude reconnaissance balloon"
+  ],
+  "SENSOR": [
+   "Long-range early-warning radar",
+   "Fire-control radar",
+   "Electro-optical tracker",
+   "Passive RF detection"
+  ],
+  "EFFECTOR": [
+   "Exoatmospheric interceptor",
+   "Medium-range surface-to-air missile",
+   "Short-range gun system",
+   "Electronic jamming"
+  ],
+  "ENGAGEMENT AUTHORITY": [
+   "National command authority",
+   "Regional air defence commander",
+   "Battery commander autonomous",
+   "Automated rules of engagement"
+  ]
+ },
+ "characterisations": {
+  "Ballistic missile in midcourse": {
+   "requires": "exoatmospheric flight, thousands of km/h closing speed",
+   "provides": "predictable trajectory, minutes of warning, altitude above all air-breathing defences"
+  },
+  "Low-observable strike aircraft": {
+   "requires": "shaping and coatings that suppress radar return",
+   "provides": "very low radar cross-section, manned decision-making, atmospheric altitude"
+  },
+  "Small quadcopter drone": {
+   "requires": "line of sight to operator or preloaded waypoints",
+   "provides": "tiny radar cross-section, very low altitude, very short range, negligible speed"
+  },
+  "Cruise missile at low altitude": {
+   "requires": "terrain-following flight below radar horizon",
+   "provides": "small cross-section, high subsonic speed, minutes of flight time"
+  },
+  "High-altitude reconnaissance balloon": {
+   "requires": "stratospheric altitude, wind-borne drift",
+   "provides": "very slow speed, large visual signature, hours of loiter"
+  },
+  "Long-range early-warning radar": {
+   "requires": "a large fixed installation, line of sight to the horizon",
+   "provides": "detection at hundreds of km, poor resolution, no fire-control quality track"
+  },
+  "Fire-control radar": {
+   "requires": "a target with sufficient radar cross-section within tens of km",
+   "provides": "a weapons-quality track, illumination for guidance"
+  },
+  "Electro-optical tracker": {
+   "requires": "daylight or thermal contrast, clear line of sight, short range",
+   "provides": "passive precise tracking at close range, defeated by cloud"
+  },
+  "Passive RF detection": {
+   "requires": "the target to emit radio frequency energy",
+   "provides": "bearing only, no range, no emission of its own"
+  },
+  "Exoatmospheric interceptor": {
+   "requires": "a target above the atmosphere, minutes of cueing",
+   "provides": "hit-to-kill outside the atmosphere, no use inside it"
+  },
+  "Medium-range surface-to-air missile": {
+   "requires": "a fire-control track, a target at altitude within tens of km",
+   "provides": "kinetic kill against air-breathing targets"
+  },
+  "Short-range gun system": {
+   "requires": "a target within a few km at low altitude",
+   "provides": "high rate of fire, terminal defence only"
+  },
+  "Electronic jamming": {
+   "requires": "the target to depend on a receivable signal",
+   "provides": "disruption without destruction, no effect on inertial or ballistic flight"
+  },
+  "National command authority": {
+   "requires": "minutes to consult, a strategic decision",
+   "provides": "authority for strategic-level engagement, slow release"
+  },
+  "Regional air defence commander": {
+   "requires": "a recognised air picture, delegated release authority",
+   "provides": "coordinated engagement across batteries, minutes of decision time"
+  },
+  "Battery commander autonomous": {
+   "requires": "pre-delegated authority for local defence",
+   "provides": "seconds of decision time, local scope only"
+  },
+  "Automated rules of engagement": {
+   "requires": "pre-agreed criteria and no human in the loop",
+   "provides": "sub-second response, no judgement, applies only to unambiguous threats"
+  }
+ },
+ "exclusions": {
+  "TARGET|SENSOR": [
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Fire-control radar",
+    "code": "N3",
+    "requires": "a target with sufficient radar cross-section within tens of km",
+    "blocked_by": "altitude above all air-breathing defences"
+   },
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Electro-optical tracker",
+    "code": "N3",
+    "requires": "daylight or thermal contrast, clear line of sight, short range",
+    "blocked_by": "exoatmospheric flight, thousands of km/h closing speed"
+   },
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Passive RF detection",
+    "code": "N3",
+    "requires": "the target to emit radio frequency energy",
+    "blocked_by": "exoatmospheric flight, thousands of km/h closing speed"
+   },
+   {
+    "row": "Low-observable strike aircraft",
+    "col": "Fire-control radar",
+    "code": "N3",
+    "requires": "a target with sufficient radar cross-section within tens of km",
+    "blocked_by": "very low radar cross-section"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "Long-range early-warning radar",
+    "code": "N3",
+    "requires": "a large fixed installation, line of sight to the horizon",
+    "blocked_by": "very low altitude"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "Fire-control radar",
+    "code": "N3",
+    "requires": "a target with sufficient radar cross-section within tens of km",
+    "blocked_by": "tiny radar cross-section"
+   },
+   {
+    "row": "Cruise missile at low altitude",
+    "col": "Long-range early-warning radar",
+    "code": "N3",
+    "requires": "a large fixed installation, line of sight to the horizon",
+    "blocked_by": "terrain-following flight below radar horizon"
+   }
+  ],
+  "TARGET|EFFECTOR": [
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Medium-range surface-to-air missile",
+    "code": "N3",
+    "requires": "a target at altitude within tens of km",
+    "blocked_by": "altitude above all air-breathing defences"
+   },
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Short-range gun system",
+    "code": "N3",
+    "requires": "a target within a few km at low altitude",
+    "blocked_by": "altitude above all air-breathing defences"
+   },
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Electronic jamming",
+    "code": "N3",
+    "requires": "the target to depend on a receivable signal",
+    "blocked_by": "no effect on inertial or ballistic flight"
+   },
+   {
+    "row": "Low-observable strike aircraft",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere",
+    "blocked_by": "atmospheric altitude"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere",
+    "blocked_by": "very low altitude"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "Medium-range surface-to-air missile",
+    "code": "N3",
+    "requires": "a target at altitude within tens of km",
+    "blocked_by": "very low altitude"
+   },
+   {
+    "row": "Cruise missile at low altitude",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere",
+    "blocked_by": "terrain-following flight below radar horizon"
+   },
+   {
+    "row": "High-altitude reconnaissance balloon",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere",
+    "blocked_by": "stratospheric altitude, wind-borne drift"
+   },
+   {
+    "row": "High-altitude reconnaissance balloon",
+    "col": "Short-range gun system",
+    "code": "N3",
+    "requires": "a target within a few km at low altitude",
+    "blocked_by": "stratospheric altitude, wind-borne drift"
+   },
+   {
+    "row": "High-altitude reconnaissance balloon",
+    "col": "Electronic jamming",
+    "code": "N3",
+    "requires": "the target to depend on a receivable signal",
+    "blocked_by": "stratospheric altitude, wind-borne drift"
+   }
+  ],
+  "TARGET|ENGAGEMENT AUTHORITY": [
+   {
+    "row": "Ballistic missile in midcourse",
+    "col": "Battery commander autonomous",
+    "code": "N7",
+    "requires": "pre-delegated authority for local defence",
+    "blocked_by": "altitude above all air-breathing defences"
+   },
+   {
+    "row": "Low-observable strike aircraft",
+    "col": "Automated rules of engagement",
+    "code": "N3",
+    "requires": "applies only to unambiguous threats",
+    "blocked_by": "manned decision-making"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "National command authority",
+    "code": "N7",
+    "requires": "minutes to consult, a strategic decision",
+    "blocked_by": "very short range, negligible speed"
+   },
+   {
+    "row": "Small quadcopter drone",
+    "col": "Regional air defence commander",
+    "code": "N7",
+    "requires": "a recognised air picture, delegated release authority",
+    "blocked_by": "tiny radar cross-section, very low altitude"
+   },
+   {
+    "row": "Cruise missile at low altitude",
+    "col": "National command authority",
+    "code": "N4",
+    "requires": "minutes to consult, a strategic decision",
+    "blocked_by": "minutes of flight time"
+   },
+   {
+    "row": "High-altitude reconnaissance balloon",
+    "col": "Battery commander autonomous",
+    "code": "N7",
+    "requires": "pre-delegated authority for local defence",
+    "blocked_by": "hours of loiter"
+   },
+   {
+    "row": "High-altitude reconnaissance balloon",
+    "col": "Automated rules of engagement",
+    "code": "N3",
+    "requires": "applies only to unambiguous threats",
+    "blocked_by": "very slow speed, large visual signature"
+   }
+  ],
+  "SENSOR|EFFECTOR": [
+   {
+    "row": "Long-range early-warning radar",
+    "col": "Medium-range surface-to-air missile",
+    "code": "N3",
+    "requires": "a fire-control track",
+    "blocked_by": "no fire-control quality track"
+   },
+   {
+    "row": "Long-range early-warning radar",
+    "col": "Short-range gun system",
+    "code": "N3",
+    "requires": "a target within a few km at low altitude",
+    "blocked_by": "detection at hundreds of km, poor resolution"
+   },
+   {
+    "row": "Fire-control radar",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere, minutes of cueing",
+    "blocked_by": "a target with sufficient radar cross-section within tens of km"
+   },
+   {
+    "row": "Electro-optical tracker",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere, minutes of cueing",
+    "blocked_by": "passive precise tracking at close range"
+   },
+   {
+    "row": "Passive RF detection",
+    "col": "Exoatmospheric interceptor",
+    "code": "N3",
+    "requires": "a target above the atmosphere, minutes of cueing",
+    "blocked_by": "bearing only, no range"
+   },
+   {
+    "row": "Passive RF detection",
+    "col": "Medium-range surface-to-air missile",
+    "code": "N3",
+    "requires": "a fire-control track",
+    "blocked_by": "bearing only, no range"
+   },
+   {
+    "row": "Passive RF detection",
+    "col": "Short-range gun system",
+    "code": "N3",
+    "requires": "a target within a few km at low altitude",
+    "blocked_by": "bearing only, no range"
+   }
+  ],
+  "SENSOR|ENGAGEMENT AUTHORITY": [
+   {
+    "row": "Long-range early-warning radar",
+    "col": "Battery commander autonomous",
+    "code": "N7",
+    "requires": "pre-delegated authority for local defence",
+    "blocked_by": "detection at hundreds of km, poor resolution"
+   },
+   {
+    "row": "Long-range early-warning radar",
+    "col": "Automated rules of engagement",
+    "code": "N3",
+    "requires": "applies only to unambiguous threats",
+    "blocked_by": "poor resolution, no fire-control quality track"
+   }
+  ],
+  "EFFECTOR|ENGAGEMENT AUTHORITY": [
+   {
+    "row": "Exoatmospheric interceptor",
+    "col": "Regional air defence commander",
+    "code": "N7",
+    "requires": "a recognised air picture, delegated release authority",
+    "blocked_by": "hit-to-kill outside the atmosphere"
+   },
+   {
+    "row": "Exoatmospheric interceptor",
+    "col": "Battery commander autonomous",
+    "code": "N7",
+    "requires": "pre-delegated authority for local defence",
+    "blocked_by": "hit-to-kill outside the atmosphere"
+   },
+   {
+    "row": "Short-range gun system",
+    "col": "National command authority",
+    "code": "N4",
+    "requires": "minutes to consult, a strategic decision",
+    "blocked_by": "terminal defence only"
+   },
+   {
+    "row": "Short-range gun system",
+    "col": "Regional air defence commander",
+    "code": "N4",
+    "requires": "minutes of decision time",
+    "blocked_by": "terminal defence only"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "TARGET|SENSOR": "ballistic midcourse is detectable only by long-range early warning: fire-control radar lacks the range, EO cannot see into space, and the warhead does not emit. Low-observable aircraft defeat both radars by cross-section but are trackable by EO and by their own emissions. A quadcopter is too small for either radar and usually too quiet on RF. A balloon is huge and slow so early warning and EO see it, but it presents no fire-control return and does not emit.",
+  "TARGET|EFFECTOR": "only the exoatmospheric interceptor reaches a midcourse ballistic target, and it is useless against everything inside the atmosphere. Guns cannot reach an aircraft or a balloon at altitude. Jamming has no effect on a ballistic trajectory or an inertially guided aircraft, but does defeat a quadcopter's control link and a cruise missile's satellite navigation.",
+  "TARGET|ENGAGEMENT AUTHORITY": "a ballistic missile engagement is strategic, so national and regional authority only. A quadcopter over one's own installation is the opposite: too fast and too local for anything above a battery commander. Automated rules apply only where the threat is unambiguous, which excludes a manned aircraft and a balloon.",
+  "SENSOR|EFFECTOR": "early warning cues only the exoatmospheric interceptor; it cannot provide a weapons-quality track for anything else. Fire-control radar cannot guide an exoatmospheric interceptor, which does not operate on that principle. EO supports guns and jamming at close range. Passive RF gives bearing only, sufficient to aim a jammer but not to guide a missile or a gun.",
+  "SENSOR|ENGAGEMENT AUTHORITY": "early warning at strategic range pairs with strategic authority, not with a battery commander or an automated rule. Fire-control and EO are tactical and pair with everything below national level.",
+  "EFFECTOR|ENGAGEMENT AUTHORITY": "an exoatmospheric interceptor is a strategic weapon and is never delegated below national authority. Guns and jamming are terminal defence and are never held at national level."
+ }
+}

@@ -1,0 +1,180 @@
+{
+ "domain": "avalanche risk management",
+ "group": "natural hazard",
+ "parameters": {
+  "SNOWPACK PROBLEM": [
+   "Persistent weak layer",
+   "Wind slab on a lee aspect",
+   "Wet snow instability",
+   "Cornice collapse"
+  ],
+  "TRIGGER": [
+   "Skier or rider on the slope",
+   "Explosive control from a helicopter",
+   "Natural release without any trigger",
+   "Snow groomer or machine"
+  ],
+  "EXPOSED ELEMENT": [
+   "Marked piste inside a resort",
+   "Backcountry touring route",
+   "Mountain road below a path",
+   "Village in a runout zone"
+  ],
+  "MITIGATION": [
+   "Closure of the terrain",
+   "Explosive avalanche control",
+   "Snow supporting structures",
+   "Forecast and advisory only"
+  ]
+ },
+ "characterisations": {
+  "Persistent weak layer": {
+   "requires": "a buried facet or surface hoar layer",
+   "provides": "failure propagating far from the trigger point, instability lasting weeks"
+  },
+  "Wind slab on a lee aspect": {
+   "requires": "transported snow deposited on a slope",
+   "provides": "a stiff slab over softer snow, confined to specific aspects, days of instability"
+  },
+  "Wet snow instability": {
+   "requires": "melt water percolating through the pack",
+   "provides": "predictable daily timing, slow-moving heavy debris"
+  },
+  "Cornice collapse": {
+   "requires": "an overhanging mass at a ridge",
+   "provides": "a large trigger arriving without any skier action, hazard only directly below"
+  },
+  "Skier or rider on the slope": {
+   "requires": "a person on the start zone",
+   "provides": "a localised load, avoidable by route choice"
+  },
+  "Explosive control from a helicopter": {
+   "requires": "an aircraft and an operator",
+   "provides": "deliberate release at a chosen time, no exposure of any person"
+  },
+  "Natural release without any trigger": {
+   "requires": "loading or warming beyond stability",
+   "provides": "timing outside anyone control, occurring whether or not people are present"
+  },
+  "Snow groomer or machine": {
+   "requires": "a vehicle working the slope",
+   "provides": "a very large load applied on a known schedule"
+  },
+  "Marked piste inside a resort": {
+   "requires": "a controlled area open to the public",
+   "provides": "many people, an operator with a duty of care, control work possible"
+  },
+  "Backcountry touring route": {
+   "requires": "uncontrolled terrain used by touring parties",
+   "provides": "small self-reliant groups, no control work of any kind"
+  },
+  "Mountain road below a path": {
+   "requires": "a transport corridor crossing runout zones",
+   "provides": "vehicles briefly exposed, closure feasible"
+  },
+  "Village in a runout zone": {
+   "requires": "permanent buildings within the historic extent",
+   "provides": "no possibility of evacuation at short notice, defence structures needed"
+  },
+  "Closure of the terrain": {
+   "requires": "an authority able to exclude people",
+   "provides": "complete removal of exposure, economic cost"
+  },
+  "Explosive avalanche control": {
+   "requires": "a stable weather window and access to the start zone",
+   "provides": "release under controlled conditions, no effect on unstable layers deeper than the charge"
+  },
+  "Snow supporting structures": {
+   "requires": "permanent works in the start zone",
+   "provides": "prevention of release at all, decades to build and very high cost"
+  },
+  "Forecast and advisory only": {
+   "requires": "an observation network and a publication channel",
+   "provides": "information for decision makers, no physical effect whatsoever"
+  }
+ },
+ "exclusions": {
+  "SNOWPACK PROBLEM|TRIGGER": [
+   {
+    "row": "Cornice collapse",
+    "col": "Skier or rider on the slope",
+    "code": "N7",
+    "requires": "a localised load",
+    "blocked_by": "a large trigger arriving without any skier action"
+   }
+  ],
+  "SNOWPACK PROBLEM|MITIGATION": [
+   {
+    "row": "Persistent weak layer",
+    "col": "Explosive avalanche control",
+    "code": "N7",
+    "requires": "release under controlled conditions",
+    "blocked_by": "instability lasting weeks"
+   }
+  ],
+  "TRIGGER|EXPOSED ELEMENT": [
+   {
+    "row": "Explosive control from a helicopter",
+    "col": "Backcountry touring route",
+    "code": "N3",
+    "requires": "no control work of any kind",
+    "blocked_by": "deliberate release at a chosen time"
+   },
+   {
+    "row": "Snow groomer or machine",
+    "col": "Backcountry touring route",
+    "code": "N7",
+    "requires": "a vehicle working the slope",
+    "blocked_by": "uncontrolled terrain used by touring parties"
+   },
+   {
+    "row": "Snow groomer or machine",
+    "col": "Village in a runout zone",
+    "code": "N7",
+    "requires": "a vehicle working the slope",
+    "blocked_by": "permanent buildings within the historic extent"
+   }
+  ],
+  "EXPOSED ELEMENT|MITIGATION": [
+   {
+    "row": "Backcountry touring route",
+    "col": "Explosive avalanche control",
+    "code": "N3",
+    "requires": "access to the start zone",
+    "blocked_by": "no control work of any kind"
+   },
+   {
+    "row": "Backcountry touring route",
+    "col": "Closure of the terrain",
+    "code": "N7",
+    "requires": "an authority able to exclude people",
+    "blocked_by": "uncontrolled terrain used by touring parties"
+   },
+   {
+    "row": "Village in a runout zone",
+    "col": "Closure of the terrain",
+    "code": "N3",
+    "requires": "complete removal of exposure",
+    "blocked_by": "no possibility of evacuation at short notice"
+   }
+  ],
+  "TRIGGER|MITIGATION": [
+   {
+    "row": "Natural release without any trigger",
+    "col": "Explosive avalanche control",
+    "code": "N7",
+    "requires": "release under controlled conditions",
+    "blocked_by": "timing outside anyone control"
+   }
+  ],
+  "SNOWPACK PROBLEM|EXPOSED ELEMENT": [
+   {
+    "row": "Cornice collapse",
+    "col": "Village in a runout zone",
+    "code": "N7",
+    "requires": "permanent buildings within the historic extent",
+    "blocked_by": "hazard only directly below"
+   }
+  ]
+ }
+}

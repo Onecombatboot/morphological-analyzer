@@ -1,0 +1,285 @@
+{
+ "domain": "mine safety incident",
+ "group": "industrial",
+ "parameters": {
+  "HAZARD": [
+   "Methane accumulation",
+   "Roof fall",
+   "Water inrush",
+   "Diesel exhaust build-up"
+  ],
+  "MINE TYPE": [
+   "Deep underground coal",
+   "Hard rock metal underground",
+   "Open cut surface",
+   "Abandoned workings reopened"
+  ],
+  "CONTROL": [
+   "Forced ventilation",
+   "Roof bolting and mesh",
+   "Advance probe drilling",
+   "Real-time gas monitoring"
+  ],
+  "RESPONSE TIME AVAILABLE": [
+   "Seconds",
+   "Minutes",
+   "Hours"
+  ]
+ },
+ "characterisations": {
+  "Methane accumulation": {
+   "requires": "coal measures liberating gas into a confined space",
+   "provides": "explosive atmosphere, detectable by sensor, no warning to the unaided senses"
+  },
+  "Roof fall": {
+   "requires": "unsupported span in a stressed rock mass",
+   "provides": "sudden localised collapse, audible precursors sometimes, immediate burial risk"
+  },
+  "Water inrush": {
+   "requires": "a hydraulic connection to a flooded body or aquifer",
+   "provides": "rapid uncontrollable flooding, follows existing voids"
+  },
+  "Diesel exhaust build-up": {
+   "requires": "combustion equipment in a confined airway",
+   "provides": "gradual asphyxiant accumulation, hours of onset, no explosion risk"
+  },
+  "Deep underground coal": {
+   "requires": "confined workings in coal measures",
+   "provides": "gas liberation, roof stress, restricted airways, long escape routes"
+  },
+  "Hard rock metal underground": {
+   "requires": "confined workings in competent rock",
+   "provides": "no gas liberation, high roof stress, diesel equipment underground"
+  },
+  "Open cut surface": {
+   "requires": "excavation from the surface",
+   "provides": "unlimited natural ventilation, no confined atmosphere, bench stability concerns only"
+  },
+  "Abandoned workings reopened": {
+   "requires": "entry into old unmapped voids",
+   "provides": "unknown geometry, accumulated water and gas, no existing ventilation"
+  },
+  "Forced ventilation": {
+   "requires": "a powered airway system",
+   "provides": "dilution of any airborne hazard, no effect on ground stability or water"
+  },
+  "Roof bolting and mesh": {
+   "requires": "access to install support at the face",
+   "provides": "ground support, no effect on any atmospheric hazard"
+  },
+  "Advance probe drilling": {
+   "requires": "drilling ahead of the working face",
+   "provides": "detection of water or voids before breaching them, no atmospheric function"
+  },
+  "Real-time gas monitoring": {
+   "requires": "sensors and a data link",
+   "provides": "warning of atmospheric change, no physical control of anything"
+  },
+  "Seconds": {
+   "requires": "an event that develops instantly",
+   "provides": "time only for automatic systems and reflex"
+  },
+  "Minutes": {
+   "requires": "an event with a short onset",
+   "provides": "time to evacuate a working area"
+  },
+  "Hours": {
+   "requires": "a gradual accumulation",
+   "provides": "time for planned withdrawal and correction"
+  }
+ },
+ "exclusions": {
+  "HAZARD|MINE TYPE": [
+   {
+    "row": "Methane accumulation",
+    "col": "Hard rock metal underground",
+    "code": "N3",
+    "requires": "coal measures liberating gas into a confined space",
+    "blocked_by": "no gas liberation"
+   },
+   {
+    "row": "Methane accumulation",
+    "col": "Open cut surface",
+    "code": "N3",
+    "requires": "coal measures liberating gas into a confined space",
+    "blocked_by": "no confined atmosphere"
+   },
+   {
+    "row": "Water inrush",
+    "col": "Open cut surface",
+    "code": "N7",
+    "requires": "a hydraulic connection to a flooded body or aquifer",
+    "blocked_by": "excavation from the surface"
+   },
+   {
+    "row": "Diesel exhaust build-up",
+    "col": "Open cut surface",
+    "code": "N3",
+    "requires": "combustion equipment in a confined airway",
+    "blocked_by": "unlimited natural ventilation"
+   }
+  ],
+  "HAZARD|CONTROL": [
+   {
+    "row": "Methane accumulation",
+    "col": "Roof bolting and mesh",
+    "code": "N3",
+    "requires": "ground support, no effect on any atmospheric hazard",
+    "blocked_by": "explosive atmosphere, detectable by sensor"
+   },
+   {
+    "row": "Methane accumulation",
+    "col": "Advance probe drilling",
+    "code": "N3",
+    "requires": "no atmospheric function",
+    "blocked_by": "explosive atmosphere, detectable by sensor"
+   },
+   {
+    "row": "Roof fall",
+    "col": "Forced ventilation",
+    "code": "N3",
+    "requires": "no effect on ground stability or water",
+    "blocked_by": "sudden localised collapse"
+   },
+   {
+    "row": "Roof fall",
+    "col": "Advance probe drilling",
+    "code": "N7",
+    "requires": "detection of water or voids before breaching them",
+    "blocked_by": "unsupported span in a stressed rock mass"
+   },
+   {
+    "row": "Roof fall",
+    "col": "Real-time gas monitoring",
+    "code": "N3",
+    "requires": "warning of atmospheric change",
+    "blocked_by": "sudden localised collapse"
+   },
+   {
+    "row": "Water inrush",
+    "col": "Forced ventilation",
+    "code": "N3",
+    "requires": "no effect on ground stability or water",
+    "blocked_by": "rapid uncontrollable flooding"
+   },
+   {
+    "row": "Water inrush",
+    "col": "Roof bolting and mesh",
+    "code": "N7",
+    "requires": "ground support",
+    "blocked_by": "rapid uncontrollable flooding"
+   },
+   {
+    "row": "Water inrush",
+    "col": "Real-time gas monitoring",
+    "code": "N3",
+    "requires": "warning of atmospheric change",
+    "blocked_by": "rapid uncontrollable flooding"
+   },
+   {
+    "row": "Diesel exhaust build-up",
+    "col": "Roof bolting and mesh",
+    "code": "N3",
+    "requires": "ground support, no effect on any atmospheric hazard",
+    "blocked_by": "gradual asphyxiant accumulation"
+   },
+   {
+    "row": "Diesel exhaust build-up",
+    "col": "Advance probe drilling",
+    "code": "N3",
+    "requires": "no atmospheric function",
+    "blocked_by": "gradual asphyxiant accumulation"
+   }
+  ],
+  "HAZARD|RESPONSE TIME AVAILABLE": [
+   {
+    "row": "Roof fall",
+    "col": "Hours",
+    "code": "N3",
+    "requires": "a gradual accumulation",
+    "blocked_by": "sudden localised collapse"
+   },
+   {
+    "row": "Water inrush",
+    "col": "Hours",
+    "code": "N3",
+    "requires": "a gradual accumulation",
+    "blocked_by": "rapid uncontrollable flooding"
+   },
+   {
+    "row": "Diesel exhaust build-up",
+    "col": "Seconds",
+    "code": "N3",
+    "requires": "an event that develops instantly",
+    "blocked_by": "hours of onset"
+   },
+   {
+    "row": "Diesel exhaust build-up",
+    "col": "Minutes",
+    "code": "N3",
+    "requires": "an event with a short onset",
+    "blocked_by": "hours of onset"
+   }
+  ],
+  "MINE TYPE|CONTROL": [
+   {
+    "row": "Open cut surface",
+    "col": "Forced ventilation",
+    "code": "N3",
+    "requires": "a powered airway system",
+    "blocked_by": "unlimited natural ventilation"
+   },
+   {
+    "row": "Open cut surface",
+    "col": "Advance probe drilling",
+    "code": "N7",
+    "requires": "drilling ahead of the working face",
+    "blocked_by": "excavation from the surface"
+   },
+   {
+    "row": "Open cut surface",
+    "col": "Real-time gas monitoring",
+    "code": "N7",
+    "requires": "warning of atmospheric change",
+    "blocked_by": "no confined atmosphere"
+   }
+  ],
+  "CONTROL|RESPONSE TIME AVAILABLE": [
+   {
+    "row": "Roof bolting and mesh",
+    "col": "Seconds",
+    "code": "N4",
+    "requires": "access to install support at the face",
+    "blocked_by": "time only for automatic systems and reflex"
+   },
+   {
+    "row": "Roof bolting and mesh",
+    "col": "Minutes",
+    "code": "N4",
+    "requires": "access to install support at the face",
+    "blocked_by": "time to evacuate a working area"
+   },
+   {
+    "row": "Advance probe drilling",
+    "col": "Seconds",
+    "code": "N4",
+    "requires": "drilling ahead of the working face",
+    "blocked_by": "time only for automatic systems and reflex"
+   },
+   {
+    "row": "Advance probe drilling",
+    "col": "Minutes",
+    "code": "N4",
+    "requires": "drilling ahead of the working face",
+    "blocked_by": "time to evacuate a working area"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "HAZARD|MINE TYPE": "methane is N in hard rock (no coal measures liberating it) and N in open cut (unlimited natural ventilation). Water inrush is N in hard rock as posed here and N in open cut, which drains to surface. Diesel build-up is N in open cut for the same ventilation reason.",
+  "HAZARD|CONTROL": "each control addresses one hazard class. Ventilation dilutes methane and diesel but does nothing for roof or water. Roof bolting addresses roof only. Probe drilling addresses water only. Gas monitoring warns of methane and diesel but not of roof or water.",
+  "HAZARD|RESPONSE TIME AVAILABLE": "roof fall and water inrush are N at hours - both are sudden. Diesel build-up is N at seconds and minutes, being definitionally gradual.",
+  "MINE TYPE|CONTROL": "open cut needs no forced ventilation, no probe drilling for water, and no gas monitoring - all N. Roof support of benches is Y.",
+  "CONTROL|RESPONSE TIME AVAILABLE": "ventilation, roof bolting and probe drilling are all N at seconds - none acts in that time, all are pre-emptive. Roof bolting and probe drilling are also N at minutes, being installed well in advance."
+ }
+}

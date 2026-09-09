@@ -1,0 +1,162 @@
+{
+ "domain": "deep sea mineral extraction",
+ "group": "resource management",
+ "parameters": {
+  "DEPOSIT TYPE": [
+   "Polymetallic nodules on the abyssal plain",
+   "Seafloor massive sulphides at a vent",
+   "Cobalt crusts on a seamount",
+   "Shallow shelf placer"
+  ],
+  "JURISDICTION": [
+   "The Area beyond national jurisdiction",
+   "National exclusive economic zone",
+   "Territorial sea",
+   "Disputed maritime boundary"
+  ],
+  "EXTRACTION METHOD": [
+   "Seabed collector vehicle",
+   "Cutter head on hard substrate",
+   "Suction dredging",
+   "No extraction attempted"
+  ],
+  "REGULATORY OUTCOME": [
+   "Exploitation licence granted",
+   "Precautionary moratorium",
+   "Licence refused on environmental grounds",
+   "Operation halted by legal challenge"
+  ]
+ },
+ "characterisations": {
+  "Polymetallic nodules on the abyssal plain": {
+   "requires": "a flat sediment surface at four thousand metres",
+   "provides": "collection without cutting rock, a very slow recovering ecosystem"
+  },
+  "Seafloor massive sulphides at a vent": {
+   "requires": "an active or extinct hydrothermal system",
+   "provides": "high grade ore in a small footprint, chemosynthetic communities present"
+  },
+  "Cobalt crusts on a seamount": {
+   "requires": "a hard substrate on a steep flank",
+   "provides": "ore bonded to the rock beneath, difficult separation"
+  },
+  "Shallow shelf placer": {
+   "requires": "unconsolidated sediment in coastal water",
+   "provides": "conventional dredging sufficient, no deep water technology needed"
+  },
+  "The Area beyond national jurisdiction": {
+   "requires": "a sponsoring state and an international licence",
+   "provides": "a common heritage regime, international oversight"
+  },
+  "National exclusive economic zone": {
+   "requires": "a coastal state licensing regime",
+   "provides": "a single national regulator, no international approval needed"
+  },
+  "Territorial sea": {
+   "requires": "full coastal state sovereignty",
+   "provides": "complete domestic control, close proximity to inhabited coast"
+  },
+  "Disputed maritime boundary": {
+   "requires": "overlapping claims by two states",
+   "provides": "no settled authority to license, exposure to protest and arrest"
+  },
+  "Seabed collector vehicle": {
+   "requires": "a tracked machine and a riser to the surface",
+   "provides": "recovery of loose material, a sediment plume raised"
+  },
+  "Cutter head on hard substrate": {
+   "requires": "a rock cutting head and station keeping",
+   "provides": "removal of consolidated ore, destruction of the substrate itself"
+  },
+  "Suction dredging": {
+   "requires": "a shallow depth and a simple pump",
+   "provides": "cheap continuous recovery, restriction to shallow unconsolidated ground"
+  },
+  "No extraction attempted": {
+   "requires": "exploration only under licence",
+   "provides": "baseline data gathered, no ore recovered at all"
+  },
+  "Exploitation licence granted": {
+   "requires": "an approved environmental plan",
+   "provides": "commercial recovery permitted, monitoring conditions attached"
+  },
+  "Precautionary moratorium": {
+   "requires": "scientific uncertainty accepted as decisive",
+   "provides": "no exploitation permitted for now, exploration continuing"
+  },
+  "Licence refused on environmental grounds": {
+   "requires": "unacceptable predicted harm",
+   "provides": "no operation, sunk exploration cost"
+  },
+  "Operation halted by legal challenge": {
+   "requires": "a successful action by a third party",
+   "provides": "work stopped mid-programme, an uncertain resumption"
+  }
+ },
+ "exclusions": {
+  "DEPOSIT TYPE|EXTRACTION METHOD": [
+   {
+    "row": "Polymetallic nodules on the abyssal plain",
+    "col": "Suction dredging",
+    "code": "N3",
+    "requires": "restriction to shallow unconsolidated ground",
+    "blocked_by": "a flat sediment surface at four thousand metres"
+   },
+   {
+    "row": "Cobalt crusts on a seamount",
+    "col": "Suction dredging",
+    "code": "N3",
+    "requires": "restriction to shallow unconsolidated ground",
+    "blocked_by": "ore bonded to the rock beneath"
+   },
+   {
+    "row": "Cobalt crusts on a seamount",
+    "col": "Seabed collector vehicle",
+    "code": "N3",
+    "requires": "recovery of loose material",
+    "blocked_by": "ore bonded to the rock beneath"
+   },
+   {
+    "row": "Shallow shelf placer",
+    "col": "Seabed collector vehicle",
+    "code": "N7",
+    "requires": "a tracked machine and a riser to the surface",
+    "blocked_by": "no deep water technology needed"
+   }
+  ],
+  "DEPOSIT TYPE|JURISDICTION": [
+   {
+    "row": "Shallow shelf placer",
+    "col": "The Area beyond national jurisdiction",
+    "code": "N3",
+    "requires": "a common heritage regime",
+    "blocked_by": "unconsolidated sediment in coastal water"
+   }
+  ],
+  "JURISDICTION|REGULATORY OUTCOME": [
+   {
+    "row": "Disputed maritime boundary",
+    "col": "Exploitation licence granted",
+    "code": "N5",
+    "requires": "an approved environmental plan",
+    "blocked_by": "no settled authority to license"
+   }
+  ],
+  "EXTRACTION METHOD|REGULATORY OUTCOME": [
+   {
+    "row": "No extraction attempted",
+    "col": "Exploitation licence granted",
+    "code": "N3",
+    "requires": "commercial recovery permitted",
+    "blocked_by": "no ore recovered at all"
+   },
+   {
+    "row": "No extraction attempted",
+    "col": "Operation halted by legal challenge",
+    "code": "N3",
+    "requires": "work stopped mid-programme",
+    "blocked_by": "no ore recovered at all"
+   }
+  ]
+ }
+}

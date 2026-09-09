@@ -1,0 +1,208 @@
+{
+ "domain": "aircraft accident investigation",
+ "group": "industrial",
+ "parameters": {
+  "OCCURRENCE PHASE": [
+   "Takeoff roll",
+   "Climb and cruise",
+   "Approach and landing",
+   "Ground handling"
+  ],
+  "CAUSAL FACTOR": [
+   "Mechanical component failure",
+   "Flight crew error",
+   "Maintenance error",
+   "Weather encounter"
+  ],
+  "EVIDENCE SOURCE": [
+   "Flight data recorder",
+   "Cockpit voice recorder",
+   "Wreckage examination",
+   "Maintenance records"
+  ],
+  "SURVIVABILITY": [
+   "No injuries",
+   "Serious injuries",
+   "Fatal to some occupants",
+   "Non-survivable"
+  ],
+  "INVESTIGATION OUTCOME": [
+   "Airworthiness directive",
+   "Procedural change",
+   "Training requirement",
+   "No safety recommendation"
+  ]
+ },
+ "characterisations": {
+  "Takeoff roll": {
+   "requires": "the aircraft accelerating on the runway",
+   "provides": "low energy at the start, rejected takeoff option, runway environment"
+  },
+  "Climb and cruise": {
+   "requires": "the aircraft airborne away from an airfield",
+   "provides": "altitude and time to respond, remote impact location if uncontained"
+  },
+  "Approach and landing": {
+   "requires": "descent toward a runway",
+   "provides": "high workload, low altitude, little time to recover"
+  },
+  "Ground handling": {
+   "requires": "the aircraft stationary or taxiing with the engines off or idle",
+   "provides": "no flight dynamics, ground personnel present, low energy"
+  },
+  "Mechanical component failure": {
+   "requires": "a part exceeding its capability or life",
+   "provides": "physical evidence in the wreckage, a design or maintenance origin"
+  },
+  "Flight crew error": {
+   "requires": "a crew action or omission",
+   "provides": "evidence in recorded flight data and cockpit audio, a training or procedure origin"
+  },
+  "Maintenance error": {
+   "requires": "prior intervention on the aircraft",
+   "provides": "a documentary trail, physical evidence of incorrect assembly"
+  },
+  "Weather encounter": {
+   "requires": "meteorological conditions exceeding capability",
+   "provides": "meteorological record, no defective part, no incorrect action necessarily"
+  },
+  "Flight data recorder": {
+   "requires": "electrical power and recoverable media",
+   "provides": "aircraft state parameters, no human context"
+  },
+  "Cockpit voice recorder": {
+   "requires": "a crewed flight deck and recoverable media",
+   "provides": "crew communication and reasoning, nothing about ground activity"
+  },
+  "Wreckage examination": {
+   "requires": "physical structure to examine",
+   "provides": "component condition and failure mode, nothing about intent"
+  },
+  "Maintenance records": {
+   "requires": "documented prior work",
+   "provides": "history of intervention, nothing about the flight itself"
+  },
+  "No injuries": {
+   "requires": "energy dissipated without harm",
+   "provides": "all occupants available for interview, aircraft largely intact"
+  },
+  "Serious injuries": {
+   "requires": "significant energy transfer",
+   "provides": "survivor accounts, substantial damage"
+  },
+  "Fatal to some occupants": {
+   "requires": "partial loss of survivable space",
+   "provides": "both survivor accounts and fatal injury evidence"
+  },
+  "Non-survivable": {
+   "requires": "energy beyond any survivable limit",
+   "provides": "no survivor accounts, fragmented wreckage"
+  },
+  "Airworthiness directive": {
+   "requires": "a defect in the type design or a component",
+   "provides": "mandatory fleet-wide action"
+  },
+  "Procedural change": {
+   "requires": "an operating practice found deficient",
+   "provides": "revised operator procedure"
+  },
+  "Training requirement": {
+   "requires": "a human performance gap",
+   "provides": "revised syllabus or recurrent training"
+  },
+  "No safety recommendation": {
+   "requires": "an isolated cause with no systemic lesson",
+   "provides": "closure without action"
+  }
+ },
+ "exclusions": {
+  "OCCURRENCE PHASE|EVIDENCE SOURCE": [
+   {
+    "row": "Ground handling",
+    "col": "Flight data recorder",
+    "code": "N7",
+    "requires": "electrical power and recoverable media",
+    "blocked_by": "the aircraft stationary or taxiing with the engines off or idle"
+   },
+   {
+    "row": "Ground handling",
+    "col": "Cockpit voice recorder",
+    "code": "N7",
+    "requires": "a crewed flight deck and recoverable media",
+    "blocked_by": "ground personnel present"
+   }
+  ],
+  "OCCURRENCE PHASE|SURVIVABILITY": [
+   {
+    "row": "Ground handling",
+    "col": "Non-survivable",
+    "code": "N3",
+    "requires": "energy beyond any survivable limit",
+    "blocked_by": "low energy"
+   }
+  ],
+  "CAUSAL FACTOR|EVIDENCE SOURCE": [
+   {
+    "row": "Flight crew error",
+    "col": "Maintenance records",
+    "code": "N3",
+    "requires": "a crew action or omission",
+    "blocked_by": "nothing about the flight itself"
+   },
+   {
+    "row": "Maintenance error",
+    "col": "Cockpit voice recorder",
+    "code": "N3",
+    "requires": "prior intervention on the aircraft",
+    "blocked_by": "nothing about ground activity"
+   },
+   {
+    "row": "Weather encounter",
+    "col": "Wreckage examination",
+    "code": "N7",
+    "requires": "component condition and failure mode",
+    "blocked_by": "no defective part"
+   },
+   {
+    "row": "Weather encounter",
+    "col": "Maintenance records",
+    "code": "N3",
+    "requires": "documented prior work",
+    "blocked_by": "no defective part"
+   }
+  ],
+  "CAUSAL FACTOR|INVESTIGATION OUTCOME": [
+   {
+    "row": "Flight crew error",
+    "col": "Airworthiness directive",
+    "code": "N3",
+    "requires": "a defect in the type design or a component",
+    "blocked_by": "a training or procedure origin"
+   },
+   {
+    "row": "Weather encounter",
+    "col": "Airworthiness directive",
+    "code": "N3",
+    "requires": "a defect in the type design or a component",
+    "blocked_by": "no defective part"
+   }
+  ],
+  "EVIDENCE SOURCE|INVESTIGATION OUTCOME": [
+   {
+    "row": "Wreckage examination",
+    "col": "Training requirement",
+    "code": "N7",
+    "requires": "a human performance gap",
+    "blocked_by": "nothing about intent"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "OCCURRENCE PHASE|CAUSAL FACTOR": "ground handling is N for flight crew error (the crew is not flying) and N for weather encounter as a causal factor. Takeoff roll is N for weather encounter, which is an airborne phenomenon in this framing.",
+  "OCCURRENCE PHASE|EVIDENCE SOURCE": "ground handling is N for both recorders - neither is running meaningfully with the aircraft parked.",
+  "OCCURRENCE PHASE|SURVIVABILITY": "ground handling is N for fatal-to-some and N for non-survivable: the energy involved does not reach those outcomes for occupants.",
+  "CAUSAL FACTOR|EVIDENCE SOURCE": "mechanical failure is N for the voice recorder as a primary source. Crew error is N for wreckage examination and N for maintenance records. Maintenance error is N for the voice recorder. Weather is N for wreckage and N for maintenance records.",
+  "CAUSAL FACTOR|INVESTIGATION OUTCOME": "mechanical failure is N for a training requirement. Crew error is N for an airworthiness directive. Weather is N for an airworthiness directive.",
+  "EVIDENCE SOURCE|INVESTIGATION OUTCOME": "the voice recorder is N for an airworthiness directive - it evidences human factors, not design. Wreckage and maintenance records are both N for a training requirement."
+ }
+}

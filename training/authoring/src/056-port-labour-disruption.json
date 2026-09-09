@@ -1,0 +1,180 @@
+{
+ "domain": "port labour disruption",
+ "group": "logistics",
+ "parameters": {
+  "DISPUTE FORM": [
+   "Full withdrawal of labour",
+   "Work to rule",
+   "Refusal to handle specific cargo",
+   "Automation dispute over new equipment"
+  ],
+  "PORT CHARACTERISTIC": [
+   "Single dominant national port",
+   "Several competing terminals",
+   "Landlord port with many operators",
+   "Fully automated terminal"
+  ],
+  "MITIGATION": [
+   "Divert to another port",
+   "Use of contractor labour",
+   "Arbitration and settlement",
+   "Emergency legal powers"
+  ],
+  "SUPPLY CHAIN EFFECT": [
+   "Absorbed by inventory",
+   "Delay and demurrage cost",
+   "Shortage of specific goods",
+   "Manufacturing stoppage"
+  ]
+ },
+ "characterisations": {
+  "Full withdrawal of labour": {
+   "requires": "a lawful ballot and notice",
+   "provides": "complete cessation of cargo handling, a known end date in most cases"
+  },
+  "Work to rule": {
+   "requires": "strict adherence to procedure",
+   "provides": "throughput reduced by a third, no legal exposure for the workforce"
+  },
+  "Refusal to handle specific cargo": {
+   "requires": "a political or safety objection",
+   "provides": "selective disruption, other trade continuing normally"
+  },
+  "Automation dispute over new equipment": {
+   "requires": "installation of automated handling",
+   "provides": "disruption concentrated at one terminal, a structural rather than a pay issue"
+  },
+  "Single dominant national port": {
+   "requires": "most national trade through one estuary",
+   "provides": "no domestic alternative, immediate national effect"
+  },
+  "Several competing terminals": {
+   "requires": "rival operators in the same range",
+   "provides": "diversion possible between terminals, competitive pressure on the operator"
+  },
+  "Landlord port with many operators": {
+   "requires": "an authority leasing to independent stevedores",
+   "provides": "dispute confined to one employer, others unaffected"
+  },
+  "Fully automated terminal": {
+   "requires": "remote-operated cranes and vehicles",
+   "provides": "very few workers to withdraw, a small technical workforce with high leverage"
+  },
+  "Divert to another port": {
+   "requires": "spare capacity within reach",
+   "provides": "continuity at higher cost, inland transport rebalanced"
+  },
+  "Use of contractor labour": {
+   "requires": "workers willing to cross and legal permission",
+   "provides": "partial throughput, severe escalation of the dispute"
+  },
+  "Arbitration and settlement": {
+   "requires": "both parties willing to submit",
+   "provides": "resolution rather than substitution, days to weeks"
+  },
+  "Emergency legal powers": {
+   "requires": "legislation permitting compulsion",
+   "provides": "forced resumption, political and legal challenge"
+  },
+  "Absorbed by inventory": {
+   "requires": "importers holding buffer stock",
+   "provides": "no visible effect downstream"
+  },
+  "Delay and demurrage cost": {
+   "requires": "vessels waiting at anchor",
+   "provides": "financial cost, goods eventually delivered"
+  },
+  "Shortage of specific goods": {
+   "requires": "time-critical or single-sourced cargo",
+   "provides": "empty shelves in some categories only"
+  },
+  "Manufacturing stoppage": {
+   "requires": "just-in-time inputs failing to arrive",
+   "provides": "production halted, cost far exceeding the freight value"
+  }
+ },
+ "exclusions": {
+  "DISPUTE FORM|PORT CHARACTERISTIC": [
+   {
+    "row": "Automation dispute over new equipment",
+    "col": "Landlord port with many operators",
+    "code": "N7",
+    "requires": "an authority leasing to independent stevedores",
+    "blocked_by": "installation of automated handling"
+   },
+   {
+    "row": "Full withdrawal of labour",
+    "col": "Fully automated terminal",
+    "code": "N7",
+    "requires": "complete cessation of cargo handling",
+    "blocked_by": "very few workers to withdraw"
+   }
+  ],
+  "DISPUTE FORM|MITIGATION": [
+   {
+    "row": "Refusal to handle specific cargo",
+    "col": "Emergency legal powers",
+    "code": "N7",
+    "requires": "legislation permitting compulsion",
+    "blocked_by": "a political or safety objection"
+   },
+   {
+    "row": "Work to rule",
+    "col": "Use of contractor labour",
+    "code": "N7",
+    "requires": "workers willing to cross and legal permission",
+    "blocked_by": "strict adherence to procedure"
+   }
+  ],
+  "PORT CHARACTERISTIC|MITIGATION": [
+   {
+    "row": "Single dominant national port",
+    "col": "Divert to another port",
+    "code": "N3",
+    "requires": "spare capacity within reach",
+    "blocked_by": "no domestic alternative"
+   }
+  ],
+  "PORT CHARACTERISTIC|SUPPLY CHAIN EFFECT": [
+   {
+    "row": "Landlord port with many operators",
+    "col": "Manufacturing stoppage",
+    "code": "N7",
+    "requires": "just-in-time inputs failing to arrive",
+    "blocked_by": "dispute confined to one employer"
+   },
+   {
+    "row": "Several competing terminals",
+    "col": "Manufacturing stoppage",
+    "code": "N7",
+    "requires": "just-in-time inputs failing to arrive",
+    "blocked_by": "diversion possible between terminals"
+   }
+  ],
+  "DISPUTE FORM|SUPPLY CHAIN EFFECT": [
+   {
+    "row": "Refusal to handle specific cargo",
+    "col": "Manufacturing stoppage",
+    "code": "N7",
+    "requires": "just-in-time inputs failing to arrive",
+    "blocked_by": "other trade continuing normally"
+   }
+  ],
+  "MITIGATION|SUPPLY CHAIN EFFECT": [
+   {
+    "row": "Divert to another port",
+    "col": "Manufacturing stoppage",
+    "code": "N7",
+    "requires": "just-in-time inputs failing to arrive",
+    "blocked_by": "continuity at higher cost"
+   },
+   {
+    "row": "Arbitration and settlement",
+    "col": "Absorbed by inventory",
+    "code": "N7",
+    "requires": "importers holding buffer stock",
+    "blocked_by": "resolution rather than substitution"
+   }
+  ]
+ }
+}

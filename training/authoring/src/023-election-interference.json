@@ -1,0 +1,324 @@
+{
+ "domain": "election interference",
+ "group": "cyber",
+ "parameters": {
+  "ACTOR": [
+   "Foreign state intelligence service",
+   "Domestic partisan group",
+   "Financially motivated troll farm",
+   "Lone ideological hacker"
+  ],
+  "VECTOR": [
+   "Voter registration database intrusion",
+   "Coordinated inauthentic social accounts",
+   "Hack and leak of campaign material",
+   "Physical tampering with voting machines"
+  ],
+  "OBJECTIVE": [
+   "Change the recorded vote count",
+   "Suppress turnout in specific areas",
+   "Discredit the result regardless of outcome",
+   "Favour one candidate"
+  ],
+  "DETECTION OWNER": [
+   "Electoral commission audit",
+   "Platform trust and safety team",
+   "Intelligence service attribution",
+   "Journalist investigation"
+  ],
+  "TIMING": [
+   "Months before polling",
+   "Final week",
+   "After polls close"
+  ]
+ },
+ "characterisations": {
+  "Foreign state intelligence service": {
+   "requires": "national capability and strategic intent",
+   "provides": "intrusion capability, sustained funding, patience, deniability requirement"
+  },
+  "Domestic partisan group": {
+   "requires": "organisation within the country",
+   "provides": "local knowledge and legitimacy, no intrusion capability, open partisan aim"
+  },
+  "Financially motivated troll farm": {
+   "requires": "a paying client and cheap labour",
+   "provides": "volume content production, no intrusion capability, no ideological stake"
+  },
+  "Lone ideological hacker": {
+   "requires": "technical skill and conviction",
+   "provides": "intrusion of weak targets, no scale, no sustained operation"
+  },
+  "Voter registration database intrusion": {
+   "requires": "network access to electoral systems",
+   "provides": "alteration or deletion of registrations, no effect on ballots cast"
+  },
+  "Coordinated inauthentic social accounts": {
+   "requires": "volume of accounts and content",
+   "provides": "narrative amplification, no access to any official system"
+  },
+  "Hack and leak of campaign material": {
+   "requires": "intrusion into a campaign and a publication channel",
+   "provides": "authentic embarrassing material, one-time effect, needs media uptake"
+  },
+  "Physical tampering with voting machines": {
+   "requires": "physical access to devices in custody",
+   "provides": "direct effect on counts, extremely constrained access, forensic evidence"
+  },
+  "Change the recorded vote count": {
+   "requires": "access to tabulation or ballots themselves",
+   "provides": "direct alteration of the result, detectable by audit"
+  },
+  "Suppress turnout in specific areas": {
+   "requires": "targeting of identifiable populations",
+   "provides": "indirect effect on the result, plausible deniability"
+  },
+  "Discredit the result regardless of outcome": {
+   "requires": "only visible doubt, not actual alteration",
+   "provides": "success even when nothing is changed, no need for system access"
+  },
+  "Favour one candidate": {
+   "requires": "a preference between outcomes",
+   "provides": "directional effort, attributable partisan aim"
+  },
+  "Electoral commission audit": {
+   "requires": "a paper trail or auditable record",
+   "provides": "detection of count and registration anomalies, blind to online activity"
+  },
+  "Platform trust and safety team": {
+   "requires": "the activity occurring on their service",
+   "provides": "detection of inauthentic accounts, no visibility of intrusions"
+  },
+  "Intelligence service attribution": {
+   "requires": "collection against the actor",
+   "provides": "identification of a foreign hand, slow, often unpublishable"
+  },
+  "Journalist investigation": {
+   "requires": "a source or a public trail",
+   "provides": "public exposure of anything documented, unpredictable timing"
+  },
+  "Months before polling": {
+   "requires": "lead time",
+   "provides": "time for infrastructure intrusion and narrative building, time for defenders to respond"
+  },
+  "Final week": {
+   "requires": "activity that pays off immediately",
+   "provides": "no time for correction, maximum impact per unit effort"
+  },
+  "After polls close": {
+   "requires": "the vote already cast",
+   "provides": "no effect on votes, only on acceptance of the result"
+  }
+ },
+ "exclusions": {
+  "ACTOR|VECTOR": [
+   {
+    "row": "Foreign state intelligence service",
+    "col": "Physical tampering with voting machines",
+    "code": "N7",
+    "requires": "physical access to devices in custody",
+    "blocked_by": "deniability requirement"
+   },
+   {
+    "row": "Domestic partisan group",
+    "col": "Voter registration database intrusion",
+    "code": "N3",
+    "requires": "network access to electoral systems",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Domestic partisan group",
+    "col": "Hack and leak of campaign material",
+    "code": "N3",
+    "requires": "intrusion into a campaign and a publication channel",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Financially motivated troll farm",
+    "col": "Voter registration database intrusion",
+    "code": "N3",
+    "requires": "network access to electoral systems",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Financially motivated troll farm",
+    "col": "Hack and leak of campaign material",
+    "code": "N3",
+    "requires": "intrusion into a campaign and a publication channel",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Financially motivated troll farm",
+    "col": "Physical tampering with voting machines",
+    "code": "N3",
+    "requires": "physical access to devices in custody",
+    "blocked_by": "volume content production"
+   },
+   {
+    "row": "Lone ideological hacker",
+    "col": "Physical tampering with voting machines",
+    "code": "N7",
+    "requires": "physical access to devices in custody",
+    "blocked_by": "intrusion of weak targets"
+   }
+  ],
+  "ACTOR|OBJECTIVE": [
+   {
+    "row": "Domestic partisan group",
+    "col": "Change the recorded vote count",
+    "code": "N3",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Financially motivated troll farm",
+    "col": "Change the recorded vote count",
+    "code": "N3",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "no intrusion capability"
+   },
+   {
+    "row": "Lone ideological hacker",
+    "col": "Change the recorded vote count",
+    "code": "N7",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "no scale, no sustained operation"
+   }
+  ],
+  "ACTOR|DETECTION OWNER": [
+   {
+    "row": "Domestic partisan group",
+    "col": "Intelligence service attribution",
+    "code": "N3",
+    "requires": "identification of a foreign hand",
+    "blocked_by": "organisation within the country"
+   },
+   {
+    "row": "Financially motivated troll farm",
+    "col": "Electoral commission audit",
+    "code": "N3",
+    "requires": "a paper trail or auditable record",
+    "blocked_by": "volume content production"
+   }
+  ],
+  "VECTOR|OBJECTIVE": [
+   {
+    "row": "Coordinated inauthentic social accounts",
+    "col": "Change the recorded vote count",
+    "code": "N3",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "no access to any official system"
+   },
+   {
+    "row": "Hack and leak of campaign material",
+    "col": "Change the recorded vote count",
+    "code": "N3",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "authentic embarrassing material, one-time effect"
+   },
+   {
+    "row": "Hack and leak of campaign material",
+    "col": "Suppress turnout in specific areas",
+    "code": "N7",
+    "requires": "targeting of identifiable populations",
+    "blocked_by": "one-time effect, needs media uptake"
+   },
+   {
+    "row": "Physical tampering with voting machines",
+    "col": "Suppress turnout in specific areas",
+    "code": "N7",
+    "requires": "targeting of identifiable populations",
+    "blocked_by": "direct effect on counts"
+   }
+  ],
+  "VECTOR|DETECTION OWNER": [
+   {
+    "row": "Voter registration database intrusion",
+    "col": "Platform trust and safety team",
+    "code": "N3",
+    "requires": "the activity occurring on their service",
+    "blocked_by": "network access to electoral systems"
+   },
+   {
+    "row": "Coordinated inauthentic social accounts",
+    "col": "Electoral commission audit",
+    "code": "N3",
+    "requires": "a paper trail or auditable record",
+    "blocked_by": "blind to online activity"
+   },
+   {
+    "row": "Hack and leak of campaign material",
+    "col": "Electoral commission audit",
+    "code": "N3",
+    "requires": "a paper trail or auditable record",
+    "blocked_by": "blind to online activity"
+   },
+   {
+    "row": "Physical tampering with voting machines",
+    "col": "Platform trust and safety team",
+    "code": "N3",
+    "requires": "the activity occurring on their service",
+    "blocked_by": "physical access to devices in custody"
+   }
+  ],
+  "VECTOR|TIMING": [
+   {
+    "row": "Voter registration database intrusion",
+    "col": "After polls close",
+    "code": "N6",
+    "requires": "the vote already cast",
+    "blocked_by": "alteration or deletion of registrations"
+   }
+  ],
+  "OBJECTIVE|DETECTION OWNER": [
+   {
+    "row": "Change the recorded vote count",
+    "col": "Platform trust and safety team",
+    "code": "N3",
+    "requires": "the activity occurring on their service",
+    "blocked_by": "no visibility of intrusions"
+   },
+   {
+    "row": "Suppress turnout in specific areas",
+    "col": "Electoral commission audit",
+    "code": "N7",
+    "requires": "detection of count and registration anomalies",
+    "blocked_by": "indirect effect on the result"
+   },
+   {
+    "row": "Favour one candidate",
+    "col": "Electoral commission audit",
+    "code": "N7",
+    "requires": "detection of count and registration anomalies",
+    "blocked_by": "directional effort, attributable partisan aim"
+   }
+  ],
+  "OBJECTIVE|TIMING": [
+   {
+    "row": "Change the recorded vote count",
+    "col": "After polls close",
+    "code": "N3",
+    "requires": "access to tabulation or ballots themselves",
+    "blocked_by": "no effect on votes"
+   },
+   {
+    "row": "Suppress turnout in specific areas",
+    "col": "After polls close",
+    "code": "N3",
+    "requires": "targeting of identifiable populations",
+    "blocked_by": "the vote already cast"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "ACTOR|VECTOR": "database intrusion is N for a domestic partisan group and a troll farm - neither has intrusion capability. Physical tampering is Y only for a domestic group with local access and N for a foreign service, a troll farm and a lone hacker. Hack and leak is N for a troll farm.",
+  "ACTOR|OBJECTIVE": "changing the recorded count is N for everyone except a foreign service - it needs system access at tabulation, which the others lack.",
+  "ACTOR|DETECTION OWNER": "intelligence attribution is N for domestic actors and a lone hacker - it exists to identify foreign hands. A troll farm is N for electoral commission audit, having touched no electoral system.",
+  "ACTOR|TIMING": "a lone hacker is N after polls close - there is no target left that matches the capability.",
+  "VECTOR|OBJECTIVE": "inauthentic accounts are N for changing the count. Hack and leak is N for changing the count and N for turnout suppression - it is a narrative weapon. Physical tampering is N for turnout suppression, acting on ballots not on people.",
+  "VECTOR|DETECTION OWNER": "database intrusion and machine tampering are both N for platform teams. Inauthentic accounts are N for electoral audit and N for intelligence attribution as posed. Hack and leak is N for audit and N for platforms.",
+  "VECTOR|TIMING": "database intrusion is N after polls close. Physical tampering is N months before (machines not yet in position) and N after polls close.",
+  "OBJECTIVE|DETECTION OWNER": "changing the count is N for platform teams. Suppression, discrediting and favouring a candidate are all N for electoral audit, which sees counts, not persuasion.",
+  "OBJECTIVE|TIMING": "changing the count, suppressing turnout and favouring a candidate are all N after polls close. Only discrediting the result survives that boundary."
+ }
+}

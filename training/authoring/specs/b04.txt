@@ -1,0 +1,157 @@
+DOMAIN: drought and water rationing
+GROUP: resource management
+PARAM: SUPPLY SOURCE
+- Surface reservoir storage :: rainfall captured behind a dam :: visible declining storage, months of warning, vulnerable to evaporation
+- Confined groundwater aquifer :: boreholes into a deep formation :: buffered against a single dry season, recharge over decades, no visible indicator to the public
+- River abstraction :: a licence to take flow directly :: immediate response to rainfall, competition with ecological flow, no storage buffer at all
+- Desalination plant :: coastal intake and very large electrical supply :: independence from rainfall entirely, high unit cost, months to commission
+PARAM: DEMAND SECTOR
+- Household consumption :: connected domestic properties :: politically sensitive, modest total volume, responsive to tariffs and messaging
+- Irrigated agriculture :: farms holding abstraction rights :: the largest volume by far, seasonal timing, livelihood consequences
+- Industrial process water :: plants with process dependence :: continuous demand, employment consequences, some recycling possible
+- Power station cooling :: thermal generation needing cooling water :: non-substitutable within the plant, loss of generation if curtailed
+PARAM: RATIONING MEASURE
+- Tariff increase :: a metered supply and a billing relationship :: demand reduction through price, regressive impact, no effect on unmetered users
+- Rota supply by zone :: network valves and a schedule :: enforced volume reduction, contamination risk on repressurisation
+- Ban on non-essential use :: an enforceable legal restriction :: rapid modest saving, dependence on compliance
+- Emergency inter-basin transfer :: an existing pipeline or canal to another basin :: import of volume, transfer of the shortage elsewhere
+PARAM: OUTCOME
+- Shortage averted :: demand reduced within available supply :: no service failure
+- Supply interruption by zone :: demand still exceeding supply :: intermittent service, public health risk from contamination
+- Agricultural production lost :: irrigation curtailed for a season :: economic loss concentrated on farmers
+- Total supply failure :: source exhausted with no alternative :: emergency tankering, mass relocation
+EXCL: SUPPLY SOURCE|RATIONING MEASURE
+Desalination plant >< Emergency inter-basin transfer | N7 | an existing pipeline or canal to another basin | independence from rainfall entirely
+EXCL: SUPPLY SOURCE|OUTCOME
+Desalination plant >< Total supply failure | N7 | source exhausted with no alternative | independence from rainfall entirely
+Confined groundwater aquifer >< Total supply failure | N7 | source exhausted with no alternative | buffered against a single dry season
+EXCL: DEMAND SECTOR|RATIONING MEASURE
+Irrigated agriculture >< Tariff increase | N7 | a metered supply and a billing relationship | farms holding abstraction rights
+Power station cooling >< Ban on non-essential use | N3 | an enforceable legal restriction | non-substitutable within the plant
+Power station cooling >< Rota supply by zone | N3 | enforced volume reduction | non-substitutable within the plant
+EXCL: DEMAND SECTOR|OUTCOME
+Household consumption >< Agricultural production lost | N3 | irrigation curtailed for a season | connected domestic properties
+Industrial process water >< Agricultural production lost | N3 | irrigation curtailed for a season | plants with process dependence
+Power station cooling >< Agricultural production lost | N3 | irrigation curtailed for a season | thermal generation needing cooling water
+EXCL: RATIONING MEASURE|OUTCOME
+Tariff increase >< Total supply failure | N7 | source exhausted with no alternative | demand reduction through price
+EXCL: SUPPLY SOURCE|DEMAND SECTOR
+Desalination plant >< Irrigated agriculture | N7 | the largest volume by far | high unit cost
+---
+DOMAIN: desert locust outbreak
+GROUP: agriculture
+PARAM: INFESTATION STAGE
+- Solitarious population :: low density in the recession area :: no crop threat, no gregarious behaviour, detectable only by dedicated survey
+- Hopper bands on the ground :: gregarisation after good rains :: flightless and concentrated, highly treatable, a short window before fledging
+- Immature swarm in flight :: fledged adults forming a swarm :: movement of a hundred kilometres a day, unpredictable settling, no egg laying yet
+- Mature swarm laying eggs :: sexual maturation after rainfall :: the next generation established, laying sites dispersed over a wide area
+PARAM: SURVEY CAPABILITY
+- Ground survey teams :: vehicles and trained scouts with access :: accurate stage and density data, limited to accessible ground
+- Satellite greenness imagery :: cloud-free imagery and analysis :: identification of areas that may become breeding habitat, no direct sight of any insect
+- Aerial reconnaissance :: light aircraft on task :: rapid coverage of large areas, detection of swarms rather than hoppers
+- No survey access :: conflict or insecurity closing the area :: no information from that territory at all
+PARAM: CONTROL METHOD
+- Ground vehicle spraying :: road access to the target band :: precise treatment of hopper bands, very low output per day
+- Aerial ultra-low-volume spraying :: aircraft, an airstrip and a located target :: treatment of large swarms, dependence on knowing where the target is
+- Biopesticide application :: acceptance of a slower kill and warm conditions :: no harm to non-target species, effect over one to two weeks
+- No intervention :: nothing :: no cost, full development to the next stage
+PARAM: OUTCOME
+- Outbreak contained locally :: treatment during the hopper stage :: minimal crop loss, no regional spread
+- Regional upsurge :: multiple generations across countries :: sustained multi-country campaign, major funding requirement
+- Crop loss in one season :: swarms reaching cultivated land :: food security emergency, no permanent change
+- Plague across the range :: continuous breeding over years :: transboundary emergency, years to bring under control
+EXCL: INFESTATION STAGE|SURVEY CAPABILITY
+Solitarious population >< Aerial reconnaissance | N3 | detection of swarms rather than hoppers | no gregarious behaviour
+Hopper bands on the ground >< Aerial reconnaissance | N3 | detection of swarms rather than hoppers | flightless and concentrated
+EXCL: INFESTATION STAGE|CONTROL METHOD
+Immature swarm in flight >< Ground vehicle spraying | N3 | road access to the target band | movement of a hundred kilometres a day
+Mature swarm laying eggs >< Ground vehicle spraying | N7 | precise treatment of hopper bands | laying sites dispersed over a wide area
+EXCL: SURVEY CAPABILITY|CONTROL METHOD
+No survey access >< Aerial ultra-low-volume spraying | N3 | a located target | no information from that territory at all
+No survey access >< Ground vehicle spraying | N3 | road access to the target band | conflict or insecurity closing the area
+Satellite greenness imagery >< Ground vehicle spraying | N7 | precise treatment of hopper bands | no direct sight of any insect
+EXCL: CONTROL METHOD|OUTCOME
+No intervention >< Outbreak contained locally | N3 | treatment during the hopper stage | full development to the next stage
+Biopesticide application >< Outbreak contained locally | N7 | treatment during the hopper stage | effect over one to two weeks
+EXCL: INFESTATION STAGE|OUTCOME
+Solitarious population >< Crop loss in one season | N3 | swarms reaching cultivated land | no crop threat
+Solitarious population >< Plague across the range | N7 | continuous breeding over years | low density in the recession area
+---
+DOMAIN: undersea cable damage
+GROUP: infrastructure
+PARAM: DAMAGE CAUSE
+- Fishing trawl or anchor :: a vessel working over the cable route :: shallow water damage, an identifiable vessel track, the commonest cause by far
+- Submarine landslide :: seabed instability on a slope :: multiple cables cut simultaneously, deep water, no responsible party
+- Deliberate cutting by a state actor :: a vessel or vehicle capable of reaching the cable :: precise simultaneous cuts, deniability, no accidental signature
+- Equipment failure in a repeater :: an electronic fault in the wet plant :: no physical break in the cable, capacity lost on some fibres only
+PARAM: ROUTE REDUNDANCY
+- Single cable serving the territory :: one physical path :: total loss of connectivity on any break, no alternative at all
+- Multiple cables on the same corridor :: several cables sharing a seabed route :: apparent redundancy, common-mode failure from one seabed event
+- Geographically diverse cables :: paths separated by hundreds of kilometres :: genuine redundancy against any local event
+- Satellite backup available :: contracted capacity on orbit :: continuity of essential traffic, a small fraction of cable capacity
+PARAM: DETECTION AND LOCATION
+- Optical time-domain reflectometry :: access to the fibre from a landing station :: distance to the fault along the cable, no cause information
+- Traffic monitoring at the landing station :: network telemetry :: immediate awareness of loss, no location
+- Vessel tracking correlation :: an automatic identification system record :: identification of a vessel over the fault at the time, only for surface vessels
+- Repair ship survey :: a cable ship on site :: definitive location and cause, days to weeks to arrive
+PARAM: SERVICE CONSEQUENCE
+- No user impact :: capacity absorbed by other paths :: no consequence
+- Degraded capacity :: reduced bandwidth on surviving paths :: congestion and latency, service continues
+- Complete outage for the territory :: all paths lost :: national-scale disconnection
+- Financial market disruption :: latency-sensitive traffic rerouted :: trading impact, measurable economic cost
+EXCL: DAMAGE CAUSE|ROUTE REDUNDANCY
+Submarine landslide >< Geographically diverse cables | N7 | paths separated by hundreds of kilometres | multiple cables cut simultaneously
+EXCL: DAMAGE CAUSE|DETECTION AND LOCATION
+Equipment failure in a repeater >< Vessel tracking correlation | N3 | identification of a vessel over the fault at the time | no physical break in the cable
+Submarine landslide >< Vessel tracking correlation | N3 | only for surface vessels | no responsible party
+Deliberate cutting by a state actor >< Vessel tracking correlation | N7 | identification of a vessel over the fault at the time | deniability
+EXCL: DAMAGE CAUSE|SERVICE CONSEQUENCE
+Equipment failure in a repeater >< Complete outage for the territory | N7 | all paths lost | capacity lost on some fibres only
+EXCL: ROUTE REDUNDANCY|SERVICE CONSEQUENCE
+Single cable serving the territory >< No user impact | N3 | capacity absorbed by other paths | no alternative at all
+Geographically diverse cables >< Complete outage for the territory | N7 | all paths lost | genuine redundancy against any local event
+EXCL: DETECTION AND LOCATION|SERVICE CONSEQUENCE
+Traffic monitoring at the landing station >< No user impact | N7 | capacity absorbed by other paths | immediate awareness of loss
+EXCL: DETECTION AND LOCATION|DAMAGE CAUSE
+Optical time-domain reflectometry >< Deliberate cutting by a state actor | N7 | no cause information | precise simultaneous cuts
+EXCL: ROUTE REDUNDANCY|DETECTION AND LOCATION
+Satellite backup available >< Repair ship survey | N7 | a cable ship on site | contracted capacity on orbit
+---
+DOMAIN: satellite navigation denial affecting transport
+GROUP: infrastructure
+PARAM: INTERFERENCE TYPE
+- Broadband noise jamming :: a transmitter raising the noise floor :: complete loss of lock, obvious failure, easily geolocated
+- Meaconing rebroadcast :: a receiver and a delayed retransmission :: a plausible but wrong position, no loss of lock at all
+- Spoofed constellation signal :: knowledge of the signal structure and timing :: a controlled false position, the receiver reporting full confidence
+- Solar radio burst :: natural emission from the sun :: brief hemisphere-wide degradation, no attributable actor
+PARAM: AFFECTED USER
+- Commercial aviation :: aircraft using satellite-based approach procedures :: reversion to conventional navigation aids, crew trained for the failure
+- Maritime navigation in a strait :: vessels in a confined channel :: very little sea room, radar and visual fixing available
+- Road freight telematics :: fleets depending on position reporting :: no safety consequence, commercial and regulatory disruption
+- Timing for the power grid :: substations using satellite time :: protection and synchrophasor errors, no positioning involved
+PARAM: RESILIENCE MEASURE
+- Inertial navigation backup :: an installed inertial unit :: continued navigation with drifting accuracy, no dependence on any signal
+- Terrestrial radio navigation :: a ground transmitter network in service :: independent position fixing, coarse accuracy
+- Holdover oscillator :: a stable local clock :: timing maintained for hours to days, no positioning benefit whatsoever
+- Nothing but the satellite signal :: a single-source receiver :: total dependence, immediate loss on any interference
+PARAM: CONSEQUENCE
+- Detected and disregarded :: the user recognising bad data :: no operational effect
+- Reversion to a backup method :: an available alternative :: reduced accuracy, operations continue
+- Operations suspended :: no acceptable alternative :: delay and economic cost, safety preserved
+- Position error acted upon :: false data trusted and used :: grounding, airspace infringement or protection maloperation
+EXCL: INTERFERENCE TYPE|AFFECTED USER
+Meaconing rebroadcast >< Timing for the power grid | N7 | substations using satellite time | a plausible but wrong position
+EXCL: INTERFERENCE TYPE|CONSEQUENCE
+Broadband noise jamming >< Position error acted upon | N3 | false data trusted and used | complete loss of lock, obvious failure
+EXCL: AFFECTED USER|RESILIENCE MEASURE
+Timing for the power grid >< Inertial navigation backup | N3 | continued navigation with drifting accuracy | no positioning involved
+Timing for the power grid >< Terrestrial radio navigation | N3 | independent position fixing | no positioning involved
+Road freight telematics >< Holdover oscillator | N7 | no positioning benefit whatsoever | fleets depending on position reporting
+Commercial aviation >< Holdover oscillator | N3 | no positioning benefit whatsoever | aircraft using satellite-based approach procedures
+Maritime navigation in a strait >< Holdover oscillator | N3 | no positioning benefit whatsoever | vessels in a confined channel
+EXCL: RESILIENCE MEASURE|CONSEQUENCE
+Nothing but the satellite signal >< Reversion to a backup method | N3 | an available alternative | total dependence
+EXCL: AFFECTED USER|CONSEQUENCE
+Road freight telematics >< Operations suspended | N7 | no acceptable alternative | no safety consequence
+EXCL: INTERFERENCE TYPE|RESILIENCE MEASURE
+Solar radio burst >< Terrestrial radio navigation | N7 | a ground transmitter network in service | brief hemisphere-wide degradation

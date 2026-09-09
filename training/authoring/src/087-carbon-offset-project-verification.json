@@ -1,0 +1,171 @@
+{
+ "domain": "carbon offset project verification",
+ "group": "environment",
+ "parameters": {
+  "PROJECT TYPE": [
+   "Avoided deforestation",
+   "New woodland planting",
+   "Industrial gas destruction",
+   "Cookstove distribution"
+  ],
+  "BASELINE METHOD": [
+   "Counterfactual scenario modelling",
+   "Direct metering of the flow",
+   "Sampled household survey",
+   "Remote sensing of land cover"
+  ],
+  "PERMANENCE RISK": [
+   "Reversal by wildfire",
+   "Political or tenure change",
+   "Permanent chemical destruction",
+   "Behavioural relapse"
+  ],
+  "VERIFICATION OUTCOME": [
+   "Credits issued in full",
+   "Volume discounted for uncertainty",
+   "Registration refused",
+   "Credits invalidated after issue"
+  ]
+ },
+ "characterisations": {
+  "Avoided deforestation": {
+   "requires": "a credible threat to standing forest",
+   "provides": "large volumes of credits, dependence on a counterfactual baseline"
+  },
+  "New woodland planting": {
+   "requires": "land available and secured for decades",
+   "provides": "measurable growth on the ground, sequestration only over many years"
+  },
+  "Industrial gas destruction": {
+   "requires": "a plant emitting a high-potency gas",
+   "provides": "precise metering at the stack, no land use question at all"
+  },
+  "Cookstove distribution": {
+   "requires": "households using inefficient stoves",
+   "provides": "many small dispersed reductions, reliance on surveys of usage"
+  },
+  "Counterfactual scenario modelling": {
+   "requires": "an argued account of what would otherwise happen",
+   "provides": "credits for avoided emissions, unverifiable in principle"
+  },
+  "Direct metering of the flow": {
+   "requires": "an instrument on the emission point",
+   "provides": "measurement rather than inference, no scenario argument needed"
+  },
+  "Sampled household survey": {
+   "requires": "a representative sample and fieldwork",
+   "provides": "an estimate with confidence bounds, exposure to reporting bias"
+  },
+  "Remote sensing of land cover": {
+   "requires": "satellite imagery over time",
+   "provides": "independent observation of change, no insight into causation"
+  },
+  "Reversal by wildfire": {
+   "requires": "stored carbon in living biomass",
+   "provides": "loss of the entire stock in one event, a buffer pool required"
+  },
+  "Political or tenure change": {
+   "requires": "land rights that can be revoked",
+   "provides": "protection lasting only as long as the regime, no physical guarantee"
+  },
+  "Permanent chemical destruction": {
+   "requires": "a molecule destroyed rather than stored",
+   "provides": "no possibility of reversal, permanence by physics"
+  },
+  "Behavioural relapse": {
+   "requires": "users returning to the old practice",
+   "provides": "reductions ending when the project ends, no lasting asset"
+  },
+  "Credits issued in full": {
+   "requires": "an auditor satisfied on all counts",
+   "provides": "tradeable units created, revenue to the developer"
+  },
+  "Volume discounted for uncertainty": {
+   "requires": "doubts over the baseline",
+   "provides": "fewer credits than claimed, the project still viable"
+  },
+  "Registration refused": {
+   "requires": "a methodology not accepted",
+   "provides": "no credits at all, sunk development cost"
+  },
+  "Credits invalidated after issue": {
+   "requires": "a reversal or an audit failure",
+   "provides": "units cancelled, buyers left exposed"
+  }
+ },
+ "exclusions": {
+  "PROJECT TYPE|BASELINE METHOD": [
+   {
+    "row": "Industrial gas destruction",
+    "col": "Remote sensing of land cover",
+    "code": "N3",
+    "requires": "satellite imagery over time",
+    "blocked_by": "no land use question at all"
+   },
+   {
+    "row": "Industrial gas destruction",
+    "col": "Sampled household survey",
+    "code": "N3",
+    "requires": "a representative sample and fieldwork",
+    "blocked_by": "no land use question at all"
+   },
+   {
+    "row": "Cookstove distribution",
+    "col": "Direct metering of the flow",
+    "code": "N3",
+    "requires": "an instrument on the emission point",
+    "blocked_by": "many small dispersed reductions"
+   }
+  ],
+  "PROJECT TYPE|PERMANENCE RISK": [
+   {
+    "row": "Industrial gas destruction",
+    "col": "Reversal by wildfire",
+    "code": "N3",
+    "requires": "stored carbon in living biomass",
+    "blocked_by": "no land use question at all"
+   },
+   {
+    "row": "Cookstove distribution",
+    "col": "Reversal by wildfire",
+    "code": "N3",
+    "requires": "stored carbon in living biomass",
+    "blocked_by": "many small dispersed reductions"
+   },
+   {
+    "row": "New woodland planting",
+    "col": "Permanent chemical destruction",
+    "code": "N3",
+    "requires": "a molecule destroyed rather than stored",
+    "blocked_by": "measurable growth on the ground"
+   }
+  ],
+  "BASELINE METHOD|PERMANENCE RISK": [
+   {
+    "row": "Direct metering of the flow",
+    "col": "Behavioural relapse",
+    "code": "N3",
+    "requires": "users returning to the old practice",
+    "blocked_by": "an instrument on the emission point"
+   }
+  ],
+  "PERMANENCE RISK|VERIFICATION OUTCOME": [
+   {
+    "row": "Permanent chemical destruction",
+    "col": "Credits invalidated after issue",
+    "code": "N7",
+    "requires": "a reversal or an audit failure",
+    "blocked_by": "no possibility of reversal"
+   }
+  ],
+  "BASELINE METHOD|VERIFICATION OUTCOME": [
+   {
+    "row": "Direct metering of the flow",
+    "col": "Volume discounted for uncertainty",
+    "code": "N7",
+    "requires": "doubts over the baseline",
+    "blocked_by": "no scenario argument needed"
+   }
+  ]
+ }
+}

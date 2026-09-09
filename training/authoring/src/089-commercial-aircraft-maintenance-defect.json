@@ -1,0 +1,148 @@
+{
+ "domain": "commercial aircraft maintenance defect",
+ "group": "aviation",
+ "parameters": {
+  "DEFECT TYPE": [
+   "Structural fatigue crack",
+   "Engine component failure",
+   "Avionics software fault",
+   "Corrosion in a hidden area"
+  ],
+  "DETECTION MEANS": [
+   "Line check before flight",
+   "Scheduled heavy maintenance",
+   "Onboard monitoring system",
+   "Defect reported by the crew"
+  ],
+  "OPERATIONAL PRESSURE": [
+   "Aircraft grounded pending fix",
+   "Deferred under the minimum equipment list",
+   "Peak season with no spare aircraft",
+   "Aircraft due for retirement"
+  ],
+  "SAFETY OUTCOME": [
+   "Defect rectified before flight",
+   "In-flight event with safe landing",
+   "Accident with hull loss",
+   "Defect never found at all"
+  ]
+ },
+ "characterisations": {
+  "Structural fatigue crack": {
+   "requires": "cycles accumulated on the airframe",
+   "provides": "growth over time, detection only by deliberate inspection"
+  },
+  "Engine component failure": {
+   "requires": "a part reaching its life limit",
+   "provides": "loss of thrust, a possible uncontained release"
+  },
+  "Avionics software fault": {
+   "requires": "a latent coding defect",
+   "provides": "erroneous indications, no physical wear anywhere"
+  },
+  "Corrosion in a hidden area": {
+   "requires": "moisture ingress over years",
+   "provides": "strength lost where no one looks, discovery only on deep inspection"
+  },
+  "Line check before flight": {
+   "requires": "a walkaround and a few minutes",
+   "provides": "gross external defects found, nothing internal seen"
+  },
+  "Scheduled heavy maintenance": {
+   "requires": "the aircraft out of service for weeks",
+   "provides": "structure opened and inspected, a very high cost"
+  },
+  "Onboard monitoring system": {
+   "requires": "sensors and a data link",
+   "provides": "continuous trend data, only what is instrumented"
+  },
+  "Defect reported by the crew": {
+   "requires": "a symptom noticed in flight",
+   "provides": "real operational evidence, only after it has manifested"
+  },
+  "Aircraft grounded pending fix": {
+   "requires": "a decision to stop flying it",
+   "provides": "the aircraft not flown at all, no revenue earned"
+  },
+  "Deferred under the minimum equipment list": {
+   "requires": "an allowable deferral",
+   "provides": "continued service with limitations, a fixed time to repair"
+  },
+  "Peak season with no spare aircraft": {
+   "requires": "full utilisation planned",
+   "provides": "strong pressure to keep flying, cancellations if grounded"
+  },
+  "Aircraft due for retirement": {
+   "requires": "an airframe leaving the fleet shortly",
+   "provides": "reluctance to invest in repair, an economic write-off possible"
+  },
+  "Defect rectified before flight": {
+   "requires": "parts and engineers available",
+   "provides": "airworthiness restored, a delay only"
+  },
+  "In-flight event with safe landing": {
+   "requires": "a failure managed by the crew",
+   "provides": "an occurrence report, the aircraft recovered"
+  },
+  "Accident with hull loss": {
+   "requires": "a failure beyond the crew's control",
+   "provides": "fatalities possible, a formal investigation"
+  },
+  "Defect never found at all": {
+   "requires": "no inspection ever reaching it",
+   "provides": "latent risk carried, no record of any kind"
+  }
+ },
+ "exclusions": {
+  "DEFECT TYPE|DETECTION MEANS": [
+   {
+    "row": "Corrosion in a hidden area",
+    "col": "Line check before flight",
+    "code": "N3",
+    "requires": "a walkaround and a few minutes",
+    "blocked_by": "discovery only on deep inspection"
+   },
+   {
+    "row": "Avionics software fault",
+    "col": "Scheduled heavy maintenance",
+    "code": "N7",
+    "requires": "structure opened and inspected",
+    "blocked_by": "no physical wear anywhere"
+   }
+  ],
+  "DETECTION MEANS|SAFETY OUTCOME": [
+   {
+    "row": "Defect reported by the crew",
+    "col": "Defect never found at all",
+    "code": "N1",
+    "requires": "no inspection ever reaching it",
+    "blocked_by": "real operational evidence"
+   }
+  ],
+  "OPERATIONAL PRESSURE|SAFETY OUTCOME": [
+   {
+    "row": "Aircraft grounded pending fix",
+    "col": "In-flight event with safe landing",
+    "code": "N3",
+    "requires": "a failure managed by the crew",
+    "blocked_by": "the aircraft not flown at all"
+   },
+   {
+    "row": "Aircraft grounded pending fix",
+    "col": "Accident with hull loss",
+    "code": "N3",
+    "requires": "a failure beyond the crew's control",
+    "blocked_by": "the aircraft not flown at all"
+   }
+  ],
+  "DEFECT TYPE|SAFETY OUTCOME": [
+   {
+    "row": "Avionics software fault",
+    "col": "Accident with hull loss",
+    "code": "N7",
+    "requires": "a failure beyond the crew's control",
+    "blocked_by": "no physical wear anywhere"
+   }
+  ]
+ }
+}

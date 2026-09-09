@@ -1,0 +1,210 @@
+{
+ "domain": "epidemic containment",
+ "group": "civil",
+ "parameters": {
+  "TRANSMISSION MODE": [
+   "Respiratory aerosol",
+   "Direct blood contact",
+   "Vector-borne by mosquito",
+   "Contaminated water supply"
+  ],
+  "INTERVENTION": [
+   "Mass vaccination campaign",
+   "Vector habitat elimination",
+   "Water treatment and chlorination",
+   "Contact tracing and isolation",
+   "Blood product screening"
+  ],
+  "SETTING": [
+   "Dense urban settlement",
+   "Dispersed rural population",
+   "Closed institution",
+   "Refugee camp"
+  ],
+  "TIMEFRAME": [
+   "First 72 hours",
+   "Weeks one to four",
+   "Months of sustained response"
+  ]
+ },
+ "characterisations": {
+  "Respiratory aerosol": {
+   "requires": "shared air, proximity or ventilation pathways",
+   "provides": "very fast spread, no vector, no water pathway, high household attack rate"
+  },
+  "Direct blood contact": {
+   "requires": "a breach of skin, shared instruments or transfusion",
+   "provides": "slow spread, identifiable exposure events, no airborne risk"
+  },
+  "Vector-borne by mosquito": {
+   "requires": "a competent vector species and breeding habitat",
+   "provides": "spread bounded by vector range and season, no person-to-person transmission"
+  },
+  "Contaminated water supply": {
+   "requires": "a shared water source and a contamination event",
+   "provides": "explosive geographically bounded outbreaks, no person-to-person requirement"
+  },
+  "Mass vaccination campaign": {
+   "requires": "an existing licensed vaccine and weeks of logistics",
+   "provides": "population immunity, no effect within days"
+  },
+  "Vector habitat elimination": {
+   "requires": "an identified vector with breeding sites",
+   "provides": "reduced vector density over weeks, no effect on direct transmission"
+  },
+  "Water treatment and chlorination": {
+   "requires": "a identifiable water distribution system",
+   "provides": "removal of a waterborne pathway within days, no effect on other routes"
+  },
+  "Contact tracing and isolation": {
+   "requires": "identifiable person-to-person transmission chains",
+   "provides": "interruption of chains, defeated by high case counts"
+  },
+  "Blood product screening": {
+   "requires": "a formal transfusion and donation system",
+   "provides": "elimination of transfusion risk, no effect on other routes"
+  },
+  "Dense urban settlement": {
+   "requires": "high population density and shared infrastructure",
+   "provides": "rapid respiratory spread, shared water systems, hard contact tracing"
+  },
+  "Dispersed rural population": {
+   "requires": "low density, long travel distances",
+   "provides": "slow spread, feasible tracing, weak infrastructure, independent water sources"
+  },
+  "Closed institution": {
+   "requires": "a defined bounded population, controlled entry",
+   "provides": "complete contact lists, total shared air, easy isolation"
+  },
+  "Refugee camp": {
+   "requires": "temporary shelter, dense unplanned occupancy",
+   "provides": "shared standpipe water, no formal medical system, high density, transient population"
+  },
+  "First 72 hours": {
+   "requires": "immediate action on incomplete information",
+   "provides": "time only for measures that act within days"
+  },
+  "Weeks one to four": {
+   "requires": "an established response structure",
+   "provides": "time for logistics-dependent measures"
+  },
+  "Months of sustained response": {
+   "requires": "durable funding and staffing",
+   "provides": "time for anything, including immunisation and habitat change"
+  }
+ },
+ "exclusions": {
+  "TRANSMISSION MODE|INTERVENTION": [
+   {
+    "row": "Respiratory aerosol",
+    "col": "Vector habitat elimination",
+    "code": "N3",
+    "requires": "an identified vector with breeding sites",
+    "blocked_by": "no vector"
+   },
+   {
+    "row": "Respiratory aerosol",
+    "col": "Water treatment and chlorination",
+    "code": "N3",
+    "requires": "removal of a waterborne pathway within days",
+    "blocked_by": "no water pathway"
+   },
+   {
+    "row": "Respiratory aerosol",
+    "col": "Blood product screening",
+    "code": "N7",
+    "requires": "elimination of transfusion risk",
+    "blocked_by": "shared air, proximity or ventilation pathways"
+   },
+   {
+    "row": "Direct blood contact",
+    "col": "Vector habitat elimination",
+    "code": "N3",
+    "requires": "an identified vector with breeding sites",
+    "blocked_by": "a breach of skin, shared instruments or transfusion"
+   },
+   {
+    "row": "Direct blood contact",
+    "col": "Water treatment and chlorination",
+    "code": "N3",
+    "requires": "removal of a waterborne pathway within days",
+    "blocked_by": "a breach of skin, shared instruments or transfusion"
+   },
+   {
+    "row": "Vector-borne by mosquito",
+    "col": "Water treatment and chlorination",
+    "code": "N3",
+    "requires": "removal of a waterborne pathway within days",
+    "blocked_by": "a competent vector species and breeding habitat"
+   },
+   {
+    "row": "Vector-borne by mosquito",
+    "col": "Contact tracing and isolation",
+    "code": "N3",
+    "requires": "identifiable person-to-person transmission chains",
+    "blocked_by": "no person-to-person transmission"
+   },
+   {
+    "row": "Contaminated water supply",
+    "col": "Vector habitat elimination",
+    "code": "N3",
+    "requires": "an identified vector with breeding sites",
+    "blocked_by": "a shared water source and a contamination event"
+   },
+   {
+    "row": "Contaminated water supply",
+    "col": "Contact tracing and isolation",
+    "code": "N3",
+    "requires": "identifiable person-to-person transmission chains",
+    "blocked_by": "no person-to-person requirement"
+   },
+   {
+    "row": "Contaminated water supply",
+    "col": "Blood product screening",
+    "code": "N7",
+    "requires": "elimination of transfusion risk",
+    "blocked_by": "no person-to-person requirement"
+   }
+  ],
+  "INTERVENTION|SETTING": [
+   {
+    "row": "Vector habitat elimination",
+    "col": "Closed institution",
+    "code": "N7",
+    "requires": "an identified vector with breeding sites",
+    "blocked_by": "a defined bounded population, controlled entry"
+   },
+   {
+    "row": "Blood product screening",
+    "col": "Refugee camp",
+    "code": "N3",
+    "requires": "a formal transfusion and donation system",
+    "blocked_by": "no formal medical system"
+   }
+  ],
+  "INTERVENTION|TIMEFRAME": [
+   {
+    "row": "Mass vaccination campaign",
+    "col": "First 72 hours",
+    "code": "N4",
+    "requires": "an existing licensed vaccine and weeks of logistics",
+    "blocked_by": "time only for measures that act within days"
+   },
+   {
+    "row": "Vector habitat elimination",
+    "col": "First 72 hours",
+    "code": "N4",
+    "requires": "reduced vector density over weeks",
+    "blocked_by": "time only for measures that act within days"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "TRANSMISSION MODE|INTERVENTION": "vector elimination is N for everything except mosquito-borne, since there is no vector to eliminate. Water treatment is N except for waterborne. Blood screening is N except for blood contact. Contact tracing is N for vector-borne and waterborne: neither has person-to-person chains to trace. Vaccination is plausible for all four.",
+  "TRANSMISSION MODE|SETTING": "respiratory in a refugee camp, urban, rural and closed institution are all plausible. Blood contact in a refugee camp is Y (unsafe injection) but N in a closed institution only if that institution has no medical function - here it is Y. Vector-borne in a closed institution is N: controlled entry and indoor confinement break the vector's access. Waterborne in a closed institution is Y via a single shared supply. Blood contact in dispersed rural is N: no formal transfusion system to carry it.",
+  "TRANSMISSION MODE|TIMEFRAME": "vector-borne in the first 72 hours is N: transmission bounded by a mosquito life cycle is not a 72-hour phenomenon.",
+  "INTERVENTION|SETTING": "contact tracing in a dense urban settlement is N (case counts overwhelm it) and in a refugee camp is N (transient population, no records). Vector elimination in a closed institution is N: no breeding habitat under controlled entry. Blood screening in a refugee camp is N: no formal donation system exists.",
+  "INTERVENTION|TIMEFRAME": "vaccination and vector elimination are both N in the first 72 hours and in weeks one to four for vaccination logistics; vector elimination needs a breeding cycle so it is N at both short horizons. Water treatment, tracing and screening all act within days.",
+  "SETTING|TIMEFRAME": "no setting is incompatible with any timeframe."
+ }
+}

@@ -1,0 +1,187 @@
+{
+ "domain": "bank liquidity crisis",
+ "group": "finance",
+ "parameters": {
+  "TRIGGER": [
+   "Credit loss on the asset book",
+   "Interest rate mark-to-market loss",
+   "Deposit flight from social media rumour",
+   "Wholesale funding market closure"
+  ],
+  "FUNDING PROFILE": [
+   "Retail insured deposits",
+   "Large uninsured corporate deposits",
+   "Short-term wholesale borrowing",
+   "Long-dated covered bonds"
+  ],
+  "LIQUIDITY SOURCE": [
+   "High-quality liquid asset buffer",
+   "Central bank discount window",
+   "Emergency asset sale",
+   "Acquisition by a stronger bank"
+  ],
+  "OUTCOME": [
+   "Stabilised without intervention",
+   "Central bank support facility",
+   "Resolution and transfer of deposits",
+   "Disorderly failure"
+  ]
+ },
+ "characterisations": {
+  "Credit loss on the asset book": {
+   "requires": "borrowers defaulting in size",
+   "provides": "solvency question rather than liquidity, losses realised over quarters"
+  },
+  "Interest rate mark-to-market loss": {
+   "requires": "rates rising against a long bond portfolio",
+   "provides": "unrealised loss crystallised only if assets are sold, no credit deterioration at all"
+  },
+  "Deposit flight from social media rumour": {
+   "requires": "a coordinated loss of confidence",
+   "provides": "outflow within hours, no change in asset quality whatsoever"
+  },
+  "Wholesale funding market closure": {
+   "requires": "counterparties refusing to roll funding",
+   "provides": "no retail visibility, refinancing failure at maturity"
+  },
+  "Retail insured deposits": {
+   "requires": "balances within the guarantee limit",
+   "provides": "very sticky, protected depositors with no incentive to run"
+  },
+  "Large uninsured corporate deposits": {
+   "requires": "balances far above any guarantee",
+   "provides": "highly mobile, concentrated among few holders"
+  },
+  "Short-term wholesale borrowing": {
+   "requires": "repo and commercial paper",
+   "provides": "repriced or withdrawn at every maturity, no depositor protection concept"
+  },
+  "Long-dated covered bonds": {
+   "requires": "secured term funding",
+   "provides": "no early withdrawal possible, no run risk at all"
+  },
+  "High-quality liquid asset buffer": {
+   "requires": "unencumbered government securities",
+   "provides": "immediate monetisation, loss realised if sold below cost"
+  },
+  "Central bank discount window": {
+   "requires": "eligible collateral and willingness to be seen using it",
+   "provides": "large and immediate, stigma risk if disclosed"
+  },
+  "Emergency asset sale": {
+   "requires": "a buyer for the portfolio",
+   "provides": "cash raised, crystallisation of losses and signalling of distress"
+  },
+  "Acquisition by a stronger bank": {
+   "requires": "a willing acquirer and regulatory approval",
+   "provides": "complete resolution, loss of the institution"
+  },
+  "Stabilised without intervention": {
+   "requires": "outflow ceasing on its own",
+   "provides": "no public cost, reputational damage only"
+  },
+  "Central bank support facility": {
+   "requires": "liquidity provided against collateral",
+   "provides": "institution survives, moral hazard debate"
+  },
+  "Resolution and transfer of deposits": {
+   "requires": "a resolution authority acting over a weekend",
+   "provides": "depositors made whole, shareholders wiped out"
+  },
+  "Disorderly failure": {
+   "requires": "no buyer and no facility",
+   "provides": "depositor loss, contagion to peers"
+  }
+ },
+ "exclusions": {
+  "TRIGGER|FUNDING PROFILE": [
+   {
+    "row": "Deposit flight from social media rumour",
+    "col": "Long-dated covered bonds",
+    "code": "N3",
+    "requires": "no early withdrawal possible",
+    "blocked_by": "outflow within hours"
+   },
+   {
+    "row": "Deposit flight from social media rumour",
+    "col": "Retail insured deposits",
+    "code": "N7",
+    "requires": "protected depositors with no incentive to run",
+    "blocked_by": "a coordinated loss of confidence"
+   },
+   {
+    "row": "Wholesale funding market closure",
+    "col": "Retail insured deposits",
+    "code": "N3",
+    "requires": "counterparties refusing to roll funding",
+    "blocked_by": "very sticky"
+   }
+  ],
+  "TRIGGER|LIQUIDITY SOURCE": [
+   {
+    "row": "Interest rate mark-to-market loss",
+    "col": "High-quality liquid asset buffer",
+    "code": "N7",
+    "requires": "immediate monetisation",
+    "blocked_by": "unrealised loss crystallised only if assets are sold"
+   }
+  ],
+  "FUNDING PROFILE|LIQUIDITY SOURCE": [
+   {
+    "row": "Long-dated covered bonds",
+    "col": "Emergency asset sale",
+    "code": "N7",
+    "requires": "a buyer for the portfolio",
+    "blocked_by": "no run risk at all"
+   }
+  ],
+  "FUNDING PROFILE|OUTCOME": [
+   {
+    "row": "Long-dated covered bonds",
+    "col": "Disorderly failure",
+    "code": "N7",
+    "requires": "depositor loss, contagion to peers",
+    "blocked_by": "no run risk at all"
+   },
+   {
+    "row": "Retail insured deposits",
+    "col": "Disorderly failure",
+    "code": "N7",
+    "requires": "depositor loss, contagion to peers",
+    "blocked_by": "protected depositors with no incentive to run"
+   }
+  ],
+  "LIQUIDITY SOURCE|OUTCOME": [
+   {
+    "row": "Acquisition by a stronger bank",
+    "col": "Stabilised without intervention",
+    "code": "N3",
+    "requires": "outflow ceasing on its own",
+    "blocked_by": "loss of the institution"
+   },
+   {
+    "row": "Acquisition by a stronger bank",
+    "col": "Disorderly failure",
+    "code": "N3",
+    "requires": "no buyer and no facility",
+    "blocked_by": "a willing acquirer and regulatory approval"
+   },
+   {
+    "row": "Central bank discount window",
+    "col": "Disorderly failure",
+    "code": "N3",
+    "requires": "no buyer and no facility",
+    "blocked_by": "eligible collateral and willingness to be seen using it"
+   }
+  ],
+  "TRIGGER|OUTCOME": [
+   {
+    "row": "Credit loss on the asset book",
+    "col": "Stabilised without intervention",
+    "code": "N7",
+    "requires": "outflow ceasing on its own",
+    "blocked_by": "solvency question rather than liquidity"
+   }
+  ]
+ }
+}

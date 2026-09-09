@@ -1,0 +1,169 @@
+{
+ "domain": "organ transplant allocation",
+ "group": "healthcare",
+ "parameters": {
+  "ORGAN OFFERED": [
+   "Living donor kidney",
+   "Deceased donor heart",
+   "Donation after circulatory death liver",
+   "Deceased donor kidney"
+  ],
+  "ALLOCATION ROUTE": [
+   "National matching run",
+   "Local centre allocation",
+   "Paired exchange scheme",
+   "Super-urgent national listing"
+  ],
+  "RECIPIENT STATE": [
+   "Stable outpatient",
+   "Highly sensitised patient",
+   "Critically ill inpatient",
+   "Paediatric recipient"
+  ],
+  "TRANSPORT": [
+   "Charter flight retrieval",
+   "Road transfer within the region",
+   "Same centre retrieval and implant",
+   "Aviation grounded by weather"
+  ]
+ },
+ "characterisations": {
+  "Living donor kidney": {
+   "requires": "a healthy volunteer donor and elective scheduling",
+   "provides": "a planned operating date, tolerance of long preparation, no dependence on a deceased donor"
+  },
+  "Deceased donor heart": {
+   "requires": "a brain-dead donor with an intact circulation",
+   "provides": "a four hour ischaemia limit, no tolerance of a long retrieval"
+  },
+  "Donation after circulatory death liver": {
+   "requires": "retrieval within minutes of circulatory arrest",
+   "provides": "a short warm ischaemia window, no time for a national matching run"
+  },
+  "Deceased donor kidney": {
+   "requires": "a deceased donor and a compatible recipient",
+   "provides": "long cold ischaemia tolerance, time for a national matching run"
+  },
+  "National matching run": {
+   "requires": "a central registry and hours to compute",
+   "provides": "optimal matching across the country, transport time added"
+  },
+  "Local centre allocation": {
+   "requires": "an organ offered at the retrieving centre",
+   "provides": "minimal transport delay, no national optimisation"
+  },
+  "Paired exchange scheme": {
+   "requires": "two incompatible living pairs registered",
+   "provides": "compatible transplants for both pairs, only living donation"
+  },
+  "Super-urgent national listing": {
+   "requires": "a patient hours from death",
+   "provides": "first refusal on every offer, no regard to waiting time"
+  },
+  "Stable outpatient": {
+   "requires": "a patient on maintenance therapy at home",
+   "provides": "an elective admission, tolerance of a long wait"
+  },
+  "Highly sensitised patient": {
+   "requires": "broad antibodies from prior exposure",
+   "provides": "very few compatible donors, years on the waiting list"
+  },
+  "Critically ill inpatient": {
+   "requires": "deterioration despite maximal support",
+   "provides": "survival measured in days, no tolerance of a long wait"
+  },
+  "Paediatric recipient": {
+   "requires": "a child on the waiting list",
+   "provides": "size-matched organs only, no adult-sized organ usable"
+  },
+  "Charter flight retrieval": {
+   "requires": "flyable weather and an aircraft on call",
+   "provides": "national reach, two to four hours of transport"
+  },
+  "Road transfer within the region": {
+   "requires": "a donor hospital within driving distance",
+   "provides": "a short predictable transfer, regional reach only"
+  },
+  "Same centre retrieval and implant": {
+   "requires": "donor and recipient in one hospital",
+   "provides": "minimal ischaemia, no transport at all"
+  },
+  "Aviation grounded by weather": {
+   "requires": "conditions below aviation minima",
+   "provides": "no flight available, road transfer only"
+  }
+ },
+ "exclusions": {
+  "ORGAN OFFERED|ALLOCATION ROUTE": [
+   {
+    "row": "Deceased donor heart",
+    "col": "Paired exchange scheme",
+    "code": "N1",
+    "requires": "only living donation",
+    "blocked_by": "a brain-dead donor with an intact circulation"
+   },
+   {
+    "row": "Donation after circulatory death liver",
+    "col": "Paired exchange scheme",
+    "code": "N1",
+    "requires": "only living donation",
+    "blocked_by": "retrieval within minutes of circulatory arrest"
+   },
+   {
+    "row": "Deceased donor kidney",
+    "col": "Paired exchange scheme",
+    "code": "N1",
+    "requires": "only living donation",
+    "blocked_by": "a deceased donor and a compatible recipient"
+   },
+   {
+    "row": "Donation after circulatory death liver",
+    "col": "National matching run",
+    "code": "N4",
+    "requires": "a central registry and hours to compute",
+    "blocked_by": "no time for a national matching run"
+   },
+   {
+    "row": "Living donor kidney",
+    "col": "Super-urgent national listing",
+    "code": "N7",
+    "requires": "a patient hours from death",
+    "blocked_by": "a planned operating date"
+   }
+  ],
+  "ORGAN OFFERED|RECIPIENT STATE": [
+   {
+    "row": "Living donor kidney",
+    "col": "Critically ill inpatient",
+    "code": "N7",
+    "requires": "a healthy volunteer donor and elective scheduling",
+    "blocked_by": "survival measured in days"
+   }
+  ],
+  "ALLOCATION ROUTE|RECIPIENT STATE": [
+   {
+    "row": "Super-urgent national listing",
+    "col": "Stable outpatient",
+    "code": "N3",
+    "requires": "a patient hours from death",
+    "blocked_by": "an elective admission"
+   },
+   {
+    "row": "Paired exchange scheme",
+    "col": "Critically ill inpatient",
+    "code": "N7",
+    "requires": "two incompatible living pairs registered",
+    "blocked_by": "survival measured in days"
+   }
+  ],
+  "ALLOCATION ROUTE|TRANSPORT": [
+   {
+    "row": "Local centre allocation",
+    "col": "Charter flight retrieval",
+    "code": "N3",
+    "requires": "two to four hours of transport",
+    "blocked_by": "minimal transport delay"
+   }
+  ]
+ }
+}

@@ -1,0 +1,153 @@
+{
+ "domain": "electric vehicle charging rollout",
+ "group": "energy",
+ "parameters": {
+  "CHARGER TYPE": [
+   "Rapid motorway charger",
+   "Destination slow charger",
+   "On-street residential post",
+   "Battery-buffered unit"
+  ],
+  "SITE CONSTRAINT": [
+   "No grid capacity available",
+   "Restricted physical footprint",
+   "Heritage or conservation area",
+   "Ample capacity and space"
+  ],
+  "USER PATTERN": [
+   "Long distance transit stop",
+   "Overnight residential parking",
+   "Commercial fleet depot",
+   "Occasional shopper parking"
+  ],
+  "DEPLOYMENT OUTCOME": [
+   "Chargers installed and well used",
+   "Installed but underused",
+   "Project blocked before installation",
+   "Installed with capacity limits"
+  ]
+ },
+ "characterisations": {
+  "Rapid motorway charger": {
+   "requires": "a high capacity grid connection",
+   "provides": "a usable charge in minutes, a very large power draw"
+  },
+  "Destination slow charger": {
+   "requires": "a standard supply and a long dwell",
+   "provides": "cheap installation, hours needed for a useful charge"
+  },
+  "On-street residential post": {
+   "requires": "pavement space and local network capacity",
+   "provides": "overnight charging without a driveway, low power only"
+  },
+  "Battery-buffered unit": {
+   "requires": "a storage pack behind the charge point",
+   "provides": "rapid charging on a weak connection, a high capital cost"
+  },
+  "No grid capacity available": {
+   "requires": "a substation already at its limit",
+   "provides": "no high power connection possible, years of reinforcement lead time"
+  },
+  "Restricted physical footprint": {
+   "requires": "a site with almost no spare land",
+   "provides": "no room for additional plant, limited number of bays"
+  },
+  "Heritage or conservation area": {
+   "requires": "planning protection over the streetscape",
+   "provides": "no visible street furniture permitted, lengthy consent"
+  },
+  "Ample capacity and space": {
+   "requires": "a strong connection and open land",
+   "provides": "any charger type installable, normal programme"
+  },
+  "Long distance transit stop": {
+   "requires": "drivers travelling onward within the hour",
+   "provides": "a short dwell only, high turnover expected"
+  },
+  "Overnight residential parking": {
+   "requires": "vehicles left for eight hours",
+   "provides": "long dwell, tolerance of low power"
+  },
+  "Commercial fleet depot": {
+   "requires": "vehicles returning to one base",
+   "provides": "predictable scheduled charging, a known daily energy need"
+  },
+  "Occasional shopper parking": {
+   "requires": "visits of an hour or two",
+   "provides": "moderate dwell, unpredictable demand"
+  },
+  "Chargers installed and well used": {
+   "requires": "matched capacity, siting and demand",
+   "provides": "high utilisation, a viable commercial return"
+  },
+  "Installed but underused": {
+   "requires": "chargers in the wrong place",
+   "provides": "stranded capital, poor return"
+  },
+  "Project blocked before installation": {
+   "requires": "an insurmountable site constraint",
+   "provides": "nothing built, sunk development cost"
+  },
+  "Installed with capacity limits": {
+   "requires": "a connection smaller than designed",
+   "provides": "reduced power per bay, slower charging than advertised"
+  }
+ },
+ "exclusions": {
+  "CHARGER TYPE|SITE CONSTRAINT": [
+   {
+    "row": "Rapid motorway charger",
+    "col": "No grid capacity available",
+    "code": "N3",
+    "requires": "a high capacity grid connection",
+    "blocked_by": "no high power connection possible"
+   },
+   {
+    "row": "On-street residential post",
+    "col": "Heritage or conservation area",
+    "code": "N3",
+    "requires": "pavement space and local network capacity",
+    "blocked_by": "no visible street furniture permitted"
+   }
+  ],
+  "CHARGER TYPE|USER PATTERN": [
+   {
+    "row": "Destination slow charger",
+    "col": "Long distance transit stop",
+    "code": "N3",
+    "requires": "a short dwell only",
+    "blocked_by": "hours needed for a useful charge"
+   },
+   {
+    "row": "On-street residential post",
+    "col": "Long distance transit stop",
+    "code": "N3",
+    "requires": "a short dwell only",
+    "blocked_by": "low power only"
+   }
+  ],
+  "SITE CONSTRAINT|DEPLOYMENT OUTCOME": [
+   {
+    "row": "No grid capacity available",
+    "col": "Chargers installed and well used",
+    "code": "N7",
+    "requires": "matched capacity, siting and demand",
+    "blocked_by": "no high power connection possible"
+   },
+   {
+    "row": "Ample capacity and space",
+    "col": "Project blocked before installation",
+    "code": "N3",
+    "requires": "an insurmountable site constraint",
+    "blocked_by": "any charger type installable"
+   },
+   {
+    "row": "Ample capacity and space",
+    "col": "Installed with capacity limits",
+    "code": "N3",
+    "requires": "a connection smaller than designed",
+    "blocked_by": "a strong connection and open land"
+   }
+  ]
+ }
+}

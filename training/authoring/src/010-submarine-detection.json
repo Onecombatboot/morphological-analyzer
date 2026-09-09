@@ -1,0 +1,258 @@
+{
+ "domain": "submarine detection",
+ "group": "security",
+ "parameters": {
+  "TARGET": [
+   "Nuclear ballistic missile submarine",
+   "Diesel-electric on batteries",
+   "Autonomous underwater vehicle",
+   "Surface vessel towing array"
+  ],
+  "SENSOR PLATFORM": [
+   "Seabed hydrophone array",
+   "Towed array on a frigate",
+   "Maritime patrol aircraft sonobuoys",
+   "Satellite synthetic aperture radar"
+  ],
+  "DETECTION PHENOMENON": [
+   "Radiated machinery noise",
+   "Active sonar return",
+   "Magnetic anomaly",
+   "Surface wake signature"
+  ],
+  "WATER CONDITION": [
+   "Deep open ocean",
+   "Shallow continental shelf",
+   "Strong thermocline layering",
+   "Heavy surface shipping noise"
+  ]
+ },
+ "characterisations": {
+  "Nuclear ballistic missile submarine": {
+   "requires": "reactor running continuously, deep water for concealment",
+   "provides": "constant machinery noise, large magnetic mass, unlimited endurance, never surfaces"
+  },
+  "Diesel-electric on batteries": {
+   "requires": "periodic surfacing or snorkelling to recharge",
+   "provides": "near-silent running, limited submerged endurance, moderate magnetic mass"
+  },
+  "Autonomous underwater vehicle": {
+   "requires": "small hull, battery power",
+   "provides": "very low noise, negligible magnetic signature, small size, no crew"
+  },
+  "Surface vessel towing array": {
+   "requires": "operating on the surface",
+   "provides": "visible on radar, large wake, loud, no concealment"
+  },
+  "Seabed hydrophone array": {
+   "requires": "fixed cabled installation on the sea floor",
+   "provides": "passive listening over wide areas, long baseline, no coverage outside its field"
+  },
+  "Towed array on a frigate": {
+   "requires": "a surface ship steaming slowly",
+   "provides": "mobile passive listening, own-ship noise interference, active sonar option"
+  },
+  "Maritime patrol aircraft sonobuoys": {
+   "requires": "aircraft on station, expendable buoys",
+   "provides": "rapid wide-area search, magnetic anomaly detection, hours of endurance only"
+  },
+  "Satellite synthetic aperture radar": {
+   "requires": "line of sight to the sea surface",
+   "provides": "surface imaging only, no subsurface penetration whatsoever"
+  },
+  "Radiated machinery noise": {
+   "requires": "machinery actually running",
+   "provides": "passive detection at long range, defeated by silent running"
+  },
+  "Active sonar return": {
+   "requires": "transmitting a pulse and revealing own position",
+   "provides": "range and bearing on any hull, defeated by shallow reverberation"
+  },
+  "Magnetic anomaly": {
+   "requires": "a large ferrous mass within a few hundred metres",
+   "provides": "confirmation at very short range only"
+  },
+  "Surface wake signature": {
+   "requires": "the target at or very near the surface",
+   "provides": "detection from the air or space, nothing for a submerged target"
+  },
+  "Deep open ocean": {
+   "requires": "water depth of thousands of metres",
+   "provides": "good sound propagation, room to hide vertically, far from shore installations"
+  },
+  "Shallow continental shelf": {
+   "requires": "depth of tens of metres",
+   "provides": "severe reverberation, no vertical concealment, close to shore"
+  },
+  "Strong thermocline layering": {
+   "requires": "sharp temperature gradients with depth",
+   "provides": "sound channels that bend and trap acoustic energy, concealment below the layer"
+  },
+  "Heavy surface shipping noise": {
+   "requires": "dense commercial traffic overhead",
+   "provides": "high ambient noise masking passive detection"
+  }
+ },
+ "exclusions": {
+  "TARGET|SENSOR PLATFORM": [
+   {
+    "row": "Nuclear ballistic missile submarine",
+    "col": "Satellite synthetic aperture radar",
+    "code": "N3",
+    "requires": "surface imaging only, no subsurface penetration whatsoever",
+    "blocked_by": "never surfaces"
+   },
+   {
+    "row": "Autonomous underwater vehicle",
+    "col": "Seabed hydrophone array",
+    "code": "N3",
+    "requires": "passive listening over wide areas",
+    "blocked_by": "very low noise"
+   },
+   {
+    "row": "Autonomous underwater vehicle",
+    "col": "Satellite synthetic aperture radar",
+    "code": "N3",
+    "requires": "surface imaging only, no subsurface penetration whatsoever",
+    "blocked_by": "small hull, battery power"
+   }
+  ],
+  "TARGET|DETECTION PHENOMENON": [
+   {
+    "row": "Nuclear ballistic missile submarine",
+    "col": "Surface wake signature",
+    "code": "N3",
+    "requires": "the target at or very near the surface",
+    "blocked_by": "never surfaces"
+   },
+   {
+    "row": "Diesel-electric on batteries",
+    "col": "Radiated machinery noise",
+    "code": "N3",
+    "requires": "machinery actually running",
+    "blocked_by": "near-silent running"
+   },
+   {
+    "row": "Autonomous underwater vehicle",
+    "col": "Radiated machinery noise",
+    "code": "N3",
+    "requires": "machinery actually running",
+    "blocked_by": "very low noise"
+   },
+   {
+    "row": "Autonomous underwater vehicle",
+    "col": "Magnetic anomaly",
+    "code": "N3",
+    "requires": "a large ferrous mass within a few hundred metres",
+    "blocked_by": "negligible magnetic signature"
+   },
+   {
+    "row": "Autonomous underwater vehicle",
+    "col": "Surface wake signature",
+    "code": "N3",
+    "requires": "the target at or very near the surface",
+    "blocked_by": "small hull, battery power"
+   }
+  ],
+  "TARGET|WATER CONDITION": [
+   {
+    "row": "Nuclear ballistic missile submarine",
+    "col": "Shallow continental shelf",
+    "code": "N3",
+    "requires": "deep water for concealment",
+    "blocked_by": "depth of tens of metres"
+   }
+  ],
+  "SENSOR PLATFORM|DETECTION PHENOMENON": [
+   {
+    "row": "Seabed hydrophone array",
+    "col": "Active sonar return",
+    "code": "N3",
+    "requires": "transmitting a pulse and revealing own position",
+    "blocked_by": "passive listening over wide areas"
+   },
+   {
+    "row": "Seabed hydrophone array",
+    "col": "Magnetic anomaly",
+    "code": "N3",
+    "requires": "a large ferrous mass within a few hundred metres",
+    "blocked_by": "passive listening over wide areas"
+   },
+   {
+    "row": "Seabed hydrophone array",
+    "col": "Surface wake signature",
+    "code": "N3",
+    "requires": "the target at or very near the surface",
+    "blocked_by": "fixed cabled installation on the sea floor"
+   },
+   {
+    "row": "Towed array on a frigate",
+    "col": "Magnetic anomaly",
+    "code": "N3",
+    "requires": "a large ferrous mass within a few hundred metres",
+    "blocked_by": "mobile passive listening"
+   },
+   {
+    "row": "Towed array on a frigate",
+    "col": "Surface wake signature",
+    "code": "N3",
+    "requires": "detection from the air or space",
+    "blocked_by": "mobile passive listening"
+   },
+   {
+    "row": "Satellite synthetic aperture radar",
+    "col": "Radiated machinery noise",
+    "code": "N3",
+    "requires": "machinery actually running",
+    "blocked_by": "surface imaging only, no subsurface penetration whatsoever"
+   },
+   {
+    "row": "Satellite synthetic aperture radar",
+    "col": "Active sonar return",
+    "code": "N3",
+    "requires": "transmitting a pulse and revealing own position",
+    "blocked_by": "surface imaging only, no subsurface penetration whatsoever"
+   },
+   {
+    "row": "Satellite synthetic aperture radar",
+    "col": "Magnetic anomaly",
+    "code": "N3",
+    "requires": "a large ferrous mass within a few hundred metres",
+    "blocked_by": "surface imaging only, no subsurface penetration whatsoever"
+   }
+  ],
+  "SENSOR PLATFORM|WATER CONDITION": [
+   {
+    "row": "Satellite synthetic aperture radar",
+    "col": "Strong thermocline layering",
+    "code": "N6",
+    "requires": "sharp temperature gradients with depth",
+    "blocked_by": "no subsurface penetration whatsoever"
+   }
+  ],
+  "DETECTION PHENOMENON|WATER CONDITION": [
+   {
+    "row": "Radiated machinery noise",
+    "col": "Heavy surface shipping noise",
+    "code": "N7",
+    "requires": "passive detection at long range",
+    "blocked_by": "high ambient noise masking passive detection"
+   },
+   {
+    "row": "Active sonar return",
+    "col": "Shallow continental shelf",
+    "code": "N3",
+    "requires": "defeated by shallow reverberation",
+    "blocked_by": "severe reverberation"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "TARGET|SENSOR PLATFORM": "satellite radar cannot see beneath the surface at all, so it is N for all three submerged targets and Y only for the surface vessel. A seabed array is N for an AUV: a battery-driven small hull radiates almost nothing for a passive listener at long baseline.",
+  "TARGET|DETECTION PHENOMENON": "machinery noise is N for a diesel-electric on batteries (that is the point of batteries) and N for an AUV. Magnetic anomaly is N for an AUV, which has negligible ferrous mass. Wake signature is N for anything submerged.",
+  "TARGET|WATER CONDITION": "an SSBN on the shallow continental shelf is N: it has no vertical concealment and no operational reason to be there. An AUV in deep open ocean is N: battery endurance does not reach mid-ocean.",
+  "SENSOR PLATFORM|DETECTION PHENOMENON": "a seabed array is passive and fixed, so active sonar, magnetic anomaly and wake are all N. A towed array cannot detect magnetic anomaly or wake. Sonobuoys do not image wakes. Satellite radar sees wake only.",
+  "SENSOR PLATFORM|WATER CONDITION": "satellite radar is N under a thermocline condition, which is a subsurface phenomenon irrelevant to surface imaging - the pairing has no case.",
+  "DETECTION PHENOMENON|WATER CONDITION": "machinery noise is N under heavy shipping noise, which masks it. Active sonar is N on the shallow shelf, where reverberation defeats it. Magnetic anomaly is unaffected by all four. Wake is N under thermocline layering for the same irrelevance reason."
+ }
+}

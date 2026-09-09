@@ -1,0 +1,167 @@
+{
+ "domain": "patent infringement litigation",
+ "group": "legal",
+ "parameters": {
+  "PATENT POSITION": [
+   "Granted patent in the jurisdiction",
+   "Pending application only",
+   "Patent expired or lapsed",
+   "Patent already revoked on prior art"
+  ],
+  "ALLEGED INFRINGEMENT": [
+   "Literal copying of a claim",
+   "Equivalents argument",
+   "Contributory supply of a component",
+   "Independent development"
+  ],
+  "DEFENCE STRATEGY": [
+   "Invalidity counterclaim",
+   "Non-infringement on construction",
+   "Licence already held",
+   "Settlement and cross-licence"
+  ],
+  "LITIGATION OUTCOME": [
+   "Injunction granted",
+   "Patent revoked in the proceedings",
+   "Claim dismissed for non-infringement",
+   "Confidential settlement"
+  ]
+ },
+ "characterisations": {
+  "Granted patent in the jurisdiction": {
+   "requires": "examination completed and fees paid",
+   "provides": "enforceable rights, a presumption of validity"
+  },
+  "Pending application only": {
+   "requires": "a filing made and examination incomplete",
+   "provides": "no enforceable right yet, protection only on later grant"
+  },
+  "Patent expired or lapsed": {
+   "requires": "the term ended or renewal missed",
+   "provides": "no exclusivity remaining, the disclosure free for anyone to use"
+  },
+  "Patent already revoked on prior art": {
+   "requires": "a validity challenge already succeeded",
+   "provides": "no rights at all, the invention in the public domain"
+  },
+  "Literal copying of a claim": {
+   "requires": "a product falling squarely within the wording",
+   "provides": "a straightforward comparison, little construction needed"
+  },
+  "Equivalents argument": {
+   "requires": "a variant outside the literal wording",
+   "provides": "dependence on the doctrine applied, an uncertain outcome"
+  },
+  "Contributory supply of a component": {
+   "requires": "a part with no other substantial use",
+   "provides": "liability without making the whole, dependence on the supplier's knowledge"
+  },
+  "Independent development": {
+   "requires": "a defendant who never saw the patent",
+   "provides": "no copying to prove, intent irrelevant to infringement"
+  },
+  "Invalidity counterclaim": {
+   "requires": "prior art located and pleaded",
+   "provides": "an attack on the patent itself, a risk of losing the patent entirely"
+  },
+  "Non-infringement on construction": {
+   "requires": "an arguable claim interpretation",
+   "provides": "no challenge to validity, a narrow escape on wording"
+  },
+  "Licence already held": {
+   "requires": "an existing agreement covering the acts",
+   "provides": "a complete defence, no need to litigate the merits"
+  },
+  "Settlement and cross-licence": {
+   "requires": "a portfolio of value to the other side",
+   "provides": "a business resolution, no judgment on the merits"
+  },
+  "Injunction granted": {
+   "requires": "infringement of a valid claim found",
+   "provides": "the product off the market, damages to follow"
+  },
+  "Patent revoked in the proceedings": {
+   "requires": "invalidity established at trial",
+   "provides": "no rights left to enforce, costs against the patentee"
+  },
+  "Claim dismissed for non-infringement": {
+   "requires": "the product held outside the claims",
+   "provides": "the patent surviving, the defendant free"
+  },
+  "Confidential settlement": {
+   "requires": "agreement reached before judgment",
+   "provides": "no public ruling, terms unknown"
+  }
+ },
+ "exclusions": {
+  "PATENT POSITION|LITIGATION OUTCOME": [
+   {
+    "row": "Patent expired or lapsed",
+    "col": "Injunction granted",
+    "code": "N3",
+    "requires": "infringement of a valid claim found",
+    "blocked_by": "no exclusivity remaining"
+   },
+   {
+    "row": "Patent already revoked on prior art",
+    "col": "Injunction granted",
+    "code": "N3",
+    "requires": "infringement of a valid claim found",
+    "blocked_by": "no rights at all"
+   },
+   {
+    "row": "Pending application only",
+    "col": "Injunction granted",
+    "code": "N3",
+    "requires": "infringement of a valid claim found",
+    "blocked_by": "no enforceable right yet"
+   },
+   {
+    "row": "Patent already revoked on prior art",
+    "col": "Patent revoked in the proceedings",
+    "code": "N1",
+    "requires": "invalidity established at trial",
+    "blocked_by": "a validity challenge already succeeded"
+   }
+  ],
+  "ALLEGED INFRINGEMENT|DEFENCE STRATEGY": [
+   {
+    "row": "Literal copying of a claim",
+    "col": "Non-infringement on construction",
+    "code": "N7",
+    "requires": "an arguable claim interpretation",
+    "blocked_by": "a product falling squarely within the wording"
+   }
+  ],
+  "DEFENCE STRATEGY|LITIGATION OUTCOME": [
+   {
+    "row": "Licence already held",
+    "col": "Injunction granted",
+    "code": "N3",
+    "requires": "infringement of a valid claim found",
+    "blocked_by": "a complete defence"
+   },
+   {
+    "row": "Settlement and cross-licence",
+    "col": "Injunction granted",
+    "code": "N3",
+    "requires": "infringement of a valid claim found",
+    "blocked_by": "no judgment on the merits"
+   },
+   {
+    "row": "Settlement and cross-licence",
+    "col": "Patent revoked in the proceedings",
+    "code": "N3",
+    "requires": "invalidity established at trial",
+    "blocked_by": "no judgment on the merits"
+   },
+   {
+    "row": "Non-infringement on construction",
+    "col": "Patent revoked in the proceedings",
+    "code": "N3",
+    "requires": "invalidity established at trial",
+    "blocked_by": "no challenge to validity"
+   }
+  ]
+ }
+}

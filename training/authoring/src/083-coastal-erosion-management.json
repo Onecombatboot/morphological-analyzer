@@ -1,0 +1,164 @@
+{
+ "domain": "coastal erosion management",
+ "group": "environment",
+ "parameters": {
+  "COASTLINE TYPE": [
+   "Soft cliff of clay and sand",
+   "Hard rock headland",
+   "Barrier beach and dune",
+   "Estuarine mudflat and marsh"
+  ],
+  "INTERVENTION": [
+   "Hard sea wall",
+   "Beach nourishment",
+   "Managed realignment",
+   "No active intervention"
+  ],
+  "ASSET AT RISK": [
+   "Dense town frontage",
+   "Single coastal road",
+   "Farmland of low value",
+   "No built assets present"
+  ],
+  "FUNDING OUTCOME": [
+   "Scheme funded and built",
+   "Scheme refused on cost-benefit",
+   "Community-funded partial works",
+   "Defence abandoned at end of life"
+  ]
+ },
+ "characterisations": {
+  "Soft cliff of clay and sand": {
+   "requires": "an unconsolidated cliff face",
+   "provides": "rapid retreat measured in metres per year, sediment supplied to beaches downdrift"
+  },
+  "Hard rock headland": {
+   "requires": "resistant bedrock at the shore",
+   "provides": "negligible retreat within a human lifetime, no sediment released"
+  },
+  "Barrier beach and dune": {
+   "requires": "a mobile sand system",
+   "provides": "natural rollback landward, protection only while the dune survives"
+  },
+  "Estuarine mudflat and marsh": {
+   "requires": "a low energy tidal environment",
+   "provides": "sediment accumulation rather than loss, no exposure to open ocean waves"
+  },
+  "Hard sea wall": {
+   "requires": "capital funding and a maintainable structure",
+   "provides": "fixed defence of the line behind it, loss of the beach in front over time"
+  },
+  "Beach nourishment": {
+   "requires": "a compatible sediment source and repeat funding",
+   "provides": "preserved beach and amenity, recurring cost every few years"
+  },
+  "Managed realignment": {
+   "requires": "land that can be given up",
+   "provides": "restored intertidal habitat, permanent loss of the land surrendered"
+  },
+  "No active intervention": {
+   "requires": "a decision to let the coast adjust",
+   "provides": "natural processes continuing, no protection of assets at all"
+  },
+  "Dense town frontage": {
+   "requires": "buildings immediately behind the shore",
+   "provides": "very high value at stake, no room to retreat inland"
+  },
+  "Single coastal road": {
+   "requires": "a route with no alternative",
+   "provides": "severance of access if lost, moderate replacement cost"
+  },
+  "Farmland of low value": {
+   "requires": "agricultural land behind the shore",
+   "provides": "limited economic loss, space available to give ground"
+  },
+  "No built assets present": {
+   "requires": "an undeveloped shoreline",
+   "provides": "nothing to defend, no economic case for works"
+  },
+  "Scheme funded and built": {
+   "requires": "a benefit-cost case that passes",
+   "provides": "works constructed, a defined design life"
+  },
+  "Scheme refused on cost-benefit": {
+   "requires": "benefits below the cost threshold",
+   "provides": "no works, the shoreline left as it is"
+  },
+  "Community-funded partial works": {
+   "requires": "local contribution raised",
+   "provides": "a reduced scheme, protection of part of the frontage"
+  },
+  "Defence abandoned at end of life": {
+   "requires": "an existing structure past its design life",
+   "provides": "withdrawal of maintenance, reversion to natural processes"
+  }
+ },
+ "exclusions": {
+  "COASTLINE TYPE|INTERVENTION": [
+   {
+    "row": "Hard rock headland",
+    "col": "Beach nourishment",
+    "code": "N3",
+    "requires": "a compatible sediment source and repeat funding",
+    "blocked_by": "no sediment released"
+   },
+   {
+    "row": "Estuarine mudflat and marsh",
+    "col": "Hard sea wall",
+    "code": "N7",
+    "requires": "fixed defence of the line behind it",
+    "blocked_by": "no exposure to open ocean waves"
+   }
+  ],
+  "COASTLINE TYPE|ASSET AT RISK": [
+   {
+    "row": "Hard rock headland",
+    "col": "Dense town frontage",
+    "code": "N7",
+    "requires": "no room to retreat inland",
+    "blocked_by": "negligible retreat within a human lifetime"
+   }
+  ],
+  "INTERVENTION|ASSET AT RISK": [
+   {
+    "row": "Hard sea wall",
+    "col": "No built assets present",
+    "code": "N3",
+    "requires": "capital funding and a maintainable structure",
+    "blocked_by": "no economic case for works"
+   },
+   {
+    "row": "Managed realignment",
+    "col": "Dense town frontage",
+    "code": "N3",
+    "requires": "land that can be given up",
+    "blocked_by": "no room to retreat inland"
+   }
+  ],
+  "ASSET AT RISK|FUNDING OUTCOME": [
+   {
+    "row": "No built assets present",
+    "col": "Scheme funded and built",
+    "code": "N3",
+    "requires": "a benefit-cost case that passes",
+    "blocked_by": "no economic case for works"
+   },
+   {
+    "row": "No built assets present",
+    "col": "Community-funded partial works",
+    "code": "N3",
+    "requires": "local contribution raised",
+    "blocked_by": "nothing to defend"
+   }
+  ],
+  "INTERVENTION|FUNDING OUTCOME": [
+   {
+    "row": "No active intervention",
+    "col": "Scheme funded and built",
+    "code": "N3",
+    "requires": "works constructed",
+    "blocked_by": "no protection of assets at all"
+   }
+  ]
+ }
+}

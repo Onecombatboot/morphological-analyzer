@@ -1,0 +1,101 @@
+DOMAIN: film production location shoot
+GROUP: media
+PARAM: SHOOT ENVIRONMENT
+- Controlled sound stage :: a booked stage and built sets :: total control of light and sound, no weather risk, high daily cost
+- Public street location :: a filming permit and traffic management :: authentic backdrop, uncontrolled passers-by and noise
+- Remote wilderness location :: vehicle access and self-sufficiency :: landscape unavailable elsewhere, no mains power on site
+- Practical working building :: agreement of the owner and occupants :: real interiors at low cost, restriction to the hours the building is free
+PARAM: KEY REQUIREMENT
+- Large crowd of extras :: casting and a budget for background artists :: scale on screen, hours of wrangling per setup
+- Live animal work :: a trainer and welfare supervision :: authentic creature performance, no control of exact timing
+- Heavy rigged lighting :: a grid or scaffold able to bear the load :: precise control of the image, a long rig and derig
+- Simple two-person dialogue :: two actors and a quiet space :: fast turnaround, minimal crew
+PARAM: SCHEDULE STATE
+- Ample prep and contingency :: a financed schedule with float :: reshoots possible, weather days absorbed
+- Single day with no return :: a location available once only :: everything captured that day, no second chance
+- Night shooting only :: darkness for the scene :: limited usable hours per night, penalty rates
+- Overrunning and out of budget :: days lost earlier in the schedule :: no contingency remaining, scenes cut to finish
+PARAM: DELIVERY OUTCOME
+- Scene completed as storyboarded :: coverage of every planned setup :: the edit assembled as designed, no compromise
+- Scene rewritten to fit constraints :: a director willing to adapt :: a workable sequence, a departure from the script
+- Scene abandoned entirely :: an unrecoverable failure on the day :: the material never shot, an edit built around the gap
+- Reshoot scheduled later :: budget and availability for a return :: the scene recovered, added cost
+EXCL: SHOOT ENVIRONMENT|KEY REQUIREMENT
+Remote wilderness location >< Heavy rigged lighting | N3 | a grid or scaffold able to bear the load | no mains power on site
+EXCL: SHOOT ENVIRONMENT|DELIVERY OUTCOME
+Controlled sound stage >< Scene abandoned entirely | N7 | an unrecoverable failure on the day | total control of light and sound
+EXCL: SCHEDULE STATE|DELIVERY OUTCOME
+Single day with no return >< Reshoot scheduled later | N3 | budget and availability for a return | no second chance
+Overrunning and out of budget >< Reshoot scheduled later | N3 | budget and availability for a return | no contingency remaining
+Ample prep and contingency >< Scene abandoned entirely | N7 | an unrecoverable failure on the day | reshoots possible
+EXCL: KEY REQUIREMENT|SCHEDULE STATE
+Large crowd of extras >< Overrunning and out of budget | N3 | a budget for background artists | no contingency remaining
+---
+DOMAIN: coastal erosion management
+GROUP: environment
+PARAM: COASTLINE TYPE
+- Soft cliff of clay and sand :: an unconsolidated cliff face :: rapid retreat measured in metres per year, sediment supplied to beaches downdrift
+- Hard rock headland :: resistant bedrock at the shore :: negligible retreat within a human lifetime, no sediment released
+- Barrier beach and dune :: a mobile sand system :: natural rollback landward, protection only while the dune survives
+- Estuarine mudflat and marsh :: a low energy tidal environment :: sediment accumulation rather than loss, no exposure to open ocean waves
+PARAM: INTERVENTION
+- Hard sea wall :: capital funding and a maintainable structure :: fixed defence of the line behind it, loss of the beach in front over time
+- Beach nourishment :: a compatible sediment source and repeat funding :: preserved beach and amenity, recurring cost every few years
+- Managed realignment :: land that can be given up :: restored intertidal habitat, permanent loss of the land surrendered
+- No active intervention :: a decision to let the coast adjust :: natural processes continuing, no protection of assets at all
+PARAM: ASSET AT RISK
+- Dense town frontage :: buildings immediately behind the shore :: very high value at stake, no room to retreat inland
+- Single coastal road :: a route with no alternative :: severance of access if lost, moderate replacement cost
+- Farmland of low value :: agricultural land behind the shore :: limited economic loss, space available to give ground
+- No built assets present :: an undeveloped shoreline :: nothing to defend, no economic case for works
+PARAM: FUNDING OUTCOME
+- Scheme funded and built :: a benefit-cost case that passes :: works constructed, a defined design life
+- Scheme refused on cost-benefit :: benefits below the cost threshold :: no works, the shoreline left as it is
+- Community-funded partial works :: local contribution raised :: a reduced scheme, protection of part of the frontage
+- Defence abandoned at end of life :: an existing structure past its design life :: withdrawal of maintenance, reversion to natural processes
+EXCL: COASTLINE TYPE|INTERVENTION
+Hard rock headland >< Beach nourishment | N3 | a compatible sediment source and repeat funding | no sediment released
+Estuarine mudflat and marsh >< Hard sea wall | N7 | fixed defence of the line behind it | no exposure to open ocean waves
+EXCL: COASTLINE TYPE|ASSET AT RISK
+Hard rock headland >< Dense town frontage | N7 | no room to retreat inland | negligible retreat within a human lifetime
+EXCL: INTERVENTION|ASSET AT RISK
+Hard sea wall >< No built assets present | N3 | capital funding and a maintainable structure | no economic case for works
+Managed realignment >< Dense town frontage | N3 | land that can be given up | no room to retreat inland
+EXCL: ASSET AT RISK|FUNDING OUTCOME
+No built assets present >< Scheme funded and built | N3 | a benefit-cost case that passes | no economic case for works
+No built assets present >< Community-funded partial works | N3 | local contribution raised | nothing to defend
+EXCL: INTERVENTION|FUNDING OUTCOME
+No active intervention >< Scheme funded and built | N3 | works constructed | no protection of assets at all
+---
+DOMAIN: railway timetable recast
+GROUP: transport
+PARAM: NETWORK CONSTRAINT
+- Two track railway with mixed speeds :: shared track for fast and slow services :: overtaking only at loops, capacity lost to speed differences
+- Four track with segregated pairs :: separate fast and slow lines :: independent paths, high capacity for both
+- Single track with passing loops :: one line and timed crossings :: services locked to loop positions, a delay to one delays the other
+- Terminal station platform limit :: a fixed number of platforms :: a hard ceiling on trains per hour, no expansion possible
+PARAM: SERVICE ASPIRATION
+- Clock-face regular interval :: even spacing throughout the day :: memorable pattern, inefficient use of uneven capacity
+- Peak-focused commuter provision :: concentration of stock at peak :: maximum peak seats, idle resources off peak
+- Long distance express priority :: paths cleared for fast services :: competitive journey times, fewer stops served
+- Freight paths preserved :: guaranteed slots for freight :: rail freight retained, capacity removed from passenger use
+PARAM: RESOURCE POSITION
+- Sufficient rolling stock and crew :: fleet and rosters matched to the plan :: the timetable deliverable as written, normal costs
+- Rolling stock shortage :: fewer units than diagrams require :: services cancelled or shortened, no growth possible
+- Crew shortage at weekends :: rest day working relied upon :: unreliable weekend delivery, a plan that works only on paper
+- Depot capacity exhausted :: no space to stable more units :: no additional units deployable, growth blocked regardless of funding
+PARAM: TIMETABLE OUTCOME
+- Recast delivered in full :: capacity and resources aligned :: the intended pattern operating, benefits realised
+- Recast delivered with reductions :: a plan trimmed to fit resources :: a partial pattern, some aspirations dropped
+- Recast deferred to a later date :: a decision that it cannot be run :: the existing timetable retained, sunk planning cost
+- Recast collapses in operation :: a plan beyond what the railway can deliver :: mass cancellation, emergency timetable imposed
+EXCL: NETWORK CONSTRAINT|SERVICE ASPIRATION
+Single track with passing loops >< Clock-face regular interval | N3 | even spacing throughout the day | services locked to loop positions
+EXCL: RESOURCE POSITION|TIMETABLE OUTCOME
+Rolling stock shortage >< Recast delivered in full | N3 | capacity and resources aligned | services cancelled or shortened
+Depot capacity exhausted >< Recast delivered in full | N3 | capacity and resources aligned | no additional units deployable
+Sufficient rolling stock and crew >< Recast collapses in operation | N7 | a plan beyond what the railway can deliver | the timetable deliverable as written
+EXCL: SERVICE ASPIRATION|RESOURCE POSITION
+Peak-focused commuter provision >< Rolling stock shortage | N3 | concentration of stock at peak | fewer units than diagrams require
+EXCL: NETWORK CONSTRAINT|TIMETABLE OUTCOME
+Terminal station platform limit >< Recast delivered in full | N7 | capacity and resources aligned | a hard ceiling on trains per hour

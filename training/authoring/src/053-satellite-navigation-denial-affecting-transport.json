@@ -1,0 +1,180 @@
+{
+ "domain": "satellite navigation denial affecting transport",
+ "group": "infrastructure",
+ "parameters": {
+  "INTERFERENCE TYPE": [
+   "Broadband noise jamming",
+   "Meaconing rebroadcast",
+   "Spoofed constellation signal",
+   "Solar radio burst"
+  ],
+  "AFFECTED USER": [
+   "Commercial aviation",
+   "Maritime navigation in a strait",
+   "Road freight telematics",
+   "Timing for the power grid"
+  ],
+  "RESILIENCE MEASURE": [
+   "Inertial navigation backup",
+   "Terrestrial radio navigation",
+   "Holdover oscillator",
+   "Nothing but the satellite signal"
+  ],
+  "CONSEQUENCE": [
+   "Detected and disregarded",
+   "Reversion to a backup method",
+   "Operations suspended",
+   "Position error acted upon"
+  ]
+ },
+ "characterisations": {
+  "Broadband noise jamming": {
+   "requires": "a transmitter raising the noise floor",
+   "provides": "complete loss of lock, obvious failure, easily geolocated"
+  },
+  "Meaconing rebroadcast": {
+   "requires": "a receiver and a delayed retransmission",
+   "provides": "a plausible but wrong position, no loss of lock at all"
+  },
+  "Spoofed constellation signal": {
+   "requires": "knowledge of the signal structure and timing",
+   "provides": "a controlled false position, the receiver reporting full confidence"
+  },
+  "Solar radio burst": {
+   "requires": "natural emission from the sun",
+   "provides": "brief hemisphere-wide degradation, no attributable actor"
+  },
+  "Commercial aviation": {
+   "requires": "aircraft using satellite-based approach procedures",
+   "provides": "reversion to conventional navigation aids, crew trained for the failure"
+  },
+  "Maritime navigation in a strait": {
+   "requires": "vessels in a confined channel",
+   "provides": "very little sea room, radar and visual fixing available"
+  },
+  "Road freight telematics": {
+   "requires": "fleets depending on position reporting",
+   "provides": "no safety consequence, commercial and regulatory disruption"
+  },
+  "Timing for the power grid": {
+   "requires": "substations using satellite time",
+   "provides": "protection and synchrophasor errors, no positioning involved"
+  },
+  "Inertial navigation backup": {
+   "requires": "an installed inertial unit",
+   "provides": "continued navigation with drifting accuracy, no dependence on any signal"
+  },
+  "Terrestrial radio navigation": {
+   "requires": "a ground transmitter network in service",
+   "provides": "independent position fixing, coarse accuracy"
+  },
+  "Holdover oscillator": {
+   "requires": "a stable local clock",
+   "provides": "timing maintained for hours to days, no positioning benefit whatsoever"
+  },
+  "Nothing but the satellite signal": {
+   "requires": "a single-source receiver",
+   "provides": "total dependence, immediate loss on any interference"
+  },
+  "Detected and disregarded": {
+   "requires": "the user recognising bad data",
+   "provides": "no operational effect"
+  },
+  "Reversion to a backup method": {
+   "requires": "an available alternative",
+   "provides": "reduced accuracy, operations continue"
+  },
+  "Operations suspended": {
+   "requires": "no acceptable alternative",
+   "provides": "delay and economic cost, safety preserved"
+  },
+  "Position error acted upon": {
+   "requires": "false data trusted and used",
+   "provides": "grounding, airspace infringement or protection maloperation"
+  }
+ },
+ "exclusions": {
+  "INTERFERENCE TYPE|AFFECTED USER": [
+   {
+    "row": "Meaconing rebroadcast",
+    "col": "Timing for the power grid",
+    "code": "N7",
+    "requires": "substations using satellite time",
+    "blocked_by": "a plausible but wrong position"
+   }
+  ],
+  "INTERFERENCE TYPE|CONSEQUENCE": [
+   {
+    "row": "Broadband noise jamming",
+    "col": "Position error acted upon",
+    "code": "N3",
+    "requires": "false data trusted and used",
+    "blocked_by": "complete loss of lock, obvious failure"
+   }
+  ],
+  "AFFECTED USER|RESILIENCE MEASURE": [
+   {
+    "row": "Timing for the power grid",
+    "col": "Inertial navigation backup",
+    "code": "N3",
+    "requires": "continued navigation with drifting accuracy",
+    "blocked_by": "no positioning involved"
+   },
+   {
+    "row": "Timing for the power grid",
+    "col": "Terrestrial radio navigation",
+    "code": "N3",
+    "requires": "independent position fixing",
+    "blocked_by": "no positioning involved"
+   },
+   {
+    "row": "Road freight telematics",
+    "col": "Holdover oscillator",
+    "code": "N7",
+    "requires": "no positioning benefit whatsoever",
+    "blocked_by": "fleets depending on position reporting"
+   },
+   {
+    "row": "Commercial aviation",
+    "col": "Holdover oscillator",
+    "code": "N3",
+    "requires": "no positioning benefit whatsoever",
+    "blocked_by": "aircraft using satellite-based approach procedures"
+   },
+   {
+    "row": "Maritime navigation in a strait",
+    "col": "Holdover oscillator",
+    "code": "N3",
+    "requires": "no positioning benefit whatsoever",
+    "blocked_by": "vessels in a confined channel"
+   }
+  ],
+  "RESILIENCE MEASURE|CONSEQUENCE": [
+   {
+    "row": "Nothing but the satellite signal",
+    "col": "Reversion to a backup method",
+    "code": "N3",
+    "requires": "an available alternative",
+    "blocked_by": "total dependence"
+   }
+  ],
+  "AFFECTED USER|CONSEQUENCE": [
+   {
+    "row": "Road freight telematics",
+    "col": "Operations suspended",
+    "code": "N7",
+    "requires": "no acceptable alternative",
+    "blocked_by": "no safety consequence"
+   }
+  ],
+  "INTERFERENCE TYPE|RESILIENCE MEASURE": [
+   {
+    "row": "Solar radio burst",
+    "col": "Terrestrial radio navigation",
+    "code": "N7",
+    "requires": "a ground transmitter network in service",
+    "blocked_by": "brief hemisphere-wide degradation"
+   }
+  ]
+ }
+}

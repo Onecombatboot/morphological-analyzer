@@ -1,0 +1,1711 @@
+[ {
+  "parameterA" : "GOAL",
+  "valueA" : "Economic Gain",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Military Exercise and Intelligence Gathering",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Political Concessions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Regime Change",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.112681600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Business Enterprise",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Economic Gain",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Military Exercise and Intelligence Gathering",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Political Concessions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Regime Change",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.112681600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Individual",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Economic Gain",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Military Exercise and Intelligence Gathering",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Political Concessions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Regime Change",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.112681600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "Network",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Economic Gain",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Military Exercise and Intelligence Gathering",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Political Concessions",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "GOAL",
+  "valueA" : "Regime Change",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.106982500Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "ACTOR",
+  "valueB" : "State",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "READINESS",
+  "valueA" : "Improvised at time of attack",
+  "parameterB" : "CAPACITY",
+  "valueB" : "50 to 500",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:59:50.264302200Z"
+}, {
+  "parameterA" : "CAPACITY",
+  "valueA" : "Over 5000",
+  "parameterB" : "PROTECTION LEVEL",
+  "valueB" : "Blast and radiation",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T22:51:52.657164800Z"
+}, {
+  "parameterA" : "CAPACITY",
+  "valueA" : "Over 5000",
+  "parameterB" : "PROTECTION LEVEL",
+  "valueB" : "Blast only",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T22:51:51.988081600Z"
+}, {
+  "parameterA" : "CAPACITY",
+  "valueA" : "Over 5000",
+  "parameterB" : "PROTECTION LEVEL",
+  "valueB" : "Fallout only",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T22:51:57.097577300Z"
+}, {
+  "parameterA" : "CAPACITY",
+  "valueA" : "Over 5000",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Subway station",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T22:51:02.366854900Z"
+}, {
+  "parameterA" : "READINESS",
+  "valueA" : "Improvised at time of attack",
+  "parameterB" : "CAPACITY",
+  "valueB" : "Under 50",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:59:47.668025900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Economic Gain",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Military Exercise and Intelligence Gathering",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Political Concessions",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Anti-Access and Area Denial",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Attack against Infrastructure or Population",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Criminality",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Entire Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.107976200Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Military Control over Parts of Territory",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Peace Time Operations",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Symbolic Use of Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.109155700Z"
+}, {
+  "parameterA" : "METHOD",
+  "valueA" : "Use of Economic Force",
+  "parameterB" : "GOAL",
+  "valueB" : "Regime Change",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.110154Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Economic Sanctions",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.111665600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Large Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.124429600Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.128573100Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Limited Scale Use of Non-military Force",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Anti-Access and Area Denial",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Attack against Infrastructure or Population",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Criminality",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Entire Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Military Control over Parts of Territory",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Peace Time Operations",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Symbolic Use of Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "MEANS",
+  "valueA" : "Other Means",
+  "parameterB" : "METHOD",
+  "valueB" : "Use of Economic Force",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "GRID",
+  "recordedAt" : "2026-08-23T13:36:44.129579900Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Blast and radiation",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Subway station",
+  "verdict" : "CONTRADICTION",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:54:22.792826200Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Fallout only",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Purpose-built bunker",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:49:13.680512300Z"
+}, {
+  "parameterA" : "READINESS",
+  "valueA" : "Improvised at time of attack",
+  "parameterB" : "PROTECTION LEVEL",
+  "valueB" : "Minimal",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:59:42.566014400Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Minimal",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Open trench",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:54:00.288248200Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Minimal",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Purpose-built bunker",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:49:13.962788500Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Minimal",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Reinforced basement",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:54:33.971710300Z"
+}, {
+  "parameterA" : "PROTECTION LEVEL",
+  "valueA" : "Minimal",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Subway station",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:54:29.458297700Z"
+}, {
+  "parameterA" : "READINESS",
+  "valueA" : "Improvised at time of attack",
+  "parameterB" : "SHELTER TYPE",
+  "valueB" : "Subway station",
+  "verdict" : "COMPATIBLE",
+  "note" : "",
+  "source" : "MANUAL",
+  "recordedAt" : "2026-08-23T21:59:31.180447300Z"
+} ]

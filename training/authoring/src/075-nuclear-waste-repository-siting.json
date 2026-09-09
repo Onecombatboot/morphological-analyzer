@@ -1,0 +1,137 @@
+{
+ "domain": "nuclear waste repository siting",
+ "group": "energy",
+ "parameters": {
+  "WASTE FORM": [
+   "High level vitrified waste",
+   "Spent fuel assemblies",
+   "Intermediate level waste",
+   "Low level waste"
+  ],
+  "HOST GEOLOGY": [
+   "Crystalline hard rock",
+   "Plastic clay formation",
+   "Bedded salt",
+   "Near-surface engineered vault"
+  ],
+  "SITING PROCESS": [
+   "Volunteer community partnership",
+   "National technical screening",
+   "Imposed national designation",
+   "Existing licensed site extension"
+  ],
+  "PROGRAMME OUTCOME": [
+   "Repository operating",
+   "Site withdrawn after objection",
+   "Indefinite surface storage",
+   "Licence refused on the safety case"
+  ]
+ },
+ "characterisations": {
+  "High level vitrified waste": {
+   "requires": "a reprocessing plant and glass canisters",
+   "provides": "intense heat output for decades, isolation needed over geological time"
+  },
+  "Spent fuel assemblies": {
+   "requires": "direct disposal without reprocessing",
+   "provides": "fissile material retained, criticality control required, a very long-lived hazard"
+  },
+  "Intermediate level waste": {
+   "requires": "reactor components and treated sludges",
+   "provides": "low heat output, a large disposal volume"
+  },
+  "Low level waste": {
+   "requires": "lightly contaminated material",
+   "provides": "near-surface disposal sufficient, no deep geology needed"
+  },
+  "Crystalline hard rock": {
+   "requires": "a large stable granite body",
+   "provides": "fracture-controlled water flow, strong excavation stability"
+  },
+  "Plastic clay formation": {
+   "requires": "a thick low-permeability clay",
+   "provides": "self-sealing around openings, very slow solute transport"
+  },
+  "Bedded salt": {
+   "requires": "a dry undisturbed salt sequence",
+   "provides": "creep closure encapsulating the waste, no tolerance of circulating groundwater"
+  },
+  "Near-surface engineered vault": {
+   "requires": "a shallow lined structure",
+   "provides": "cheap and accessible, no isolation over geological time"
+  },
+  "Volunteer community partnership": {
+   "requires": "a community willing to be considered",
+   "provides": "consent-based progress, a right of withdrawal retained"
+  },
+  "National technical screening": {
+   "requires": "nationwide geological datasets",
+   "provides": "candidate areas ranked on merit, no community mandate yet"
+  },
+  "Imposed national designation": {
+   "requires": "statutory powers to designate a site",
+   "provides": "a site fixed without consent, sustained legal challenge"
+  },
+  "Existing licensed site extension": {
+   "requires": "an operating nuclear site with spare land",
+   "provides": "reuse of consent and infrastructure, limitation to the geology already present"
+  },
+  "Repository operating": {
+   "requires": "a licence and constructed vaults",
+   "provides": "waste emplaced underground, a closure plan pending"
+  },
+  "Site withdrawn after objection": {
+   "requires": "consent lost during the process",
+   "provides": "a return to earlier stages, years of programme time lost"
+  },
+  "Indefinite surface storage": {
+   "requires": "no repository available",
+   "provides": "continued institutional control required, no passive safety"
+  },
+  "Licence refused on the safety case": {
+   "requires": "a regulator left unpersuaded",
+   "provides": "no construction permitted, the safety case reworked"
+  }
+ },
+ "exclusions": {
+  "WASTE FORM|HOST GEOLOGY": [
+   {
+    "row": "High level vitrified waste",
+    "col": "Near-surface engineered vault",
+    "code": "N3",
+    "requires": "isolation needed over geological time",
+    "blocked_by": "no isolation over geological time"
+   },
+   {
+    "row": "Spent fuel assemblies",
+    "col": "Near-surface engineered vault",
+    "code": "N3",
+    "requires": "no isolation over geological time",
+    "blocked_by": "a very long-lived hazard"
+   },
+   {
+    "row": "Low level waste",
+    "col": "Bedded salt",
+    "code": "N7",
+    "requires": "creep closure encapsulating the waste",
+    "blocked_by": "near-surface disposal sufficient"
+   },
+   {
+    "row": "Low level waste",
+    "col": "Plastic clay formation",
+    "code": "N7",
+    "requires": "a thick low-permeability clay",
+    "blocked_by": "no deep geology needed"
+   }
+  ],
+  "SITING PROCESS|PROGRAMME OUTCOME": [
+   {
+    "row": "Imposed national designation",
+    "col": "Site withdrawn after objection",
+    "code": "N3",
+    "requires": "consent lost during the process",
+    "blocked_by": "a site fixed without consent"
+   }
+  ]
+ }
+}

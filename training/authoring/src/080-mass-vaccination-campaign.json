@@ -1,0 +1,206 @@
+{
+ "domain": "mass vaccination campaign",
+ "group": "public health",
+ "parameters": {
+  "VACCINE PRODUCT": [
+   "Ultra-cold chain mRNA vaccine",
+   "Conventional refrigerated vaccine",
+   "Single dose viral vector vaccine",
+   "Vaccine not yet licensed"
+  ],
+  "DELIVERY CHANNEL": [
+   "Mass vaccination centre",
+   "Primary care practice",
+   "Mobile outreach team",
+   "Pharmacy network"
+  ],
+  "POPULATION FACTOR": [
+   "High willingness and easy access",
+   "Vaccine hesitancy",
+   "Remote dispersed population",
+   "Housebound and care home residents"
+  ],
+  "CAMPAIGN OUTCOME": [
+   "Target coverage achieved",
+   "Supply-limited partial coverage",
+   "Uptake-limited partial coverage",
+   "Campaign never started"
+  ]
+ },
+ "characterisations": {
+  "Ultra-cold chain mRNA vaccine": {
+   "requires": "storage at minus seventy degrees",
+   "provides": "rapid reformulation to variants, no distribution without specialist freezers"
+  },
+  "Conventional refrigerated vaccine": {
+   "requires": "a two to eight degree cold chain",
+   "provides": "routine clinic handling, slower strain updating"
+  },
+  "Single dose viral vector vaccine": {
+   "requires": "one attendance per person",
+   "provides": "no recall of the recipient needed, limitation by prior vector immunity"
+  },
+  "Vaccine not yet licensed": {
+   "requires": "trials still running",
+   "provides": "no lawful administration outside a trial, no supply to allocate"
+  },
+  "Mass vaccination centre": {
+   "requires": "a large venue and staff to run it",
+   "provides": "very high throughput, travel required of the population"
+  },
+  "Primary care practice": {
+   "requires": "an existing patient list and cold storage",
+   "provides": "trusted local delivery, limited daily throughput"
+  },
+  "Mobile outreach team": {
+   "requires": "a vehicle and a portable cold box",
+   "provides": "reach into remote or marginalised groups, small numbers per day"
+  },
+  "Pharmacy network": {
+   "requires": "trained pharmacists and standard refrigeration",
+   "provides": "convenient walk-in access, no ultra-cold capability"
+  },
+  "High willingness and easy access": {
+   "requires": "an informed and reachable population",
+   "provides": "rapid uptake, no persuasion needed"
+  },
+  "Vaccine hesitancy": {
+   "requires": "circulating distrust of the programme",
+   "provides": "slow uptake despite available supply, a need for sustained engagement"
+  },
+  "Remote dispersed population": {
+   "requires": "long distances and poor roads",
+   "provides": "no realistic travel to a central site, a high cost per dose"
+  },
+  "Housebound and care home residents": {
+   "requires": "people unable to leave home",
+   "provides": "no attendance at any site, delivery to the person required"
+  },
+  "Target coverage achieved": {
+   "requires": "sufficient supply and acceptance",
+   "provides": "population protection reached, the campaign closed"
+  },
+  "Supply-limited partial coverage": {
+   "requires": "fewer doses than people",
+   "provides": "prioritisation enforced, groups left unvaccinated"
+  },
+  "Uptake-limited partial coverage": {
+   "requires": "doses available and refused",
+   "provides": "unused stock remaining, coverage below target"
+  },
+  "Campaign never started": {
+   "requires": "nothing to deliver",
+   "provides": "no doses administered at all, no coverage of any kind"
+  }
+ },
+ "exclusions": {
+  "VACCINE PRODUCT|DELIVERY CHANNEL": [
+   {
+    "row": "Ultra-cold chain mRNA vaccine",
+    "col": "Pharmacy network",
+    "code": "N3",
+    "requires": "no ultra-cold capability",
+    "blocked_by": "no distribution without specialist freezers"
+   },
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Mass vaccination centre",
+    "code": "N3",
+    "requires": "very high throughput",
+    "blocked_by": "no lawful administration outside a trial"
+   },
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Primary care practice",
+    "code": "N3",
+    "requires": "trusted local delivery",
+    "blocked_by": "no lawful administration outside a trial"
+   },
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Pharmacy network",
+    "code": "N3",
+    "requires": "convenient walk-in access",
+    "blocked_by": "no lawful administration outside a trial"
+   },
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Mobile outreach team",
+    "code": "N3",
+    "requires": "reach into remote or marginalised groups",
+    "blocked_by": "no lawful administration outside a trial"
+   }
+  ],
+  "VACCINE PRODUCT|CAMPAIGN OUTCOME": [
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Target coverage achieved",
+    "code": "N3",
+    "requires": "population protection reached",
+    "blocked_by": "no supply to allocate"
+   },
+   {
+    "row": "Vaccine not yet licensed",
+    "col": "Supply-limited partial coverage",
+    "code": "N3",
+    "requires": "fewer doses than people",
+    "blocked_by": "no supply to allocate"
+   }
+  ],
+  "DELIVERY CHANNEL|POPULATION FACTOR": [
+   {
+    "row": "Mass vaccination centre",
+    "col": "Housebound and care home residents",
+    "code": "N3",
+    "requires": "travel required of the population",
+    "blocked_by": "no attendance at any site"
+   },
+   {
+    "row": "Pharmacy network",
+    "col": "Housebound and care home residents",
+    "code": "N3",
+    "requires": "convenient walk-in access",
+    "blocked_by": "no attendance at any site"
+   },
+   {
+    "row": "Primary care practice",
+    "col": "Housebound and care home residents",
+    "code": "N3",
+    "requires": "trusted local delivery",
+    "blocked_by": "no attendance at any site"
+   },
+   {
+    "row": "Mass vaccination centre",
+    "col": "Remote dispersed population",
+    "code": "N3",
+    "requires": "travel required of the population",
+    "blocked_by": "no realistic travel to a central site"
+   }
+  ],
+  "POPULATION FACTOR|CAMPAIGN OUTCOME": [
+   {
+    "row": "High willingness and easy access",
+    "col": "Uptake-limited partial coverage",
+    "code": "N3",
+    "requires": "doses available and refused",
+    "blocked_by": "rapid uptake"
+   }
+  ],
+  "DELIVERY CHANNEL|CAMPAIGN OUTCOME": [
+   {
+    "row": "Mass vaccination centre",
+    "col": "Campaign never started",
+    "code": "N3",
+    "requires": "very high throughput",
+    "blocked_by": "no doses administered at all"
+   },
+   {
+    "row": "Mobile outreach team",
+    "col": "Campaign never started",
+    "code": "N3",
+    "requires": "reach into remote or marginalised groups",
+    "blocked_by": "no doses administered at all"
+   }
+  ]
+ }
+}

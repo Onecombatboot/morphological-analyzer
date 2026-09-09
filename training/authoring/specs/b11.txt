@@ -1,0 +1,99 @@
+DOMAIN: wildlife reintroduction programme
+GROUP: conservation
+PARAM: SPECIES
+- Large carnivore :: extensive territory and wild prey :: conflict with livestock keepers, wide ranging movement, no tolerance of a fenced enclosure
+- Herbivore grazer :: open grassland and forage :: vegetation change across the range, low direct risk to people
+- Captive-bred bird :: a breeding facility and release aviaries :: rapid production of individuals, no learned migration route
+- Freshwater fish :: connected river habitat and adequate water quality :: recolonisation along the watercourse, no terrestrial movement at all
+PARAM: RELEASE HABITAT
+- Fenced reserve :: a boundary fence and management inside it :: predictable containment, no natural dispersal beyond the fence
+- Unfenced protected landscape :: a designated area without barriers :: free dispersal, exposure to surrounding land uses
+- Restored river catchment :: reinstated flow and habitat continuity :: aquatic connectivity, no terrestrial range whatsoever
+- Working farmland mosaic :: agreement of private landowners :: coexistence with production, a high likelihood of conflict
+PARAM: RELEASE METHOD
+- Hard release :: animals already fit for independence :: no acclimatisation period, immediate dispersal
+- Soft release with acclimatisation :: on-site pens and months of support :: gradual adjustment, delayed dispersal
+- Translocation of wild individuals :: a healthy source population to take from :: wild-competent animals, no captive breeding needed
+- Head-starting of juveniles :: eggs or young reared to a safer size :: improved early survival, dependence on a captive rearing facility
+PARAM: MAIN CONSTRAINT
+- Landowner objection :: private land within the release area :: refusal of access, legal challenge
+- Disease risk screening :: veterinary capacity and quarantine :: certified animals, months of delay
+- No source population available :: a species absent from the wild :: only captive stock usable, no wild individuals to take
+- Post-release monitoring gap :: no funding for tracking :: no information on survival, no evidence of outcome
+EXCL: SPECIES|RELEASE HABITAT
+Large carnivore >< Fenced reserve | N3 | predictable containment | no tolerance of a fenced enclosure
+Large carnivore >< Restored river catchment | N3 | no terrestrial range whatsoever | extensive territory and wild prey
+Herbivore grazer >< Restored river catchment | N3 | no terrestrial range whatsoever | open grassland and forage
+EXCL: SPECIES|RELEASE METHOD
+Captive-bred bird >< Translocation of wild individuals | N1 | a healthy source population to take from | a breeding facility and release aviaries
+EXCL: RELEASE METHOD|MAIN CONSTRAINT
+Translocation of wild individuals >< No source population available | N3 | a healthy source population to take from | no wild individuals to take
+EXCL: RELEASE HABITAT|MAIN CONSTRAINT
+Working farmland mosaic >< Landowner objection | N3 | agreement of private landowners | refusal of access
+---
+DOMAIN: nuclear waste repository siting
+GROUP: energy
+PARAM: WASTE FORM
+- High level vitrified waste :: a reprocessing plant and glass canisters :: intense heat output for decades, isolation needed over geological time
+- Spent fuel assemblies :: direct disposal without reprocessing :: fissile material retained, criticality control required, a very long-lived hazard
+- Intermediate level waste :: reactor components and treated sludges :: low heat output, a large disposal volume
+- Low level waste :: lightly contaminated material :: near-surface disposal sufficient, no deep geology needed
+PARAM: HOST GEOLOGY
+- Crystalline hard rock :: a large stable granite body :: fracture-controlled water flow, strong excavation stability
+- Plastic clay formation :: a thick low-permeability clay :: self-sealing around openings, very slow solute transport
+- Bedded salt :: a dry undisturbed salt sequence :: creep closure encapsulating the waste, no tolerance of circulating groundwater
+- Near-surface engineered vault :: a shallow lined structure :: cheap and accessible, no isolation over geological time
+PARAM: SITING PROCESS
+- Volunteer community partnership :: a community willing to be considered :: consent-based progress, a right of withdrawal retained
+- National technical screening :: nationwide geological datasets :: candidate areas ranked on merit, no community mandate yet
+- Imposed national designation :: statutory powers to designate a site :: a site fixed without consent, sustained legal challenge
+- Existing licensed site extension :: an operating nuclear site with spare land :: reuse of consent and infrastructure, limitation to the geology already present
+PARAM: PROGRAMME OUTCOME
+- Repository operating :: a licence and constructed vaults :: waste emplaced underground, a closure plan pending
+- Site withdrawn after objection :: consent lost during the process :: a return to earlier stages, years of programme time lost
+- Indefinite surface storage :: no repository available :: continued institutional control required, no passive safety
+- Licence refused on the safety case :: a regulator left unpersuaded :: no construction permitted, the safety case reworked
+EXCL: WASTE FORM|HOST GEOLOGY
+High level vitrified waste >< Near-surface engineered vault | N3 | isolation needed over geological time | no isolation over geological time
+Spent fuel assemblies >< Near-surface engineered vault | N3 | no isolation over geological time | a very long-lived hazard
+Low level waste >< Bedded salt | N7 | creep closure encapsulating the waste | near-surface disposal sufficient
+Low level waste >< Plastic clay formation | N7 | a thick low-permeability clay | no deep geology needed
+EXCL: SITING PROCESS|PROGRAMME OUTCOME
+Imposed national designation >< Site withdrawn after objection | N3 | consent lost during the process | a site fixed without consent
+---
+DOMAIN: professional sports doping control
+GROUP: sport
+PARAM: SAMPLE TYPE
+- In-competition urine :: an athlete selected at an event :: detection of recent use, a chaperoned collection
+- Out-of-competition blood :: whereabouts information and a no-notice visit :: a biological passport series, detection of blood manipulation
+- Dried blood spot :: a minimally invasive collection :: easy storage and transport, a limited menu of detectable substances
+- No sample collected :: an athlete never located :: no analytical evidence of any kind, a possible whereabouts failure
+PARAM: SUBSTANCE
+- Anabolic agent :: administration weeks before competition :: a long detection window in urine, unambiguous prohibited status
+- Blood transfusion :: matched blood stored and reinfused :: no foreign substance to find, detectable only as passport variation
+- Stimulant taken in competition :: ingestion on the day of the event :: a short detection window, prohibition in competition only
+- Contaminated supplement :: an unlabelled ingredient in a product :: an adverse finding without intent, a plausible source explanation
+PARAM: RESULT MANAGEMENT
+- Adverse analytical finding :: a laboratory result above the threshold :: a charge to answer, provisional suspension
+- Passport-based case :: a longitudinal series and expert review :: a case without a positive test, a lengthy expert dispute
+- Whereabouts failure case :: three missed tests within a year :: a sanction resting on no analytical evidence, an administrative route
+- No case opened :: nothing to pursue :: no proceedings at all, no finding recorded
+PARAM: SANCTION OUTCOME
+- Four year ban :: an intentional violation established :: career-ending in effect, full disqualification of results
+- Reduced sanction for no significant fault :: a credible explanation of the source :: a shorter ban, results partially retained
+- Full exoneration :: an explanation accepted in full :: no sanction imposed, reputational damage remaining
+- Case abandoned on procedural grounds :: a defect in collection or chain of custody :: no determination on the merits, no sanction imposed
+EXCL: SAMPLE TYPE|SUBSTANCE
+In-competition urine >< Blood transfusion | N3 | detection of recent use | no foreign substance to find
+EXCL: SAMPLE TYPE|RESULT MANAGEMENT
+No sample collected >< Adverse analytical finding | N3 | a laboratory result above the threshold | no analytical evidence of any kind
+No sample collected >< Passport-based case | N3 | a longitudinal series and expert review | no analytical evidence of any kind
+EXCL: SUBSTANCE|RESULT MANAGEMENT
+Blood transfusion >< Adverse analytical finding | N3 | a laboratory result above the threshold | no foreign substance to find
+EXCL: SUBSTANCE|SANCTION OUTCOME
+Contaminated supplement >< Four year ban | N3 | an intentional violation established | an adverse finding without intent
+EXCL: RESULT MANAGEMENT|SANCTION OUTCOME
+No case opened >< Four year ban | N3 | an intentional violation established | no proceedings at all
+No case opened >< Reduced sanction for no significant fault | N3 | a shorter ban | no proceedings at all
+No case opened >< Full exoneration | N1 | an explanation accepted in full | no proceedings at all
+No case opened >< Case abandoned on procedural grounds | N1 | a defect in collection or chain of custody | no proceedings at all

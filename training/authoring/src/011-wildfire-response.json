@@ -1,0 +1,157 @@
+{
+ "domain": "wildfire response",
+ "group": "civil",
+ "parameters": {
+  "FIRE BEHAVIOUR": [
+   "Ground fire in litter",
+   "Surface fire in brush",
+   "Crown fire in canopy",
+   "Spotting ahead of the front"
+  ],
+  "SUPPRESSION ASSET": [
+   "Hand crew with tools",
+   "Bulldozer cutting line",
+   "Rotary-wing water drop",
+   "Fixed-wing retardant drop"
+  ],
+  "TERRAIN": [
+   "Flat accessible ground",
+   "Steep inaccessible slope",
+   "Wildland urban interface",
+   "Remote wilderness"
+  ],
+  "WIND CONDITION": [
+   "Calm",
+   "Sustained strong wind",
+   "Erratic gusting"
+  ]
+ },
+ "characterisations": {
+  "Ground fire in litter": {
+   "requires": "duff and organic soil layers",
+   "provides": "slow creeping spread, low flame height, smouldering persistence"
+  },
+  "Surface fire in brush": {
+   "requires": "continuous low fuel",
+   "provides": "moderate spread rate, flame heights within reach of hand tools"
+  },
+  "Crown fire in canopy": {
+   "requires": "ladder fuels and a closed canopy",
+   "provides": "very fast spread, flame heights beyond any ground attack, extreme radiant heat"
+  },
+  "Spotting ahead of the front": {
+   "requires": "wind carrying embers",
+   "provides": "new ignitions beyond any containment line, unpredictable location"
+  },
+  "Hand crew with tools": {
+   "requires": "safe ground access and survivable flame heights",
+   "provides": "precise line construction, mop-up of smouldering fuel, no capability against crown fire"
+  },
+  "Bulldozer cutting line": {
+   "requires": "ground a machine can traverse",
+   "provides": "rapid wide firebreak, heavy soil disturbance, useless on slopes it cannot climb"
+  },
+  "Rotary-wing water drop": {
+   "requires": "a nearby water source and hover capability",
+   "provides": "precise repeated small drops, effective in confined terrain"
+  },
+  "Fixed-wing retardant drop": {
+   "requires": "a long straight approach and an airbase",
+   "provides": "large single loads, line ahead of the fire, unusable in confined or gusting conditions"
+  },
+  "Flat accessible ground": {
+   "requires": "roads or open terrain",
+   "provides": "vehicle and machine access, safe escape routes"
+  },
+  "Steep inaccessible slope": {
+   "requires": "gradient beyond machine capability",
+   "provides": "no vehicle access, rapid upslope fire runs, hazardous escape"
+  },
+  "Wildland urban interface": {
+   "requires": "structures interleaved with vegetation",
+   "provides": "life safety priority, restricted use of heavy machinery and chemicals"
+  },
+  "Remote wilderness": {
+   "requires": "distance from any road head",
+   "provides": "long response times, no structures at risk, limited logistics"
+  },
+  "Calm": {
+   "requires": "stable atmospheric conditions",
+   "provides": "predictable spread, safe aerial operations"
+  },
+  "Sustained strong wind": {
+   "requires": "a persistent pressure gradient",
+   "provides": "rapid directional spread, marginal aerial conditions"
+  },
+  "Erratic gusting": {
+   "requires": "unstable atmosphere or terrain-driven flow",
+   "provides": "unpredictable direction, unsafe aerial drops, entrapment risk"
+  }
+ },
+ "exclusions": {
+  "FIRE BEHAVIOUR|SUPPRESSION ASSET": [
+   {
+    "row": "Crown fire in canopy",
+    "col": "Hand crew with tools",
+    "code": "N3",
+    "requires": "survivable flame heights",
+    "blocked_by": "flame heights beyond any ground attack"
+   }
+  ],
+  "FIRE BEHAVIOUR|WIND CONDITION": [
+   {
+    "row": "Spotting ahead of the front",
+    "col": "Calm",
+    "code": "N3",
+    "requires": "wind carrying embers",
+    "blocked_by": "stable atmospheric conditions"
+   }
+  ],
+  "SUPPRESSION ASSET|TERRAIN": [
+   {
+    "row": "Bulldozer cutting line",
+    "col": "Steep inaccessible slope",
+    "code": "N3",
+    "requires": "ground a machine can traverse",
+    "blocked_by": "gradient beyond machine capability"
+   },
+   {
+    "row": "Bulldozer cutting line",
+    "col": "Wildland urban interface",
+    "code": "N7",
+    "requires": "ground a machine can traverse",
+    "blocked_by": "restricted use of heavy machinery and chemicals"
+   },
+   {
+    "row": "Fixed-wing retardant drop",
+    "col": "Wildland urban interface",
+    "code": "N7",
+    "requires": "large single loads, line ahead of the fire",
+    "blocked_by": "restricted use of heavy machinery and chemicals"
+   }
+  ],
+  "SUPPRESSION ASSET|WIND CONDITION": [
+   {
+    "row": "Rotary-wing water drop",
+    "col": "Erratic gusting",
+    "code": "N7",
+    "requires": "a nearby water source and hover capability",
+    "blocked_by": "unsafe aerial drops"
+   },
+   {
+    "row": "Fixed-wing retardant drop",
+    "col": "Erratic gusting",
+    "code": "N3",
+    "requires": "a long straight approach and an airbase",
+    "blocked_by": "unsafe aerial drops"
+   }
+  ]
+ },
+ "_v1_notes": {
+  "FIRE BEHAVIOUR|SUPPRESSION ASSET": "crown fire is N for hand crews and bulldozers - flame heights are beyond both, and putting people or machines in front of it is the classic fatality scenario. Spotting is N for hand crews, dozers and helicopters: new ignitions appear beyond any line these can hold, only broad retardant ahead of the front addresses it. Ground fire is N for fixed-wing retardant: a creeping smouldering fire is not what a large aerial load is for.",
+  "FIRE BEHAVIOUR|WIND CONDITION": "crown fire and spotting are both N in calm conditions - both require wind to occur at all.",
+  "SUPPRESSION ASSET|TERRAIN": "bulldozers are N on steep inaccessible slopes by definition, and N in the wildland urban interface where heavy machinery among structures is not used. Fixed-wing retardant is N in the interface: large chemical loads are not dropped over housing.",
+  "SUPPRESSION ASSET|WIND CONDITION": "helicopter drops are N in erratic gusting, and fixed-wing is N in both sustained strong wind and gusting - a long straight low approach is not survivable in either.",
+  "TERRAIN|WIND CONDITION": "no terrain excludes any wind condition."
+ }
+}
