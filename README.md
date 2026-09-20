@@ -202,7 +202,9 @@ morphological-frontend/    Angular interface
 The fine-tuned adapter is published as a release asset, not committed to the
 repository:
 
-**[→ Download the adapter (v1.0, 224 MB)](https://github.com/Onecombatboot/morphological-analyzer/releases/tag/v1.0)**
+**[→ Hugging Face: mangiis/cca-qwen2.5-3b-lora](https://huggingface.co/mangiis/cca-qwen2.5-3b-lora)**
+&nbsp;·&nbsp;
+**[→ GitHub release v1.0 (224 MB zip)](https://github.com/Onecombatboot/morphological-analyzer/releases/tag/v1.0)**
 
 It contains `adapter_model.safetensors`, `adapter_config.json`, the tokenizer
 and a model card with a runnable scoring example.
@@ -212,7 +214,7 @@ from transformers import AutoModelForCausalLM
 from peft import PeftModel
 
 model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B")
-model = PeftModel.from_pretrained(model, "./cca-qwen2.5-3b-lora")
+model = PeftModel.from_pretrained(model, "mangiis/cca-qwen2.5-3b-lora")
 ```
 
 Base models are referenced, not mirrored: `Qwen/Qwen2.5-3B`,
