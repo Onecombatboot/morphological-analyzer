@@ -199,11 +199,25 @@ morphological-frontend/    Angular interface
 
 ## Weights
 
-Not in this repository. **[→ Hugging Face model card](https://huggingface.co/)**
-*(link to be filled in after upload)*
+The fine-tuned adapter is published as a release asset, not committed to the
+repository:
+
+**[→ Download the adapter (v1.0, 224 MB)](https://github.com/Onecombatboot/morphological-analyzer/releases/tag/v1.0)**
+
+It contains `adapter_model.safetensors`, `adapter_config.json`, the tokenizer
+and a model card with a runnable scoring example.
+
+```python
+from transformers import AutoModelForCausalLM
+from peft import PeftModel
+
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen2.5-3B")
+model = PeftModel.from_pretrained(model, "./cca-qwen2.5-3b-lora")
+```
 
 Base models are referenced, not mirrored: `Qwen/Qwen2.5-3B`,
 `Qwen/Qwen2.5-7B-Instruct`, `sentence-transformers/all-MiniLM-L6-v2`.
+Copying ten gigabytes of publicly available weights would add nothing.
 
 ---
 
